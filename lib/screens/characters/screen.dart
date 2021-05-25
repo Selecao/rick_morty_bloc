@@ -1,27 +1,64 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:sc_03/components/models/character.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_count.dart';
 import 'package:sc_03/screens/characters/widgets/characters_grid.dart';
 import 'package:sc_03/screens/characters/widgets/characters_list.dart';
 import 'package:sc_03/components/search_text_field.dart';
 
-final List<Character> _charactersList = charactersList;
-
-class CharactersScreen extends StatefulWidget {
-  @override
-  _CharactersScreenState createState() => _CharactersScreenState();
-}
-
-class _CharactersScreenState extends State<CharactersScreen> {
-  bool isGridView = false;
-
+class CharactersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    /// Делаем доступным блок в дереве виджетов
+    return BlocProvider<CharactersBloc>(
+      create: (BuildContext context) =>
+          CharactersBloc()..add(CharactersEvent.initial()),
+
+      /// Обрабатываем состояние
+      child: BlocConsumer<CharactersBloc, CharactersState>(
+        /// Возвращает виджеты поверх основного состояния. Используется для отображения ошибок,
+        ///навигации и др.
+        listener: (context, state) {},
+
+        /// Обрабатывает состояния
+        builder: (context, state) {
+          return state.maybeMap(
+            loading: (_) => CircularProgressIndicator(),
+            data: (_data) => Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                automaticallyImplyLeading: false,
+                title: SearchTextField(title: 'Найти персонажа'),
+                bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(60),
+                  child: CharactersCount(
+                    charactersCount: _data.charactersList.length,
+                    onSelected: (value) {
+                      /// Для создания события используется контекст с обращением к блоку в контексте
+                      context.read<CharactersBloc>()
+                        ..add(
+                          CharactersEvent.selectedView(isGrid: value),
+                        );
+                    },
+                  ),
+                ),
+              ),
+              body: SafeArea(
+                child: _data.isGrid
+                    ? CharactersGrid(_data.charactersList)
+                    : CharactersList(_data.charactersList),
+              ),
+            ),
+            orElse: () => SizedBox.shrink(),
+          );
+        },
+      ),
+    );
+    /*return Scaffold(
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -31,9 +68,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
           child: CharactersCount(
             charactersCount: charactersList.length,
             onSelected: (value) {
-              setState(() {
-                isGridView = value;
-              });
             },
           ),
         ),
@@ -43,6 +77,6 @@ class _CharactersScreenState extends State<CharactersScreen> {
             ? CharactersGrid(_charactersList)
             : CharactersList(_charactersList),
       ),
-    );
+    );*/
   }
 }

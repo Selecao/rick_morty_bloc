@@ -1,4 +1,4 @@
-import 'package:sc_03/components/models/character.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/images.dart';
 import 'package:sc_03/screens/profile/models/chapter.dart';
 

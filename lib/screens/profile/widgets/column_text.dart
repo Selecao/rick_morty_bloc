@@ -23,7 +23,7 @@ class ColumnText extends StatelessWidget {
             letterSpacing: 0.5,
           ),
         ),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         Text(
           description,
           style: AppTextTheme.bodyText1.copyWith(

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:sc_03/components/models/character.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/screens/profile/models/chapter.dart';
 import 'package:sc_03/screens/profile/widgets/chapters.dart';
@@ -20,6 +20,8 @@ class ProfileScreen extends StatelessWidget {
     final double avatarSize = MediaQuery.of(context).size.width / 4;
 
     return Scaffold(
+      /// чтобы убрать полосу от фильтра внизу appBar
+      extendBodyBehindAppBar: true,
       body: CustomScrollView(
         controller: scrollController,
         slivers: <Widget>[

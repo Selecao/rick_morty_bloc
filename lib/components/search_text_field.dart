@@ -8,7 +8,7 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class SearchTextField extends StatelessWidget {
   SearchTextField({
-    @required this.title,
+    required this.title,
   });
 
   final String title;
@@ -51,7 +51,7 @@ class SearchTextField extends StatelessWidget {
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
-                AppIcons.filter_sort,
+                AppIcons.filterSort,
                 color: ColorTheme.blueGrey_600,
               ),
               onPressed: () {},

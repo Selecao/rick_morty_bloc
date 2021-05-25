@@ -6,7 +6,7 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class Chapters extends StatelessWidget {
   const Chapters({
-    @required this.chaptersList,
+    required this.chaptersList,
   });
 
   final List<Chapter> chaptersList;
@@ -33,7 +33,7 @@ class Chapters extends StatelessWidget {
                     //color: ColorTheme.blue_600,
                   ),
                 ),
-                SizedBox(width: 16.0),
+                const SizedBox(width: 16.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
                   child: Column(

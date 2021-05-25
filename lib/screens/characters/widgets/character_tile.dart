@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/components/models/character.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
@@ -9,8 +9,6 @@ class CharacterTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //List tile have a restriction to the trailing widget at 48x48 so we use
-    // custom widget here
     return Row(
       children: [
         Padding(
@@ -53,6 +51,8 @@ class CharacterTile extends StatelessWidget {
   }
 }
 
+///List tile have a restriction to the trailing widget at 48x48 so we use
+/// custom widget instead of this
 /*ListTile(
       isThreeLine: true,
       horizontalTitleGap: 18.0,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/components/models/character.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/profile/widgets/column_text.dart';
 import 'package:sc_03/screens/profile/widgets/location_tile.dart';
 import 'package:sc_03/theme/color_theme.dart';
@@ -7,9 +7,8 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class Description extends StatelessWidget {
   const Description({
-    Key key,
-    @required this.avatarSize,
-    @required this.character,
+    required this.avatarSize,
+    required this.character,
   });
 
   final double avatarSize;
@@ -30,7 +29,7 @@ class Description extends StatelessWidget {
                 letterSpacing: 0.25,
               ),
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Text(
               character.status,
               style: AppTextTheme.subtitle2.copyWith(
@@ -39,7 +38,7 @@ class Description extends StatelessWidget {
                       ? ColorTheme.green_200
                       : ColorTheme.red_100),
             ),
-            SizedBox(height: 36.0),
+            const SizedBox(height: 36.0),
             Text(
               character.biography,
               style: AppTextTheme.bodyText2.copyWith(
@@ -48,7 +47,7 @@ class Description extends StatelessWidget {
               ),
               textAlign: TextAlign.justify,
             ),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             Row(
               children: [
                 ColumnText('Пол', character.gender),
@@ -57,9 +56,9 @@ class Description extends StatelessWidget {
                 Spacer(),
               ],
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             LocationTile('Место рождения', character.birthplace),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             LocationTile('Местоположение', character.location),
           ],
         ),

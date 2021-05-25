@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:sc_03/components/models/character.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/characters/widgets/character_tile.dart';
 
 class CharactersList extends StatelessWidget {

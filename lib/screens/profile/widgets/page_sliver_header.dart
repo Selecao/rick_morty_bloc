@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -9,8 +8,8 @@ import 'package:sc_03/theme/color_theme.dart';
 
 class PageSliverHeader extends SliverPersistentHeaderDelegate {
   PageSliverHeader({
-    @required this.expandedHeight,
-    @required this.image,
+    required this.expandedHeight,
+    required this.image,
   });
   final double expandedHeight;
   final String image;
@@ -83,7 +82,7 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
                   shape: CircleBorder(),
                 ),
                 child: SvgPicture.asset(
-                  AppIcons.arrow_back,
+                  AppIcons.arrowBack,
                   width: 14,
                   color: ColorTheme.white,
                 ),

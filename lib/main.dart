@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:sc_03/screens/characters/screen.dart';
 import 'package:sc_03/screens/profile/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
-//import 'package:sc_03/screens/initial_screen/screen.dart';
+//import 'package:sc_03/screens/splash/screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: ColorTheme.transparent, // transparent status bar
+    ),
+  );
   runApp(MyApp());
 }
 
@@ -25,7 +32,7 @@ class MyApp extends StatelessWidget {
         //canvasColor: ColorTheme.blue_900,
         primaryColor: ColorTheme.blue_900,
       ),
-      home: ProfileScreen(),
+      home: CharactersScreen(),
     );
   }
 }
