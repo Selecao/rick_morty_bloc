@@ -17,7 +17,7 @@ final List<Character> charactersList = [
       'Земля C-137'),
 ];
 
-final Character profile1 = Character(
+final Character character1 = Character(
   'Рик Санчез',
   'ЖИВОЙ',
   Images.profile1,

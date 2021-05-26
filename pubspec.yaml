@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_bloc: ^7.0.0
   freezed_annotation: ^0.14.2
+  equatable: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +25,7 @@ dev_dependencies:
 
   freezed: ^0.14.2
   build_runner: ^2.0.3
+
 flutter:
 
   uses-material-design: true

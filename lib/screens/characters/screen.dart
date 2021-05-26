@@ -20,8 +20,8 @@ class CharactersScreen extends StatelessWidget {
 
       /// Обрабатываем состояние
       child: BlocConsumer<CharactersBloc, CharactersState>(
-        /// Возвращает виджеты поверх основного состояния. Используется для отображения ошибок,
-        ///навигации и др.
+        /// Возвращает виджеты поверх основного состояния. Используется для отображения
+        /// ошибок, навигации и др.
         listener: (context, state) {},
 
         /// Обрабатывает состояния
@@ -58,25 +58,5 @@ class CharactersScreen extends StatelessWidget {
         },
       ),
     );
-    /*return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: SearchTextField(title: 'Найти персонажа'),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(60),
-          child: CharactersCount(
-            charactersCount: charactersList.length,
-            onSelected: (value) {
-            },
-          ),
-        ),
-      ),
-      body: SafeArea(
-        child: isGridView
-            ? CharactersGrid(_charactersList)
-            : CharactersList(_charactersList),
-      ),
-    );*/
   }
 }
