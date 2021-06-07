@@ -15,4 +15,8 @@ class Images {
   static const String character6 = 'assets/images/character_6.png';
 
   static const String profile1 = 'assets/images/profile_1.jpg';
+
+  static const String location1 = 'assets/images/location_1.png';
+  static const String location2 = 'assets/images/chapter_3.png';
+  static const String location3 = 'assets/images/location_3.jpg';
 }

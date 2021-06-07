@@ -1,4 +1,5 @@
 import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/resources/images.dart';
 import 'package:sc_03/screens/profile/models/chapter.dart';
 
@@ -36,4 +37,31 @@ final List<Chapter> chaptersList = [
   Chapter(Images.chapter3, 'Серия 3', 'Анатомический парк', '16 декабря 2013'),
   Chapter(Images.chapter4, 'Серия 4', 'М. Найт Шьямал-Инопланетяне!',
       '13 января 2014'),
+];
+
+final List<Location> locationsList = [
+  Location(
+    'Земля С-137',
+    'Мир',
+    'Измерение С-137',
+    image: Images.location1,
+  ),
+  Location(
+    'Анатомический парк',
+    'Мир',
+    'Измерение С-137',
+    image: Images.location2,
+  ),
+  Location(
+    'Нуптии-4',
+    'Мир',
+    'Измерение С-137',
+    image: Images.location3,
+  ),
+  Location(
+    'Нуптии-4',
+    'Мир',
+    'Измерение С-137',
+    image: Images.location3,
+  ),
 ];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:sc_03/screens/characters/screen.dart';
+import 'package:sc_03/screens/locations_list/screen.dart';
 import 'package:sc_03/screens/profile/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
 //import 'package:sc_03/screens/splash/screen.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         //canvasColor: ColorTheme.blue_900,
         primaryColor: ColorTheme.blue_900,
       ),
-      home: ProfileScreen(),
+      home: LocationsListScreen(),
     );
   }
 }

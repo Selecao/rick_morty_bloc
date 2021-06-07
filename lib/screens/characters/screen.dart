@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 
-import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_count.dart';
@@ -34,7 +34,7 @@ class CharactersScreen extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 title: SearchTextField(title: 'Найти персонажа'),
                 bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(60),
+                  preferredSize: Size.fromHeight(40),
                   child: CharactersCount(
                     charactersCount: _data.charactersList.length,
                     onSelected: (value) {
@@ -47,11 +47,10 @@ class CharactersScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              body: SafeArea(
-                child: _data.isGrid
-                    ? CharactersGrid(_data.charactersList)
-                    : CharactersList(_data.charactersList),
-              ),
+              body: _data.isGrid
+                  ? CharactersGrid(_data.charactersList)
+                  : CharactersList(_data.charactersList),
+              bottomNavigationBar: AppBottomNavigationBar(currentIndex: 0),
             ),
             orElse: () => SizedBox.shrink(),
           );
