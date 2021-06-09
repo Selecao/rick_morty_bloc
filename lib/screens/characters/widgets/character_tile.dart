@@ -5,6 +5,7 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterTile extends StatelessWidget {
   final Character character;
+
   CharacterTile(this.character);
 
   @override
@@ -18,33 +19,34 @@ class CharacterTile extends StatelessWidget {
             child: Image.asset(character.avatar),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 22.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                character.status,
-                style: AppTextTheme.subtitle2.copyWith(
-                    letterSpacing: 1.5,
-                    color: character.status == 'ЖИВОЙ'
-                        ? ColorTheme.green_200
-                        : ColorTheme.red_100),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              character.status,
+              style: AppTextTheme.subtitle2.copyWith(
+                  letterSpacing: 1.5,
+                  height: 1.6,
+                  color: character.status == 'ЖИВОЙ'
+                      ? ColorTheme.green_200
+                      : ColorTheme.red_100),
+            ),
+            Text(
+              character.name,
+              style: AppTextTheme.subtitle1.copyWith(
+                letterSpacing: 0.5,
+                height: 1.5,
               ),
-              Text(
-                character.name,
-                style: AppTextTheme.subtitle1.copyWith(letterSpacing: 0.5),
+            ),
+            Text(
+              '${character.race}, ${character.gender}',
+              style: AppTextTheme.caption.copyWith(
+                height: 1.5,
+                letterSpacing: 0.5,
               ),
-              Text(
-                '${character.race}, ${character.gender}',
-                style: AppTextTheme.caption.copyWith(
-                  height: 1.5,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );

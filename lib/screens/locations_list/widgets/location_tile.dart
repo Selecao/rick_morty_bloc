@@ -5,6 +5,7 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class LocationTile extends StatelessWidget {
   final Location location;
+
   LocationTile(this.location);
 
   @override

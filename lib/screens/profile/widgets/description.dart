@@ -6,13 +6,13 @@ import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class Description extends StatelessWidget {
+  final double avatarSize;
+  final Character character;
+
   const Description({
     required this.avatarSize,
     required this.character,
   });
-
-  final double avatarSize;
-  final Character character;
 
   @override
   Widget build(BuildContext context) {

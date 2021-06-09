@@ -5,17 +5,17 @@ import 'package:sc_03/screens/profile/models/chapter.dart';
 
 final List<Character> charactersList = [
   Character('Рик Санчез', 'ЖИВОЙ', Images.character1, 'Человек', 'Мужской',
-      'Земля C-137'),
+      'Земля С-137'),
   Character('Директор Агенства', 'ЖИВОЙ', Images.character2, 'Человек',
-      'Мужской', 'Земля C-137'),
+      'Мужской', 'Земля С-137'),
   Character('Морти Смит', 'ЖИВОЙ', Images.character3, 'Человек', 'Мужской',
-      'Земля C-137'),
+      'Земля С-137'),
   Character('Саммер Смит', 'ЖИВОЙ', Images.character4, 'Человек', 'Женский',
-      'Земля C-137'),
+      'Земля С-137'),
   Character('Альберт Эйнштейн', 'МЕРТВЫЙ', Images.character5, 'Человек',
-      'Мужской', 'Земля C-137'),
+      'Мужской', 'Земля С-137'),
   Character('Алан Райлс', 'МЕРТВЫЙ', Images.character6, 'Человек', 'Мужской',
-      'Земля C-137'),
+      'Земля С-137'),
 ];
 
 final Character character1 = Character(
@@ -24,7 +24,7 @@ final Character character1 = Character(
   Images.profile1,
   'Человек',
   'Мужской',
-  'Земля C-137',
+  'Земля С-137',
   biography:
       'Главный протагонист мультсериала «Рик и Морти». Безумный ученый, чей алкоголизм,'
       ' безрассудность и социопатия заставляют беспокоиться семью его дочери.',
@@ -38,6 +38,17 @@ final List<Chapter> chaptersList = [
   Chapter(Images.chapter4, 'Серия 4', 'М. Найт Шьямал-Инопланетяне!',
       '13 января 2014'),
 ];
+
+final Location location1 = Location(
+  'Земля С-137',
+  'Мир',
+  'Измерение С-137',
+  image: Images.location1,
+  description:
+      'Это планета, на которой проживает человеческая раса, и главное место для '
+      'персонажей Рика и Морти. Возраст этой Земли более 4,6 миллиардов лет, '
+      'и она является четвертой планетой от своей звезды.',
+);
 
 final List<Location> locationsList = [
   Location(
@@ -65,3 +76,8 @@ final List<Location> locationsList = [
     image: Images.location3,
   ),
 ];
+
+List<Character> charactersOnLocation = getCharactersOnPlanet(location1.name);
+
+List<Character> getCharactersOnPlanet(String planet) =>
+    charactersList.where((char) => char.birthplace == planet).toList();

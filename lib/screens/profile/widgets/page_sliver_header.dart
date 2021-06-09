@@ -2,17 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class PageSliverHeader extends SliverPersistentHeaderDelegate {
+  final double expandedHeight;
+  final String image;
+
   PageSliverHeader({
     required this.expandedHeight,
     required this.image,
   });
-  final double expandedHeight;
-  final String image;
 
   @override
   Widget build(
@@ -76,16 +77,8 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
             titleSpacing: 0.0,
             title: Opacity(
               opacity: percent,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: ColorTheme.blue_600,
-                  shape: CircleBorder(),
-                ),
-                child: SvgPicture.asset(
-                  AppIcons.arrowBack,
-                  width: 14,
-                  color: ColorTheme.white,
-                ),
+              child: AppCircleButton(
+                icon: AppIcons.arrowBack,
                 onPressed: () {},
               ),
             ),

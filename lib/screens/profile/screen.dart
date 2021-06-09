@@ -10,8 +10,6 @@ import 'package:sc_03/screens/profile/widgets/page_sliver_header.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final ScrollController scrollController = ScrollController();
-
   @override
   Widget build(BuildContext context) {
     final double avatarSize = MediaQuery.of(context).size.width / 4;
@@ -34,7 +32,6 @@ class ProfileScreen extends StatelessWidget {
               data: (_data) => Scaffold(
                 extendBodyBehindAppBar: true,
                 body: CustomScrollView(
-                  controller: scrollController,
                   slivers: <Widget>[
                     SliverPersistentHeader(
                       delegate: PageSliverHeader(

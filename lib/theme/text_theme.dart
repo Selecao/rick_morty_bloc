@@ -9,6 +9,12 @@ class AppTextTheme {
     color: ColorTheme.blueGrey_600,
   );
 
+  static const TextStyle headline5 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 24.0,
+    color: ColorTheme.white,
+  );
+
   static const TextStyle headline6 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 20.0,

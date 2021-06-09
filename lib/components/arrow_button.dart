@@ -4,19 +4,20 @@ import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class ArrowButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
   ArrowButton({required this.onPressed});
-  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       icon: SvgPicture.asset(
         AppIcons.arrowForwardIos,
-        width: 8,
+        height: 8.0,
         color: ColorTheme.white,
       ),
       //color: ColorTheme.white,
-      onPressed: onPressed(),
+      onPressed: onPressed,
     );
   }
 }

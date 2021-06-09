@@ -4,6 +4,7 @@ import 'package:sc_03/screens/characters/widgets/character_grid_item.dart';
 
 class CharactersGrid extends StatelessWidget {
   final List<Character> charactersList;
+
   const CharactersGrid(this.charactersList);
 
   @override

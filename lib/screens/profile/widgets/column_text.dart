@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class ColumnText extends StatelessWidget {
+  final String title;
+  final String description;
+
   const ColumnText(
     this.title,
     this.description,
   );
-
-  final String title;
-  final String description;
 
   @override
   Widget build(BuildContext context) {

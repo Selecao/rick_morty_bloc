@@ -5,6 +5,7 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterGridItem extends StatelessWidget {
   final Character character;
+
   CharacterGridItem(this.character);
 
   @override
@@ -21,6 +22,7 @@ class CharacterGridItem extends StatelessWidget {
           character.status,
           style: AppTextTheme.subtitle2.copyWith(
               letterSpacing: 1.5,
+              height: 1.6,
               color: character.status == 'ЖИВОЙ'
                   ? ColorTheme.green_200
                   : ColorTheme.red_100),
@@ -29,13 +31,14 @@ class CharacterGridItem extends StatelessWidget {
           character.name,
           style: AppTextTheme.bodyText1.copyWith(
             fontWeight: FontWeight.w500,
+            letterSpacing: 0.1,
             height: 1.42,
           ),
         ),
         Text(
           '${character.race}, ${character.gender}',
           style: AppTextTheme.caption.copyWith(
-            height: 1.3,
+            height: 1.33,
             letterSpacing: 0.5,
           ),
         ),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/screens/profile/widgets/arrow_button.dart';
+import 'package:sc_03/components/arrow_button.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class LocationTile extends StatelessWidget {
+  final String title;
+  final String location;
+
   const LocationTile(
     this.title,
     this.location,
   );
-
-  final String title;
-  final String location;
 
   @override
   Widget build(BuildContext context) {
