@@ -8,10 +8,13 @@ class LocationImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const imageHeight = 277.0;
+    const borderRadius = 26.0;
+
     return Stack(
       children: [
         Container(
-          height: 298.0,
+          height: imageHeight,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(image),
@@ -22,13 +25,13 @@ class LocationImage extends StatelessWidget {
         Positioned(
           bottom: .0,
           child: Container(
-            height: 26.0,
+            height: borderRadius,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: ColorTheme.blue_900,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(26.0),
-                topRight: Radius.circular(26.0),
+                topLeft: Radius.circular(borderRadius),
+                topRight: Radius.circular(borderRadius),
               ),
             ),
           ),
