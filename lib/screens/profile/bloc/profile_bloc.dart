@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/variables.dart';
-import 'package:sc_03/screens/profile/models/chapter.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -14,7 +14,7 @@ part 'profile_bloc.freezed.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileState.initial());
   Character _character = character1;
-  List<Chapter> _chaptersList = chaptersList;
+  List<Episode> _chaptersList = episodesList;
 
   /// Отслеживает события. Метод map позволяет нам сократить код и не дает потерять состояние.
   @override

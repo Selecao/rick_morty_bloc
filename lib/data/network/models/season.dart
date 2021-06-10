@@ -1,8 +1,8 @@
-import 'package:sc_03/screens/profile/models/chapter.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 
 class Season {
   final String name;
-  final List<Chapter> chapters;
+  final List<Episode> chapters;
 
   Season(
     this.name,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/screens/profile/models/chapter.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class AppChaptersTile extends StatelessWidget {
   final double imageSize;
-  final Chapter chapter;
+  final Episode chapter;
   final Widget? suffix;
   final VoidCallback onTap;
   final double textConstraint;

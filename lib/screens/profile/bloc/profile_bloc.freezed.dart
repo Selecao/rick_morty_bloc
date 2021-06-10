@@ -153,7 +153,7 @@ class _$ProfileStateTearOff {
   const _$ProfileStateTearOff();
 
   _DataProfileState data(
-      {required List<Chapter> chaptersList, required Character character}) {
+      {required List<Episode> chaptersList, required Character character}) {
     return _DataProfileState(
       chaptersList: chaptersList,
       character: character,
@@ -176,7 +176,7 @@ const $ProfileState = _$ProfileStateTearOff();
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Chapter> chaptersList, Character character)
+    required TResult Function(List<Episode> chaptersList, Character character)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -184,7 +184,7 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Chapter> chaptersList, Character character)? data,
+    TResult Function(List<Episode> chaptersList, Character character)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -228,7 +228,7 @@ abstract class _$DataProfileStateCopyWith<$Res> {
   factory _$DataProfileStateCopyWith(
           _DataProfileState value, $Res Function(_DataProfileState) then) =
       __$DataProfileStateCopyWithImpl<$Res>;
-  $Res call({List<Chapter> chaptersList, Character character});
+  $Res call({List<Episode> chaptersList, Character character});
 }
 
 /// @nodoc
@@ -251,7 +251,7 @@ class __$DataProfileStateCopyWithImpl<$Res>
       chaptersList: chaptersList == freezed
           ? _value.chaptersList
           : chaptersList // ignore: cast_nullable_to_non_nullable
-              as List<Chapter>,
+              as List<Episode>,
       character: character == freezed
           ? _value.character
           : character // ignore: cast_nullable_to_non_nullable
@@ -269,7 +269,7 @@ class _$_DataProfileState implements _DataProfileState {
   @override
 
   /// Параметры
-  final List<Chapter> chaptersList;
+  final List<Episode> chaptersList;
   @override
   final Character character;
 
@@ -304,7 +304,7 @@ class _$_DataProfileState implements _DataProfileState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Chapter> chaptersList, Character character)
+    required TResult Function(List<Episode> chaptersList, Character character)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -315,7 +315,7 @@ class _$_DataProfileState implements _DataProfileState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Chapter> chaptersList, Character character)? data,
+    TResult Function(List<Episode> chaptersList, Character character)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -353,11 +353,11 @@ class _$_DataProfileState implements _DataProfileState {
 
 abstract class _DataProfileState implements ProfileState {
   const factory _DataProfileState(
-      {required List<Chapter> chaptersList,
+      {required List<Episode> chaptersList,
       required Character character}) = _$_DataProfileState;
 
   /// Параметры
-  List<Chapter> get chaptersList => throw _privateConstructorUsedError;
+  List<Episode> get chaptersList => throw _privateConstructorUsedError;
   Character get character => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataProfileStateCopyWith<_DataProfileState> get copyWith =>
@@ -404,7 +404,7 @@ class _$_InitialProfileState implements _InitialProfileState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Chapter> chaptersList, Character character)
+    required TResult Function(List<Episode> chaptersList, Character character)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -415,7 +415,7 @@ class _$_InitialProfileState implements _InitialProfileState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Chapter> chaptersList, Character character)? data,
+    TResult Function(List<Episode> chaptersList, Character character)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -495,7 +495,7 @@ class _$_LoadingProfileState implements _LoadingProfileState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Chapter> chaptersList, Character character)
+    required TResult Function(List<Episode> chaptersList, Character character)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -506,7 +506,7 @@ class _$_LoadingProfileState implements _LoadingProfileState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Chapter> chaptersList, Character character)? data,
+    TResult Function(List<Episode> chaptersList, Character character)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),

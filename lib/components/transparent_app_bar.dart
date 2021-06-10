@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 
-class LocationAppBar extends StatelessWidget implements PreferredSizeWidget {
-  LocationAppBar() : preferredSize = Size.fromHeight(kToolbarHeight);
+class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
+  TransparentAppBar() : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
   final Size preferredSize;

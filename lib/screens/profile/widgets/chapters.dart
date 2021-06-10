@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/screens/profile/models/chapter.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class Chapters extends StatelessWidget {
-  final List<Chapter> chaptersList;
+  final List<Episode> chaptersList;
 
   const Chapters({
     required this.chaptersList,

@@ -5,7 +5,7 @@ class ProfileState with _$ProfileState {
   /// Состояние с данными
   const factory ProfileState.data({
     /// Параметры
-    required final List<Chapter> chaptersList,
+    required final List<Episode> chaptersList,
     required final Character character,
   }) = _DataProfileState;
 

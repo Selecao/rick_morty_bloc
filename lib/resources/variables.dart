@@ -2,7 +2,7 @@ import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/data/network/models/season.dart';
 import 'package:sc_03/resources/images.dart';
-import 'package:sc_03/screens/profile/models/chapter.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 
 final List<Character> charactersList = [
   Character('Рик Санчез', 'ЖИВОЙ', Images.character1, 'Человек', 'Мужской',
@@ -32,16 +32,56 @@ final Character character1 = Character(
   location: 'Земля (Измерение подменны)',
 );
 
-final List<Chapter> chaptersList = [
-  Chapter(Images.chapter1, 'Серия 1', 'Пилот', '2 декабря 2013'),
-  Chapter(Images.chapter2, 'Серия 2', 'Пёс-газонокосильщик', '9 декабря 2013'),
-  Chapter(Images.chapter3, 'Серия 3', 'Анатомический парк', '16 декабря 2013'),
-  Chapter(Images.chapter4, 'Серия 4', 'М. Найт Шьямал-Инопланетяне!',
-      '13 января 2014'),
-  Chapter(Images.chapter5, 'Серия 5', 'Мисикс и разрушение', '20 января 2014'),
-  Chapter(Images.chapter6, 'Серия 6', 'Напиток Рика № 9', '27 января 2014'),
-  Chapter(
-      Images.chapter7, 'Серия 7', 'Воспитание Газорпазорпа', '10 марта 2014'),
+final List<Episode> episodesList = [
+  Episode(
+    Images.chapter1,
+    'Серия 1',
+    'Пилот',
+    '2 декабря 2013',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter2,
+    'Серия 2',
+    'Пёс-газонокосильщик',
+    '9 декабря 2013',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter3,
+    'Серия 3',
+    'Анатомический парк',
+    '16 декабря 2013',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter4,
+    'Серия 4',
+    'М. Найт Шьямал-Инопланетяне!',
+    '13 января 2014',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter5,
+    'Серия 5',
+    'Мисикс и разрушение',
+    '20 января 2014',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter6,
+    'Серия 6',
+    'Напиток Рика № 9',
+    '27 января 2014',
+    characters: List.from(charactersList),
+  ),
+  Episode(
+    Images.chapter7,
+    'Серия 7',
+    'Воспитание Газорпазорпа',
+    '10 марта 2014',
+    characters: List.from(charactersList),
+  ),
 ];
 
 final Location location1 = Location(
@@ -87,9 +127,29 @@ List<Character> charactersOnLocation = getCharactersOnPlanet(location1.name);
 List<Character> getCharactersOnPlanet(String planet) =>
     charactersList.where((char) => char.birthplace == planet).toList();
 
-final seasons = [
-  Season('Сезон 1', chaptersList),
-  Season('Сезон 2', List.from(chaptersList)..shuffle()),
-  Season('Сезон 3', List.from(chaptersList)..shuffle()),
-  Season('Сезон 4', List.from(chaptersList)..shuffle()),
+List<Character> getCharactersOnEpisode(String episode) {
+  for (final chapter in episodesList) {
+    if (chapter.title == episode) {
+      return chapter.characters;
+    }
+  }
+  throw 'Episode not found';
+}
+
+List<Season> seasons = [
+  Season('Сезон 1', episodesList),
+  Season('Сезон 2', List.from(episodesList)..shuffle()),
+  Season('Сезон 3', List.from(episodesList)..shuffle()),
+  Season('Сезон 4', List.from(episodesList)..shuffle()),
 ];
+
+Episode get currentChapter => Episode(
+      Images.chapter4,
+      'Серия 4',
+      'М. Найт Шьямал-Инопланетяне!',
+      '13 января 2014',
+      description:
+          'Зигерионцы помещают Джерри и Рика в симуляцию, чтобы узнать секрет '
+          'изготовления концентрированной темной материи.',
+      characters: List.from(charactersList),
+    );
