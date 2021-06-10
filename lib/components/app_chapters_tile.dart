@@ -74,7 +74,6 @@ class AppChaptersTile extends StatelessWidget {
               ],
             ),
             Spacer(),
-            //ArrowButton(onPressed: () {}),
             ...[suffix ?? Container()],
           ],
         ),

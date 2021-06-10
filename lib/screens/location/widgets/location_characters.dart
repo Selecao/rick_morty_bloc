@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sc_03/components/character_list_tile.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
 
 class LocationCharacters extends StatelessWidget {
   final List<Character> charactersOnLocation;
@@ -16,68 +16,14 @@ class LocationCharacters extends StatelessWidget {
       padding: const EdgeInsets.only(top: 12.0),
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) => Row(
-        children: [
-          const SizedBox(width: 16.0),
-          Container(
-            alignment: Alignment.center,
-            width: 74.0,
-            height: 74.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(charactersOnLocation[index].avatar),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(40.0),
-              color: ColorTheme.blue_600,
-            ),
-          ),
-          const SizedBox(width: 18.0),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                charactersOnLocation[index].status.toUpperCase(),
-                style: AppTextTheme.subtitle2.copyWith(
-                  height: 1.6,
-                  letterSpacing: 1.5,
-                  color: charactersOnLocation[index].status.toUpperCase() ==
-                          'ЖИВОЙ'
-                      ? ColorTheme.green_200
-                      : ColorTheme.red_100,
-                ),
-              ),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 200.0),
-                child: Text(
-                  charactersOnLocation[index].name,
-                  overflow: TextOverflow.fade,
-                  softWrap: false,
-                  style: AppTextTheme.subtitle1.copyWith(
-                    height: 1.5,
-                    letterSpacing: 0.5,
-                  ),
-                ),
-              ),
-              Text(
-                '${charactersOnLocation[index].race}, ${charactersOnLocation[index].gender}',
-                style: AppTextTheme.caption.copyWith(
-                  height: 1.33,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ],
-          ),
-          Spacer(),
-          //ArrowButton(onPressed: () {}),
-          SvgPicture.asset(
-            AppIcons.arrowForwardIos,
-            height: 8.0,
-            color: ColorTheme.white,
-          ),
-          const SizedBox(width: 26.0),
-        ],
+      itemBuilder: (context, index) => CharacterListTile(
+        character: charactersOnLocation[index],
+        suffix: SvgPicture.asset(
+          AppIcons.arrowForwardIos,
+          height: 8.0,
+          color: ColorTheme.white,
+        ),
+        onTap: () {},
       ),
       itemCount: charactersOnLocation.length,
       itemExtent: 98.0,
