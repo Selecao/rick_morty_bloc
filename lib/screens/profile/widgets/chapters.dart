@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sc_03/components/app_chapters_tile.dart';
+import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/profile/models/chapter.dart';
-import 'package:sc_03/components/arrow_button.dart';
 import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
 
 class Chapters extends StatelessWidget {
   final List<Chapter> chaptersList;
@@ -17,63 +18,16 @@ class Chapters extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  width: 74.0,
-                  height: 74.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(chaptersList[index].image),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                    //color: ColorTheme.blue_600,
-                  ),
-                ),
-                const SizedBox(width: 16.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        chaptersList[index].number.toUpperCase(),
-                        style: AppTextTheme.subtitle2.copyWith(
-                            height: 1.6,
-                            letterSpacing: 1.5,
-                            color: ColorTheme.cyan_300.withOpacity(0.87)),
-                      ),
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 200.0),
-                        child: Text(
-                          chaptersList[index].title,
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
-                          style: AppTextTheme.subtitle1.copyWith(
-                            height: 1.5,
-                            letterSpacing: 0.5,
-                            color: ColorTheme.white.withOpacity(0.87),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        chaptersList[index].releaseDate,
-                        style: AppTextTheme.bodyText1.copyWith(
-                          height: 1.4,
-                          letterSpacing: 0.25,
-                          color: ColorTheme.blueGrey_500.withOpacity(0.6),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Spacer(),
-                ArrowButton(onPressed: () {}),
-              ],
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: AppChaptersTile(
+              imageSize: 74,
+              chapter: chaptersList[index],
+              suffix: SvgPicture.asset(
+                AppIcons.arrowForwardIos,
+                height: 8.0,
+                color: ColorTheme.white,
+              ),
+              onTap: () {},
             ),
           );
         },

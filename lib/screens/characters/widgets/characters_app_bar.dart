@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
+import 'package:sc_03/screens/characters/widgets/characters_count.dart';
 import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LocationsListAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  final int locationsListLength;
-  static const _bottomAppBarHeight = 40.0;
+class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final int charactersListLength;
+  static const _appBarHeight = 112.0;
 
-  LocationsListAppBar(this.locationsListLength)
-      : preferredSize = Size.fromHeight(kToolbarHeight + _bottomAppBarHeight);
+  CharactersAppBar(this.charactersListLength)
+      : preferredSize = Size.fromHeight(_appBarHeight);
 
   @override
   final Size preferredSize;
@@ -22,7 +23,7 @@ class LocationsListAppBar extends StatelessWidget
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
-        title: 'Найти локацию',
+        title: 'Найти персонажа',
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,17 +46,16 @@ class LocationsListAppBar extends StatelessWidget
         ),
       ),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(_bottomAppBarHeight),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: Row(
-            children: [
-              Text(
-                'ВСЕГО ЛОКАЦИЙ: $locationsListLength',
-                style: AppTextTheme.subtitle2.copyWith(letterSpacing: 1.5),
-              ),
-            ],
-          ),
+        preferredSize: Size.fromHeight(40.0),
+        child: CharactersCount(
+          charactersCount: charactersListLength,
+          onSelected: (value) {
+            /// Для создания события используется контекст с обращением к блоку в контексте
+            context.read<CharactersBloc>()
+              ..add(
+                CharactersEvent.selectedView(isGrid: value),
+              );
+          },
         ),
       ),
     );

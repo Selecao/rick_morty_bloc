@@ -56,4 +56,10 @@ class AppTextTheme {
     fontSize: 12.0,
     color: ColorTheme.blueGrey_500,
   );
+
+  static const TextStyle button = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 14.0,
+    color: ColorTheme.white,
+  );
 }

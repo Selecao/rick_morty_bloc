@@ -1,5 +1,6 @@
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/location.dart';
+import 'package:sc_03/data/network/models/season.dart';
 import 'package:sc_03/resources/images.dart';
 import 'package:sc_03/screens/profile/models/chapter.dart';
 
@@ -37,6 +38,10 @@ final List<Chapter> chaptersList = [
   Chapter(Images.chapter3, 'Серия 3', 'Анатомический парк', '16 декабря 2013'),
   Chapter(Images.chapter4, 'Серия 4', 'М. Найт Шьямал-Инопланетяне!',
       '13 января 2014'),
+  Chapter(Images.chapter5, 'Серия 5', 'Мисикс и разрушение', '20 января 2014'),
+  Chapter(Images.chapter6, 'Серия 6', 'Напиток Рика № 9', '27 января 2014'),
+  Chapter(
+      Images.chapter7, 'Серия 7', 'Воспитание Газорпазорпа', '10 марта 2014'),
 ];
 
 final Location location1 = Location(
@@ -81,3 +86,10 @@ List<Character> charactersOnLocation = getCharactersOnPlanet(location1.name);
 
 List<Character> getCharactersOnPlanet(String planet) =>
     charactersList.where((char) => char.birthplace == planet).toList();
+
+final seasons = [
+  Season('Сезон 1', chaptersList),
+  Season('Сезон 2', List.from(chaptersList)..shuffle()),
+  Season('Сезон 3', List.from(chaptersList)..shuffle()),
+  Season('Сезон 4', List.from(chaptersList)..shuffle()),
+];

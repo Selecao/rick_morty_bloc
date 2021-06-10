@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/components/arrow_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
@@ -36,7 +37,12 @@ class LocationTile extends StatelessWidget {
           ],
         ),
         Spacer(),
-        ArrowButton(onPressed: () {}),
+        //ArrowButton(onPressed: () {}),
+        SvgPicture.asset(
+          AppIcons.arrowForwardIos,
+          height: 8.0,
+          color: ColorTheme.white,
+        )
       ],
     );
   }
