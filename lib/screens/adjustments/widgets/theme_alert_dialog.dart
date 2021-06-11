@@ -22,12 +22,12 @@ class ThemeAlertDialog extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          for (int i = 1; i <= themeModeTitles.length; i++)
+          for (int i = 0; i < themeModeTitles.length; i++)
             ListTile(
               contentPadding: const EdgeInsets.only(left: 10.0, right: 44.0),
               horizontalTitleGap: 8.0,
               title: Text(
-                themeModeTitles[i - 1],
+                themeModeTitles[i],
                 style: AppTextTheme.body1.copyWith(
                   color: ColorTheme.white,
                   letterSpacing: 0.15,
@@ -40,7 +40,7 @@ class ThemeAlertDialog extends StatelessWidget {
                     disabledColor: ColorTheme.blue_600),
                 child: Radio(
                   value: i,
-                  groupValue: 2,
+                  groupValue: 1,
                   onChanged: (_) {},
                   activeColor: ColorTheme.cyan_300,
                 ),
