@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sc_03/screens/adjustments/screen.dart';
 
 import 'package:sc_03/screens/characters/screen.dart';
 import 'package:sc_03/screens/episode/screen.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         //canvasColor: ColorTheme.blue_900,
         primaryColor: ColorTheme.blue_900,
       ),
-      home: EpisodeScreen(),
+      home: AdjustmentsScreen(),
     );
   }
 }

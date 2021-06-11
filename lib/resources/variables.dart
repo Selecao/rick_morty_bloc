@@ -122,6 +122,13 @@ final List<Location> locationsList = [
   ),
 ];
 
+List<String> get themeModeTitles => [
+      'Выключена',
+      'Включена',
+      'Следовать настройкам системы',
+      'В режиме энергосбережения',
+    ];
+
 List<Character> charactersOnLocation = getCharactersOnPlanet(location1.name);
 
 List<Character> getCharactersOnPlanet(String planet) =>

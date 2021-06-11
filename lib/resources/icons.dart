@@ -9,6 +9,7 @@ class AppIcons {
   static const String tabCharacters = 'assets/svg_icons/tab_characters.svg';
   static const String tabEpisodes = 'assets/svg_icons/tab_episodes.svg';
   static const String tabLocations = 'assets/svg_icons/tab_locations.svg';
+  static const String themePalette = 'assets/svg_icons/theme_palette.svg';
   static const String viewList = 'assets/svg_icons/view_list.svg';
   static const String viewGrid = 'assets/svg_icons/view_grid.svg';
 }
