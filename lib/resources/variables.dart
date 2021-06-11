@@ -150,7 +150,7 @@ List<Season> seasons = [
   Season('Сезон 4', List.from(episodesList)..shuffle()),
 ];
 
-Episode get currentChapter => Episode(
+Episode get selectedEpisode => Episode(
       Images.chapter4,
       'Серия 4',
       'М. Найт Шьямал-Инопланетяне!',
