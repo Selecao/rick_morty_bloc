@@ -129,7 +129,7 @@ List<String> get themeModeTitles => [
       'В режиме энергосбережения',
     ];
 
-List<Character> charactersOnLocation = getCharactersOnPlanet(location1.name);
+List<Character> charactersAtLocation = getCharactersOnPlanet(location1.name);
 
 List<Character> getCharactersOnPlanet(String planet) =>
     charactersList.where((char) => char.birthplace == planet).toList();

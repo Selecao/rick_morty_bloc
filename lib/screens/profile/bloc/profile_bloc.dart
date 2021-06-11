@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/data/network/models/episode.dart';
+import 'package:sc_03/resources/variables.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
