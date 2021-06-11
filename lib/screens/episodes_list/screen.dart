@@ -27,7 +27,10 @@ class EpisodesListScreen extends StatelessWidget {
               ),
           ],
         ),
-        bottomNavigationBar: AppBottomNavigationBar(currentIndex: 2),
+        bottomNavigationBar: AppBottomNavigationBar(
+          currentIndex: 2,
+          onTap: () {},
+        ),
       ),
     );
   }

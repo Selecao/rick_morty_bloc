@@ -32,7 +32,10 @@ class CharactersScreen extends StatelessWidget {
               body: _data.isGrid
                   ? CharactersGrid(_data.charactersList)
                   : CharactersList(_data.charactersList),
-              bottomNavigationBar: AppBottomNavigationBar(currentIndex: 0),
+              bottomNavigationBar: AppBottomNavigationBar(
+                currentIndex: 0,
+                onTap: () {},
+              ),
             ),
             orElse: () => SizedBox.shrink(),
           );
