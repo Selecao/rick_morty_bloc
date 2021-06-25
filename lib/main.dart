@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         //canvasColor: ColorTheme.blue_900,
         primaryColor: ColorTheme.blue_900,
       ),
-      home: EpisodeScreen(),
+      home: AdjustmentsScreen(),
     );
   }
 }
