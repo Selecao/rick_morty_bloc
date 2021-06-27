@@ -15,15 +15,15 @@ class DioSettings {
     print("## Dio initial settings");
     Interceptors interceptors = dio.interceptors;
 
-    /// TODO: seems error here
-    RequestOptions requestOptions = RequestOptions(path: "/Characters/GetAll");
+    // RequestOptions requestOptions = RequestOptions(path: "/Characters/GetAll");
+    late RequestOptions requestOptions;
 
     interceptors.requestLock.lock();
     interceptors.clear();
     interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          //requestOptions = options;
+          requestOptions = options;
           return handler.next(options);
         },
 
@@ -45,8 +45,6 @@ class DioSettings {
         onError: (DioError error, handler) async {
           print(error);
           if (error.type == DioErrorType.connectTimeout) {
-            print("## There is ServerTimeout on dio response");
-
             throw DioError(
               requestOptions: requestOptions,
               error: "Сервер не отвечает попробуйте еще раз",
@@ -56,8 +54,6 @@ class DioSettings {
               ),
             );
           } else if (error.message.contains("SocketException:")) {
-            print("## There is SocketException on dio response");
-
             throw DioError(
               requestOptions: requestOptions,
               error: "Отсутствует интернет соединение",
@@ -67,7 +63,6 @@ class DioSettings {
               ),
             );
           } else if (error.response!.statusCode == 401) {
-            print("## There is Error on dio response");
             //TODO: make Error handler class with widget return on [showError]
             /*ErrorHandler().showError(
               DioError(

@@ -1,5 +1,5 @@
-class Datum {
-  Datum({
+class Person {
+  Person({
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -21,13 +21,13 @@ class Datum {
   final int status;
   final String about;
   final int gender;
-  final Race race;
+  final String race;
   final String imageName;
   final String placeOfBirthId;
-  final PlaceOfBirth placeOfBirth;
+  final String placeOfBirth;
   final List<Episode> episodes;
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Person.fromJson(Map<String, dynamic> json) => Person(
         id: json["id"],
         firstName: json["firstName"],
         lastName: json["lastName"],
@@ -35,10 +35,10 @@ class Datum {
         status: json["status"],
         about: json["about"],
         gender: json["gender"],
-        race: raceValues.map[json["race"]]!,
+        race: json["race"],
         imageName: json["imageName"],
         placeOfBirthId: json["placeOfBirthId"],
-        placeOfBirth: placeOfBirthValues.map[json["placeOfBirth"]]!,
+        placeOfBirth: json["placeOfBirth"],
         episodes: List<Episode>.from(
             json["episodes"].map((x) => Episode.fromJson(x))),
       );
@@ -51,10 +51,10 @@ class Datum {
         "status": status,
         "about": about,
         "gender": gender,
-        "race": raceValues.reverseMap[race],
+        "race": race,
         "imageName": imageName,
         "placeOfBirthId": placeOfBirthId,
-        "placeOfBirth": placeOfBirthValues.reverseMap[placeOfBirth],
+        "placeOfBirth": placeOfBirth,
         "episodes": List<dynamic>.from(episodes.map((x) => x.toJson())),
       };
 }
@@ -77,24 +77,4 @@ class Episode {
         "id": id,
         "name": name,
       };
-}
-
-enum PlaceOfBirth { EMPTY, C_137, PLACE_OF_BIRTH }
-
-final placeOfBirthValues = EnumValues(map: {
-  "Измерение C-137": PlaceOfBirth.C_137,
-  "Земля": PlaceOfBirth.EMPTY,
-  "Постапокалиптическое измерение": PlaceOfBirth.PLACE_OF_BIRTH
-});
-
-enum Race { EMPTY }
-
-final raceValues = EnumValues(map: {"Человек": Race.EMPTY});
-
-class EnumValues<T> {
-  final Map<String, T> map;
-
-  EnumValues({required this.map});
-
-  Map<T, String> get reverseMap => map.map((k, v) => new MapEntry(v, k));
 }

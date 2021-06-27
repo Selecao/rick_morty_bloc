@@ -154,7 +154,8 @@ class _$LocationStateTearOff {
   const _$LocationStateTearOff();
 
   _DataLocationState data(
-      {required Location location, required List<Datum> charactersAtLocation}) {
+      {required Location location,
+      required List<Person> charactersAtLocation}) {
     return _DataLocationState(
       location: location,
       charactersAtLocation: charactersAtLocation,
@@ -178,7 +179,7 @@ mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Location location, List<Datum> charactersAtLocation)
+            Location location, List<Person> charactersAtLocation)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -186,7 +187,8 @@ mixin _$LocationState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location location, List<Datum> charactersAtLocation)? data,
+    TResult Function(Location location, List<Person> charactersAtLocation)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -231,7 +233,7 @@ abstract class _$DataLocationStateCopyWith<$Res> {
   factory _$DataLocationStateCopyWith(
           _DataLocationState value, $Res Function(_DataLocationState) then) =
       __$DataLocationStateCopyWithImpl<$Res>;
-  $Res call({Location location, List<Datum> charactersAtLocation});
+  $Res call({Location location, List<Person> charactersAtLocation});
 }
 
 /// @nodoc
@@ -258,7 +260,7 @@ class __$DataLocationStateCopyWithImpl<$Res>
       charactersAtLocation: charactersAtLocation == freezed
           ? _value.charactersAtLocation
           : charactersAtLocation // ignore: cast_nullable_to_non_nullable
-              as List<Datum>,
+              as List<Person>,
     ));
   }
 }
@@ -274,7 +276,7 @@ class _$_DataLocationState implements _DataLocationState {
   ///Параметры
   final Location location;
   @override
-  final List<Datum> charactersAtLocation;
+  final List<Person> charactersAtLocation;
 
   @override
   String toString() {
@@ -308,7 +310,7 @@ class _$_DataLocationState implements _DataLocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Location location, List<Datum> charactersAtLocation)
+            Location location, List<Person> charactersAtLocation)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -319,7 +321,8 @@ class _$_DataLocationState implements _DataLocationState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location location, List<Datum> charactersAtLocation)? data,
+    TResult Function(Location location, List<Person> charactersAtLocation)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -358,11 +361,11 @@ class _$_DataLocationState implements _DataLocationState {
 abstract class _DataLocationState implements LocationState {
   const factory _DataLocationState(
       {required Location location,
-      required List<Datum> charactersAtLocation}) = _$_DataLocationState;
+      required List<Person> charactersAtLocation}) = _$_DataLocationState;
 
   ///Параметры
   Location get location => throw _privateConstructorUsedError;
-  List<Datum> get charactersAtLocation => throw _privateConstructorUsedError;
+  List<Person> get charactersAtLocation => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataLocationStateCopyWith<_DataLocationState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -409,7 +412,7 @@ class _$_InitialLocationState implements _InitialLocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Location location, List<Datum> charactersAtLocation)
+            Location location, List<Person> charactersAtLocation)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -420,7 +423,8 @@ class _$_InitialLocationState implements _InitialLocationState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location location, List<Datum> charactersAtLocation)? data,
+    TResult Function(Location location, List<Person> charactersAtLocation)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -501,7 +505,7 @@ class _$_LoadingLocationState implements _LoadingLocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Location location, List<Datum> charactersAtLocation)
+            Location location, List<Person> charactersAtLocation)
         data,
     required TResult Function() initial,
     required TResult Function() loading,
@@ -512,7 +516,8 @@ class _$_LoadingLocationState implements _LoadingLocationState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Location location, List<Datum> charactersAtLocation)? data,
+    TResult Function(Location location, List<Person> charactersAtLocation)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),

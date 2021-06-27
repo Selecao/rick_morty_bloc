@@ -1,18 +1,17 @@
+import 'package:sc_03/data/network/models/person.dart';
 import 'dart:convert';
 
-import 'package:sc_03/data/network/models/datum.dart';
+CharactersModel charactersFromJson(String str) =>
+    CharactersModel.fromJson(json.decode(str));
 
-Characters charactersFromJson(String str) =>
-    Characters.fromJson(json.decode(str));
+String charactersToJson(CharactersModel data) => json.encode(data.toJson());
 
-String charactersToJson(Characters data) => json.encode(data.toJson());
-
-class Characters {
-  Characters({
+class CharactersModel {
+  CharactersModel({
     required this.totalRecords,
     required this.succeeded,
-    this.message,
-    this.error,
+    required this.message,
+    required this.error,
     required this.data,
   });
 
@@ -20,14 +19,15 @@ class Characters {
   final bool succeeded;
   final dynamic message;
   final dynamic error;
-  final List<Datum> data;
+  final List<Person> data;
 
-  factory Characters.fromJson(Map<String, dynamic> json) => Characters(
+  factory CharactersModel.fromJson(Map<String, dynamic> json) =>
+      CharactersModel(
         totalRecords: json["totalRecords"],
         succeeded: json["succeeded"],
         message: json["message"],
         error: json["error"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: List<Person>.from(json["data"].map((x) => Person.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {

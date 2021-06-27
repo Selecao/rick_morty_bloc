@@ -6,7 +6,7 @@ class LocationState with _$LocationState {
   const factory LocationState.data({
     ///Параметры
     required final Location location,
-    required final List<Datum> charactersAtLocation,
+    required final List<Person> charactersAtLocation,
   }) = _DataLocationState;
 
   /// Состояние инициализации

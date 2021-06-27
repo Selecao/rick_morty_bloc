@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/datum.dart';
+import 'package:sc_03/data/network/models/person.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterListTile extends StatelessWidget {
-  final Datum character;
+  final Person character;
   final VoidCallback onTap;
   final Widget? suffix;
 
@@ -61,7 +61,7 @@ class CharacterListTile extends StatelessWidget {
                 ),
               ),
               Text(
-                '${character.race}, ${character.gender == 0 ? "МУЖСКОЙ" : "ЖЕНСКИЙ"}',
+                '${character.race}, ${character.gender == 0 ? "Мужской" : "Женский"}',
                 style: AppTextTheme.caption.copyWith(
                   height: 1.33,
                   letterSpacing: 0.5,

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:sc_03/data/network/models/characters.dart';
+import 'package:sc_03/data/network/models/characters_model.dart';
 import 'package:sc_03/data/repository.dart';
 //import 'package:sc_03/resources/variables.dart';
 
@@ -14,7 +14,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final _repository = Repository();
 
   bool isGrid = false;
-  late Characters _charactersList;
+  late CharactersModel _charactersList;
 
   /// Отслеживает события. Метод map позволяет нам сократить код и не дает потерять состояние.
   @override

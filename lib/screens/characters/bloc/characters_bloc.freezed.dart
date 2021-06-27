@@ -289,7 +289,7 @@ class _$CharactersStateTearOff {
   const _$CharactersStateTearOff();
 
   _DataCharactersState data(
-      {required Characters charactersList, required bool isGrid}) {
+      {required CharactersModel charactersList, required bool isGrid}) {
     return _DataCharactersState(
       charactersList: charactersList,
       isGrid: isGrid,
@@ -312,14 +312,14 @@ const $CharactersState = _$CharactersStateTearOff();
 mixin _$CharactersState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Characters charactersList, bool isGrid) data,
+    required TResult Function(CharactersModel charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Characters charactersList, bool isGrid)? data,
+    TResult Function(CharactersModel charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -364,7 +364,7 @@ abstract class _$DataCharactersStateCopyWith<$Res> {
   factory _$DataCharactersStateCopyWith(_DataCharactersState value,
           $Res Function(_DataCharactersState) then) =
       __$DataCharactersStateCopyWithImpl<$Res>;
-  $Res call({Characters charactersList, bool isGrid});
+  $Res call({CharactersModel charactersList, bool isGrid});
 }
 
 /// @nodoc
@@ -387,7 +387,7 @@ class __$DataCharactersStateCopyWithImpl<$Res>
       charactersList: charactersList == freezed
           ? _value.charactersList
           : charactersList // ignore: cast_nullable_to_non_nullable
-              as Characters,
+              as CharactersModel,
       isGrid: isGrid == freezed
           ? _value.isGrid
           : isGrid // ignore: cast_nullable_to_non_nullable
@@ -405,7 +405,7 @@ class _$_DataCharactersState implements _DataCharactersState {
   @override
 
   /// Параметры
-  final Characters charactersList;
+  final CharactersModel charactersList;
   @override
   final bool isGrid;
 
@@ -440,7 +440,7 @@ class _$_DataCharactersState implements _DataCharactersState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Characters charactersList, bool isGrid) data,
+    required TResult Function(CharactersModel charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -450,7 +450,7 @@ class _$_DataCharactersState implements _DataCharactersState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Characters charactersList, bool isGrid)? data,
+    TResult Function(CharactersModel charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -488,11 +488,11 @@ class _$_DataCharactersState implements _DataCharactersState {
 
 abstract class _DataCharactersState implements CharactersState {
   const factory _DataCharactersState(
-      {required Characters charactersList,
+      {required CharactersModel charactersList,
       required bool isGrid}) = _$_DataCharactersState;
 
   /// Параметры
-  Characters get charactersList => throw _privateConstructorUsedError;
+  CharactersModel get charactersList => throw _privateConstructorUsedError;
   bool get isGrid => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataCharactersStateCopyWith<_DataCharactersState> get copyWith =>
@@ -539,7 +539,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Characters charactersList, bool isGrid) data,
+    required TResult Function(CharactersModel charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -549,7 +549,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Characters charactersList, bool isGrid)? data,
+    TResult Function(CharactersModel charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -629,7 +629,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Characters charactersList, bool isGrid) data,
+    required TResult Function(CharactersModel charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -639,7 +639,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Characters charactersList, bool isGrid)? data,
+    TResult Function(CharactersModel charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
