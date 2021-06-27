@@ -29,7 +29,9 @@ class EpisodeScreen extends StatelessWidget {
                       onPressed: () {},
                     ),
                     EpisodeDescription(_data.selectedEpisode),
-                    EpisodeCharacters(_data.selectedEpisode.title),
+
+                    /// TODO: fix
+                    //EpisodeCharacters(_data.selectedEpisode.title),
                   ],
                 ),
               ),

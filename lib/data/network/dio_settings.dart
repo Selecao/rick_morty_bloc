@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class DioSettings {
-  static final mainServer = "https://api.???.kz/";
+  static final mainServer = "http://173.249.20.184:7001/api";
 
   Dio dio = Dio(
     BaseOptions(
@@ -12,19 +12,24 @@ class DioSettings {
   );
 
   void initialSettings() {
+    print("## Dio initial settings");
     Interceptors interceptors = dio.interceptors;
-    late RequestOptions requestOptions;
+
+    /// TODO: seems error here
+    RequestOptions requestOptions = RequestOptions(path: "/Characters/GetAll");
 
     interceptors.requestLock.lock();
     interceptors.clear();
     interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          requestOptions = options;
+          //requestOptions = options;
+          return handler.next(options);
         },
 
         /// Обрабатываем ошибки
         onResponse: (response, handler) {
+          print("## onResponse in DIO");
           if (response.statusCode == 204) {
             throw DioError(
               requestOptions: requestOptions,
@@ -35,9 +40,13 @@ class DioSettings {
               ),
             );
           }
+          return handler.next(response);
         },
         onError: (DioError error, handler) async {
+          print(error);
           if (error.type == DioErrorType.connectTimeout) {
+            print("## There is ServerTimeout on dio response");
+
             throw DioError(
               requestOptions: requestOptions,
               error: "Сервер не отвечает попробуйте еще раз",
@@ -47,6 +56,8 @@ class DioSettings {
               ),
             );
           } else if (error.message.contains("SocketException:")) {
+            print("## There is SocketException on dio response");
+
             throw DioError(
               requestOptions: requestOptions,
               error: "Отсутствует интернет соединение",
@@ -56,7 +67,7 @@ class DioSettings {
               ),
             );
           } else if (error.response!.statusCode == 401) {
-
+            print("## There is Error on dio response");
             //TODO: make Error handler class with widget return on [showError]
             /*ErrorHandler().showError(
               DioError(
@@ -65,7 +76,7 @@ class DioSettings {
               ),
             );*/
           }
-          return error as Future;
+          return handler.next(error);
         },
       ),
     );

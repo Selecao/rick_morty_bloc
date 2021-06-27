@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/data/network/models/datum.dart';
 import 'package:sc_03/screens/characters/widgets/character_grid_item.dart';
 
 class CharactersGrid extends StatelessWidget {
-  final List<Character> charactersList;
+  final List<Datum> charactersList;
 
   const CharactersGrid(this.charactersList);
 
@@ -15,7 +15,7 @@ class CharactersGrid extends StatelessWidget {
         itemCount: charactersList.length,
         shrinkWrap: true,
         padding: const EdgeInsets.symmetric(vertical: 0),
-        physics: NeverScrollableScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 12.0,

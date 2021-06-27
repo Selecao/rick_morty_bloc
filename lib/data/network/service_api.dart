@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:sc_03/data/network/dio_settings.dart';
+import 'package:sc_03/data/network/models/characters.dart';
 
 class ServiceApi {
   late DioSettings _dioSettings;
   late Dio _dio;
 
-  /// И мап для запроса
-  late Map<String, dynamic> _request;
+  /// TODO: мап для запроса?!
+  // late Map<String, dynamic> _request;
 
   /// singleton
   static ServiceApi _instance = new ServiceApi.internal();
@@ -15,5 +16,15 @@ class ServiceApi {
   ServiceApi.internal() {
     _dioSettings = DioSettings();
     _dio = _dioSettings.dio;
+  }
+
+  Future<Characters> getCharacters() async {
+    print("## Пошел запрос на персонажей");
+    Response<String> response = await _dio.get(
+      "/Characters/GetAll",
+      queryParameters: {"PageNumber": 1, "PageSize": 10},
+    );
+    print("## Response: \n${response.toString()}");
+    return charactersFromJson(response.toString());
   }
 }

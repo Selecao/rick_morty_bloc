@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/data/network/models/datum.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterGridItem extends StatelessWidget {
-  final Character character;
+  final Datum character;
 
   CharacterGridItem(this.character);
 
@@ -14,21 +14,22 @@ class CharacterGridItem extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 60,
-          backgroundImage: AssetImage(character.avatar),
+          //backgroundImage: AssetImage(character.avatar),
+          backgroundImage: NetworkImage(character.imageName),
           backgroundColor: ColorTheme.blueGrey_600,
         ),
         const SizedBox(height: 18.0),
         Text(
-          character.status,
+          character.status == 1 ? "ЖИВОЙ" : "МЁРТВЫЙ",
           style: AppTextTheme.subtitle2.copyWith(
               letterSpacing: 1.5,
               height: 1.6,
-              color: character.status == 'ЖИВОЙ'
+              color: character.status == 1
                   ? ColorTheme.green_200
                   : ColorTheme.red_100),
         ),
         Text(
-          character.name,
+          character.fullName,
           style: AppTextTheme.bodyText1.copyWith(
             fontWeight: FontWeight.w500,
             letterSpacing: 0.1,
@@ -36,7 +37,7 @@ class CharacterGridItem extends StatelessWidget {
           ),
         ),
         Text(
-          '${character.race}, ${character.gender}',
+          '${character.race}, ${character.gender == 0 ? "МУЖСКОЙ" : "ЖЕНСКИЙ"}',
           style: AppTextTheme.caption.copyWith(
             height: 1.33,
             letterSpacing: 0.5,

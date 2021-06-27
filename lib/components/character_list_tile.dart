@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/data/network/models/datum.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterListTile extends StatelessWidget {
-  final Character character;
+  final Datum character;
   final VoidCallback onTap;
   final Widget? suffix;
 
@@ -28,7 +26,7 @@ class CharacterListTile extends StatelessWidget {
             height: 74.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(character.avatar),
+                image: NetworkImage(character.imageName),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(40.0),
@@ -41,11 +39,11 @@ class CharacterListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                character.status.toUpperCase(),
+                character.status == 1 ? "ЖИВОЙ" : "МЁРТВЫЙ",
                 style: AppTextTheme.subtitle2.copyWith(
                   height: 1.6,
                   letterSpacing: 1.5,
-                  color: character.status.toUpperCase() == 'ЖИВОЙ'
+                  color: character.status == 1
                       ? ColorTheme.green_200
                       : ColorTheme.red_100,
                 ),
@@ -53,7 +51,7 @@ class CharacterListTile extends StatelessWidget {
               ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 200.0),
                 child: Text(
-                  character.name,
+                  character.fullName,
                   overflow: TextOverflow.fade,
                   softWrap: false,
                   style: AppTextTheme.subtitle1.copyWith(
@@ -63,7 +61,7 @@ class CharacterListTile extends StatelessWidget {
                 ),
               ),
               Text(
-                '${character.race}, ${character.gender}',
+                '${character.race}, ${character.gender == 0 ? "МУЖСКОЙ" : "ЖЕНСКИЙ"}',
                 style: AppTextTheme.caption.copyWith(
                   height: 1.33,
                   letterSpacing: 0.5,

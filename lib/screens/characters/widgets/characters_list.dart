@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/character_list_tile.dart';
 
-import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/data/network/models/datum.dart';
 
 class CharactersList extends StatelessWidget {
-  final List<Character> charactersList;
+  final List<Datum> charactersList;
 
   CharactersList(this.charactersList);
 
@@ -18,7 +18,7 @@ class CharactersList extends StatelessWidget {
       itemCount: charactersList.length,
       itemExtent: 98.0,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 24),
     );
   }
