@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/character_list_tile.dart';
 
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 
 class CharactersList extends StatelessWidget {
-  final List<Person> charactersList;
+  final List<Character> charactersList;
 
   CharactersList(this.charactersList);
 

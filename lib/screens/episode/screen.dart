@@ -16,7 +16,9 @@ class EpisodeScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return state.maybeMap(
-            loading: (_) => CircularProgressIndicator(),
+            loading: (_) => Center(
+              child: CircularProgressIndicator(),
+            ),
             data: (_data) => Scaffold(
               extendBodyBehindAppBar: true,
               appBar: TransparentAppBar(),
@@ -24,14 +26,15 @@ class EpisodeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    EpisodeImage(
-                      image: _data.selectedEpisode.image,
+                    /*EpisodeImage(
+                      image: _data.selectedEpisode.data.imageName,
                       onPressed: () {},
                     ),
-                    EpisodeDescription(_data.selectedEpisode),
-
-                    /// TODO: fix
-                    //EpisodeCharacters(_data.selectedEpisode.title),
+                    EpisodeDescription(_data.selectedEpisode.data),
+                    _data.selectedEpisode.data.characters == null
+                        ? SizedBox.shrink()
+                        : EpisodeCharacters(
+                            _data.selectedEpisode.data.characters),*/
                   ],
                 ),
               ),

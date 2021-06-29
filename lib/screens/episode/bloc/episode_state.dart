@@ -3,7 +3,7 @@ part of 'episode_bloc.dart';
 @freezed
 class EpisodeState with _$EpisodeState {
   const factory EpisodeState.data({
-    required final Episode selectedEpisode,
+    required final SelectedEpisodeModel selectedEpisode,
   }) = _DataEpisodeState;
 
   /// Состояние инициализации

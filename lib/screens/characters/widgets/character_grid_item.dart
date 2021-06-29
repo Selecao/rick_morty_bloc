@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterGridItem extends StatelessWidget {
-  final Person character;
+  final Character character;
 
   CharacterGridItem(this.character);
 
@@ -15,7 +15,7 @@ class CharacterGridItem extends StatelessWidget {
         CircleAvatar(
           radius: 60,
           //backgroundImage: AssetImage(character.avatar),
-          backgroundImage: NetworkImage(character.imageName),
+          backgroundImage: NetworkImage(character.imageName ?? 'none'),
           backgroundColor: ColorTheme.blueGrey_600,
         ),
         const SizedBox(height: 18.0),
@@ -29,7 +29,7 @@ class CharacterGridItem extends StatelessWidget {
                   : ColorTheme.red_100),
         ),
         Text(
-          character.fullName,
+          character.fullName ?? "None",
           style: AppTextTheme.bodyText1.copyWith(
             fontWeight: FontWeight.w500,
             letterSpacing: 0.1,

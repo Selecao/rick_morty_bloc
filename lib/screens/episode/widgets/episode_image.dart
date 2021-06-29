@@ -4,7 +4,7 @@ import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class EpisodeImage extends StatelessWidget {
-  final String image;
+  final String? image;
   final VoidCallback onPressed;
 
   EpisodeImage({required this.image, required this.onPressed});
@@ -20,9 +20,10 @@ class EpisodeImage extends StatelessWidget {
           height: imageHeight,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(image),
+              image: NetworkImage(image!),
               fit: BoxFit.fitHeight,
             ),
+            color: ColorTheme.blue_600,
           ),
         ),
         Positioned(

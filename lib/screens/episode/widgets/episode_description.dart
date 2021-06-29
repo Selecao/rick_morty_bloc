@@ -6,7 +6,7 @@ import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class EpisodeDescription extends StatelessWidget {
-  final Episode episode;
+  final Episode? episode;
 
   EpisodeDescription(this.episode);
 
@@ -17,13 +17,13 @@ class EpisodeDescription extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            episode.title,
+            episode?.name ?? 'None',
             style: AppTextTheme.headline5.copyWith(height: 1.33),
             textAlign: TextAlign.center,
           ),
           Container(height: 3.0),
           Text(
-            episode.number.toUpperCase(),
+            "Серия ${episode?.series}",
             style: AppTextTheme.subtitle2.copyWith(
               color: ColorTheme.cyan_300.withOpacity(0.87),
               letterSpacing: 1.5,
@@ -32,7 +32,7 @@ class EpisodeDescription extends StatelessWidget {
           ),
           Container(height: 36.0),
           Text(
-            episode.description,
+            episode?.plot ?? "None",
             style: AppTextTheme.bodyText2.copyWith(
               height: 1.5,
               letterSpacing: 0.25,
@@ -52,7 +52,7 @@ class EpisodeDescription extends StatelessWidget {
               ),
               Container(height: 4.0),
               Text(
-                episode.releaseDate,
+                episode?.premiere.toString() ?? "None",
                 style: AppTextTheme.bodyText1.copyWith(
                   letterSpacing: .25,
                   height: 1.42,

@@ -1,25 +1,27 @@
-import 'package:sc_03/data/network/models/person.dart';
 import 'dart:convert';
 
-CharactersModel charactersFromJson(String str) =>
+import 'package:sc_03/data/network/models/character.dart';
+
+CharactersModel charactersModelFromJson(String str) =>
     CharactersModel.fromJson(json.decode(str));
 
-String charactersToJson(CharactersModel data) => json.encode(data.toJson());
+String charactersModelToJson(CharactersModel data) =>
+    json.encode(data.toJson());
 
 class CharactersModel {
   CharactersModel({
-    required this.totalRecords,
-    required this.succeeded,
-    required this.message,
-    required this.error,
-    required this.data,
+    this.totalRecords,
+    this.succeeded,
+    this.message,
+    this.error,
+    this.data,
   });
 
-  final int totalRecords;
-  final bool succeeded;
+  final int? totalRecords;
+  final bool? succeeded;
   final dynamic message;
   final dynamic error;
-  final List<Person> data;
+  final List<Character>? data;
 
   factory CharactersModel.fromJson(Map<String, dynamic> json) =>
       CharactersModel(
@@ -27,7 +29,8 @@ class CharactersModel {
         succeeded: json["succeeded"],
         message: json["message"],
         error: json["error"],
-        data: List<Person>.from(json["data"].map((x) => Person.fromJson(x))),
+        data: List<Character>.from(
+            json["data"].map((x) => Character.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,6 +38,6 @@ class CharactersModel {
         "succeeded": succeeded,
         "message": message,
         "error": error,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data?.map((x) => x.toJson()) ?? []),
       };
 }

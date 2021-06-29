@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sc_03/components/character_list_tile.dart';
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class EpisodeCharacters extends StatelessWidget {
-  final String episodeId;
-  final List<Person> characters;
+  final List<Character> characters;
 
-  EpisodeCharacters(this.episodeId, this.characters);
+  EpisodeCharacters(this.characters);
 
   @override
   Widget build(BuildContext context) {
-    //List<Datum> characters = getCharactersOnEpisode(episodeId);
-
     return ListView.builder(
       padding: const EdgeInsets.only(top: 12.0),
       shrinkWrap: true,

@@ -152,7 +152,7 @@ abstract class _InitialEpisodeEvent implements EpisodeEvent {
 class _$EpisodeStateTearOff {
   const _$EpisodeStateTearOff();
 
-  _DataEpisodeState data({required Episode selectedEpisode}) {
+  _DataEpisodeState data({required SelectedEpisodeModel selectedEpisode}) {
     return _DataEpisodeState(
       selectedEpisode: selectedEpisode,
     );
@@ -174,14 +174,14 @@ const $EpisodeState = _$EpisodeStateTearOff();
 mixin _$EpisodeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Episode selectedEpisode) data,
+    required TResult Function(SelectedEpisodeModel selectedEpisode) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Episode selectedEpisode)? data,
+    TResult Function(SelectedEpisodeModel selectedEpisode)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -225,7 +225,7 @@ abstract class _$DataEpisodeStateCopyWith<$Res> {
   factory _$DataEpisodeStateCopyWith(
           _DataEpisodeState value, $Res Function(_DataEpisodeState) then) =
       __$DataEpisodeStateCopyWithImpl<$Res>;
-  $Res call({Episode selectedEpisode});
+  $Res call({SelectedEpisodeModel selectedEpisode});
 }
 
 /// @nodoc
@@ -247,7 +247,7 @@ class __$DataEpisodeStateCopyWithImpl<$Res>
       selectedEpisode: selectedEpisode == freezed
           ? _value.selectedEpisode
           : selectedEpisode // ignore: cast_nullable_to_non_nullable
-              as Episode,
+              as SelectedEpisodeModel,
     ));
   }
 }
@@ -258,7 +258,7 @@ class _$_DataEpisodeState implements _DataEpisodeState {
   const _$_DataEpisodeState({required this.selectedEpisode});
 
   @override
-  final Episode selectedEpisode;
+  final SelectedEpisodeModel selectedEpisode;
 
   @override
   String toString() {
@@ -287,7 +287,7 @@ class _$_DataEpisodeState implements _DataEpisodeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Episode selectedEpisode) data,
+    required TResult Function(SelectedEpisodeModel selectedEpisode) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -297,7 +297,7 @@ class _$_DataEpisodeState implements _DataEpisodeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Episode selectedEpisode)? data,
+    TResult Function(SelectedEpisodeModel selectedEpisode)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -334,10 +334,11 @@ class _$_DataEpisodeState implements _DataEpisodeState {
 }
 
 abstract class _DataEpisodeState implements EpisodeState {
-  const factory _DataEpisodeState({required Episode selectedEpisode}) =
-      _$_DataEpisodeState;
+  const factory _DataEpisodeState(
+      {required SelectedEpisodeModel selectedEpisode}) = _$_DataEpisodeState;
 
-  Episode get selectedEpisode => throw _privateConstructorUsedError;
+  SelectedEpisodeModel get selectedEpisode =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataEpisodeStateCopyWith<_DataEpisodeState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -383,7 +384,7 @@ class _$_InitialEpisodeState implements _InitialEpisodeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Episode selectedEpisode) data,
+    required TResult Function(SelectedEpisodeModel selectedEpisode) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -393,7 +394,7 @@ class _$_InitialEpisodeState implements _InitialEpisodeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Episode selectedEpisode)? data,
+    TResult Function(SelectedEpisodeModel selectedEpisode)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -473,7 +474,7 @@ class _$_LoadingEpisodeState implements _LoadingEpisodeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Episode selectedEpisode) data,
+    required TResult Function(SelectedEpisodeModel selectedEpisode) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -483,7 +484,7 @@ class _$_LoadingEpisodeState implements _LoadingEpisodeState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Episode selectedEpisode)? data,
+    TResult Function(SelectedEpisodeModel selectedEpisode)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),

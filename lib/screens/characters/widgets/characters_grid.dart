@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/characters/widgets/character_grid_item.dart';
 
 class CharactersGrid extends StatelessWidget {
-  final List<Person> charactersList;
+  final List<Character> charactersList;
 
   const CharactersGrid(this.charactersList);
 

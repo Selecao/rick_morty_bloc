@@ -3,7 +3,6 @@ import 'package:bloc/bloc.dart';
 
 import 'package:sc_03/data/network/models/characters_model.dart';
 import 'package:sc_03/data/repository.dart';
-//import 'package:sc_03/resources/variables.dart';
 
 part 'package:sc_03/screens/characters/bloc/characters_event.dart';
 part 'package:sc_03/screens/characters/bloc/characters_state.dart';
@@ -11,6 +10,7 @@ part 'characters_bloc.freezed.dart';
 
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   CharactersBloc() : super(CharactersState.initial());
+
   final _repository = Repository();
 
   bool isGrid = false;
@@ -41,7 +41,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       _charactersList = await _repository.getCharacters();
     } catch (ex) {
       /// Возвращаем состояние с ошибкой
-
+      print("## Получи ошибку в блоке персонажей $ex");
     }
 
     /// Возвращаем состояние с данными

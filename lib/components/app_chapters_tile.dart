@@ -31,9 +31,10 @@ class AppChaptersTile extends StatelessWidget {
               height: imageSize,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(chapter.image),
+                  image: NetworkImage(chapter.imageName ?? 'None'),
                   fit: BoxFit.cover,
                 ),
+                color: ColorTheme.blue_600,
                 borderRadius: BorderRadius.circular(10.0),
                 //color: ColorTheme.blue_600,
               ),
@@ -44,7 +45,7 @@ class AppChaptersTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  chapter.number.toUpperCase(),
+                  "СЕРИЯ ${chapter.series ?? "None"}",
                   style: AppTextTheme.subtitle2.copyWith(
                       height: 1.6,
                       letterSpacing: 1.5,
@@ -53,7 +54,7 @@ class AppChaptersTile extends StatelessWidget {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: textConstraint),
                   child: Text(
-                    chapter.title,
+                    chapter.name ?? "None",
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     style: AppTextTheme.subtitle1.copyWith(
@@ -64,7 +65,7 @@ class AppChaptersTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  chapter.releaseDate,
+                  chapter.premiere.toString(),
                   style: AppTextTheme.bodyText1.copyWith(
                     height: 1.4,
                     letterSpacing: 0.25,

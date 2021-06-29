@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterListTile extends StatelessWidget {
-  final Person character;
+  final Character character;
   final VoidCallback onTap;
   final Widget? suffix;
 
@@ -26,7 +26,7 @@ class CharacterListTile extends StatelessWidget {
             height: 74.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(character.imageName),
+                image: NetworkImage(character.imageName ?? "None"),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(40.0),
@@ -51,7 +51,7 @@ class CharacterListTile extends StatelessWidget {
               ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 200.0),
                 child: Text(
-                  character.fullName,
+                  character.fullName ?? "None",
                   overflow: TextOverflow.fade,
                   softWrap: false,
                   style: AppTextTheme.subtitle1.copyWith(

@@ -1,3 +1,4 @@
+/*
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/data/network/models/season.dart';
@@ -160,3 +161,4 @@ Episode get selectedEpisode => Episode(
           'изготовления концентрированной темной материи.',
       characters: List.from(charactersList),
     );
+*/
