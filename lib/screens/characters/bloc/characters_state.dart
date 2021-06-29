@@ -5,7 +5,7 @@ class CharactersState with _$CharactersState {
   /// Состояние с данными
   const factory CharactersState.data({
     /// Параметры
-    required final CharactersModel charactersList,
+    required final List<Character> charactersList,
     required final bool isGrid,
   }) = _DataCharactersState;
 

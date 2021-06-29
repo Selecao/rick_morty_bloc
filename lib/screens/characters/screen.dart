@@ -28,10 +28,10 @@ class CharactersScreen extends StatelessWidget {
           return state.maybeMap(
             loading: (_) => Center(child: CircularProgressIndicator()),
             data: (_data) => Scaffold(
-              appBar: CharactersAppBar(_data.charactersList.data?.length),
+              appBar: CharactersAppBar(_data.charactersList.length),
               body: _data.isGrid
-                  ? CharactersGrid(_data.charactersList.data!)
-                  : CharactersList(_data.charactersList.data!),
+                  ? CharactersGrid(_data.charactersList)
+                  : CharactersList(_data.charactersList),
               bottomNavigationBar: AppBottomNavigationBar(
                 currentIndex: 0,
                 onTap: () {},
