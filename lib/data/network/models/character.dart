@@ -1,4 +1,4 @@
-//import 'package:sc_03/data/network/models/episode.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 
 class Character {
   Character({
@@ -42,7 +42,7 @@ class Character {
         placeOfBirthId: json["placeOfBirthId"],
         placeOfBirth: json["placeOfBirth"],
         episodes: List<Episode>.from(
-            json["episodes"].map((x) => Episode.fromJson(x))),
+            json["episodes"]?.map((x) => Episode.fromJson(x)) ?? []),
       );
 
   Map<String, dynamic> toJson() => {
@@ -58,25 +58,5 @@ class Character {
         "placeOfBirthId": placeOfBirthId,
         "placeOfBirth": placeOfBirth,
         "episodes": List<dynamic>.from(episodes?.map((x) => x.toJson()) ?? []),
-      };
-}
-
-class Episode {
-  Episode({
-    this.id,
-    this.name,
-  });
-
-  final String? id;
-  final String? name;
-
-  factory Episode.fromJson(Map<String, dynamic> json) => Episode(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
       };
 }
