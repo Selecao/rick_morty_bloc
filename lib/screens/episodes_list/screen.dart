@@ -23,7 +23,7 @@ class EpisodesListScreen extends StatelessWidget {
           /// Обрабатываем состояния
           builder: (context, state) {
             return state.maybeMap(
-              loading: (_) => CircularProgressIndicator(),
+              loading: (_) => Center(child: CircularProgressIndicator()),
               data: (_data) => DefaultTabController(
                 length: _data.seasons.length,
                 child: Scaffold(
@@ -35,10 +35,10 @@ class EpisodesListScreen extends StatelessWidget {
                           itemBuilder: (context, index) => AppChaptersTile(
                             imageSize: 60.0,
                             textConstraint: 280.0,
-                            chapter: season.chapters[index],
+                            chapter: season.episodes[index],
                             onTap: () {},
                           ),
-                          itemCount: season.chapters.length,
+                          itemCount: season.episodes.length,
                           itemExtent: 84.0,
                           shrinkWrap: true,
                         ),

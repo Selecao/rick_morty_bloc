@@ -65,7 +65,7 @@ class AppChaptersTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  chapter.premiere.toString(),
+                  "${chapter.premiere?.toStringRus()}",
                   style: AppTextTheme.bodyText1.copyWith(
                     height: 1.4,
                     letterSpacing: 0.25,

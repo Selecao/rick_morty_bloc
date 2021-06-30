@@ -1,7 +1,8 @@
+import 'package:sc_03/data/network/models/season.dart';
+
 /*
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/location.dart';
-import 'package:sc_03/data/network/models/season.dart';
 import 'package:sc_03/resources/images.dart';
 import 'package:sc_03/data/network/models/episode.dart';
 
@@ -144,12 +145,7 @@ List<Character> getCharactersOnEpisode(String episode) {
   throw 'Episode not found';
 }
 
-List<Season> seasons = [
-  Season('Сезон 1', episodesList),
-  Season('Сезон 2', List.from(episodesList)..shuffle()),
-  Season('Сезон 3', List.from(episodesList)..shuffle()),
-  Season('Сезон 4', List.from(episodesList)..shuffle()),
-];
+
 
 Episode get selectedEpisode => Episode(
       Images.chapter4,
@@ -162,3 +158,9 @@ Episode get selectedEpisode => Episode(
       characters: List.from(charactersList),
     );
 */
+List<Season> seasons = [
+  Season('Сезон 1', []),
+  Season('Сезон 2', []),
+  Season('Сезон 3', []),
+  Season('Сезон 4', []),
+];

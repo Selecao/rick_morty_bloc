@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:sc_03/data/network/dio_settings.dart';
 import 'package:sc_03/data/network/models/characters_model.dart';
 import 'package:sc_03/data/network/models/episode_model.dart';
+import 'package:sc_03/data/network/models/episodes_list_model.dart';
 
 class ServiceApi {
   late DioSettings _dioSettings;
@@ -35,5 +36,15 @@ class ServiceApi {
       queryParameters: {"Id": id},
     );
     return selectedEpisodeModelFromJson(response.toString());
+  }
+
+  Future<EpisodesListModel> getEpisodesList(
+      int pageNumber, int pageSize) async {
+    print("## Пошел запрос на список всех персонажей");
+    Response<String> response = await _dio.get(
+      "/Episodes/GetAll",
+      queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
+    );
+    return episodesListModelFromJson(response.toString());
   }
 }
