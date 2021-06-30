@@ -3,6 +3,7 @@ import 'package:sc_03/data/network/dio_settings.dart';
 import 'package:sc_03/data/network/models/characters_model.dart';
 import 'package:sc_03/data/network/models/episode_model.dart';
 import 'package:sc_03/data/network/models/episodes_list_model.dart';
+import 'package:sc_03/data/network/models/location_model.dart';
 
 class ServiceApi {
   late DioSettings _dioSettings;
@@ -20,11 +21,11 @@ class ServiceApi {
     _dio = _dioSettings.dio;
   }
 
-  Future<CharactersModel> getCharacters() async {
+  Future<CharactersModel> getCharacters(int pageNumber, int pageSize) async {
     print("## Пошел запрос на персонажей");
     Response<String> response = await _dio.get(
       "/Characters/GetAll",
-      queryParameters: {"PageNumber": 1, "PageSize": 10},
+      queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
     );
     return charactersModelFromJson(response.toString());
   }
@@ -35,7 +36,7 @@ class ServiceApi {
       "/Episodes/GetById",
       queryParameters: {"Id": id},
     );
-    return selectedEpisodeModelFromJson(response.toString());
+    return episodeModelFromJson(response.toString());
   }
 
   Future<EpisodesListModel> getEpisodesList(
@@ -46,5 +47,14 @@ class ServiceApi {
       queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
     );
     return episodesListModelFromJson(response.toString());
+  }
+
+  Future<LocationModel> getLocationById(String id) async {
+    print("## Пошел запрос на выбранную локацию");
+    Response<String> response = await _dio.get(
+      "/Locations/GetById",
+      queryParameters: {"Id": id},
+    );
+    return locationModelFromJson(response.toString());
   }
 }

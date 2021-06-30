@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:sc_03/data/network/models/episode.dart';
+import 'package:sc_03/data/network/models/location.dart';
 
-EpisodeModel episodeModelFromJson(String str) =>
-    EpisodeModel.fromJson(json.decode(str));
+LocationModel locationModelFromJson(String str) =>
+    LocationModel.fromJson(json.decode(str));
 
-String episodeModelToJson(EpisodeModel data) => json.encode(data.toJson());
+String locationModelToJson(LocationModel data) => json.encode(data.toJson());
 
-class EpisodeModel {
-  EpisodeModel({
+class LocationModel {
+  LocationModel({
     this.succeeded,
     this.message,
     this.error,
@@ -18,13 +18,13 @@ class EpisodeModel {
   final bool? succeeded;
   final dynamic message;
   final dynamic error;
-  final Episode data;
+  final Location data;
 
-  factory EpisodeModel.fromJson(Map<String, dynamic> json) => EpisodeModel(
+  factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(
         succeeded: json["succeeded"],
         message: json["message"],
         error: json["error"],
-        data: Episode.fromJson(json["data"]),
+        data: Location.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {

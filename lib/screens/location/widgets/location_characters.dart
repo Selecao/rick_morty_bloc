@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/character_list_tile.dart';
-import 'package:sc_03/data/network/models/person.dart';
+import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class LocationCharacters extends StatelessWidget {
-  final List<Person> charactersOnLocation;
+  final List<Character> charactersOnLocation;
 
   LocationCharacters(this.charactersOnLocation);
 

@@ -16,11 +16,11 @@ class LocationDescription extends StatelessWidget {
         children: [
           Container(height: 8.0),
           Text(
-            location.name,
+            location.name ?? 'None',
             style: AppTextTheme.headline5.copyWith(height: 1.33),
           ),
           Text(
-            '${location.status} • ${location.dimension}',
+            '${location.type ?? "Not available"} • ${location.measurements ?? "Not available"}',
             style: AppTextTheme.caption.copyWith(
               letterSpacing: .5,
               height: 1.33,
@@ -28,7 +28,7 @@ class LocationDescription extends StatelessWidget {
           ),
           Container(height: 32.0),
           Text(
-            location.description,
+            location.about ?? "Информация недоступна.",
             style: AppTextTheme.bodyText2.copyWith(
               height: 1.5,
               letterSpacing: 0.25,

@@ -24,7 +24,7 @@ class LocationScreen extends StatelessWidget {
         /// Обрабатываем состояния
         builder: (context, state) {
           return state.maybeMap(
-            loading: (_) => CircularProgressIndicator(),
+            loading: (_) => Center(child: CircularProgressIndicator()),
             data: (_data) => Scaffold(
               extendBodyBehindAppBar: true,
               appBar: TransparentAppBar(),
@@ -32,9 +32,11 @@ class LocationScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    LocationImage(_data.location.image),
+                    LocationImage(_data.location.imageName),
                     LocationDescription(_data.location),
-                    LocationCharacters(_data.charactersAtLocation),
+                    _data.location.characters == null
+                        ? SizedBox.shrink()
+                        : LocationCharacters(_data.location.characters!),
                   ],
                 ),
               ),
