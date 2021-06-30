@@ -26,15 +26,14 @@ class EpisodeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    /*EpisodeImage(
-                      image: _data.selectedEpisode.data.imageName,
+                    EpisodeImage(
+                      image: _data.selectedEpisode.imageName,
                       onPressed: () {},
                     ),
-                    EpisodeDescription(_data.selectedEpisode.data),
-                    _data.selectedEpisode.data.characters == null
+                    EpisodeDescription(_data.selectedEpisode),
+                    _data.selectedEpisode.characters == null
                         ? SizedBox.shrink()
-                        : EpisodeCharacters(
-                            _data.selectedEpisode.data.characters),*/
+                        : EpisodeCharacters(_data.selectedEpisode.characters!),
                   ],
                 ),
               ),

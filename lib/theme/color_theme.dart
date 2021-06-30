@@ -8,6 +8,7 @@ class ColorTheme {
   static const Color blueGrey_500 = Color(0xFF6E798C);
   static const Color cyan_300 = Color(0xFF22A2BD);
   static const Color green_200 = Color(0xFF43D049);
+  static const Color yellow_200 = Color(0xFFD0C243);
   static const Color red_100 = Color(0xFFEB5757);
   static const Color white = Color(0xFFFFFFFF);
   static const Color transparent = Color(0x0);

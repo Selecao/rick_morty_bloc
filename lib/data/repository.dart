@@ -1,5 +1,5 @@
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/data/network/models/selected_episode_model.dart';
+import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/data/network/service_api.dart';
 
 class Repository {
@@ -10,8 +10,8 @@ class Repository {
     return response.data;
   }
 
-  /*Future<EpisodeModel> getEpisodeById(String id) async {
+  Future<Episode> getEpisodeById(String id) async {
     final response = await _serviceApi.getEpisodeById(id);
-    return response;
-  }*/
+    return response.data;
+  }
 }

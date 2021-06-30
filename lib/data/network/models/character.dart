@@ -1,5 +1,7 @@
 import 'package:sc_03/data/network/models/episode.dart';
 
+enum Status { live, dead, unknown }
+
 class Character {
   Character({
     this.id,

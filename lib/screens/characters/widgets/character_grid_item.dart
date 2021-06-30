@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sc_03/components/race_gender_text.dart';
+import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
@@ -19,15 +21,7 @@ class CharacterGridItem extends StatelessWidget {
           backgroundColor: ColorTheme.blueGrey_600,
         ),
         const SizedBox(height: 18.0),
-        Text(
-          character.status == 1 ? "ЖИВОЙ" : "МЁРТВЫЙ",
-          style: AppTextTheme.subtitle2.copyWith(
-              letterSpacing: 1.5,
-              height: 1.6,
-              color: character.status == 1
-                  ? ColorTheme.green_200
-                  : ColorTheme.red_100),
-        ),
+        StatusText(statusIndex: character.status ?? 2),
         Text(
           character.fullName ?? "None",
           style: AppTextTheme.bodyText1.copyWith(
@@ -36,13 +30,7 @@ class CharacterGridItem extends StatelessWidget {
             height: 1.42,
           ),
         ),
-        Text(
-          '${character.race}, ${character.gender == 0 ? "Мужской" : "Женский"}',
-          style: AppTextTheme.caption.copyWith(
-            height: 1.33,
-            letterSpacing: 0.5,
-          ),
-        ),
+        RaceGenderText(character: character),
       ],
     );
   }

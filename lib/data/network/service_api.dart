@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:sc_03/data/network/dio_settings.dart';
 import 'package:sc_03/data/network/models/characters_model.dart';
-import 'package:sc_03/data/network/models/selected_episode_model.dart';
+import 'package:sc_03/data/network/models/episode_model.dart';
 
 class ServiceApi {
   late DioSettings _dioSettings;
@@ -28,12 +28,12 @@ class ServiceApi {
     return charactersModelFromJson(response.toString());
   }
 
-  /*Future<EpisodeModel> getEpisodeById(String id) async {
+  Future<EpisodeModel> getEpisodeById(String id) async {
     print("## Пошел запрос на выбранный эпизод");
     Response<String> response = await _dio.get(
       "/Episodes/GetById",
       queryParameters: {"Id": id},
     );
-    return episodeModelFromJson(response.toString());
-  }*/
+    return selectedEpisodeModelFromJson(response.toString());
+  }
 }

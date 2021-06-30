@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sc_03/components/race_gender_text.dart';
+import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
@@ -38,16 +40,7 @@ class CharacterListTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                character.status == 1 ? "ЖИВОЙ" : "МЁРТВЫЙ",
-                style: AppTextTheme.subtitle2.copyWith(
-                  height: 1.6,
-                  letterSpacing: 1.5,
-                  color: character.status == 1
-                      ? ColorTheme.green_200
-                      : ColorTheme.red_100,
-                ),
-              ),
+              StatusText(statusIndex: character.status ?? 2),
               ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 200.0),
                 child: Text(
@@ -60,13 +53,7 @@ class CharacterListTile extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                '${character.race}, ${character.gender == 0 ? "Мужской" : "Женский"}',
-                style: AppTextTheme.caption.copyWith(
-                  height: 1.33,
-                  letterSpacing: 0.5,
-                ),
-              ),
+              RaceGenderText(character: character),
             ],
           ),
           Spacer(),
