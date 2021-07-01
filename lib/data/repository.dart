@@ -7,7 +7,7 @@ import 'network/models/location.dart';
 class Repository {
   final _serviceApi = ServiceApi();
 
-  Future<List<Character>?> getCharacters(
+  Future<List<Character>?> getCharactersList(
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getCharacters(pageNumber, pageSize);
     return response.data;
@@ -32,6 +32,11 @@ class Repository {
   Future<List<Location>?> getLocationsList(
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getLocationsList(pageNumber, pageSize);
+    return response.data;
+  }
+
+  Future<Character> getCharacter(String id) async {
+    final response = await _serviceApi.getCharacterById(id);
     return response.data;
   }
 }

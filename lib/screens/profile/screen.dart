@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
           /// Обрабатывает состояния
           builder: (context, state) {
             return state.maybeMap(
-              loading: (_) => CircularProgressIndicator(),
+              loading: (_) => Center(child: CircularProgressIndicator()),
               data: (_data) => Scaffold(
                 extendBodyBehindAppBar: true,
                 body: CustomScrollView(
@@ -36,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
                     SliverPersistentHeader(
                       delegate: PageSliverHeader(
                         expandedHeight: 218,
-                        image: _data.character.avatar,
+                        image: _data.character.imageName ?? "None",
                       ),
                       pinned: true,
                     ),
@@ -49,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     ChaptersHeader(),
-                    Chapters(chaptersList: _data.chaptersList),
+                    Chapters(chaptersList: _data.character.episodes ?? []),
                   ],
                 ),
               ),

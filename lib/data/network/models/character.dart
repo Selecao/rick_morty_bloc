@@ -1,4 +1,5 @@
 import 'package:sc_03/data/network/models/episode.dart';
+import 'package:sc_03/data/network/models/location.dart';
 
 enum Status { live, dead, unknown }
 
@@ -28,7 +29,7 @@ class Character {
   final String? race;
   final String? imageName;
   final String? placeOfBirthId;
-  final String? placeOfBirth;
+  final Location? placeOfBirth;
   final List<Episode>? episodes;
 
   factory Character.fromJson(Map<String, dynamic> json) => Character(
@@ -42,7 +43,9 @@ class Character {
         race: json["race"],
         imageName: json["imageName"],
         placeOfBirthId: json["placeOfBirthId"],
-        placeOfBirth: json["placeOfBirth"],
+        placeOfBirth: (json["placeOfBirth"] is String)
+            ? Location(name: json["placeOfBirth"])
+            : Location.fromJson(json["placeOfBirth"]),
         episodes: List<Episode>.from(
             json["episodes"]?.map((x) => Episode.fromJson(x)) ?? []),
       );
@@ -58,7 +61,7 @@ class Character {
         "race": race,
         "imageName": imageName,
         "placeOfBirthId": placeOfBirthId,
-        "placeOfBirth": placeOfBirth,
+        "placeOfBirth": placeOfBirth?.toJson(),
         "episodes": List<dynamic>.from(episodes?.map((x) => x.toJson()) ?? []),
       };
 }

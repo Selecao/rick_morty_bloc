@@ -7,7 +7,7 @@ import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/screens/episodes_list/screen.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/locations_list/screen.dart';
-//import 'package:sc_03/screens/profile/screen.dart';
+import 'package:sc_03/screens/profile/screen.dart';
 //import 'package:sc_03/screens/splash/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         //canvasColor: ColorTheme.blue_900,
         primaryColor: ColorTheme.blue_900,
       ),
-      home: LocationsListScreen(),
+      home: ProfileScreen(),
     );
   }
 }

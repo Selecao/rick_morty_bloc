@@ -39,7 +39,8 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       /// Получение данных
       print("## Начинаем загрузку персонажей");
       _charactersList =
-          await _repository.getCharacters(pageNumber: 1, pageSize: 10) ?? [];
+          await _repository.getCharactersList(pageNumber: 1, pageSize: 10) ??
+              [];
     } catch (ex) {
       /// Возвращаем состояние с ошибкой
       print("## Получи ошибку в блоке персонажей $ex");

@@ -2,14 +2,14 @@ import 'dart:convert';
 
 import 'package:sc_03/data/network/models/character.dart';
 
-CharactersModel charactersModelFromJson(String str) =>
-    CharactersModel.fromJson(json.decode(str));
+CharactersListModel charactersListModelFromJson(String str) =>
+    CharactersListModel.fromJson(json.decode(str));
 
-String charactersModelToJson(CharactersModel data) =>
+String charactersListModelToJson(CharactersListModel data) =>
     json.encode(data.toJson());
 
-class CharactersModel {
-  CharactersModel({
+class CharactersListModel {
+  CharactersListModel({
     this.totalRecords,
     this.succeeded,
     this.message,
@@ -23,8 +23,8 @@ class CharactersModel {
   final dynamic error;
   final List<Character>? data;
 
-  factory CharactersModel.fromJson(Map<String, dynamic> json) =>
-      CharactersModel(
+  factory CharactersListModel.fromJson(Map<String, dynamic> json) =>
+      CharactersListModel(
         totalRecords: json["totalRecords"],
         succeeded: json["succeeded"],
         message: json["message"],

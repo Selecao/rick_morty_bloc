@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:sc_03/data/network/dio_settings.dart';
-import 'package:sc_03/data/network/models/characters_model.dart';
+import 'package:sc_03/data/network/models/character_model.dart';
+import 'package:sc_03/data/network/models/characters_list_model.dart';
 import 'package:sc_03/data/network/models/episode_model.dart';
 import 'package:sc_03/data/network/models/episodes_list_model.dart';
 import 'package:sc_03/data/network/models/location_model.dart';
@@ -22,13 +23,14 @@ class ServiceApi {
     _dio = _dioSettings.dio;
   }
 
-  Future<CharactersModel> getCharacters(int pageNumber, int pageSize) async {
+  Future<CharactersListModel> getCharacters(
+      int pageNumber, int pageSize) async {
     print("## Пошел запрос на персонажей");
     Response<String> response = await _dio.get(
       "/Characters/GetAll",
       queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
     );
-    return charactersModelFromJson(response.toString());
+    return charactersListModelFromJson(response.toString());
   }
 
   Future<EpisodeModel> getEpisodeById(String id) async {
@@ -67,5 +69,14 @@ class ServiceApi {
       queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
     );
     return locationsListModelFromJson(response.toString());
+  }
+
+  Future<CharacterModel> getCharacterById(String id) async {
+    print("## Пошел запрос на выбранного персонажа");
+    Response<String> response = await _dio.get(
+      "/Characters/GetById",
+      queryParameters: {'Id': id},
+    );
+    return characterModelFromJson(response.toString());
   }
 }
