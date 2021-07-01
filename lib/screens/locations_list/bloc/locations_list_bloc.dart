@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import 'package:sc_03/data/network/models/location.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/data/repository.dart';
 
 part 'locations_list_event.dart';
 part 'locations_list_state.dart';
@@ -13,7 +13,9 @@ part 'locations_list_bloc.freezed.dart';
 
 class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
   LocationsListBloc() : super(LocationsListState.initial());
-  List<Location> _locationsList = locationsList;
+
+  final _repository = Repository();
+  late List<Location> _locationsList;
 
   @override
   Stream<LocationsListState> mapEventToState(
@@ -31,8 +33,12 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
 
     try {
       /// Получение данных
+      print("## Начинаем загрузку всех локаций");
+      _locationsList =
+          await _repository.getLocationsList(pageNumber: 1, pageSize: 14) ?? [];
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
+      print("## Получи ошибку в блоке всех локаций $ex");
     }
 
     /// Возвращаем состояние с данными

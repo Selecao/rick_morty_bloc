@@ -17,13 +17,13 @@ class LocationTile extends StatelessWidget {
           Container(
             height: 150.0,
             decoration: BoxDecoration(
-              color: ColorTheme.blue_900,
+              color: ColorTheme.blueGrey_600,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.0),
                 topRight: Radius.circular(16.0),
               ),
               image: DecorationImage(
-                image: AssetImage(location.image),
+                image: NetworkImage(location.imageName ?? "None"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -43,7 +43,7 @@ class LocationTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  location.name,
+                  (location.name ?? "").isEmpty ? "N/A" : location.name!,
                   style: AppTextTheme.headline6.copyWith(
                     letterSpacing: .15,
                     height: 1.4,
@@ -51,11 +51,15 @@ class LocationTile extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      '${location.status} • ${location.dimension}',
-                      style: AppTextTheme.caption.copyWith(
-                        letterSpacing: .5,
-                        height: 1.33,
+                    ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 340.0),
+                      child: Text(
+                        '${(location.type ?? "").isEmpty ? "N/A" : location.type} • ${(location.measurements ?? "").isEmpty ? "N/A" : location.measurements}',
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextTheme.caption.copyWith(
+                          letterSpacing: .5,
+                          height: 1.33,
+                        ),
                       ),
                     ),
                   ],

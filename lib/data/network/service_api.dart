@@ -4,6 +4,7 @@ import 'package:sc_03/data/network/models/characters_model.dart';
 import 'package:sc_03/data/network/models/episode_model.dart';
 import 'package:sc_03/data/network/models/episodes_list_model.dart';
 import 'package:sc_03/data/network/models/location_model.dart';
+import 'package:sc_03/data/network/models/locations_list_model.dart';
 
 class ServiceApi {
   late DioSettings _dioSettings;
@@ -56,5 +57,15 @@ class ServiceApi {
       queryParameters: {"Id": id},
     );
     return locationModelFromJson(response.toString());
+  }
+
+  Future<LocationsListModel> getLocationsList(
+      int pageNumber, int pageSize) async {
+    print("## Пошел запрос на список всех локаций");
+    Response<String> response = await _dio.get(
+      "/Locations/GetAll",
+      queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
+    );
+    return locationsListModelFromJson(response.toString());
   }
 }

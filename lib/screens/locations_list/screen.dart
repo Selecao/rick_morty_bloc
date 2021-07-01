@@ -24,7 +24,7 @@ class LocationsListScreen extends StatelessWidget {
           /// Обрабатываем состояния
           builder: (context, state) {
             return state.maybeMap(
-              loading: (_) => CircularProgressIndicator(),
+              loading: (_) => Center(child: CircularProgressIndicator()),
               data: (_data) => Scaffold(
                 appBar: LocationsListAppBar(_data.locationsList.length),
                 body: ListView.builder(

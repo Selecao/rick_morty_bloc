@@ -28,4 +28,10 @@ class Repository {
     final response = await _serviceApi.getLocationById(id);
     return response.data;
   }
+
+  Future<List<Location>?> getLocationsList(
+      {required int pageNumber, required int pageSize}) async {
+    final response = await _serviceApi.getLocationsList(pageNumber, pageSize);
+    return response.data;
+  }
 }
