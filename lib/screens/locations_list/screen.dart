@@ -41,7 +41,7 @@ class LocationsListScreen extends StatelessWidget {
                 ),
                 bottomNavigationBar: AppBottomNavigationBar(
                   currentIndex: 1,
-                  onTap: () {},
+                  onTap: (int index) {},
                 ),
               ),
               orElse: () => SizedBox.shrink(),

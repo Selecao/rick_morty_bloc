@@ -7,8 +7,8 @@ import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
-  final VoidCallback onTap;
-  final currentIndex;
+  final void Function(int index) onTap;
+  final int currentIndex;
   AppBottomNavigationBar({required this.currentIndex, required this.onTap});
   static const _activeColor = ColorTheme.green_200;
   static const _inactiveColor = ColorTheme.blueGrey_600;
@@ -38,7 +38,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         color: _inactiveColor,
         size: 24.0,
       ),
-      onTap: (value) {},
+      onTap: onTap,
       items: [
         BottomNavigationBarItem(
           label: 'Персонажи',

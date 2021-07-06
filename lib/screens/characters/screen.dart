@@ -34,7 +34,7 @@ class CharactersScreen extends StatelessWidget {
                   : CharactersList(_data.charactersList),
               bottomNavigationBar: AppBottomNavigationBar(
                 currentIndex: 0,
-                onTap: () {},
+                onTap: (int index) {},
               ),
             ),
             orElse: () => SizedBox.shrink(),
