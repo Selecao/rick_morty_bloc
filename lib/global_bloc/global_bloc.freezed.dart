@@ -285,10 +285,8 @@ abstract class _SelectedTabGlobalEvent implements GlobalEvent {
 class _$GlobalStateTearOff {
   const _$GlobalStateTearOff();
 
-  _DataGlobalState data(
-      {required List<Character> charactersList, required int activeTab}) {
+  _DataGlobalState data({required int activeTab}) {
     return _DataGlobalState(
-      charactersList: charactersList,
       activeTab: activeTab,
     );
   }
@@ -309,15 +307,14 @@ const $GlobalState = _$GlobalStateTearOff();
 mixin _$GlobalState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, int activeTab)
-        data,
+    required TResult Function(int activeTab) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, int activeTab)? data,
+    TResult Function(int activeTab)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -361,7 +358,7 @@ abstract class _$DataGlobalStateCopyWith<$Res> {
   factory _$DataGlobalStateCopyWith(
           _DataGlobalState value, $Res Function(_DataGlobalState) then) =
       __$DataGlobalStateCopyWithImpl<$Res>;
-  $Res call({List<Character> charactersList, int activeTab});
+  $Res call({int activeTab});
 }
 
 /// @nodoc
@@ -377,14 +374,9 @@ class __$DataGlobalStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? charactersList = freezed,
     Object? activeTab = freezed,
   }) {
     return _then(_DataGlobalState(
-      charactersList: charactersList == freezed
-          ? _value.charactersList
-          : charactersList // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
       activeTab: activeTab == freezed
           ? _value.activeTab
           : activeTab // ignore: cast_nullable_to_non_nullable
@@ -396,28 +388,22 @@ class __$DataGlobalStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DataGlobalState implements _DataGlobalState {
-  const _$_DataGlobalState(
-      {required this.charactersList, required this.activeTab});
+  const _$_DataGlobalState({required this.activeTab});
 
   @override
 
   /// Параметры
-  final List<Character> charactersList;
-  @override
   final int activeTab;
 
   @override
   String toString() {
-    return 'GlobalState.data(charactersList: $charactersList, activeTab: $activeTab)';
+    return 'GlobalState.data(activeTab: $activeTab)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _DataGlobalState &&
-            (identical(other.charactersList, charactersList) ||
-                const DeepCollectionEquality()
-                    .equals(other.charactersList, charactersList)) &&
             (identical(other.activeTab, activeTab) ||
                 const DeepCollectionEquality()
                     .equals(other.activeTab, activeTab)));
@@ -425,9 +411,7 @@ class _$_DataGlobalState implements _DataGlobalState {
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(charactersList) ^
-      const DeepCollectionEquality().hash(activeTab);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(activeTab);
 
   @JsonKey(ignore: true)
   @override
@@ -437,24 +421,23 @@ class _$_DataGlobalState implements _DataGlobalState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, int activeTab)
-        data,
+    required TResult Function(int activeTab) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
-    return data(charactersList, activeTab);
+    return data(activeTab);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, int activeTab)? data,
+    TResult Function(int activeTab)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(charactersList, activeTab);
+      return data(activeTab);
     }
     return orElse();
   }
@@ -485,12 +468,9 @@ class _$_DataGlobalState implements _DataGlobalState {
 }
 
 abstract class _DataGlobalState implements GlobalState {
-  const factory _DataGlobalState(
-      {required List<Character> charactersList,
-      required int activeTab}) = _$_DataGlobalState;
+  const factory _DataGlobalState({required int activeTab}) = _$_DataGlobalState;
 
   /// Параметры
-  List<Character> get charactersList => throw _privateConstructorUsedError;
   int get activeTab => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataGlobalStateCopyWith<_DataGlobalState> get copyWith =>
@@ -537,8 +517,7 @@ class _$_InitialGlobalState implements _InitialGlobalState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, int activeTab)
-        data,
+    required TResult Function(int activeTab) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -548,7 +527,7 @@ class _$_InitialGlobalState implements _InitialGlobalState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, int activeTab)? data,
+    TResult Function(int activeTab)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -628,8 +607,7 @@ class _$_LoadingGlobalState implements _LoadingGlobalState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, int activeTab)
-        data,
+    required TResult Function(int activeTab) data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -639,7 +617,7 @@ class _$_LoadingGlobalState implements _LoadingGlobalState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, int activeTab)? data,
+    TResult Function(int activeTab)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),

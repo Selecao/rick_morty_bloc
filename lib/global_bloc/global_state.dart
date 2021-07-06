@@ -5,7 +5,6 @@ class GlobalState with _$GlobalState {
   /// Состояние с данными
   const factory GlobalState.data({
     /// Параметры
-    required final List<Character> charactersList,
     required final int activeTab,
   }) = _DataGlobalState;
 
