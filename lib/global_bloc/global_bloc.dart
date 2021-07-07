@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:sc_03/data/network/models/character.dart';
-
 part 'global_event.dart';
 part 'global_state.dart';
 part 'global_bloc.freezed.dart';
@@ -13,7 +11,7 @@ class GlobalBloc extends Bloc<GlobalEvent, GlobalState> {
   GlobalBloc() : super(GlobalState.initial());
 
   /// TODO: final _repository = Repository();
-  int _activeTab = 0;
+  int _activeTab = 1;
 
   @override
   Stream<GlobalState> mapEventToState(
@@ -47,7 +45,7 @@ class GlobalBloc extends Bloc<GlobalEvent, GlobalState> {
   Stream<GlobalState> _mapSelectedTabGlobalEvent(
       _SelectedTabGlobalEvent event) async* {
     yield GlobalState.loading();
-    _activeTab = event.activeTab;
+    _activeTab = event.index;
     yield GlobalState.data(
       activeTab: _activeTab,
     );

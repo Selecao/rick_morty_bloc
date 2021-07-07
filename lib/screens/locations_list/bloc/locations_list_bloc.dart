@@ -35,7 +35,7 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
       /// Получение данных
       print("## Начинаем загрузку всех локаций");
       _locationsList =
-          await _repository.getLocationsList(pageNumber: 1, pageSize: 14) ?? [];
+          await _repository.getLocationsList(pageNumber: 1, pageSize: 10) ?? [];
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
       print("## Получи ошибку в блоке всех локаций $ex");

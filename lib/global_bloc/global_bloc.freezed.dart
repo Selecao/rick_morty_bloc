@@ -20,9 +20,9 @@ class _$GlobalEventTearOff {
     return const _InitialGlobalEvent();
   }
 
-  _SelectedTabGlobalEvent selectedTab({required int activeTab}) {
+  _SelectedTabGlobalEvent selectedTab({required int index}) {
     return _SelectedTabGlobalEvent(
-      activeTab: activeTab,
+      index: index,
     );
   }
 }
@@ -35,13 +35,13 @@ mixin _$GlobalEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int activeTab) selectedTab,
+    required TResult Function(int index) selectedTab,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int activeTab)? selectedTab,
+    TResult Function(int index)? selectedTab,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,7 +117,7 @@ class _$_InitialGlobalEvent implements _InitialGlobalEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int activeTab) selectedTab,
+    required TResult Function(int index) selectedTab,
   }) {
     return initial();
   }
@@ -126,7 +126,7 @@ class _$_InitialGlobalEvent implements _InitialGlobalEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int activeTab)? selectedTab,
+    TResult Function(int index)? selectedTab,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -167,7 +167,7 @@ abstract class _$SelectedTabGlobalEventCopyWith<$Res> {
   factory _$SelectedTabGlobalEventCopyWith(_SelectedTabGlobalEvent value,
           $Res Function(_SelectedTabGlobalEvent) then) =
       __$SelectedTabGlobalEventCopyWithImpl<$Res>;
-  $Res call({int activeTab});
+  $Res call({int index});
 }
 
 /// @nodoc
@@ -183,12 +183,12 @@ class __$SelectedTabGlobalEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? activeTab = freezed,
+    Object? index = freezed,
   }) {
     return _then(_SelectedTabGlobalEvent(
-      activeTab: activeTab == freezed
-          ? _value.activeTab
-          : activeTab // ignore: cast_nullable_to_non_nullable
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -197,28 +197,27 @@ class __$SelectedTabGlobalEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SelectedTabGlobalEvent implements _SelectedTabGlobalEvent {
-  const _$_SelectedTabGlobalEvent({required this.activeTab});
+  const _$_SelectedTabGlobalEvent({required this.index});
 
   @override
-  final int activeTab;
+  final int index;
 
   @override
   String toString() {
-    return 'GlobalEvent.selectedTab(activeTab: $activeTab)';
+    return 'GlobalEvent.selectedTab(index: $index)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SelectedTabGlobalEvent &&
-            (identical(other.activeTab, activeTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.activeTab, activeTab)));
+            (identical(other.index, index) ||
+                const DeepCollectionEquality().equals(other.index, index)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(activeTab);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
 
   @JsonKey(ignore: true)
   @override
@@ -230,20 +229,20 @@ class _$_SelectedTabGlobalEvent implements _SelectedTabGlobalEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(int activeTab) selectedTab,
+    required TResult Function(int index) selectedTab,
   }) {
-    return selectedTab(activeTab);
+    return selectedTab(index);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(int activeTab)? selectedTab,
+    TResult Function(int index)? selectedTab,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
-      return selectedTab(activeTab);
+      return selectedTab(index);
     }
     return orElse();
   }
@@ -272,10 +271,10 @@ class _$_SelectedTabGlobalEvent implements _SelectedTabGlobalEvent {
 }
 
 abstract class _SelectedTabGlobalEvent implements GlobalEvent {
-  const factory _SelectedTabGlobalEvent({required int activeTab}) =
+  const factory _SelectedTabGlobalEvent({required int index}) =
       _$_SelectedTabGlobalEvent;
 
-  int get activeTab => throw _privateConstructorUsedError;
+  int get index => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SelectedTabGlobalEventCopyWith<_SelectedTabGlobalEvent> get copyWith =>
       throw _privateConstructorUsedError;

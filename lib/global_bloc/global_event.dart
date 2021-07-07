@@ -7,6 +7,6 @@ class GlobalEvent with _$GlobalEvent {
 
   /// Событие переключения экрана
   const factory GlobalEvent.selectedTab({
-    required int activeTab,
+    required int index,
   }) = _SelectedTabGlobalEvent;
 }

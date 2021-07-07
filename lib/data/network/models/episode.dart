@@ -1,6 +1,15 @@
 import 'package:sc_03/data/network/models/character.dart';
 
 class Episode {
+  final String? id;
+  final String? name;
+  final int? season;
+  final int? series;
+  final String? plot;
+  final DateTime? premiere;
+  final String? imageName;
+  final List<Character>? characters;
+
   Episode({
     this.id,
     this.name,
@@ -11,15 +20,6 @@ class Episode {
     this.imageName,
     this.characters,
   });
-
-  final String? id;
-  final String? name;
-  final int? season;
-  final int? series;
-  final String? plot;
-  final DateTime? premiere;
-  final String? imageName;
-  final List<Character>? characters;
 
   factory Episode.fromJson(Map<String, dynamic> json) => Episode(
         id: json["id"],
