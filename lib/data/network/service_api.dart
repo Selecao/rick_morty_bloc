@@ -44,7 +44,7 @@ class ServiceApi {
 
   Future<EpisodesListModel> getEpisodesList(
       int pageNumber, int pageSize) async {
-    print("## Пошел запрос на список всех персонажей");
+    print("## Пошел запрос на список всех эпизодов");
     Response<String> response = await _dio.get(
       "/Episodes/GetAll",
       queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},

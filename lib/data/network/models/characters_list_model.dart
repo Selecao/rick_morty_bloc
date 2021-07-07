@@ -30,7 +30,7 @@ class CharactersListModel {
         message: json["message"],
         error: json["error"],
         data: List<Character>.from(
-            json["data"].map((x) => Character.fromJson(x))),
+            json["data"].map((x) => Character.fromJson(x)) ?? []),
       );
 
   Map<String, dynamic> toJson() => {

@@ -1,5 +1,19 @@
 import 'package:sc_03/data/network/models/season.dart';
 
+List<Season> seasons = [
+  Season('Сезон 1', []),
+  Season('Сезон 2', []),
+  Season('Сезон 3', []),
+  Season('Сезон 4', []),
+];
+
+const List<String> themeModeTitles = [
+  'Выключена',
+  'Включена',
+  'Следовать настройкам системы',
+  'В режиме энергосбережения',
+];
+
 /*
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/location.dart';
@@ -158,9 +172,3 @@ Episode get selectedEpisode => Episode(
       characters: List.from(charactersList),
     );
 */
-List<Season> seasons = [
-  Season('Сезон 1', []),
-  Season('Сезон 2', []),
-  Season('Сезон 3', []),
-  Season('Сезон 4', []),
-];

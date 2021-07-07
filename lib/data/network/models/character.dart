@@ -55,7 +55,7 @@ class Character {
             ? null
             : ((json["placeOfBirth"] is String)
                 ? Location(name: json["placeOfBirth"])
-                : Location.fromJson(json["placeOfBirth"])), // delete this ?? []
+                : Location.fromJson(json["placeOfBirth"])),
         episodes: List<Episode>.from(
             json["episodes"]?.map((x) => Episode.fromJson(x)) ?? []),
       );

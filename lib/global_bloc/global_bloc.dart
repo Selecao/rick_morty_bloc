@@ -11,7 +11,7 @@ class GlobalBloc extends Bloc<GlobalEvent, GlobalState> {
   GlobalBloc() : super(GlobalState.initial());
 
   /// TODO: final _repository = Repository();
-  int _activeTab = 1;
+  int _activeTab = 0;
 
   @override
   Stream<GlobalState> mapEventToState(

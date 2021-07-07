@@ -12,8 +12,8 @@ part 'adjustments_bloc.freezed.dart';
 class AdjustmentsBloc extends Bloc<AdjustmentsEvent, AdjustmentsState> {
   AdjustmentsBloc() : super(AdjustmentsState.initial());
   int themeOptionIndex = 1;
-  //List<String> _themeModeTitles = themeModeTitles;
-  late List<String> _themeModeTitles;
+  List<String> _themeModeTitles = themeModeTitles;
+  //late List<String> _themeModeTitles;
 
   @override
   Stream<AdjustmentsState> mapEventToState(

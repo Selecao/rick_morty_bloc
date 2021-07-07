@@ -49,9 +49,7 @@ class AdjustmentsScreen extends StatelessWidget {
                       onTap: () {
                         showDialog<void>(
                           context: context,
-                          builder: (context) => ThemeAlertDialog(
-                            themeOptionIndex: _data.darkModeOptionIndex,
-                          ),
+                          builder: (context) => ThemeAlertDialog(),
                         );
                       },
                     ),
