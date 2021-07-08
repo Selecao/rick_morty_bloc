@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/global_bloc/global_bloc.dart';
+import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/locations_list/widgets/location_tile.dart';
 
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
@@ -24,8 +25,20 @@ class LocationsListScreen extends StatelessWidget {
           data: (_data) => Scaffold(
             appBar: LocationsListAppBar(_data.locationsList.length),
             body: ListView.builder(
-              itemBuilder: (context, index) =>
-                  LocationTile(_data.locationsList[index]),
+              itemBuilder: (context, index) => LocationTile(
+                location: _data.locationsList[index],
+                onTap: () {
+                  if (_data.locationsList[index].id != null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            LocationScreen(_data.locationsList[index].id!),
+                      ),
+                    );
+                  }
+                },
+              ),
               itemCount: _data.locationsList.length,
               itemExtent: 242.0,
               shrinkWrap: true,

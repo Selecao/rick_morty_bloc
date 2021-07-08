@@ -12,7 +12,8 @@ part 'location_state.dart';
 part 'location_bloc.freezed.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  LocationBloc() : super(LocationState.initial());
+  String id;
+  LocationBloc(this.id) : super(LocationState.initial());
 
   final _repository = Repository();
 
@@ -37,8 +38,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     try {
       /// Получение данных
       print("## Начинаем загрузку персонажей на выбранной локации");
-      _location = await _repository
-          .getLocationById("da630ad9-646a-4aef-9c9b-adc5f00ba2ed");
+      _location = await _repository.getLocationById(this.id);
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
       print("## Получи ошибку в блоке локации $ex");

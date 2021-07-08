@@ -11,11 +11,14 @@ class RaceGenderText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '${character.race}, ${getGenderText(character.gender ?? 2)}',
-      style: AppTextTheme.caption.copyWith(
-        height: 1.33,
-        letterSpacing: 0.5,
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 200.0),
+      child: Text(
+        '${character.race}, ${getGenderText(character.gender ?? 2)}',
+        style: AppTextTheme.caption.copyWith(
+          height: 1.33,
+          letterSpacing: 0.5,
+        ),
       ),
     );
   }

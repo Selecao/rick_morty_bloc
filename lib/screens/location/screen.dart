@@ -9,11 +9,14 @@ import 'package:sc_03/screens/location/widgets/location_description.dart';
 import 'package:sc_03/screens/location/widgets/location_image.dart';
 
 class LocationScreen extends StatelessWidget {
+  final String id;
+  const LocationScreen(this.id);
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LocationBloc>(
       create: (BuildContext context) =>
-          LocationBloc()..add(LocationEvent.initial()),
+          LocationBloc(id)..add(LocationEvent.initial()),
 
       /// Обрабатываем состояние
       child: BlocConsumer<LocationBloc, LocationState>(
