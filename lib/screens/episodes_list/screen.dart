@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/global_bloc/global_bloc.dart';
+import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:sc_03/screens/episodes_list/widgets/episodes_list_app_bar.dart';
 
@@ -30,7 +31,17 @@ class EpisodesListScreen extends StatelessWidget {
                         imageSize: 60.0,
                         textConstraint: 280.0,
                         chapter: season.episodes[index],
-                        onTap: () {},
+                        onTap: () {
+                          if (season.episodes[index].id != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return EpisodeScreen(
+                                    season.episodes[index].id!);
+                              }),
+                            );
+                          }
+                        },
                       ),
                       itemCount: season.episodes.length,
                       itemExtent: 84.0,
