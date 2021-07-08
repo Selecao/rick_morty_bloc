@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/data/network/models/episode.dart';
+import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class Chapters extends StatelessWidget {
@@ -27,7 +28,16 @@ class Chapters extends StatelessWidget {
                 height: 8.0,
                 color: ColorTheme.white,
               ),
-              onTap: () {},
+              onTap: () {
+                if (chaptersList[index].id != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return EpisodeScreen(chaptersList[index].id!);
+                    }),
+                  );
+                }
+              },
             ),
           );
         },

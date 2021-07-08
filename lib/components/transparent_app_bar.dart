@@ -17,7 +17,9 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.only(left: 16.0),
         child: AppCircleButton(
           icon: AppIcons.arrowBack,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       leadingWidth: 64.0,

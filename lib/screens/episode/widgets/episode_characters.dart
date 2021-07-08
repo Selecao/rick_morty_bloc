@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sc_03/components/character_list_tile.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/screens/profile/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class EpisodeCharacters extends StatelessWidget {
@@ -23,7 +24,16 @@ class EpisodeCharacters extends StatelessWidget {
           height: 8.0,
           color: ColorTheme.white,
         ),
-        onTap: () {},
+        onTap: () {
+          if (characters[index].id != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return ProfileScreen(characters[index].id!);
+              }),
+            );
+          }
+        },
       ),
       itemCount: characters.length,
       itemExtent: 98.0,

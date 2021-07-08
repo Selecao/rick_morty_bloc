@@ -52,7 +52,7 @@ class EpisodeDescription extends StatelessWidget {
               ),
               Container(height: 4.0),
               Text(
-                episode?.premiere.toString() ?? "None",
+                episode?.premiere?.toStringRus() ?? "None",
                 style: AppTextTheme.bodyText1.copyWith(
                   letterSpacing: .25,
                   height: 1.42,

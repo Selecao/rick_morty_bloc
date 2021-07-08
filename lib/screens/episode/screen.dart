@@ -7,11 +7,14 @@ import 'package:sc_03/screens/episode/widgets/episode_description.dart';
 import 'package:sc_03/screens/episode/widgets/episode_image.dart';
 
 class EpisodeScreen extends StatelessWidget {
+  final String episodeId;
+  const EpisodeScreen(this.episodeId);
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<EpisodeBloc>(
       create: (BuildContext context) =>
-          EpisodeBloc()..add(EpisodeEvent.initial()),
+          EpisodeBloc(episodeId)..add(EpisodeEvent.initial()),
       child: BlocConsumer<EpisodeBloc, EpisodeState>(
         listener: (context, state) {},
         builder: (context, state) {
