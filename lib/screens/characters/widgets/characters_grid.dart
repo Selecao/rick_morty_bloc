@@ -20,8 +20,10 @@ class CharactersGrid extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 12.0,
         ),
-        itemBuilder: (context, index) =>
-            CharacterGridItem(charactersList[index]),
+        itemBuilder: (context, index) => CharacterGridItem(
+          character: charactersList[index],
+          onTap: () {},
+        ),
       ),
     );
   }

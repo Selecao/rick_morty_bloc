@@ -7,31 +7,38 @@ import 'package:sc_03/theme/text_theme.dart';
 
 class CharacterGridItem extends StatelessWidget {
   final Character character;
+  final VoidCallback onTap;
 
-  CharacterGridItem(this.character);
+  CharacterGridItem({
+    required this.character,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 60,
-          //backgroundImage: AssetImage(character.avatar),
-          backgroundImage: NetworkImage(character.imageName ?? 'none'),
-          backgroundColor: ColorTheme.blueGrey_600,
-        ),
-        const SizedBox(height: 18.0),
-        StatusText(statusIndex: character.status ?? 2),
-        Text(
-          character.fullName ?? "None",
-          style: AppTextTheme.bodyText1.copyWith(
-            fontWeight: FontWeight.w500,
-            letterSpacing: 0.1,
-            height: 1.42,
+    return GestureDetector(
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 60,
+            //backgroundImage: AssetImage(character.avatar),
+            backgroundImage: NetworkImage(character.imageName ?? 'none'),
+            backgroundColor: ColorTheme.blueGrey_600,
           ),
-        ),
-        RaceGenderText(character: character),
-      ],
+          const SizedBox(height: 18.0),
+          StatusText(statusIndex: character.status ?? 2),
+          Text(
+            character.fullName ?? "None",
+            style: AppTextTheme.bodyText1.copyWith(
+              fontWeight: FontWeight.w500,
+              letterSpacing: 0.1,
+              height: 1.42,
+            ),
+          ),
+          RaceGenderText(character: character),
+        ],
+      ),
+      onTap: onTap,
     );
   }
 }

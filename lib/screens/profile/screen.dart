@@ -10,6 +10,9 @@ import 'package:sc_03/screens/profile/widgets/description.dart';
 import 'package:sc_03/screens/profile/widgets/page_sliver_header.dart';
 
 class ProfileScreen extends StatelessWidget {
+  final String characterId;
+  const ProfileScreen(this.characterId);
+
   @override
   Widget build(BuildContext context) {
     final double avatarSize = MediaQuery.of(context).size.width / 4;
@@ -17,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
     /// Делаем доступным блок в дереве виджетов
     return BlocProvider<ProfileBloc>(
         create: (BuildContext context) =>
-            ProfileBloc()..add(ProfileEvent.initial()),
+            ProfileBloc(characterId)..add(ProfileEvent.initial()),
 
         /// Обрабатываем состояние
         child: BlocConsumer<ProfileBloc, ProfileState>(

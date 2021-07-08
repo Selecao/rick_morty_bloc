@@ -79,7 +79,9 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
               opacity: percent,
               child: AppCircleButton(
                 icon: AppIcons.arrowBack,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             backgroundColor: Colors.transparent,
