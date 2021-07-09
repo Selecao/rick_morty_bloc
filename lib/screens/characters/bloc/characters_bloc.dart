@@ -14,9 +14,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final _repository = Repository();
 
   bool isGrid = false;
-  late String charsToFind;
   late List<Character> _charactersList;
-  late List<Character> _finderResultList;
 
   /// Отслеживает события. Метод map позволяет нам сократить код и не дает потерять состояние.
   @override
@@ -71,8 +69,8 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   Stream<CharactersState> _mapFindCharactersEvent(
       _FindCharactersEvent event) async* {
     yield CharactersState.loading();
-    charsToFind = event.chars;
-    _finderResultList = _findCharacters(charsToFind);
+    String charsToFind = event.chars;
+    List<Character> _finderResultList = _findCharacters(charsToFind);
     yield CharactersState.data(
       charactersList: _finderResultList,
       isGrid: isGrid,
@@ -86,7 +84,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       if (character.fullName == null) continue;
       if (character.fullName!.toLowerCase().contains(chars.toLowerCase())) {
         result.add(character);
-        print("## Добавлен ${character.fullName}");
       }
     }
     return result;

@@ -24,6 +24,9 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     yield* event.map(
       /// Стрим для инициализации
       initial: _mapInitialLocationsListEvent,
+
+      /// Стрим для поиска локаций
+      find: _mapFindLocationsListEvent,
     );
   }
 
@@ -43,5 +46,27 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
 
     /// Возвращаем состояние с данными
     yield LocationsListState.data(locationsList: _locationsList);
+  }
+
+  Stream<LocationsListState> _mapFindLocationsListEvent(
+      _FindLocationsListEvent event) async* {
+    yield LocationsListState.loading();
+    String charsToFind = event.chars;
+    List<Location> _finderResultList = _findCharacters(charsToFind);
+    yield LocationsListState.data(
+      locationsList: _finderResultList,
+    );
+  }
+
+  List<Location> _findCharacters(String chars) {
+    if (chars.isEmpty) return _locationsList;
+    List<Location> result = [];
+    for (Location location in _locationsList) {
+      if (location.name == null) continue;
+      if (location.name!.toLowerCase().contains(chars.toLowerCase())) {
+        result.add(location);
+      }
+    }
+    return result;
   }
 }

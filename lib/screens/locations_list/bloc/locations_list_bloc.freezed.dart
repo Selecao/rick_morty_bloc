@@ -19,6 +19,12 @@ class _$LocationsListEventTearOff {
   _InitialLocationsListEvent initial() {
     return const _InitialLocationsListEvent();
   }
+
+  _FindLocationsListEvent find({required String chars}) {
+    return _FindLocationsListEvent(
+      chars: chars,
+    );
+  }
 }
 
 /// @nodoc
@@ -29,22 +35,26 @@ mixin _$LocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String chars) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
+    required TResult Function(_FindLocationsListEvent value) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
+    TResult Function(_FindLocationsListEvent value)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +119,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String chars) find,
   }) {
     return initial();
   }
@@ -117,6 +128,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -129,6 +141,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
+    required TResult Function(_FindLocationsListEvent value) find,
   }) {
     return initial(this);
   }
@@ -137,6 +150,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
+    TResult Function(_FindLocationsListEvent value)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -148,6 +162,124 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
 
 abstract class _InitialLocationsListEvent implements LocationsListEvent {
   const factory _InitialLocationsListEvent() = _$_InitialLocationsListEvent;
+}
+
+/// @nodoc
+abstract class _$FindLocationsListEventCopyWith<$Res> {
+  factory _$FindLocationsListEventCopyWith(_FindLocationsListEvent value,
+          $Res Function(_FindLocationsListEvent) then) =
+      __$FindLocationsListEventCopyWithImpl<$Res>;
+  $Res call({String chars});
+}
+
+/// @nodoc
+class __$FindLocationsListEventCopyWithImpl<$Res>
+    extends _$LocationsListEventCopyWithImpl<$Res>
+    implements _$FindLocationsListEventCopyWith<$Res> {
+  __$FindLocationsListEventCopyWithImpl(_FindLocationsListEvent _value,
+      $Res Function(_FindLocationsListEvent) _then)
+      : super(_value, (v) => _then(v as _FindLocationsListEvent));
+
+  @override
+  _FindLocationsListEvent get _value => super._value as _FindLocationsListEvent;
+
+  @override
+  $Res call({
+    Object? chars = freezed,
+  }) {
+    return _then(_FindLocationsListEvent(
+      chars: chars == freezed
+          ? _value.chars
+          : chars // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FindLocationsListEvent implements _FindLocationsListEvent {
+  const _$_FindLocationsListEvent({required this.chars});
+
+  @override
+  final String chars;
+
+  @override
+  String toString() {
+    return 'LocationsListEvent.find(chars: $chars)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FindLocationsListEvent &&
+            (identical(other.chars, chars) ||
+                const DeepCollectionEquality().equals(other.chars, chars)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chars);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindLocationsListEventCopyWith<_FindLocationsListEvent> get copyWith =>
+      __$FindLocationsListEventCopyWithImpl<_FindLocationsListEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String chars) find,
+  }) {
+    return find(chars);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String chars)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(chars);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialLocationsListEvent value) initial,
+    required TResult Function(_FindLocationsListEvent value) find,
+  }) {
+    return find(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialLocationsListEvent value)? initial,
+    TResult Function(_FindLocationsListEvent value)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FindLocationsListEvent implements LocationsListEvent {
+  const factory _FindLocationsListEvent({required String chars}) =
+      _$_FindLocationsListEvent;
+
+  String get chars => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindLocationsListEventCopyWith<_FindLocationsListEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

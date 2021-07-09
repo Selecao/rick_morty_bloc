@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LocationsListAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -43,7 +45,12 @@ class LocationsListAppBar extends StatelessWidget
             ),
           ],
         ),
-        onSubmitted: (String value) {},
+        onSubmitted: (String value) {
+          context.read<LocationsListBloc>()
+            ..add(
+              LocationsListEvent.find(chars: value),
+            );
+        },
       ),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(_bottomAppBarHeight),
