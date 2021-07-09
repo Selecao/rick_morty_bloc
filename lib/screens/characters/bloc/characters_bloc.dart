@@ -14,7 +14,9 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final _repository = Repository();
 
   bool isGrid = false;
+  late String charsToFind;
   late List<Character> _charactersList;
+  late List<Character> _finderResultList;
 
   /// Отслеживает события. Метод map позволяет нам сократить код и не дает потерять состояние.
   @override
@@ -25,8 +27,11 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       /// Стрим для инициализации
       initial: _mapInitialCharactersEvent,
 
-      /// Стрим для выбора темы
+      /// Стрим для выбора вида отображения
       selectedView: _mapSelectedViewCharactersEvent,
+
+      /// Стрим для поиска персонажей
+      find: _mapFindCharactersEvent,
     );
   }
 
@@ -61,5 +66,29 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       charactersList: _charactersList,
       isGrid: isGrid,
     );
+  }
+
+  Stream<CharactersState> _mapFindCharactersEvent(
+      _FindCharactersEvent event) async* {
+    yield CharactersState.loading();
+    charsToFind = event.chars;
+    _finderResultList = _findCharacters(charsToFind);
+    yield CharactersState.data(
+      charactersList: _finderResultList,
+      isGrid: isGrid,
+    );
+  }
+
+  List<Character> _findCharacters(String chars) {
+    if (chars.isEmpty) return _charactersList;
+    List<Character> result = [];
+    for (Character character in _charactersList) {
+      if (character.fullName == null) continue;
+      if (character.fullName!.toLowerCase().contains(chars.toLowerCase())) {
+        result.add(character);
+        print("## Добавлен ${character.fullName}");
+      }
+    }
+    return result;
   }
 }

@@ -19,7 +19,10 @@ class EpisodesListAppBar extends StatelessWidget
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
-      title: SearchTextField(title: 'Найти эпизод'),
+      title: SearchTextField(
+        title: 'Найти эпизод',
+        onSubmitted: (String value) {},
+      ),
       bottom: TabBar(
         indicatorColor: ColorTheme.white,
         indicatorSize: TabBarIndicatorSize.label,

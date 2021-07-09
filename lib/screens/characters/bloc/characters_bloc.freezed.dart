@@ -25,6 +25,12 @@ class _$CharactersEventTearOff {
       isGrid: isGrid,
     );
   }
+
+  _FindCharactersEvent find({required String chars}) {
+    return _FindCharactersEvent(
+      chars: chars,
+    );
+  }
 }
 
 /// @nodoc
@@ -36,12 +42,14 @@ mixin _$CharactersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(String chars) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,12 +57,14 @@ mixin _$CharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_FindCharactersEvent value) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_FindCharactersEvent value)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +129,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(String chars) find,
   }) {
     return initial();
   }
@@ -128,6 +139,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -141,6 +153,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_FindCharactersEvent value) find,
   }) {
     return initial(this);
   }
@@ -150,6 +163,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_FindCharactersEvent value)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -234,6 +248,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(String chars) find,
   }) {
     return selectedView(isGrid);
   }
@@ -243,6 +258,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
     if (selectedView != null) {
@@ -256,6 +272,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_FindCharactersEvent value) find,
   }) {
     return selectedView(this);
   }
@@ -265,6 +282,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_FindCharactersEvent value)? find,
     required TResult orElse(),
   }) {
     if (selectedView != null) {
@@ -282,6 +300,128 @@ abstract class _SelectedViewCharactersEvent implements CharactersEvent {
   @JsonKey(ignore: true)
   _$SelectedViewCharactersEventCopyWith<_SelectedViewCharactersEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$FindCharactersEventCopyWith<$Res> {
+  factory _$FindCharactersEventCopyWith(_FindCharactersEvent value,
+          $Res Function(_FindCharactersEvent) then) =
+      __$FindCharactersEventCopyWithImpl<$Res>;
+  $Res call({String chars});
+}
+
+/// @nodoc
+class __$FindCharactersEventCopyWithImpl<$Res>
+    extends _$CharactersEventCopyWithImpl<$Res>
+    implements _$FindCharactersEventCopyWith<$Res> {
+  __$FindCharactersEventCopyWithImpl(
+      _FindCharactersEvent _value, $Res Function(_FindCharactersEvent) _then)
+      : super(_value, (v) => _then(v as _FindCharactersEvent));
+
+  @override
+  _FindCharactersEvent get _value => super._value as _FindCharactersEvent;
+
+  @override
+  $Res call({
+    Object? chars = freezed,
+  }) {
+    return _then(_FindCharactersEvent(
+      chars: chars == freezed
+          ? _value.chars
+          : chars // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FindCharactersEvent implements _FindCharactersEvent {
+  const _$_FindCharactersEvent({required this.chars});
+
+  @override
+  final String chars;
+
+  @override
+  String toString() {
+    return 'CharactersEvent.find(chars: $chars)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FindCharactersEvent &&
+            (identical(other.chars, chars) ||
+                const DeepCollectionEquality().equals(other.chars, chars)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chars);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindCharactersEventCopyWith<_FindCharactersEvent> get copyWith =>
+      __$FindCharactersEventCopyWithImpl<_FindCharactersEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool isGrid) selectedView,
+    required TResult Function(String chars) find,
+  }) {
+    return find(chars);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool isGrid)? selectedView,
+    TResult Function(String chars)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(chars);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialCharactersEvent value) initial,
+    required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_FindCharactersEvent value) find,
+  }) {
+    return find(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_FindCharactersEvent value)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FindCharactersEvent implements CharactersEvent {
+  const factory _FindCharactersEvent({required String chars}) =
+      _$_FindCharactersEvent;
+
+  String get chars => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindCharactersEventCopyWith<_FindCharactersEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

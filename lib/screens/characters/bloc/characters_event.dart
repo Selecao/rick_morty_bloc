@@ -9,4 +9,9 @@ class CharactersEvent with _$CharactersEvent {
   const factory CharactersEvent.selectedView({
     required bool isGrid,
   }) = _SelectedViewCharactersEvent;
+
+  ///Событие поиска персонажа
+  const factory CharactersEvent.find({
+    required String chars,
+  }) = _FindCharactersEvent;
 }

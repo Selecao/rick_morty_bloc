@@ -44,6 +44,12 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
+        onSubmitted: (String value) {
+          context.read<CharactersBloc>()
+            ..add(
+              CharactersEvent.find(chars: value),
+            );
+        },
       ),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(40.0),

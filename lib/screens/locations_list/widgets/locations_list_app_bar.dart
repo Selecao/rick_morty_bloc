@@ -43,6 +43,7 @@ class LocationsListAppBar extends StatelessWidget
             ),
           ],
         ),
+        onSubmitted: (String value) {},
       ),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(_bottomAppBarHeight),

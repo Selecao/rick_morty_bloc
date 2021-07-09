@@ -9,10 +9,12 @@ import 'package:sc_03/theme/text_theme.dart';
 class SearchTextField extends StatelessWidget {
   final String title;
   final Widget? suffixIcon;
+  final void Function(String value)? onSubmitted;
 
   SearchTextField({
     required this.title,
     this.suffixIcon,
+    required this.onSubmitted,
   });
 
   @override
@@ -42,7 +44,7 @@ class SearchTextField extends StatelessWidget {
         ),
         suffixIcon: suffixIcon,
       ),
-      onSubmitted: (submit) {},
+      onSubmitted: onSubmitted,
     );
   }
 }
