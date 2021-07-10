@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LocationEventTearOff {
   const _$LocationEventTearOff();
 
-  _InitialLocationEvent initial() {
-    return const _InitialLocationEvent();
+  _InitialLocationEvent initial({required String locationId}) {
+    return _InitialLocationEvent(
+      locationId: locationId,
+    );
   }
 }
 
@@ -26,14 +28,16 @@ const $LocationEvent = _$LocationEventTearOff();
 
 /// @nodoc
 mixin _$LocationEvent {
+  String get locationId => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String locationId) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String locationId)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +52,10 @@ mixin _$LocationEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LocationEventCopyWith<LocationEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +63,7 @@ abstract class $LocationEventCopyWith<$Res> {
   factory $LocationEventCopyWith(
           LocationEvent value, $Res Function(LocationEvent) then) =
       _$LocationEventCopyWithImpl<$Res>;
+  $Res call({String locationId});
 }
 
 /// @nodoc
@@ -65,13 +74,28 @@ class _$LocationEventCopyWithImpl<$Res>
   final LocationEvent _value;
   // ignore: unused_field
   final $Res Function(LocationEvent) _then;
+
+  @override
+  $Res call({
+    Object? locationId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      locationId: locationId == freezed
+          ? _value.locationId
+          : locationId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$InitialLocationEventCopyWith<$Res> {
+abstract class _$InitialLocationEventCopyWith<$Res>
+    implements $LocationEventCopyWith<$Res> {
   factory _$InitialLocationEventCopyWith(_InitialLocationEvent value,
           $Res Function(_InitialLocationEvent) then) =
       __$InitialLocationEventCopyWithImpl<$Res>;
+  @override
+  $Res call({String locationId});
 }
 
 /// @nodoc
@@ -84,42 +108,68 @@ class __$InitialLocationEventCopyWithImpl<$Res>
 
   @override
   _InitialLocationEvent get _value => super._value as _InitialLocationEvent;
+
+  @override
+  $Res call({
+    Object? locationId = freezed,
+  }) {
+    return _then(_InitialLocationEvent(
+      locationId: locationId == freezed
+          ? _value.locationId
+          : locationId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_InitialLocationEvent implements _InitialLocationEvent {
-  const _$_InitialLocationEvent();
+  const _$_InitialLocationEvent({required this.locationId});
+
+  @override
+  final String locationId;
 
   @override
   String toString() {
-    return 'LocationEvent.initial()';
+    return 'LocationEvent.initial(locationId: $locationId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InitialLocationEvent);
+    return identical(this, other) ||
+        (other is _InitialLocationEvent &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationId, locationId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locationId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InitialLocationEventCopyWith<_InitialLocationEvent> get copyWith =>
+      __$InitialLocationEventCopyWithImpl<_InitialLocationEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String locationId) initial,
   }) {
-    return initial();
+    return initial(locationId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String locationId)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(locationId);
     }
     return orElse();
   }
@@ -146,7 +196,15 @@ class _$_InitialLocationEvent implements _InitialLocationEvent {
 }
 
 abstract class _InitialLocationEvent implements LocationEvent {
-  const factory _InitialLocationEvent() = _$_InitialLocationEvent;
+  const factory _InitialLocationEvent({required String locationId}) =
+      _$_InitialLocationEvent;
+
+  @override
+  String get locationId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$InitialLocationEventCopyWith<_InitialLocationEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

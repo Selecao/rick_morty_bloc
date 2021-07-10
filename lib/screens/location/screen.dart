@@ -16,7 +16,7 @@ class LocationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<LocationBloc>(
       create: (BuildContext context) =>
-          LocationBloc(id)..add(LocationEvent.initial()),
+          LocationBloc()..add(LocationEvent.initial(locationId: id)),
 
       /// Обрабатываем состояние
       child: BlocConsumer<LocationBloc, LocationState>(
