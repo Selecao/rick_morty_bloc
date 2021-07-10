@@ -19,7 +19,7 @@ class Character {
   final Location? placeOfBirth;
   final List<Episode>? episodes;
 
-  Character({
+  const Character({
     this.id,
     this.firstName,
     this.lastName,

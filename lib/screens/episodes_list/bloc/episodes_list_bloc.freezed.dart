@@ -19,6 +19,12 @@ class _$EpisodesListEventTearOff {
   _InitialEpisodesListEvent initial() {
     return const _InitialEpisodesListEvent();
   }
+
+  _FindEpisodesListEvent find({required String chars}) {
+    return _FindEpisodesListEvent(
+      chars: chars,
+    );
+  }
 }
 
 /// @nodoc
@@ -29,22 +35,26 @@ mixin _$EpisodesListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String chars) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEpisodesListEvent value) initial,
+    required TResult Function(_FindEpisodesListEvent value) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +119,7 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String chars) find,
   }) {
     return initial();
   }
@@ -117,6 +128,7 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -129,6 +141,7 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEpisodesListEvent value) initial,
+    required TResult Function(_FindEpisodesListEvent value) find,
   }) {
     return initial(this);
   }
@@ -137,6 +150,7 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -148,6 +162,124 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
 
 abstract class _InitialEpisodesListEvent implements EpisodesListEvent {
   const factory _InitialEpisodesListEvent() = _$_InitialEpisodesListEvent;
+}
+
+/// @nodoc
+abstract class _$FindEpisodesListEventCopyWith<$Res> {
+  factory _$FindEpisodesListEventCopyWith(_FindEpisodesListEvent value,
+          $Res Function(_FindEpisodesListEvent) then) =
+      __$FindEpisodesListEventCopyWithImpl<$Res>;
+  $Res call({String chars});
+}
+
+/// @nodoc
+class __$FindEpisodesListEventCopyWithImpl<$Res>
+    extends _$EpisodesListEventCopyWithImpl<$Res>
+    implements _$FindEpisodesListEventCopyWith<$Res> {
+  __$FindEpisodesListEventCopyWithImpl(_FindEpisodesListEvent _value,
+      $Res Function(_FindEpisodesListEvent) _then)
+      : super(_value, (v) => _then(v as _FindEpisodesListEvent));
+
+  @override
+  _FindEpisodesListEvent get _value => super._value as _FindEpisodesListEvent;
+
+  @override
+  $Res call({
+    Object? chars = freezed,
+  }) {
+    return _then(_FindEpisodesListEvent(
+      chars: chars == freezed
+          ? _value.chars
+          : chars // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FindEpisodesListEvent implements _FindEpisodesListEvent {
+  const _$_FindEpisodesListEvent({required this.chars});
+
+  @override
+  final String chars;
+
+  @override
+  String toString() {
+    return 'EpisodesListEvent.find(chars: $chars)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FindEpisodesListEvent &&
+            (identical(other.chars, chars) ||
+                const DeepCollectionEquality().equals(other.chars, chars)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chars);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindEpisodesListEventCopyWith<_FindEpisodesListEvent> get copyWith =>
+      __$FindEpisodesListEventCopyWithImpl<_FindEpisodesListEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String chars) find,
+  }) {
+    return find(chars);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String chars)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(chars);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialEpisodesListEvent value) initial,
+    required TResult Function(_FindEpisodesListEvent value) find,
+  }) {
+    return find(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
+    required TResult orElse(),
+  }) {
+    if (find != null) {
+      return find(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FindEpisodesListEvent implements EpisodesListEvent {
+  const factory _FindEpisodesListEvent({required String chars}) =
+      _$_FindEpisodesListEvent;
+
+  String get chars => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindEpisodesListEventCopyWith<_FindEpisodesListEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

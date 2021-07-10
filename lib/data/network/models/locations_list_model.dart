@@ -15,7 +15,7 @@ class LocationsListModel {
   final dynamic error;
   final List<Location>? data;
 
-  LocationsListModel({
+  const LocationsListModel({
     this.totalRecords,
     this.succeeded,
     this.message,

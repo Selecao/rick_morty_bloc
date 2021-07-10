@@ -10,7 +10,7 @@ class Episode {
   final String? imageName;
   final List<Character>? characters;
 
-  Episode({
+  const Episode({
     this.id,
     this.name,
     this.season,
@@ -47,7 +47,7 @@ class Episode {
       };
 }
 
-Comparator<Episode> sortBySeries =
+Comparator<Episode> seriesComparator =
     (a, b) => (a.series ?? 0).compareTo(b.series ?? 0);
 
 extension DateTimeExtension on DateTime {

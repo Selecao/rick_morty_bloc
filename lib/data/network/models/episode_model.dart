@@ -8,17 +8,17 @@ EpisodeModel episodeModelFromJson(String str) =>
 String episodeModelToJson(EpisodeModel data) => json.encode(data.toJson());
 
 class EpisodeModel {
-  EpisodeModel({
+  final bool? succeeded;
+  final dynamic message;
+  final dynamic error;
+  final Episode data;
+
+  const EpisodeModel({
     this.succeeded,
     this.message,
     this.error,
     required this.data,
   });
-
-  final bool? succeeded;
-  final dynamic message;
-  final dynamic error;
-  final Episode data;
 
   factory EpisodeModel.fromJson(Map<String, dynamic> json) => EpisodeModel(
         succeeded: json["succeeded"],

@@ -8,17 +8,17 @@ CharacterModel characterModelFromJson(String str) =>
 String characterModelToJson(CharacterModel data) => json.encode(data.toJson());
 
 class CharacterModel {
-  CharacterModel({
+  final bool? succeeded;
+  final dynamic message;
+  final dynamic error;
+  final Character data;
+
+  const CharacterModel({
     this.succeeded,
     this.message,
     this.error,
     required this.data,
   });
-
-  final bool? succeeded;
-  final dynamic message;
-  final dynamic error;
-  final Character data;
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) => CharacterModel(
         succeeded: json["succeeded"],

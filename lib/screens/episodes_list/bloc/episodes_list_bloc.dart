@@ -18,7 +18,6 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
 
   final _repository = Repository();
 
-  List<Season> _seasons = seasons;
   late List<Episode> _episodes;
 
   @override
@@ -28,6 +27,9 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
     yield* event.map(
       /// Стрим для инициализации
       initial: _mapInitialEpisodesListEvent,
+
+      /// Стрим для поиска эпизодов
+      find: _mapFindEpisodesListEvent,
     );
   }
 
@@ -41,30 +43,59 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
       _episodes =
           await _repository.getEpisodesList(pageNumber: 1, pageSize: 41) ?? [];
 
-      _fillSeasonsList();
+      //_fillSeasonsList();
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
       print("## Получи ошибку в блоке списка эпизодов $ex");
     }
 
     /// Возвращаем состояние с данными
-    yield EpisodesListState.data(seasons: _seasons);
+    yield EpisodesListState.data(seasons: _fillSeasonsListWith(_episodes));
   }
 
-  void _fillSeasonsList() {
-    if (_episodes.isNotEmpty) {
-      for (int i = 0; i < _seasons.length; i++) {
+  Stream<EpisodesListState> _mapFindEpisodesListEvent(
+      _FindEpisodesListEvent event) async* {
+    yield EpisodesListState.loading();
+    String charsToFind = event.chars;
+    List<Episode> finderResult = _findEpisodes(charsToFind);
+    yield EpisodesListState.data(
+      seasons: _fillSeasonsListWith(finderResult),
+    );
+  }
+
+  List<Season> _fillSeasonsListWith(List<Episode> episodes) {
+    List<Season> result = [
+      for (var elm in seasons) Season(elm.name, List.from(elm.episodes))
+    ];
+
+    if (episodes.isNotEmpty) {
+      for (int i = 0; i < result.length; i++) {
         List<Episode> episodesInSeason = [];
-        for (int j = 0; j < _episodes.length; j++) {
-          if (i == ((_episodes[j].season ?? 1) - 1)) {
-            episodesInSeason.add(_episodes[j]);
+
+        for (int j = 0; j < episodes.length; j++) {
+          if (i == ((episodes[j].season ?? 1) - 1)) {
+            episodesInSeason.add(episodes[j]);
           }
         }
 
-        episodesInSeason.sort(sortBySeries);
+        episodesInSeason.sort(seriesComparator);
 
-        _seasons[i].episodes.addAll(episodesInSeason);
+        result[i].episodes.addAll(episodesInSeason);
       }
     }
+    return result;
+  }
+
+  List<Episode> _findEpisodes(String chars) {
+    if (chars.isEmpty) return _episodes;
+    List<Episode> result = [];
+    for (Episode episode in _episodes) {
+      if (episode.name == null) continue;
+      if (episode.name!.toLowerCase().contains(chars.toLowerCase())) {
+        result.add(episode);
+        print("## Результат поиска эпизод: ${episode.name}");
+      }
+    }
+    return result;
   }
 }

@@ -9,19 +9,19 @@ String charactersListModelToJson(CharactersListModel data) =>
     json.encode(data.toJson());
 
 class CharactersListModel {
-  CharactersListModel({
+  final int? totalRecords;
+  final bool? succeeded;
+  final dynamic message;
+  final dynamic error;
+  final List<Character>? data;
+
+  const CharactersListModel({
     this.totalRecords,
     this.succeeded,
     this.message,
     this.error,
     this.data,
   });
-
-  final int? totalRecords;
-  final bool? succeeded;
-  final dynamic message;
-  final dynamic error;
-  final List<Character>? data;
 
   factory CharactersListModel.fromJson(Map<String, dynamic> json) =>
       CharactersListModel(

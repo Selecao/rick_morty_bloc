@@ -8,17 +8,17 @@ LocationModel locationModelFromJson(String str) =>
 String locationModelToJson(LocationModel data) => json.encode(data.toJson());
 
 class LocationModel {
-  LocationModel({
+  final bool? succeeded;
+  final dynamic message;
+  final dynamic error;
+  final Location data;
+
+  const LocationModel({
     this.succeeded,
     this.message,
     this.error,
     required this.data,
   });
-
-  final bool? succeeded;
-  final dynamic message;
-  final dynamic error;
-  final Location data;
 
   factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(
         succeeded: json["succeeded"],

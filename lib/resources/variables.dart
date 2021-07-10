@@ -1,6 +1,6 @@
 import 'package:sc_03/data/network/models/season.dart';
 
-List<Season> seasons = [
+final List<Season> seasons = [
   Season('Сезон 1', []),
   Season('Сезон 2', []),
   Season('Сезон 3', []),

@@ -4,7 +4,7 @@ class Season {
   final String name;
   final List<Episode> episodes;
 
-  Season(
+  const Season(
     this.name,
     this.episodes,
   );

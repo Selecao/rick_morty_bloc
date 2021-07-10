@@ -10,7 +10,7 @@ class Location {
   final List<Character>? characters;
   final List<Character>? placeOfBirthCharacters;
 
-  Location({
+  const Location({
     this.id,
     this.name,
     this.type,

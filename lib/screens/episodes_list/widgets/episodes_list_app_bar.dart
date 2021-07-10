@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EpisodesListAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -21,7 +23,12 @@ class EpisodesListAppBar extends StatelessWidget
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти эпизод',
-        onSubmitted: (String value) {},
+        onSubmitted: (String value) {
+          context.read<EpisodesListBloc>()
+            ..add(
+              EpisodesListEvent.find(chars: value),
+            );
+        },
       ),
       bottom: TabBar(
         indicatorColor: ColorTheme.white,

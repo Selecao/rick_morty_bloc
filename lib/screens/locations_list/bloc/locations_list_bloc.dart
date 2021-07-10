@@ -52,13 +52,13 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
       _FindLocationsListEvent event) async* {
     yield LocationsListState.loading();
     String charsToFind = event.chars;
-    List<Location> _finderResultList = _findCharacters(charsToFind);
+    List<Location> finderResultList = _findLocations(charsToFind);
     yield LocationsListState.data(
-      locationsList: _finderResultList,
+      locationsList: finderResultList,
     );
   }
 
-  List<Location> _findCharacters(String chars) {
+  List<Location> _findLocations(String chars) {
     if (chars.isEmpty) return _locationsList;
     List<Location> result = [];
     for (Location location in _locationsList) {
