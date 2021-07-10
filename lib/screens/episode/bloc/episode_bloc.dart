@@ -12,8 +12,7 @@ part 'episode_state.dart';
 part 'episode_bloc.freezed.dart';
 
 class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
-  String episodeId;
-  EpisodeBloc(this.episodeId) : super(EpisodeState.initial());
+  EpisodeBloc() : super(EpisodeState.initial());
   final _repository = Repository();
   late Episode _selectedEpisode;
 
@@ -35,6 +34,7 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
     try {
       /// Получение данных
       print("## Начинаем загрузку описания выбранного эпизода");
+      String episodeId = event.episodeId;
       _selectedEpisode = await _repository.getEpisodeById(episodeId);
     } catch (ex) {
       /// Вовращаем состояние с ошибкой

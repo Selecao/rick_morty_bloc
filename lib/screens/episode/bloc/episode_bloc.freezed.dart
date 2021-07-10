@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$EpisodeEventTearOff {
   const _$EpisodeEventTearOff();
 
-  _InitialEpisodeEvent initial() {
-    return const _InitialEpisodeEvent();
+  _InitialEpisodeEvent initial({required String episodeId}) {
+    return _InitialEpisodeEvent(
+      episodeId: episodeId,
+    );
   }
 }
 
@@ -26,14 +28,16 @@ const $EpisodeEvent = _$EpisodeEventTearOff();
 
 /// @nodoc
 mixin _$EpisodeEvent {
+  String get episodeId => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String episodeId) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String episodeId)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +52,10 @@ mixin _$EpisodeEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $EpisodeEventCopyWith<EpisodeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +63,7 @@ abstract class $EpisodeEventCopyWith<$Res> {
   factory $EpisodeEventCopyWith(
           EpisodeEvent value, $Res Function(EpisodeEvent) then) =
       _$EpisodeEventCopyWithImpl<$Res>;
+  $Res call({String episodeId});
 }
 
 /// @nodoc
@@ -64,13 +73,28 @@ class _$EpisodeEventCopyWithImpl<$Res> implements $EpisodeEventCopyWith<$Res> {
   final EpisodeEvent _value;
   // ignore: unused_field
   final $Res Function(EpisodeEvent) _then;
+
+  @override
+  $Res call({
+    Object? episodeId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      episodeId: episodeId == freezed
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$InitialEpisodeEventCopyWith<$Res> {
+abstract class _$InitialEpisodeEventCopyWith<$Res>
+    implements $EpisodeEventCopyWith<$Res> {
   factory _$InitialEpisodeEventCopyWith(_InitialEpisodeEvent value,
           $Res Function(_InitialEpisodeEvent) then) =
       __$InitialEpisodeEventCopyWithImpl<$Res>;
+  @override
+  $Res call({String episodeId});
 }
 
 /// @nodoc
@@ -83,42 +107,68 @@ class __$InitialEpisodeEventCopyWithImpl<$Res>
 
   @override
   _InitialEpisodeEvent get _value => super._value as _InitialEpisodeEvent;
+
+  @override
+  $Res call({
+    Object? episodeId = freezed,
+  }) {
+    return _then(_InitialEpisodeEvent(
+      episodeId: episodeId == freezed
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_InitialEpisodeEvent implements _InitialEpisodeEvent {
-  const _$_InitialEpisodeEvent();
+  const _$_InitialEpisodeEvent({required this.episodeId});
+
+  @override
+  final String episodeId;
 
   @override
   String toString() {
-    return 'EpisodeEvent.initial()';
+    return 'EpisodeEvent.initial(episodeId: $episodeId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InitialEpisodeEvent);
+    return identical(this, other) ||
+        (other is _InitialEpisodeEvent &&
+            (identical(other.episodeId, episodeId) ||
+                const DeepCollectionEquality()
+                    .equals(other.episodeId, episodeId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(episodeId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InitialEpisodeEventCopyWith<_InitialEpisodeEvent> get copyWith =>
+      __$InitialEpisodeEventCopyWithImpl<_InitialEpisodeEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String episodeId) initial,
   }) {
-    return initial();
+    return initial(episodeId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String episodeId)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(episodeId);
     }
     return orElse();
   }
@@ -145,7 +195,15 @@ class _$_InitialEpisodeEvent implements _InitialEpisodeEvent {
 }
 
 abstract class _InitialEpisodeEvent implements EpisodeEvent {
-  const factory _InitialEpisodeEvent() = _$_InitialEpisodeEvent;
+  const factory _InitialEpisodeEvent({required String episodeId}) =
+      _$_InitialEpisodeEvent;
+
+  @override
+  String get episodeId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$InitialEpisodeEventCopyWith<_InitialEpisodeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

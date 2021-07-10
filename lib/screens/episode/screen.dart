@@ -14,7 +14,7 @@ class EpisodeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<EpisodeBloc>(
       create: (BuildContext context) =>
-          EpisodeBloc(episodeId)..add(EpisodeEvent.initial()),
+          EpisodeBloc()..add(EpisodeEvent.initial(episodeId: episodeId)),
       child: BlocConsumer<EpisodeBloc, EpisodeState>(
         listener: (context, state) {},
         builder: (context, state) {
