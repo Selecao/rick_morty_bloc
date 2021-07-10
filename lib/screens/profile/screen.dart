@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
     /// Делаем доступным блок в дереве виджетов
     return BlocProvider<ProfileBloc>(
         create: (BuildContext context) =>
-            ProfileBloc(characterId)..add(ProfileEvent.initial()),
+            ProfileBloc()..add(ProfileEvent.initial(characterId: characterId)),
 
         /// Обрабатываем состояние
         child: BlocConsumer<ProfileBloc, ProfileState>(

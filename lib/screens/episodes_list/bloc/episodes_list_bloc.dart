@@ -64,6 +64,9 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
   }
 
   List<Season> _fillSeasonsListWith(List<Episode> episodes) {
+    // to avoid mutation of original [season] field [.episodes]
+    // because List.from it's a one level clone, items referenced by the element
+    // of foo will still be shared to bar.
     List<Season> result = [
       for (var elm in seasons) Season(elm.name, List.from(elm.episodes))
     ];

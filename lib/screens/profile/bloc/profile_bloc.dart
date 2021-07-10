@@ -11,8 +11,7 @@ part 'profile_state.dart';
 part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  String characterId;
-  ProfileBloc(this.characterId) : super(ProfileState.initial());
+  ProfileBloc() : super(ProfileState.initial());
 
   final _repository = Repository();
   late Character _character;
@@ -36,6 +35,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     try {
       /// Получение данных
       print("## Начинаем загрузку профиля персонажа");
+      String characterId = event.characterId;
       _character = await _repository.getCharacter(characterId);
     } catch (ex) {
       /// Вовращаем состояние с ошибкой

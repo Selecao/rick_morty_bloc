@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProfileEventTearOff {
   const _$ProfileEventTearOff();
 
-  _InitialProfileEvent initial() {
-    return const _InitialProfileEvent();
+  _InitialProfileEvent initial({required String characterId}) {
+    return _InitialProfileEvent(
+      characterId: characterId,
+    );
   }
 }
 
@@ -26,14 +28,16 @@ const $ProfileEvent = _$ProfileEventTearOff();
 
 /// @nodoc
 mixin _$ProfileEvent {
+  String get characterId => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String characterId) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String characterId)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +52,10 @@ mixin _$ProfileEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProfileEventCopyWith<ProfileEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +63,7 @@ abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res>;
+  $Res call({String characterId});
 }
 
 /// @nodoc
@@ -64,13 +73,28 @@ class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
   final ProfileEvent _value;
   // ignore: unused_field
   final $Res Function(ProfileEvent) _then;
+
+  @override
+  $Res call({
+    Object? characterId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      characterId: characterId == freezed
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$InitialProfileEventCopyWith<$Res> {
+abstract class _$InitialProfileEventCopyWith<$Res>
+    implements $ProfileEventCopyWith<$Res> {
   factory _$InitialProfileEventCopyWith(_InitialProfileEvent value,
           $Res Function(_InitialProfileEvent) then) =
       __$InitialProfileEventCopyWithImpl<$Res>;
+  @override
+  $Res call({String characterId});
 }
 
 /// @nodoc
@@ -83,42 +107,68 @@ class __$InitialProfileEventCopyWithImpl<$Res>
 
   @override
   _InitialProfileEvent get _value => super._value as _InitialProfileEvent;
+
+  @override
+  $Res call({
+    Object? characterId = freezed,
+  }) {
+    return _then(_InitialProfileEvent(
+      characterId: characterId == freezed
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_InitialProfileEvent implements _InitialProfileEvent {
-  const _$_InitialProfileEvent();
+  const _$_InitialProfileEvent({required this.characterId});
+
+  @override
+  final String characterId;
 
   @override
   String toString() {
-    return 'ProfileEvent.initial()';
+    return 'ProfileEvent.initial(characterId: $characterId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InitialProfileEvent);
+    return identical(this, other) ||
+        (other is _InitialProfileEvent &&
+            (identical(other.characterId, characterId) ||
+                const DeepCollectionEquality()
+                    .equals(other.characterId, characterId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(characterId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InitialProfileEventCopyWith<_InitialProfileEvent> get copyWith =>
+      __$InitialProfileEventCopyWithImpl<_InitialProfileEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(String characterId) initial,
   }) {
-    return initial();
+    return initial(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(String characterId)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(characterId);
     }
     return orElse();
   }
@@ -145,7 +195,15 @@ class _$_InitialProfileEvent implements _InitialProfileEvent {
 }
 
 abstract class _InitialProfileEvent implements ProfileEvent {
-  const factory _InitialProfileEvent() = _$_InitialProfileEvent;
+  const factory _InitialProfileEvent({required String characterId}) =
+      _$_InitialProfileEvent;
+
+  @override
+  String get characterId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$InitialProfileEventCopyWith<_InitialProfileEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
