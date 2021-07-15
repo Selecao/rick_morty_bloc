@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/theme/color_theme.dart';
 import 'package:sc_03/theme/text_theme.dart';
@@ -25,19 +27,23 @@ class AppChaptersTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           children: [
-            Container(
-              alignment: Alignment.center,
-              width: imageSize,
-              height: imageSize,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(chapter.imageName ?? 'None'),
-                  fit: BoxFit.cover,
+            CachedNetworkImage(
+              imageUrl: chapter.imageName ?? 'no image',
+              imageBuilder: (context, imageProvider) => Container(
+                width: imageSize,
+                height: imageSize,
+                decoration: BoxDecoration(
+                  color: ColorTheme.blue_600,
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                color: ColorTheme.blue_600,
-                borderRadius: BorderRadius.circular(10.0),
-                //color: ColorTheme.blue_600,
               ),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             const SizedBox(width: 16.0),
             Column(

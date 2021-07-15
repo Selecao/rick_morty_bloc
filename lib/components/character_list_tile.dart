@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
@@ -22,18 +23,23 @@ class CharacterListTile extends StatelessWidget {
       child: Row(
         children: [
           const SizedBox(width: 16.0),
-          Container(
-            alignment: Alignment.center,
-            width: 74.0,
-            height: 74.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(character.imageName ?? "None"),
-                fit: BoxFit.cover,
+          CachedNetworkImage(
+            imageUrl: character.imageName ?? 'no image',
+            imageBuilder: (context, imageProvider) => Container(
+              width: 74.0,
+              height: 74.0,
+              decoration: BoxDecoration(
+                color: ColorTheme.blue_600,
+                borderRadius: BorderRadius.circular(40.0),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
               ),
-              borderRadius: BorderRadius.circular(40.0),
-              color: ColorTheme.blue_600,
             ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           const SizedBox(width: 18.0),
           Column(

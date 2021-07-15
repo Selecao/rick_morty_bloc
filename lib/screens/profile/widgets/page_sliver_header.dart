@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
@@ -52,19 +54,28 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
           left: avatarPosition,
           child: Opacity(
             opacity: percent,
-            child: Container(
-              alignment: Alignment.center,
-              width: avatarSize,
-              height: avatarSize,
-              decoration: ShapeDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(image),
-                  fit: BoxFit.cover,
-                ),
-                shape: CircleBorder(
-                  side: BorderSide(color: ColorTheme.blue_900, width: 8.0),
+            child: CachedNetworkImage(
+              imageUrl: image,
+              imageBuilder: (context, imageProvider) => Container(
+                width: avatarSize,
+                height: avatarSize,
+                decoration: ShapeDecoration(
+                  color: ColorTheme.blue_600,
+                  shape: CircleBorder(
+                    side: BorderSide(
+                      color: ColorTheme.blue_900,
+                      width: 8.0,
+                    ),
+                  ),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
         ),

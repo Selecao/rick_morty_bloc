@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
@@ -16,15 +17,22 @@ class EpisodeImage extends StatelessWidget {
 
     return Stack(
       children: [
-        Container(
-          height: imageHeight,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(image!),
-              fit: BoxFit.fitHeight,
+        CachedNetworkImage(
+          imageUrl: image ?? 'no image',
+          imageBuilder: (context, imageProvider) => Container(
+            alignment: Alignment.center,
+            height: imageHeight,
+            decoration: BoxDecoration(
+              color: ColorTheme.blue_600,
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+              ),
             ),
-            color: ColorTheme.blue_600,
           ),
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Positioned(
           bottom: 0.0,

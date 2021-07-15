@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
@@ -13,15 +14,21 @@ class LocationImage extends StatelessWidget {
 
     return Stack(
       children: [
-        Container(
-          height: imageHeight,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(image ?? 'none'),
-              fit: BoxFit.fitHeight,
+        CachedNetworkImage(
+          imageUrl: image ?? 'no image',
+          imageBuilder: (context, imageProvider) => Container(
+            height: imageHeight,
+            decoration: BoxDecoration(
+              color: ColorTheme.blue_600,
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+              ),
             ),
-            color: ColorTheme.blue_600,
           ),
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Positioned(
           bottom: .0,

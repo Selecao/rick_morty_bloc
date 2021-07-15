@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
@@ -19,11 +20,23 @@ class CharacterGridItem extends StatelessWidget {
     return GestureDetector(
       child: Column(
         children: [
-          CircleAvatar(
-            radius: 60,
-            //backgroundImage: AssetImage(character.avatar),
-            backgroundImage: NetworkImage(character.imageName ?? 'none'),
-            backgroundColor: ColorTheme.blueGrey_600,
+          CachedNetworkImage(
+            imageUrl: character.imageName ?? 'no image',
+            imageBuilder: (context, imageProvider) => Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                color: ColorTheme.blue_600,
+                borderRadius: BorderRadius.circular(60.0),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           const SizedBox(height: 18.0),
           StatusText(statusIndex: character.status ?? 2),

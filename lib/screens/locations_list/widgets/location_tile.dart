@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/theme/color_theme.dart';
@@ -14,25 +15,32 @@ class LocationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double cornerRadius = 16.0;
+
     return GestureDetector(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
         child: Column(
           children: [
-            Container(
-              height: 150.0,
-              decoration: BoxDecoration(
-                color: ColorTheme.blueGrey_600,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16.0),
-                  topRight: Radius.circular(16.0),
-                ),
-                image: DecorationImage(
-                  image: NetworkImage(location.imageName ?? "None"),
-                  fit: BoxFit.cover,
+            CachedNetworkImage(
+              imageUrl: location.imageName ?? 'no image',
+              imageBuilder: (context, imageProvider) => Container(
+                height: 150.0,
+                decoration: BoxDecoration(
+                  color: ColorTheme.blue_600,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(cornerRadius),
+                    topRight: Radius.circular(cornerRadius),
+                  ),
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              alignment: Alignment.center,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Container(
               height: 68.0,
@@ -40,8 +48,8 @@ class LocationTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: ColorTheme.blue_600,
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(16.0),
-                  bottomLeft: Radius.circular(16.0),
+                  bottomRight: Radius.circular(cornerRadius),
+                  bottomLeft: Radius.circular(cornerRadius),
                 ),
               ),
               child: Column(
