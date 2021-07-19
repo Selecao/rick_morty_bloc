@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
 class LocationImage extends StatelessWidget {
@@ -32,7 +33,8 @@ class LocationImage extends StatelessWidget {
                   ),
                 ),
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
+                    AppCircularProgressIndicator(
+                        value: downloadProgress.progress),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
         Positioned(

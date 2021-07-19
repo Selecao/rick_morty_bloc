@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 
 import 'package:sc_03/components/app_divider.dart';
 import 'package:sc_03/screens/profile/bloc/profile_bloc.dart';
@@ -31,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
           /// Обрабатывает состояния
           builder: (context, state) {
             return state.maybeMap(
-              loading: (_) => Center(child: CircularProgressIndicator()),
+              loading: (_) => Center(child: AppCircularProgressIndicator()),
               data: (_data) => Scaffold(
                 extendBodyBehindAppBar: true,
                 body: CustomScrollView(

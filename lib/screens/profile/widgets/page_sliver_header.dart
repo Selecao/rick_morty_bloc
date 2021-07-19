@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:sc_03/components/app_circle_button.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
@@ -74,7 +75,8 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
                 ),
               ),
               progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  CircularProgressIndicator(value: downloadProgress.progress),
+                  AppCircularProgressIndicator(
+                      value: downloadProgress.progress),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/locations_list/widgets/location_tile.dart';
@@ -21,7 +22,7 @@ class LocationsListScreen extends StatelessWidget {
       /// Обрабатываем состояния
       builder: (context, state) {
         return state.maybeMap(
-          loading: (_) => Center(child: CircularProgressIndicator()),
+          loading: (_) => Center(child: AppCircularProgressIndicator()),
           data: (_data) => Scaffold(
             appBar: LocationsListAppBar(_data.locationsList.length),
             body: ListView.builder(

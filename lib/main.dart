@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/adjustments/bloc/adjustments_bloc.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
@@ -22,10 +23,10 @@ void main() {
       statusBarColor: ColorTheme.transparent, // transparent status bar
     ),
   );
-  runApp(MyApp());
+  runApp(RickAndMortyApp());
 }
 
-class MyApp extends StatelessWidget {
+class RickAndMortyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -79,7 +80,7 @@ class MyApp extends StatelessWidget {
           child: BlocBuilder<GlobalBloc, GlobalState>(
             builder: (context, state) {
               return state.maybeMap(
-                loading: (_) => Center(child: CircularProgressIndicator()),
+                loading: (_) => Center(child: AppCircularProgressIndicator()),
                 data: (_data) {
                   if (_data.activeTab == 0) {
                     return CharactersScreen();

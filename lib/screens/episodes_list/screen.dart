@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_chapters_tile.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
@@ -18,7 +19,7 @@ class EpisodesListScreen extends StatelessWidget {
       /// Обрабатываем состояния
       builder: (context, state) {
         return state.maybeMap(
-          loading: (_) => Center(child: CircularProgressIndicator()),
+          loading: (_) => Center(child: AppCircularProgressIndicator()),
           data: (_data) => DefaultTabController(
             length: _data.seasons.length,
             child: Scaffold(

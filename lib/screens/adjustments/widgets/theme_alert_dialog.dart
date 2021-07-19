@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 
 import 'package:sc_03/screens/adjustments/bloc/adjustments_bloc.dart';
 import 'package:sc_03/theme/color_theme.dart';
@@ -14,7 +15,7 @@ class ThemeAlertDialog extends StatelessWidget {
     return BlocBuilder<AdjustmentsBloc, AdjustmentsState>(
         builder: (context, state) {
       return state.maybeMap(
-        loading: (_) => Center(child: CircularProgressIndicator()),
+        loading: (_) => Center(child: AppCircularProgressIndicator()),
         data: (_data) => AlertDialog(
           backgroundColor: ColorTheme.blue_600,
           title: Text(

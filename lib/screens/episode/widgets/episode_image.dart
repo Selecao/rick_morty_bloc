@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/color_theme.dart';
 
@@ -31,7 +32,7 @@ class EpisodeImage extends StatelessWidget {
             ),
           ),
           progressIndicatorBuilder: (context, url, downloadProgress) =>
-              CircularProgressIndicator(value: downloadProgress.progress),
+              AppCircularProgressIndicator(value: downloadProgress.progress),
           errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Positioned(

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
@@ -36,7 +37,7 @@ class CharacterGridItem extends StatelessWidget {
               ),
             ),
             progressIndicatorBuilder: (context, url, downloadProgress) =>
-                CircularProgressIndicator(value: downloadProgress.progress),
+                AppCircularProgressIndicator(value: downloadProgress.progress),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           const SizedBox(height: 18.0),
