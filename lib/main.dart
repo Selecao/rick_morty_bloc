@@ -8,13 +8,10 @@ import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 import 'package:sc_03/screens/adjustments/screen.dart';
 import 'package:sc_03/screens/characters/screen.dart';
-import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:sc_03/screens/episodes_list/screen.dart';
-import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 import 'package:sc_03/screens/locations_list/screen.dart';
-import 'package:sc_03/screens/profile/screen.dart';
 import 'package:sc_03/screens/splash/screen.dart';
 import 'package:sc_03/theme/color_theme.dart';
 

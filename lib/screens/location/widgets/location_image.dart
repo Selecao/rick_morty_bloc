@@ -14,22 +14,27 @@ class LocationImage extends StatelessWidget {
 
     return Stack(
       children: [
-        CachedNetworkImage(
-          imageUrl: image ?? 'no image',
-          imageBuilder: (context, imageProvider) => Container(
-            height: imageHeight,
-            decoration: BoxDecoration(
-              color: ColorTheme.blue_600,
-              image: DecorationImage(
-                image: imageProvider,
-                fit: BoxFit.cover,
+        (image == null) || (image == '')
+            ? Container(
+                height: imageHeight,
+                color: ColorTheme.blue_600,
+              )
+            : CachedNetworkImage(
+                imageUrl: image ?? 'no image',
+                imageBuilder: (context, imageProvider) => Container(
+                  height: imageHeight,
+                  decoration: BoxDecoration(
+                    color: ColorTheme.blue_600,
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    CircularProgressIndicator(value: downloadProgress.progress),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
-            ),
-          ),
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              CircularProgressIndicator(value: downloadProgress.progress),
-          errorWidget: (context, url, error) => Icon(Icons.error),
-        ),
         Positioned(
           bottom: .0,
           child: Container(

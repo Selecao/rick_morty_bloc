@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/characters/widgets/character_grid_item.dart';
+import 'package:sc_03/screens/profile/screen.dart';
 
 class CharactersGrid extends StatelessWidget {
   final List<Character> charactersList;
@@ -22,7 +23,16 @@ class CharactersGrid extends StatelessWidget {
         ),
         itemBuilder: (context, index) => CharacterGridItem(
           character: charactersList[index],
-          onTap: () {},
+          onTap: () {
+            if (charactersList[index].id != null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return ProfileScreen(charactersList[index].id!);
+                }),
+              );
+            }
+          },
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
@@ -47,6 +48,9 @@ class CharacterGridItem extends StatelessWidget {
               letterSpacing: 0.1,
               height: 1.42,
             ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           ),
           RaceGenderText(character: character),
         ],
