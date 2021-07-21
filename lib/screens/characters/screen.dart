@@ -10,7 +10,6 @@ import 'package:sc_03/screens/characters/widgets/characters_app_bar.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_grid.dart';
 import 'package:sc_03/screens/characters/widgets/characters_list.dart';
-import 'package:sc_03/theme/color_theme.dart';
 
 class CharactersScreen extends StatelessWidget {
   @override

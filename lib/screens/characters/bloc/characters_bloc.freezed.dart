@@ -26,8 +26,8 @@ class _$CharactersEventTearOff {
     );
   }
 
-  _FindCharactersEvent find({required String chars}) {
-    return _FindCharactersEvent(
+  _FindingCharactersEvent find({required String chars}) {
+    return _FindingCharactersEvent(
       chars: chars,
     );
   }
@@ -57,14 +57,14 @@ mixin _$CharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
-    required TResult Function(_FindCharactersEvent value) find,
+    required TResult Function(_FindingCharactersEvent value) find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
-    TResult Function(_FindCharactersEvent value)? find,
+    TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +153,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
-    required TResult Function(_FindCharactersEvent value) find,
+    required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return initial(this);
   }
@@ -163,7 +163,7 @@ class _$_InitialCharactersEvent implements _InitialCharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
-    TResult Function(_FindCharactersEvent value)? find,
+    TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -272,7 +272,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
-    required TResult Function(_FindCharactersEvent value) find,
+    required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return selectedView(this);
   }
@@ -282,7 +282,7 @@ class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
-    TResult Function(_FindCharactersEvent value)? find,
+    TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
     if (selectedView != null) {
@@ -303,29 +303,29 @@ abstract class _SelectedViewCharactersEvent implements CharactersEvent {
 }
 
 /// @nodoc
-abstract class _$FindCharactersEventCopyWith<$Res> {
-  factory _$FindCharactersEventCopyWith(_FindCharactersEvent value,
-          $Res Function(_FindCharactersEvent) then) =
-      __$FindCharactersEventCopyWithImpl<$Res>;
+abstract class _$FindingCharactersEventCopyWith<$Res> {
+  factory _$FindingCharactersEventCopyWith(_FindingCharactersEvent value,
+          $Res Function(_FindingCharactersEvent) then) =
+      __$FindingCharactersEventCopyWithImpl<$Res>;
   $Res call({String chars});
 }
 
 /// @nodoc
-class __$FindCharactersEventCopyWithImpl<$Res>
+class __$FindingCharactersEventCopyWithImpl<$Res>
     extends _$CharactersEventCopyWithImpl<$Res>
-    implements _$FindCharactersEventCopyWith<$Res> {
-  __$FindCharactersEventCopyWithImpl(
-      _FindCharactersEvent _value, $Res Function(_FindCharactersEvent) _then)
-      : super(_value, (v) => _then(v as _FindCharactersEvent));
+    implements _$FindingCharactersEventCopyWith<$Res> {
+  __$FindingCharactersEventCopyWithImpl(_FindingCharactersEvent _value,
+      $Res Function(_FindingCharactersEvent) _then)
+      : super(_value, (v) => _then(v as _FindingCharactersEvent));
 
   @override
-  _FindCharactersEvent get _value => super._value as _FindCharactersEvent;
+  _FindingCharactersEvent get _value => super._value as _FindingCharactersEvent;
 
   @override
   $Res call({
     Object? chars = freezed,
   }) {
-    return _then(_FindCharactersEvent(
+    return _then(_FindingCharactersEvent(
       chars: chars == freezed
           ? _value.chars
           : chars // ignore: cast_nullable_to_non_nullable
@@ -336,8 +336,8 @@ class __$FindCharactersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FindCharactersEvent implements _FindCharactersEvent {
-  const _$_FindCharactersEvent({required this.chars});
+class _$_FindingCharactersEvent implements _FindingCharactersEvent {
+  const _$_FindingCharactersEvent({required this.chars});
 
   @override
   final String chars;
@@ -350,7 +350,7 @@ class _$_FindCharactersEvent implements _FindCharactersEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FindCharactersEvent &&
+        (other is _FindingCharactersEvent &&
             (identical(other.chars, chars) ||
                 const DeepCollectionEquality().equals(other.chars, chars)));
   }
@@ -361,8 +361,8 @@ class _$_FindCharactersEvent implements _FindCharactersEvent {
 
   @JsonKey(ignore: true)
   @override
-  _$FindCharactersEventCopyWith<_FindCharactersEvent> get copyWith =>
-      __$FindCharactersEventCopyWithImpl<_FindCharactersEvent>(
+  _$FindingCharactersEventCopyWith<_FindingCharactersEvent> get copyWith =>
+      __$FindingCharactersEventCopyWithImpl<_FindingCharactersEvent>(
           this, _$identity);
 
   @override
@@ -394,7 +394,7 @@ class _$_FindCharactersEvent implements _FindCharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
-    required TResult Function(_FindCharactersEvent value) find,
+    required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return find(this);
   }
@@ -404,7 +404,7 @@ class _$_FindCharactersEvent implements _FindCharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
-    TResult Function(_FindCharactersEvent value)? find,
+    TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
     if (find != null) {
@@ -414,13 +414,13 @@ class _$_FindCharactersEvent implements _FindCharactersEvent {
   }
 }
 
-abstract class _FindCharactersEvent implements CharactersEvent {
-  const factory _FindCharactersEvent({required String chars}) =
-      _$_FindCharactersEvent;
+abstract class _FindingCharactersEvent implements CharactersEvent {
+  const factory _FindingCharactersEvent({required String chars}) =
+      _$_FindingCharactersEvent;
 
   String get chars => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$FindCharactersEventCopyWith<_FindCharactersEvent> get copyWith =>
+  _$FindingCharactersEventCopyWith<_FindingCharactersEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -13,5 +13,5 @@ class CharactersEvent with _$CharactersEvent {
   ///Событие поиска персонажа
   const factory CharactersEvent.find({
     required String chars,
-  }) = _FindCharactersEvent;
+  }) = _FindingCharactersEvent;
 }

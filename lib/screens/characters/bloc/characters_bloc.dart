@@ -67,7 +67,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   }
 
   Stream<CharactersState> _mapFindCharactersEvent(
-      _FindCharactersEvent event) async* {
+      _FindingCharactersEvent event) async* {
     yield CharactersState.loading();
     String charsToFind = event.chars;
     List<Character> _finderResultList = _findCharacters(charsToFind);

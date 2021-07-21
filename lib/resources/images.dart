@@ -22,4 +22,8 @@ class Images {
   static const String location1 = 'assets/images/location_1.png';
   static const String location2 = 'assets/images/chapter_3.png';
   static const String location3 = 'assets/images/location_3.jpg';
+
+  static const String characterNotFound = 'assets/images/characterNotFound.png';
+  static const String locationNotFound = 'assets/images/locationNotFound.jpg';
+  static const String episodeNotFound = 'assets/images/episodeNotFound.jpg';
 }
