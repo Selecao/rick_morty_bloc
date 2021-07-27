@@ -24,6 +24,7 @@ class Images {
   static const String location3 = 'assets/images/location_3.jpg';
 
   static const String characterNotFound = 'assets/images/characterNotFound.png';
-  static const String locationNotFound = 'assets/images/locationNotFound.jpg';
-  static const String episodeNotFound = 'assets/images/episodeNotFound.jpg';
+  static const String locationNotFound = 'assets/images/locationNotFound.png';
+  static const String episodeNotFound = 'assets/images/episodeNotFound.png';
+  static const String filterNotFound = 'assets/images/filter_not_found.png';
 }
