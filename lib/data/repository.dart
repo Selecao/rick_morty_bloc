@@ -1,10 +1,28 @@
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/data/network/service_api.dart';
+import 'package:sc_03/resources/constants.dart';
+import 'package:sc_03/theme/theme_type.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'network/models/location.dart';
 
 class Repository {
+  Repository() {
+    init();
+  }
+
+  late SharedPreferences _prefs;
+
+  Future init() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
+
+  ThemeType getThemeType() {
+    final String? type = _prefs.getString(Constants.ThemeType);
+    return type as ThemeType;
+  }
+
   final _serviceApi = ServiceApi();
 
   Future<List<Character>?> getCharactersList(

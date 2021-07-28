@@ -10,13 +10,6 @@ final List<Season> seasons = [
   Season('Сезон 4', []),
 ];
 
-const List<String> themeModeTitles = [
-  'Выключена',
-  'Включена',
-  'Следовать настройкам системы',
-  'В режиме энергосбережения',
-];
-
 final Character character1 = Character(
   fullName: 'Рик Санчез',
   status: 0,

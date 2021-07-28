@@ -13,6 +13,14 @@ class ColorTheme {
   static const Color white = Color(0xFFFFFFFF);
   static const Color transparent = Color(0x0);
 
+  static const Color white_900 = Color(0xFFFCFCFC);
+  static const Color white_800 = Color(0xFFF2F2F2);
+  static const Color blue_800 = Color(0xFF0B1E2D);
+  static const Color grey_700 = Color(0xFF4F4F4F);
+  static const Color grey_500 = Color(0xFF828282);
+  static const Color grey_300 = Color(0xFFBDBDBD);
+  static const Color cyan_900 = Color(0xFF2FD8FC);
+
   static final appBarGradient = LinearGradient(
     colors: [
       black.withOpacity(0.85),
