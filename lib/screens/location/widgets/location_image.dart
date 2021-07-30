@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class LocationImage extends StatelessWidget {
   final String? image;
@@ -18,14 +18,14 @@ class LocationImage extends StatelessWidget {
         (image == null) || (image == '')
             ? Container(
                 height: imageHeight,
-                color: ColorTheme.blue_600,
+                color: AppColor.blue_600,
               )
             : CachedNetworkImage(
                 imageUrl: image ?? 'no image',
                 imageBuilder: (context, imageProvider) => Container(
                   height: imageHeight,
                   decoration: BoxDecoration(
-                    color: ColorTheme.blue_600,
+                    color: AppColor.blue_600,
                     image: DecorationImage(
                       image: imageProvider,
                       fit: BoxFit.cover,
@@ -43,7 +43,7 @@ class LocationImage extends StatelessWidget {
             height: borderRadius,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: ColorTheme.blue_900,
+              color: AppColor.blue_900,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(borderRadius),
                 topRight: Radius.circular(borderRadius),

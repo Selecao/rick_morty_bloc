@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:sc_03/resources/constants.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,24 +15,31 @@ class MainTheme with ChangeNotifier {
 
   final darkTheme = ThemeData(
     fontFamily: 'Roboto',
-    // primarySwatch: Colors.grey,
-    primaryColor: ColorTheme.blue_900,
+    primaryColor: AppColor.blue_900,
     brightness: Brightness.dark,
-    // backgroundColor: const Color(0xFF212121),
-    accentColor: Colors.white,
+    //backgroundColor: const Color(0xFF212121),
+    accentColor: AppColor.white,
+    primaryColorLight: AppColor.blueGrey_500,
+    primaryColorDark: AppColor.blueGrey_600,
+
     // accentIconTheme: IconThemeData(color: Colors.black),
-    canvasColor: ColorTheme.blue_600,
-    dividerColor: ColorTheme.blue_600,
+    highlightColor: AppColor.cyan_300,
+    indicatorColor: AppColor.yellow_200,
+    hintColor: AppColor.green_200,
+    errorColor: AppColor.red_100,
+    canvasColor: AppColor.blue_600,
+    dividerColor: AppColor.blue_600,
+    secondaryHeaderColor: AppColor.black,
     appBarTheme: AppBarTheme(
       elevation: 0,
       iconTheme: IconThemeData(
-        color: Colors.white,
+        color: AppColor.white,
       ),
     ),
-    scaffoldBackgroundColor: ColorTheme.blue_900,
+    scaffoldBackgroundColor: AppColor.blue_900,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: ColorTheme.green_200,
-      unselectedItemColor: ColorTheme.blueGrey_600,
+      selectedItemColor: AppColor.green_200,
+      unselectedItemColor: AppColor.blueGrey_600,
     ),
     textTheme: TextTheme(
       headline4: TextStyle(
@@ -54,21 +61,21 @@ class MainTheme with ChangeNotifier {
         fontWeight: FontWeight.w500,
         fontSize: 10,
         letterSpacing: 1.5,
-        color: ColorTheme.blueGrey_600,
+        color: AppColor.blueGrey_600,
       ),
       caption: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w400,
         fontSize: 12,
         letterSpacing: 0.5,
-        color: ColorTheme.blueGrey_500,
+        color: AppColor.blueGrey_500,
       ),
       bodyText1: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w400,
         fontSize: 16,
         letterSpacing: 0.44,
-        color: ColorTheme.blueGrey_600,
+        color: AppColor.blueGrey_600,
       ),
       bodyText2: TextStyle(
         fontStyle: FontStyle.normal,
@@ -82,10 +89,10 @@ class MainTheme with ChangeNotifier {
         fontWeight: FontWeight.w400,
         fontSize: 16,
         letterSpacing: 0.15,
-        color: ColorTheme.blueGrey_600,
+        color: AppColor.blueGrey_600,
       ),
     ),
-    dialogBackgroundColor: ColorTheme.blue_600,
+    dialogBackgroundColor: AppColor.blue_600,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor:
@@ -93,7 +100,7 @@ class MainTheme with ChangeNotifier {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: ColorTheme.blue_600,
+      fillColor: AppColor.blue_600,
     ),
   );
 
@@ -104,23 +111,23 @@ class MainTheme with ChangeNotifier {
   final lightTheme = ThemeData(
     fontFamily: 'Roboto',
     // primarySwatch: Colors.grey,
-    primaryColor: ColorTheme.white_900,
+    primaryColor: AppColor.white_900,
     brightness: Brightness.light,
     // backgroundColor: const Color(0xFFE5E5E5),
-    accentColor: ColorTheme.blue_800,
+    accentColor: AppColor.blue_800,
     // accentIconTheme: IconThemeData(color: Colors.white),
     canvasColor: Colors.white,
-    dividerColor: ColorTheme.white_800,
+    dividerColor: AppColor.white_800,
     appBarTheme: AppBarTheme(
       elevation: 0,
       iconTheme: IconThemeData(
-        color: ColorTheme.grey_500,
+        color: AppColor.grey_500,
       ),
     ),
-    scaffoldBackgroundColor: ColorTheme.white_900,
+    scaffoldBackgroundColor: AppColor.white_900,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: ColorTheme.cyan_900,
-      unselectedItemColor: ColorTheme.grey_300,
+      selectedItemColor: AppColor.cyan_900,
+      unselectedItemColor: AppColor.grey_300,
     ),
     textTheme: TextTheme(
       headline4: TextStyle(
@@ -128,35 +135,35 @@ class MainTheme with ChangeNotifier {
         fontWeight: FontWeight.w400,
         fontSize: 34,
         letterSpacing: 0.25,
-        color: ColorTheme.blue_800,
+        color: AppColor.blue_800,
       ),
       headline6: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w600,
         fontSize: 20,
         letterSpacing: 0.15,
-        color: ColorTheme.blue_800,
+        color: AppColor.blue_800,
       ),
       overline: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w500,
         fontSize: 10,
         letterSpacing: 1.5,
-        color: ColorTheme.grey_500,
+        color: AppColor.grey_500,
       ),
       caption: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w400,
         fontSize: 12,
         letterSpacing: 0.5,
-        color: ColorTheme.grey_500,
+        color: AppColor.grey_500,
       ),
       bodyText1: TextStyle(
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.w400,
         fontSize: 16,
         letterSpacing: 0.44,
-        color: ColorTheme.grey_500,
+        color: AppColor.grey_500,
       ),
       bodyText2: TextStyle(
         fontStyle: FontStyle.normal,
@@ -170,18 +177,18 @@ class MainTheme with ChangeNotifier {
         fontWeight: FontWeight.w400,
         fontSize: 16,
         letterSpacing: 0.15,
-        color: ColorTheme.grey_500,
+        color: AppColor.grey_500,
       ),
     ),
     dialogBackgroundColor: Colors.white,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor:
-            MaterialStateProperty.resolveWith((state) => ColorTheme.grey_700),
+            MaterialStateProperty.resolveWith((state) => AppColor.grey_700),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: ColorTheme.white_800,
+      fillColor: AppColor.white_800,
     ),
   );
 

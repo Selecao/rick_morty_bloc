@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class ThemeSelectorWidget extends StatelessWidget {
   final String darkModeOptionTitle;
@@ -25,7 +25,7 @@ class ThemeSelectorWidget extends StatelessWidget {
               SvgPicture.asset(
                 AppIcons.themePalette,
                 width: 27.0,
-                color: ColorTheme.white,
+                color: AppColor.white,
               ),
               const SizedBox(width: 21),
               Column(
@@ -41,7 +41,7 @@ class ThemeSelectorWidget extends StatelessWidget {
                   Text(
                     darkModeOptionTitle,
                     style: AppTextTheme.bodyText1.copyWith(
-                      color: ColorTheme.blueGrey_500.withOpacity(0.6),
+                      color: AppColor.blueGrey_500.withOpacity(0.6),
                       letterSpacing: 0.25,
                       height: 1.42,
                     ),
@@ -52,7 +52,7 @@ class ThemeSelectorWidget extends StatelessWidget {
               SvgPicture.asset(
                 AppIcons.arrowForwardIos,
                 height: 8.0,
-                color: ColorTheme.white,
+                color: AppColor.white,
               ),
             ],
           ),

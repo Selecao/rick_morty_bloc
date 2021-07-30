@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/data/network/models/location.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class LocationDescription extends StatelessWidget {
   final Location location;

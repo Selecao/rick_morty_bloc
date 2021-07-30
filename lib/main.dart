@@ -17,14 +17,14 @@ import 'package:sc_03/screens/find/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 import 'package:sc_03/screens/locations_list/screen.dart';
 import 'package:sc_03/screens/splash/screen.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 import 'package:sc_03/theme/main_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: ColorTheme.transparent, // transparent status bar
+      statusBarColor: AppColor.transparent, // transparent status bar
     ),
   );
   runApp(
@@ -74,17 +74,9 @@ class RickAndMortyApp extends StatelessWidget {
         child: Consumer<MainTheme>(
           builder: (context, theme, _) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              textTheme: TextTheme(),
-              fontFamily: 'Roboto',
-              //primarySwatch: Colors.blue,
-              scaffoldBackgroundColor: ColorTheme.blue_900,
-              //accentColor: ColorTheme.blue_900,
-              //backgroundColor: ColorTheme.blue_900,
-              //bottomAppBarColor: ColorTheme.blue_900,
-              //canvasColor: ColorTheme.blue_900,
-              primaryColor: ColorTheme.blue_900,
-            ),
+
+            /// DI from MainTheme
+            theme: theme.getTheme(),
             home: BlocListener<GlobalBloc, GlobalState>(
               listener: (context, state) {},
               child: BlocBuilder<GlobalBloc, GlobalState>(

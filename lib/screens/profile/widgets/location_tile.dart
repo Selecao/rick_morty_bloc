@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/location/screen.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class LocationTile extends StatelessWidget {
   final String title;
@@ -57,7 +57,7 @@ class LocationTile extends StatelessWidget {
             SvgPicture.asset(
               AppIcons.arrowForwardIos,
               height: 8.0,
-              color: ColorTheme.white,
+              color: AppColor.white,
             )
           ],
         ),

@@ -5,8 +5,8 @@ import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class CharacterGridItem extends StatelessWidget {
   final Character character;
@@ -28,7 +28,7 @@ class CharacterGridItem extends StatelessWidget {
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                color: ColorTheme.blue_600,
+                color: AppColor.blue_600,
                 borderRadius: BorderRadius.circular(60.0),
                 image: DecorationImage(
                   image: imageProvider,

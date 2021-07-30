@@ -4,7 +4,7 @@ import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/screens/episode/screen.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class Chapters extends StatelessWidget {
   final List<Episode> chaptersList;
@@ -26,7 +26,7 @@ class Chapters extends StatelessWidget {
               suffix: SvgPicture.asset(
                 AppIcons.arrowForwardIos,
                 height: 8.0,
-                color: ColorTheme.white,
+                color: AppColor.white,
               ),
               onTap: () {
                 if (chaptersList[index].id != null) {

@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LocationsListAppBar extends StatelessWidget
@@ -33,13 +33,13 @@ class LocationsListAppBar extends StatelessWidget
             Container(
               width: 1.0,
               height: 24.0,
-              color: ColorTheme.white.withOpacity(0.1),
+              color: AppColor.white.withOpacity(0.1),
             ),
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
                 AppIcons.filterSort,
-                color: ColorTheme.blueGrey_600,
+                color: AppColor.blueGrey_600,
               ),
               onPressed: () {},
             ),

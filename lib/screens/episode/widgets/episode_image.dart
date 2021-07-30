@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class EpisodeImage extends StatelessWidget {
   final String? image;
@@ -24,7 +24,7 @@ class EpisodeImage extends StatelessWidget {
             alignment: Alignment.center,
             height: imageHeight,
             decoration: BoxDecoration(
-              color: ColorTheme.blue_600,
+              color: AppColor.blue_600,
               image: DecorationImage(
                 image: imageProvider,
                 fit: BoxFit.cover,
@@ -41,7 +41,7 @@ class EpisodeImage extends StatelessWidget {
             height: 82.0,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: ColorTheme.blue_900,
+              color: AppColor.blue_900,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(borderRadius),
                 topRight: Radius.circular(borderRadius),
@@ -56,13 +56,13 @@ class EpisodeImage extends StatelessWidget {
           child: TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(33.0),
-              backgroundColor: ColorTheme.cyan_300,
+              backgroundColor: AppColor.cyan_300,
               shape: CircleBorder(),
             ),
             child: SvgPicture.asset(
               AppIcons.arrowPlay,
               width: 30.0,
-              color: ColorTheme.white,
+              color: AppColor.white,
             ),
             onPressed: () {},
           ),

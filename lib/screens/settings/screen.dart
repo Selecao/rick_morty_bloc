@@ -10,7 +10,7 @@ import 'package:sc_03/screens/settings/widgets/about_app.dart';
 import 'package:sc_03/screens/settings/widgets/theme_alert_dialog.dart';
 import 'package:sc_03/screens/settings/widgets/theme_selector_widget.dart';
 import 'package:sc_03/theme/main_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 class SettingsScreen extends StatelessWidget {

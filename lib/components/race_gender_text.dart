@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class RaceGenderText extends StatelessWidget {
   const RaceGenderText({

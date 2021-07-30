@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class StatusText extends StatelessWidget {
   const StatusText({
@@ -36,10 +36,10 @@ String getStatusText(int statusIndex) {
 Color getStatusColor(int statusIndex) {
   switch (statusIndex) {
     case 0:
-      return ColorTheme.green_200;
+      return AppColor.green_200;
     case 1:
-      return ColorTheme.red_100;
+      return AppColor.red_100;
     default:
-      return ColorTheme.yellow_200;
+      return AppColor.yellow_200;
   }
 }

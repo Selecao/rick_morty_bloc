@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class SearchTextField extends StatelessWidget {
   final String title;
@@ -26,7 +26,7 @@ class SearchTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
         filled: true,
-        fillColor: ColorTheme.blue_600,
+        fillColor: AppColor.blue_600,
         hintText: title,
         hintStyle: AppTextTheme.body1.copyWith(letterSpacing: 0.44),
         border: OutlineInputBorder(
@@ -39,7 +39,7 @@ class SearchTextField extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(15.0, 12.0, 10.0, 12.0),
           child: SvgPicture.asset(
             AppIcons.search,
-            color: ColorTheme.blueGrey_600,
+            color: AppColor.blueGrey_600,
           ),
         ),
         suffixIcon: suffixIcon,

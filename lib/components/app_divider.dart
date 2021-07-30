@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class AppDivider extends StatelessWidget {
   final double indent;
@@ -9,7 +9,7 @@ class AppDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: ColorTheme.blue_600,
+      color: AppColor.blue_600,
       thickness: 2.0,
       indent: indent,
       endIndent: endIndent,

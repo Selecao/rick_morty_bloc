@@ -7,7 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class PageSliverHeader extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
@@ -43,8 +43,8 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: ColorTheme.white,
-                    gradient: ColorTheme.appBarGradient,
+                    color: AppColor.white,
+                    gradient: AppColor.appBarGradient,
                     backgroundBlendMode: BlendMode.multiply),
               ),
             ],
@@ -61,10 +61,10 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
                 width: avatarSize,
                 height: avatarSize,
                 decoration: ShapeDecoration(
-                  color: ColorTheme.blue_600,
+                  color: AppColor.blue_600,
                   shape: CircleBorder(
                     side: BorderSide(
-                      color: ColorTheme.blue_900,
+                      color: AppColor.blue_900,
                       width: 8.0,
                     ),
                   ),

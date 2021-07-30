@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
@@ -10,6 +11,7 @@ import 'package:sc_03/screens/characters/widgets/characters_app_bar.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_grid.dart';
 import 'package:sc_03/screens/characters/widgets/characters_list.dart';
+import 'package:sc_03/theme/main_theme.dart';
 
 class CharactersScreen extends StatelessWidget {
   @override

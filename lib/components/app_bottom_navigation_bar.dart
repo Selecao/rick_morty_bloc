@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final void Function(int index) onTap;
   final int currentIndex;
   AppBottomNavigationBar({required this.currentIndex, required this.onTap});
-  static const _activeColor = ColorTheme.green_200;
-  static const _inactiveColor = ColorTheme.blueGrey_600;
+  static const _activeColor = AppColor.green_200;
+  static const _inactiveColor = AppColor.blueGrey_600;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       currentIndex: currentIndex,
       elevation: .0,
-      backgroundColor: ColorTheme.blue_600,
+      backgroundColor: AppColor.blue_600,
       selectedItemColor: _activeColor,
       unselectedItemColor: _inactiveColor,
       selectedLabelStyle: AppTextTheme.caption.copyWith(

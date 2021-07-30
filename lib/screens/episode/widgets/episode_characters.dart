@@ -4,7 +4,7 @@ import 'package:sc_03/components/character_list_tile.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/profile/screen.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class EpisodeCharacters extends StatelessWidget {
   final List<Character> characters;
@@ -22,7 +22,7 @@ class EpisodeCharacters extends StatelessWidget {
         suffix: SvgPicture.asset(
           AppIcons.arrowForwardIos,
           height: 8.0,
-          color: ColorTheme.white,
+          color: AppColor.white,
         ),
         onTap: () {
           if (characters[index].id != null) {

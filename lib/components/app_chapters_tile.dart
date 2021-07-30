@@ -3,8 +3,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 
 import 'package:sc_03/data/network/models/episode.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class AppChaptersTile extends StatelessWidget {
   final double imageSize;
@@ -34,7 +34,7 @@ class AppChaptersTile extends StatelessWidget {
                 width: imageSize,
                 height: imageSize,
                 decoration: BoxDecoration(
-                  color: ColorTheme.blue_600,
+                  color: AppColor.blue_600,
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
                     image: imageProvider,
@@ -57,7 +57,7 @@ class AppChaptersTile extends StatelessWidget {
                   style: AppTextTheme.subtitle2.copyWith(
                       height: 1.6,
                       letterSpacing: 1.5,
-                      color: ColorTheme.cyan_300.withOpacity(0.87)),
+                      color: AppColor.cyan_300.withOpacity(0.87)),
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: textConstraint),
@@ -68,7 +68,7 @@ class AppChaptersTile extends StatelessWidget {
                     style: AppTextTheme.subtitle1.copyWith(
                       height: 1.5,
                       letterSpacing: 0.5,
-                      color: ColorTheme.white.withOpacity(0.87),
+                      color: AppColor.white.withOpacity(0.87),
                     ),
                   ),
                 ),
@@ -77,7 +77,7 @@ class AppChaptersTile extends StatelessWidget {
                   style: AppTextTheme.bodyText1.copyWith(
                     height: 1.4,
                     letterSpacing: 0.25,
-                    color: ColorTheme.blueGrey_500.withOpacity(0.6),
+                    color: AppColor.blueGrey_500.withOpacity(0.6),
                   ),
                 ),
               ],

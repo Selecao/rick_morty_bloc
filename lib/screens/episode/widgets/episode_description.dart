@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sc_03/components/app_divider.dart';
 import 'package:sc_03/data/network/models/episode.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class EpisodeDescription extends StatelessWidget {
   final Episode? episode;
@@ -25,7 +25,7 @@ class EpisodeDescription extends StatelessWidget {
           Text(
             "Серия ${episode?.series}",
             style: AppTextTheme.subtitle2.copyWith(
-              color: ColorTheme.cyan_300.withOpacity(0.87),
+              color: AppColor.cyan_300.withOpacity(0.87),
               letterSpacing: 1.5,
               height: 1.6,
             ),

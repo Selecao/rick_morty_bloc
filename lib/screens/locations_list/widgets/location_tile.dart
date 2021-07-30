@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/data/network/models/location.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class LocationTile extends StatelessWidget {
   final Location location;
@@ -28,7 +28,7 @@ class LocationTile extends StatelessWidget {
               imageBuilder: (context, imageProvider) => Container(
                 height: 150.0,
                 decoration: BoxDecoration(
-                  color: ColorTheme.blue_600,
+                  color: AppColor.blue_600,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(cornerRadius),
                     topRight: Radius.circular(cornerRadius),
@@ -48,7 +48,7 @@ class LocationTile extends StatelessWidget {
               height: 68.0,
               padding: EdgeInsets.only(left: 16.0, top: 12.0, bottom: 12.0),
               decoration: BoxDecoration(
-                color: ColorTheme.blue_600,
+                color: AppColor.blue_600,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(cornerRadius),
                   bottomLeft: Radius.circular(cornerRadius),

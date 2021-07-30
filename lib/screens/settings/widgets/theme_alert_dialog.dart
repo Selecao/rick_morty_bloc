@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sc_03/resources/constants.dart';
-import 'package:sc_03/theme/color_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
 import 'package:sc_03/theme/main_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 class ThemeAlertDialog extends StatelessWidget {
@@ -15,7 +15,7 @@ class ThemeAlertDialog extends StatelessWidget {
     final themeProvider = Provider.of<MainTheme>(context);
 
     return AlertDialog(
-      backgroundColor: ColorTheme.blue_600,
+      backgroundColor: AppColor.blue_600,
       title: Text(
         'Темная тема',
         style: AppTextTheme.headline6.copyWith(
@@ -37,15 +37,15 @@ class ThemeAlertDialog extends StatelessWidget {
               title: Text(
                 Constants.themeModeTitles[i],
                 style: AppTextTheme.body1.copyWith(
-                  color: ColorTheme.white,
+                  color: AppColor.white,
                   letterSpacing: 0.15,
                   height: 1.5,
                 ),
               ),
               leading: Theme(
                 data: Theme.of(context).copyWith(
-                    unselectedWidgetColor: ColorTheme.blueGrey_600,
-                    disabledColor: ColorTheme.blue_600),
+                    unselectedWidgetColor: AppColor.blueGrey_600,
+                    disabledColor: AppColor.blue_600),
                 child: Radio<ThemeType>(
                   value: ThemeType.values[i],
                   groupValue: themeProvider.getThemeType(),
@@ -54,7 +54,7 @@ class ThemeAlertDialog extends StatelessWidget {
 
                     themeProvider.setThemeStyle(value!);
                   },
-                  activeColor: ColorTheme.cyan_300,
+                  activeColor: AppColor.cyan_300,
                 ),
               ),
             ),

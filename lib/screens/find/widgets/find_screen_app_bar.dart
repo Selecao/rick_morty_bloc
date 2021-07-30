@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   static const double _bottomAppBarHeight = 64.0;
@@ -20,7 +20,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
     const underlineInputBorder = UnderlineInputBorder(
       borderSide: BorderSide(
         width: 2.0,
-        color: ColorTheme.blue_600,
+        color: AppColor.blue_600,
       ),
     );
 
@@ -40,7 +40,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
           contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
           // change this if response
           filled: true,
-          fillColor: ColorTheme.blue_600,
+          fillColor: AppColor.blue_600,
           hintText: "Поиск",
           hintStyle: AppTextTheme.body1.copyWith(letterSpacing: 0.44),
           enabledBorder: underlineInputBorder,
@@ -50,7 +50,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.fromLTRB(16.0, 12.0, 20.0, 12.0),
             icon: SvgPicture.asset(
               AppIcons.arrowBack,
-              color: ColorTheme.white,
+              color: AppColor.white,
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -60,7 +60,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.fromLTRB(.0, 12.0, 12.0, 12.0),
             icon: SvgPicture.asset(
               AppIcons.delete,
-              color: ColorTheme.white,
+              color: AppColor.white,
             ),
             onPressed: () {
               _textController.clear();

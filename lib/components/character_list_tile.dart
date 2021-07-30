@@ -4,8 +4,8 @@ import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/theme/color_theme.dart';
-import 'package:sc_03/theme/text_theme.dart';
+import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 
 class CharacterListTile extends StatelessWidget {
   final Character character;
@@ -30,7 +30,7 @@ class CharacterListTile extends StatelessWidget {
               width: 74.0,
               height: 74.0,
               decoration: BoxDecoration(
-                color: ColorTheme.blue_600,
+                color: AppColor.blue_600,
                 borderRadius: BorderRadius.circular(40.0),
                 image: DecorationImage(
                   image: imageProvider,
