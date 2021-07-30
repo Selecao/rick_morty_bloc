@@ -34,7 +34,7 @@ class AppChaptersTile extends StatelessWidget {
                 width: imageSize,
                 height: imageSize,
                 decoration: BoxDecoration(
-                  color: AppColor.blue_600,
+                  color: Theme.of(context).canvasColor,
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
                     image: imageProvider,
@@ -54,10 +54,11 @@ class AppChaptersTile extends StatelessWidget {
               children: [
                 Text(
                   "СЕРИЯ ${chapter.series ?? "None"}",
-                  style: AppTextTheme.subtitle2.copyWith(
+                  style: Theme.of(context).textTheme.subtitle2?.copyWith(
                       height: 1.6,
                       letterSpacing: 1.5,
-                      color: AppColor.cyan_300.withOpacity(0.87)),
+                      color:
+                          Theme.of(context).highlightColor.withOpacity(0.87)),
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: textConstraint),
@@ -65,20 +66,23 @@ class AppChaptersTile extends StatelessWidget {
                     chapter.name ?? "None",
                     overflow: TextOverflow.fade,
                     softWrap: false,
-                    style: AppTextTheme.subtitle1.copyWith(
-                      height: 1.5,
-                      letterSpacing: 0.5,
-                      color: AppColor.white.withOpacity(0.87),
-                    ),
+                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                          height: 1.5,
+                          letterSpacing: 0.5,
+                          color:
+                              Theme.of(context).accentColor.withOpacity(0.87),
+                        ),
                   ),
                 ),
                 Text(
                   "${chapter.premiere?.toStringRus()}",
-                  style: AppTextTheme.bodyText1.copyWith(
-                    height: 1.4,
-                    letterSpacing: 0.25,
-                    color: AppColor.blueGrey_500.withOpacity(0.6),
-                  ),
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        height: 1.4,
+                        letterSpacing: 0.25,
+                        color: Theme.of(context)
+                            .primaryColorLight
+                            .withOpacity(0.6),
+                      ),
                 ),
               ],
             ),

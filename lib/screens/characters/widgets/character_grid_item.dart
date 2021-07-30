@@ -28,7 +28,7 @@ class CharacterGridItem extends StatelessWidget {
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                color: AppColor.blue_600,
+                color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.circular(60.0),
                 image: DecorationImage(
                   image: imageProvider,
@@ -44,11 +44,11 @@ class CharacterGridItem extends StatelessWidget {
           StatusText(statusIndex: character.status ?? 2),
           Text(
             character.fullName ?? "None",
-            style: AppTextTheme.bodyText1.copyWith(
-              fontWeight: FontWeight.w500,
-              letterSpacing: 0.1,
-              height: 1.42,
-            ),
+            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 0.1,
+                  height: 1.42,
+                ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/theme/app_color.dart';
 
 class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
   TransparentAppBar() : preferredSize = Size.fromHeight(kToolbarHeight);
@@ -17,6 +18,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.only(left: 16.0),
         child: AppCircleButton(
           icon: AppIcons.arrowBack,
+          color: AppColor.white,
           onPressed: () {
             Navigator.pop(context);
           },

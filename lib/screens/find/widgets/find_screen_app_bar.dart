@@ -17,10 +17,10 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    const underlineInputBorder = UnderlineInputBorder(
+    final underlineInputBorder = UnderlineInputBorder(
       borderSide: BorderSide(
         width: 2.0,
-        color: AppColor.blue_600,
+        color: Theme.of(context).canvasColor,
       ),
     );
 
@@ -31,18 +31,21 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: TextField(
         controller: _textController,
         focusNode: FocusNode(),
-        style: AppTextTheme.bodyText1.copyWith(
-          fontSize: 16.0,
-          letterSpacing: 0.44,
-          height: 1.5,
-        ),
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              fontSize: 16.0,
+              letterSpacing: 0.44,
+              height: 1.5,
+            ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
           // change this if response
           filled: true,
-          fillColor: AppColor.blue_600,
+          fillColor: Theme.of(context).canvasColor,
           hintText: "Поиск",
-          hintStyle: AppTextTheme.body1.copyWith(letterSpacing: 0.44),
+          hintStyle: Theme.of(context)
+              .textTheme
+              .overline
+              ?.copyWith(letterSpacing: 0.44),
           enabledBorder: underlineInputBorder,
           focusedBorder: underlineInputBorder,
           border: underlineInputBorder,
@@ -50,7 +53,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.fromLTRB(16.0, 12.0, 20.0, 12.0),
             icon: SvgPicture.asset(
               AppIcons.arrowBack,
-              color: AppColor.white,
+              color: Theme.of(context).accentColor,
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -60,7 +63,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.fromLTRB(.0, 12.0, 12.0, 12.0),
             icon: SvgPicture.asset(
               AppIcons.delete,
-              color: AppColor.white,
+              color: Theme.of(context).accentColor,
             ),
             onPressed: () {
               _textController.clear();
@@ -80,10 +83,10 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
                     'РЕЗУЛЬТАТЫ ПОИСКА',
-                    style: AppTextTheme.subtitle2.copyWith(
-                      letterSpacing: 1.5,
-                      height: 1.6,
-                    ),
+                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                          letterSpacing: 1.5,
+                          height: 1.6,
+                        ),
                   ),
                 ),
               ],

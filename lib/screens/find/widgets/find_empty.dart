@@ -32,10 +32,10 @@ class FindEmpty extends StatelessWidget {
         ),
         Text(
           getText(screenName),
-          style: AppTextTheme.body1.copyWith(
-            letterSpacing: 0.15,
-            height: 1.5,
-          ),
+          style: Theme.of(context).textTheme.overline?.copyWith(
+                letterSpacing: 0.15,
+                height: 1.5,
+              ),
         ),
       ],
     );

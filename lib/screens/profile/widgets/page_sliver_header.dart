@@ -43,8 +43,8 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: AppColor.white,
-                    gradient: AppColor.appBarGradient,
+                    color: Theme.of(context).accentColor,
+                    gradient: AppColor.appBarGradientDark,
                     backgroundBlendMode: BlendMode.multiply),
               ),
             ],
@@ -61,10 +61,10 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
                 width: avatarSize,
                 height: avatarSize,
                 decoration: ShapeDecoration(
-                  color: AppColor.blue_600,
+                  color: Theme.of(context).canvasColor,
                   shape: CircleBorder(
                     side: BorderSide(
-                      color: AppColor.blue_900,
+                      color: Theme.of(context).primaryColor,
                       width: 8.0,
                     ),
                   ),

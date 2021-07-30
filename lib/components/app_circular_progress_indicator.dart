@@ -11,8 +11,8 @@ class AppCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
-      valueColor: AlwaysStoppedAnimation<Color>(AppColor.green_200),
-      backgroundColor: AppColor.blue_900,
+      valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).hintColor),
+      backgroundColor: Theme.of(context).primaryColor,
       value: value,
     );
   }

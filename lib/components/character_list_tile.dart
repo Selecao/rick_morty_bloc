@@ -4,8 +4,6 @@ import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/race_gender_text.dart';
 import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class CharacterListTile extends StatelessWidget {
   final Character character;
@@ -30,7 +28,7 @@ class CharacterListTile extends StatelessWidget {
               width: 74.0,
               height: 74.0,
               decoration: BoxDecoration(
-                color: AppColor.blue_600,
+                color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.circular(40.0),
                 image: DecorationImage(
                   image: imageProvider,
@@ -54,10 +52,10 @@ class CharacterListTile extends StatelessWidget {
                   character.fullName ?? "None",
                   overflow: TextOverflow.fade,
                   softWrap: false,
-                  style: AppTextTheme.subtitle1.copyWith(
-                    height: 1.5,
-                    letterSpacing: 0.5,
-                  ),
+                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        height: 1.5,
+                        letterSpacing: 0.5,
+                      ),
                 ),
               ),
               RaceGenderText(character: character),

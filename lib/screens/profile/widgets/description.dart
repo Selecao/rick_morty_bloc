@@ -24,10 +24,10 @@ class Description extends StatelessWidget {
             SizedBox(height: avatarSize + 24.0),
             Text(
               character.fullName ?? "N/A",
-              style: AppTextTheme.headline4.copyWith(
-                height: 1.17,
-                letterSpacing: 0.25,
-              ),
+              style: Theme.of(context).textTheme.headline4?.copyWith(
+                    height: 1.17,
+                    letterSpacing: 0.25,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 4.0),
@@ -35,10 +35,10 @@ class Description extends StatelessWidget {
             const SizedBox(height: 36.0),
             Text(
               character.about ?? "Not available.",
-              style: AppTextTheme.bodyText2.copyWith(
-                height: 1.5,
-                letterSpacing: 0.5,
-              ),
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    height: 1.5,
+                    letterSpacing: 0.5,
+                  ),
               textAlign: TextAlign.justify,
             ),
             const SizedBox(height: 24.0),

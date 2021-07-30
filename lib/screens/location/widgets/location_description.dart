@@ -17,31 +17,32 @@ class LocationDescription extends StatelessWidget {
           Container(height: 8.0),
           Text(
             location.name ?? 'None',
-            style: AppTextTheme.headline5.copyWith(height: 1.33),
+            style:
+                Theme.of(context).textTheme.headline5?.copyWith(height: 1.33),
           ),
           Text(
             '${location.type ?? "Not available"} • ${location.measurements ?? "Not available"}',
-            style: AppTextTheme.caption.copyWith(
-              letterSpacing: .5,
-              height: 1.33,
-            ),
+            style: Theme.of(context).textTheme.caption?.copyWith(
+                  letterSpacing: .5,
+                  height: 1.33,
+                ),
           ),
           Container(height: 32.0),
           Text(
             location.about ?? "Информация недоступна.",
-            style: AppTextTheme.bodyText2.copyWith(
-              height: 1.5,
-              letterSpacing: 0.25,
-            ),
+            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                  height: 1.5,
+                  letterSpacing: 0.25,
+                ),
             textAlign: TextAlign.justify,
           ),
           Container(height: 36.0),
           Text(
             'Персонажи',
-            style: AppTextTheme.headline5.copyWith(
-              height: 1.4,
-              letterSpacing: 0.15,
-            ),
+            style: Theme.of(context).textTheme.headline5?.copyWith(
+                  height: 1.4,
+                  letterSpacing: 0.15,
+                ),
           ),
         ],
       ),

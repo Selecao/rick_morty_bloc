@@ -15,10 +15,10 @@ class RaceGenderText extends StatelessWidget {
       constraints: BoxConstraints(maxWidth: 200.0),
       child: Text(
         '${character.race}, ${getGenderText(character.gender ?? 2)}',
-        style: AppTextTheme.caption.copyWith(
-          height: 1.33,
-          letterSpacing: 0.5,
-        ),
+        style: Theme.of(context).textTheme.caption?.copyWith(
+              height: 1.33,
+              letterSpacing: 0.5,
+            ),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),

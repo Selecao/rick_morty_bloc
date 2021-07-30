@@ -26,7 +26,7 @@ class Chapters extends StatelessWidget {
               suffix: SvgPicture.asset(
                 AppIcons.arrowForwardIos,
                 height: 8.0,
-                color: AppColor.white,
+                color: Theme.of(context).accentColor,
               ),
               onTap: () {
                 if (chaptersList[index].id != null) {

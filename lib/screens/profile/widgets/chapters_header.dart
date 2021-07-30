@@ -14,17 +14,17 @@ class ChaptersHeader extends StatelessWidget {
           children: [
             Text(
               'Эпизоды',
-              style: AppTextTheme.headline6.copyWith(
-                height: 1.4,
-                letterSpacing: 0.15,
-              ),
+              style: Theme.of(context).textTheme.headline6?.copyWith(
+                    height: 1.4,
+                    letterSpacing: 0.15,
+                  ),
             ),
             Text(
               'Все эпизоды',
-              style: AppTextTheme.caption.copyWith(
-                height: 1.3,
-                letterSpacing: 0.5,
-              ),
+              style: Theme.of(context).textTheme.caption?.copyWith(
+                    height: 1.3,
+                    letterSpacing: 0.5,
+                  ),
             ),
           ],
         ),

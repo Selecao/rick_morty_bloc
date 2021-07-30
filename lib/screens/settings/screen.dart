@@ -21,10 +21,10 @@ class SettingsScreen extends StatelessWidget {
         elevation: .0,
         title: Text(
           'Настройки',
-          style: AppTextTheme.headline6.copyWith(
-            letterSpacing: 0.15,
-            height: 1.4,
-          ),
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                letterSpacing: 0.15,
+                height: 1.4,
+              ),
         ),
       ),
       body: SingleChildScrollView(
@@ -36,10 +36,10 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 36.0),
               Text(
                 'ВНЕШНИЙ ВИД',
-                style: AppTextTheme.subtitle2.copyWith(
-                  height: 1.6,
-                  letterSpacing: 1.5,
-                ),
+                style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                      height: 1.6,
+                      letterSpacing: 1.5,
+                    ),
               ),
               ThemeSelectorWidget(
                 darkModeOptionTitle: themeName(

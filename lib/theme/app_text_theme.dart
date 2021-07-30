@@ -21,12 +21,6 @@ class AppTextTheme {
     color: AppColor.white,
   );
 
-  static const TextStyle body1 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 16.0,
-    color: AppColor.blueGrey_600,
-  );
-
   static const TextStyle subtitle1 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16.0,
@@ -61,5 +55,11 @@ class AppTextTheme {
     fontWeight: FontWeight.w500,
     fontSize: 14.0,
     color: AppColor.white,
+  );
+
+  static const TextStyle overline = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 16.0,
+    color: AppColor.blueGrey_600,
   );
 }

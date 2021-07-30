@@ -25,7 +25,7 @@ class ThemeSelectorWidget extends StatelessWidget {
               SvgPicture.asset(
                 AppIcons.themePalette,
                 width: 27.0,
-                color: AppColor.white,
+                color: Theme.of(context).accentColor,
               ),
               const SizedBox(width: 21),
               Column(
@@ -33,18 +33,20 @@ class ThemeSelectorWidget extends StatelessWidget {
                 children: [
                   Text(
                     'Темная тема',
-                    style: AppTextTheme.body1.copyWith(
-                      letterSpacing: 0.15,
-                      height: 1.5,
-                    ),
+                    style: Theme.of(context).textTheme.overline?.copyWith(
+                          letterSpacing: 0.15,
+                          height: 1.5,
+                        ),
                   ),
                   Text(
                     darkModeOptionTitle,
-                    style: AppTextTheme.bodyText1.copyWith(
-                      color: AppColor.blueGrey_500.withOpacity(0.6),
-                      letterSpacing: 0.25,
-                      height: 1.42,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          color: Theme.of(context)
+                              .primaryColorLight
+                              .withOpacity(0.6),
+                          letterSpacing: 0.25,
+                          height: 1.42,
+                        ),
                   ),
                 ],
               ),
@@ -52,7 +54,7 @@ class ThemeSelectorWidget extends StatelessWidget {
               SvgPicture.asset(
                 AppIcons.arrowForwardIos,
                 height: 8.0,
-                color: AppColor.white,
+                color: Theme.of(context).accentColor,
               ),
             ],
           ),

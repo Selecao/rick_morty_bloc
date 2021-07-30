@@ -28,7 +28,10 @@ class _CharactersCountState extends State<CharactersCount> {
         children: [
           Text(
             'ВСЕГО ПЕРСОНАЖЕЙ: ${widget.charactersCount}',
-            style: AppTextTheme.subtitle2.copyWith(letterSpacing: 1.5),
+            style: Theme.of(context)
+                .textTheme
+                .subtitle2
+                ?.copyWith(letterSpacing: 1.5),
           ),
           IconButton(
             icon: SvgPicture.asset(

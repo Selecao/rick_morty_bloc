@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' show Colors;
 
 class AppColor {
-  static const Color black = Color(0xFF000000);
+  static const Color black = Color(0xFF000000); // secondaryHeaderColor
   static const Color blue_900 =
       Color(0xFF0B1E2D); // primaryColor, scaffoldBackgroundColor
   static const Color blue_600 = Color(0xFF152A3A); // canvasColor
@@ -12,6 +13,7 @@ class AppColor {
   static const Color yellow_200 = Color(0xFFD0C243); // indicatorColor
   static const Color red_100 = Color(0xFFEB5757); // errorColor
   static const Color white = Color(0xFFFFFFFF); // accentColor, appBarTheme--
+
   static const Color transparent = Color(0x0);
 
   static const Color white_900 = Color(0xFFFCFCFC);
@@ -22,7 +24,7 @@ class AppColor {
   static const Color grey_300 = Color(0xFFBDBDBD);
   static const Color cyan_900 = Color(0xFF2FD8FC);
 
-  static final appBarGradient = LinearGradient(
+  static final appBarGradientDark = LinearGradient(
     colors: [
       black.withOpacity(0.85),
       blue_900.withOpacity(0.55),
@@ -31,5 +33,11 @@ class AppColor {
     stops: [0, 0.37, 1],
     begin: FractionalOffset.topCenter,
     end: FractionalOffset.bottomCenter,
+  );
+
+  static final shadeGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.center,
+    colors: [Colors.black.withOpacity(.7), Colors.transparent],
   );
 }

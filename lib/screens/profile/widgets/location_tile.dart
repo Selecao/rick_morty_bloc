@@ -38,17 +38,17 @@ class LocationTile extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextTheme.caption.copyWith(
-                    height: 1.3,
-                    letterSpacing: 0.5,
-                  ),
+                  style: Theme.of(context).textTheme.caption?.copyWith(
+                        height: 1.3,
+                        letterSpacing: 0.5,
+                      ),
                 ),
                 Text(
                   location,
-                  style: AppTextTheme.bodyText1.copyWith(
-                    letterSpacing: 0.25,
-                    height: 1.42,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        letterSpacing: 0.25,
+                        height: 1.42,
+                      ),
                 ),
               ],
             ),
@@ -57,7 +57,7 @@ class LocationTile extends StatelessWidget {
             SvgPicture.asset(
               AppIcons.arrowForwardIos,
               height: 8.0,
-              color: AppColor.white,
+              color: Theme.of(context).accentColor,
             )
           ],
         ),

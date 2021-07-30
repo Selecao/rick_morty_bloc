@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:sc_03/resources/constants.dart';
 import 'package:sc_03/theme/app_color.dart';
+import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,14 +18,12 @@ class MainTheme with ChangeNotifier {
     fontFamily: 'Roboto',
     primaryColor: AppColor.blue_900,
     brightness: Brightness.dark,
-    //backgroundColor: const Color(0xFF212121),
     accentColor: AppColor.white,
     primaryColorLight: AppColor.blueGrey_500,
     primaryColorDark: AppColor.blueGrey_600,
-
-    // accentIconTheme: IconThemeData(color: Colors.black),
     highlightColor: AppColor.cyan_300,
     indicatorColor: AppColor.yellow_200,
+    hoverColor: AppColor.green_200,
     hintColor: AppColor.green_200,
     errorColor: AppColor.red_100,
     canvasColor: AppColor.blue_600,
@@ -37,66 +36,27 @@ class MainTheme with ChangeNotifier {
       ),
     ),
     scaffoldBackgroundColor: AppColor.blue_900,
+    dialogBackgroundColor: AppColor.blue_600,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColor.green_200,
       unselectedItemColor: AppColor.blueGrey_600,
     ),
     textTheme: TextTheme(
-      headline4: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 34,
-        letterSpacing: 0.25,
-        color: Colors.white,
-      ),
-      headline6: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        letterSpacing: 0.15,
-        color: Colors.white,
-      ),
-      overline: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w500,
-        fontSize: 10,
-        letterSpacing: 1.5,
-        color: AppColor.blueGrey_600,
-      ),
-      caption: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 12,
-        letterSpacing: 0.5,
-        color: AppColor.blueGrey_500,
-      ),
-      bodyText1: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.44,
-        color: AppColor.blueGrey_600,
-      ),
-      bodyText2: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        letterSpacing: 0.25,
-        color: Colors.white,
-      ),
-      subtitle1: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.15,
-        color: AppColor.blueGrey_600,
-      ),
+      headline4: AppTextTheme.headline4,
+      headline5: AppTextTheme.headline5,
+      headline6: AppTextTheme.headline6,
+      subtitle1: AppTextTheme.subtitle1,
+      subtitle2: AppTextTheme.subtitle2,
+      bodyText1: AppTextTheme.bodyText1,
+      bodyText2: AppTextTheme.bodyText2,
+      caption: AppTextTheme.caption,
+      button: AppTextTheme.button,
+      overline: AppTextTheme.overline,
     ),
-    dialogBackgroundColor: AppColor.blue_600,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor:
-            MaterialStateProperty.resolveWith((state) => Colors.white),
+            MaterialStateProperty.resolveWith((state) => AppColor.white),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -110,85 +70,51 @@ class MainTheme with ChangeNotifier {
 
   final lightTheme = ThemeData(
     fontFamily: 'Roboto',
-    // primarySwatch: Colors.grey,
     primaryColor: AppColor.white_900,
     brightness: Brightness.light,
-    // backgroundColor: const Color(0xFFE5E5E5),
     accentColor: AppColor.blue_800,
-    // accentIconTheme: IconThemeData(color: Colors.white),
-    canvasColor: Colors.white,
+    primaryColorLight: AppColor.blueGrey_500,
+    primaryColorDark: AppColor.grey_300,
+    highlightColor: AppColor.cyan_300,
+    indicatorColor: AppColor.yellow_200,
+    hoverColor: AppColor.cyan_300,
+    hintColor: AppColor.green_200,
+    errorColor: AppColor.red_100,
+    canvasColor: AppColor.white_800,
     dividerColor: AppColor.white_800,
+    secondaryHeaderColor: AppColor.black,
     appBarTheme: AppBarTheme(
       elevation: 0,
       iconTheme: IconThemeData(
-        color: AppColor.grey_500,
+        color: AppColor.white,
       ),
     ),
     scaffoldBackgroundColor: AppColor.white_900,
+    dialogBackgroundColor: AppColor.white,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: AppColor.cyan_900,
+      selectedItemColor: AppColor.cyan_300,
       unselectedItemColor: AppColor.grey_300,
     ),
     textTheme: TextTheme(
-      headline4: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 34,
-        letterSpacing: 0.25,
-        color: AppColor.blue_800,
-      ),
-      headline6: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        letterSpacing: 0.15,
-        color: AppColor.blue_800,
-      ),
-      overline: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w500,
-        fontSize: 10,
-        letterSpacing: 1.5,
-        color: AppColor.grey_500,
-      ),
-      caption: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 12,
-        letterSpacing: 0.5,
-        color: AppColor.grey_500,
-      ),
-      bodyText1: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.44,
-        color: AppColor.grey_500,
-      ),
-      bodyText2: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        letterSpacing: 0.25,
-        color: Colors.black,
-      ),
-      subtitle1: TextStyle(
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-        letterSpacing: 0.15,
-        color: AppColor.grey_500,
-      ),
+      headline4: AppTextTheme.headline4.copyWith(color: AppColor.blue_800),
+      headline5: AppTextTheme.headline5.copyWith(color: AppColor.blue_800),
+      headline6: AppTextTheme.headline6.copyWith(color: AppColor.blue_800),
+      subtitle1: AppTextTheme.subtitle1.copyWith(color: AppColor.blue_800),
+      subtitle2: AppTextTheme.subtitle2.copyWith(color: AppColor.grey_500),
+      bodyText1: AppTextTheme.bodyText1.copyWith(color: AppColor.blue_800),
+      bodyText2: AppTextTheme.bodyText2.copyWith(color: AppColor.blue_800),
+      caption: AppTextTheme.caption.copyWith(color: AppColor.grey_500),
+      button: AppTextTheme.button,
+      overline: AppTextTheme.overline.copyWith(color: AppColor.grey_300),
     ),
-    dialogBackgroundColor: Colors.white,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor:
-            MaterialStateProperty.resolveWith((state) => AppColor.grey_700),
+            MaterialStateProperty.resolveWith((state) => AppColor.black),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: AppColor.white_800,
+      fillColor: AppColor.blue_600,
     ),
   );
 

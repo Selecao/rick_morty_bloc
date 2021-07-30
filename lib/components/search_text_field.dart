@@ -22,13 +22,15 @@ class SearchTextField extends StatelessWidget {
     return TextField(
       controller: TextEditingController(),
       focusNode: FocusNode(),
-      style: AppTextTheme.subtitle1.copyWith(letterSpacing: 0.5),
+      style:
+          Theme.of(context).textTheme.subtitle1?.copyWith(letterSpacing: 0.5),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
         filled: true,
-        fillColor: AppColor.blue_600,
+        fillColor: Theme.of(context).canvasColor,
         hintText: title,
-        hintStyle: AppTextTheme.body1.copyWith(letterSpacing: 0.44),
+        hintStyle:
+            Theme.of(context).textTheme.overline?.copyWith(letterSpacing: 0.44),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(
@@ -39,7 +41,7 @@ class SearchTextField extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(15.0, 12.0, 10.0, 12.0),
           child: SvgPicture.asset(
             AppIcons.search,
-            color: AppColor.blueGrey_600,
+            color: Theme.of(context).primaryColorDark,
           ),
         ),
         suffixIcon: suffixIcon,

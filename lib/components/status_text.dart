@@ -13,11 +13,11 @@ class StatusText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       getStatusText(statusIndex),
-      style: AppTextTheme.subtitle2.copyWith(
-        height: 1.6,
-        letterSpacing: 1.5,
-        color: getStatusColor(statusIndex),
-      ),
+      style: Theme.of(context).textTheme.subtitle2?.copyWith(
+            height: 1.6,
+            letterSpacing: 1.5,
+            color: getStatusColor(statusIndex, context),
+          ),
     );
   }
 }
@@ -33,13 +33,13 @@ String getStatusText(int statusIndex) {
   }
 }
 
-Color getStatusColor(int statusIndex) {
+Color getStatusColor(int statusIndex, BuildContext context) {
   switch (statusIndex) {
     case 0:
-      return AppColor.green_200;
+      return Theme.of(context).hintColor;
     case 1:
-      return AppColor.red_100;
+      return Theme.of(context).errorColor;
     default:
-      return AppColor.yellow_200;
+      return Theme.of(context).indicatorColor;
   }
 }

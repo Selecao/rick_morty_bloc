@@ -45,7 +45,9 @@ class ProfileScreen extends StatelessWidget {
                       pinned: true,
                     ),
                     Description(
-                        avatarSize: avatarSize, character: _data.character),
+                      avatarSize: avatarSize,
+                      character: _data.character,
+                    ),
                     SliverToBoxAdapter(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 36.0),

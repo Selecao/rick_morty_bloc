@@ -15,13 +15,13 @@ class ThemeAlertDialog extends StatelessWidget {
     final themeProvider = Provider.of<MainTheme>(context);
 
     return AlertDialog(
-      backgroundColor: AppColor.blue_600,
+      backgroundColor: Theme.of(context).canvasColor,
       title: Text(
         'Темная тема',
-        style: AppTextTheme.headline6.copyWith(
-          letterSpacing: 0.15,
-          height: 1.4,
-        ),
+        style: Theme.of(context).textTheme.headline6?.copyWith(
+              letterSpacing: 0.15,
+              height: 1.4,
+            ),
       ),
       contentPadding: EdgeInsets.zero,
       insetPadding:
@@ -36,16 +36,16 @@ class ThemeAlertDialog extends StatelessWidget {
               horizontalTitleGap: 8.0,
               title: Text(
                 Constants.themeModeTitles[i],
-                style: AppTextTheme.body1.copyWith(
-                  color: AppColor.white,
-                  letterSpacing: 0.15,
-                  height: 1.5,
-                ),
+                style: Theme.of(context).textTheme.overline?.copyWith(
+                      color: Theme.of(context).accentColor,
+                      letterSpacing: 0.15,
+                      height: 1.5,
+                    ),
               ),
               leading: Theme(
                 data: Theme.of(context).copyWith(
-                    unselectedWidgetColor: AppColor.blueGrey_600,
-                    disabledColor: AppColor.blue_600),
+                    unselectedWidgetColor: Theme.of(context).primaryColorDark,
+                    disabledColor: Theme.of(context).canvasColor),
                 child: Radio<ThemeType>(
                   value: ThemeType.values[i],
                   groupValue: themeProvider.getThemeType(),
@@ -54,7 +54,7 @@ class ThemeAlertDialog extends StatelessWidget {
 
                     themeProvider.setThemeStyle(value!);
                   },
-                  activeColor: AppColor.cyan_300,
+                  activeColor: Theme.of(context).highlightColor,
                 ),
               ),
             ),
@@ -65,10 +65,10 @@ class ThemeAlertDialog extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           child: Text(
             'ОТМЕНА',
-            style: AppTextTheme.button.copyWith(
-              letterSpacing: 1.5,
-              height: 1.71,
-            ),
+            style: Theme.of(context).textTheme.button?.copyWith(
+                  letterSpacing: 1.5,
+                  height: 1.71,
+                ),
           ),
         ),
       ],

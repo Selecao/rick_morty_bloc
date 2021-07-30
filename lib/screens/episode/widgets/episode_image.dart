@@ -18,22 +18,30 @@ class EpisodeImage extends StatelessWidget {
 
     return Stack(
       children: [
-        CachedNetworkImage(
-          imageUrl: image ?? 'no image',
-          imageBuilder: (context, imageProvider) => Container(
-            alignment: Alignment.center,
-            height: imageHeight,
-            decoration: BoxDecoration(
-              color: AppColor.blue_600,
-              image: DecorationImage(
-                image: imageProvider,
-                fit: BoxFit.cover,
+        ShaderMask(
+          shaderCallback: (rect) {
+            return AppColor.shadeGradient.createShader(
+              Rect.fromLTRB(0, 0, rect.width, rect.height),
+            );
+          },
+          blendMode: BlendMode.srcATop,
+          child: CachedNetworkImage(
+            imageUrl: image ?? 'no image',
+            imageBuilder: (context, imageProvider) => Container(
+              alignment: Alignment.center,
+              height: imageHeight,
+              decoration: BoxDecoration(
+                color: Theme.of(context).canvasColor,
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                AppCircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              AppCircularProgressIndicator(value: downloadProgress.progress),
-          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Positioned(
           bottom: 0.0,
@@ -41,7 +49,7 @@ class EpisodeImage extends StatelessWidget {
             height: 82.0,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: AppColor.blue_900,
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(borderRadius),
                 topRight: Radius.circular(borderRadius),
@@ -56,7 +64,7 @@ class EpisodeImage extends StatelessWidget {
           child: TextButton(
             style: TextButton.styleFrom(
               padding: const EdgeInsets.all(33.0),
-              backgroundColor: AppColor.cyan_300,
+              backgroundColor: Theme.of(context).highlightColor,
               shape: CircleBorder(),
             ),
             child: SvgPicture.asset(

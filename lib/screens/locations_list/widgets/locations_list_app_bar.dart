@@ -33,13 +33,13 @@ class LocationsListAppBar extends StatelessWidget
             Container(
               width: 1.0,
               height: 24.0,
-              color: AppColor.white.withOpacity(0.1),
+              color: Theme.of(context).accentColor.withOpacity(0.1),
             ),
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
                 AppIcons.filterSort,
-                color: AppColor.blueGrey_600,
+                color: Theme.of(context).primaryColorDark,
               ),
               onPressed: () {},
             ),
@@ -60,7 +60,10 @@ class LocationsListAppBar extends StatelessWidget
             children: [
               Text(
                 'ВСЕГО ЛОКАЦИЙ: $locationsListLength',
-                style: AppTextTheme.subtitle2.copyWith(letterSpacing: 1.5),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2
+                    ?.copyWith(letterSpacing: 1.5),
               ),
             ],
           ),

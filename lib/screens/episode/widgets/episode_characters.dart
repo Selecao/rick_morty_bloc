@@ -22,7 +22,7 @@ class EpisodeCharacters extends StatelessWidget {
         suffix: SvgPicture.asset(
           AppIcons.arrowForwardIos,
           height: 8.0,
-          color: AppColor.white,
+          color: Theme.of(context).accentColor,
         ),
         onTap: () {
           if (characters[index].id != null) {

@@ -18,18 +18,18 @@ class ColumnText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTextTheme.caption.copyWith(
-            height: 1.3,
-            letterSpacing: 0.5,
-          ),
+          style: Theme.of(context).textTheme.caption?.copyWith(
+                height: 1.3,
+                letterSpacing: 0.5,
+              ),
         ),
         const SizedBox(height: 4.0),
         Text(
           description,
-          style: AppTextTheme.bodyText1.copyWith(
-            letterSpacing: 0.25,
-            height: 1.42,
-          ),
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                letterSpacing: 0.25,
+                height: 1.42,
+              ),
         ),
       ],
     );

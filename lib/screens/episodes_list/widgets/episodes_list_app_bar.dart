@@ -31,14 +31,14 @@ class EpisodesListAppBar extends StatelessWidget
         },
       ),
       bottom: TabBar(
-        indicatorColor: AppColor.white,
+        indicatorColor: Theme.of(context).accentColor,
         indicatorSize: TabBarIndicatorSize.label,
-        unselectedLabelColor: AppColor.blueGrey_600,
+        unselectedLabelColor: Theme.of(context).primaryColorDark,
         isScrollable: true,
-        labelStyle: AppTextTheme.button.copyWith(
-          letterSpacing: 1.5,
-          height: 1.71,
-        ),
+        labelStyle: Theme.of(context).textTheme.button?.copyWith(
+              letterSpacing: 1.5,
+              height: 1.71,
+            ),
         tabs: [
           for (final season in seasons) Tab(text: season.name.toUpperCase()),
         ],

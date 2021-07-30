@@ -28,7 +28,7 @@ class LocationTile extends StatelessWidget {
               imageBuilder: (context, imageProvider) => Container(
                 height: 150.0,
                 decoration: BoxDecoration(
-                  color: AppColor.blue_600,
+                  color: Theme.of(context).canvasColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(cornerRadius),
                     topRight: Radius.circular(cornerRadius),
@@ -48,7 +48,7 @@ class LocationTile extends StatelessWidget {
               height: 68.0,
               padding: EdgeInsets.only(left: 16.0, top: 12.0, bottom: 12.0),
               decoration: BoxDecoration(
-                color: AppColor.blue_600,
+                color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(cornerRadius),
                   bottomLeft: Radius.circular(cornerRadius),
@@ -59,10 +59,10 @@ class LocationTile extends StatelessWidget {
                 children: [
                   Text(
                     (location.name ?? "").isEmpty ? "N/A" : location.name!,
-                    style: AppTextTheme.headline6.copyWith(
-                      letterSpacing: .15,
-                      height: 1.4,
-                    ),
+                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                          letterSpacing: .15,
+                          height: 1.4,
+                        ),
                   ),
                   Row(
                     children: [
@@ -71,10 +71,10 @@ class LocationTile extends StatelessWidget {
                         child: Text(
                           '${(location.type ?? "").isEmpty ? "N/A" : location.type} • ${(location.measurements ?? "").isEmpty ? "N/A" : location.measurements}',
                           overflow: TextOverflow.ellipsis,
-                          style: AppTextTheme.caption.copyWith(
-                            letterSpacing: .5,
-                            height: 1.33,
-                          ),
+                          style: Theme.of(context).textTheme.caption?.copyWith(
+                                letterSpacing: .5,
+                                height: 1.33,
+                              ),
                         ),
                       ),
                     ],
