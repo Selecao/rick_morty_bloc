@@ -70,9 +70,9 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       _FindingCharactersEvent event) async* {
     yield CharactersState.loading();
     String charsToFind = event.chars;
-    List<Character> _finderResultList = _findCharacters(charsToFind);
+    List<Character> finderResultList = _findCharacters(charsToFind);
     yield CharactersState.data(
-      charactersList: _finderResultList,
+      charactersList: finderResultList,
       isGrid: isGrid,
     );
   }

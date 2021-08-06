@@ -11,6 +11,7 @@ import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 import 'package:sc_03/screens/settings/screen.dart';
 import 'package:sc_03/screens/characters/screen.dart';
+import 'package:sc_03/screens/character_filter/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:sc_03/screens/episodes_list/screen.dart';
 import 'package:sc_03/screens/find/screen.dart';
@@ -87,6 +88,7 @@ class RickAndMortyApp extends StatelessWidget {
                     data: (_data) {
                       if (_data.activeTab == 0) {
                         return CharactersScreen();
+                        //return CharacterFilterScreen();
                       }
 
                       if (_data.activeTab == 1) {

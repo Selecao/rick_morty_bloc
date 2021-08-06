@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/resources/images.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
+import 'package:sc_03/resources/variables.dart';
 
 class FindEmpty extends StatelessWidget {
-  const FindEmpty();
+  final Screen screenName;
+  FindEmpty(this.screenName);
 
   @override
   Widget build(BuildContext context) {
-    const String screenName = 'episode';
-
     return Column(
       children: <Widget>[
         ConstrainedBox(
@@ -41,22 +40,22 @@ class FindEmpty extends StatelessWidget {
     );
   }
 
-  String getText(String screenName) {
+  String getText(Screen screenName) {
     switch (screenName) {
-      case "character":
+      case Screen.Character:
         return "Персонаж с таким именем не найден";
-      case "location":
+      case Screen.Location:
         return "Локации с таким названием не найдено";
       default:
         return "Эпизода с таким названием нет";
     }
   }
 
-  String getImage(String screenName) {
+  String getImage(Screen screenName) {
     switch (screenName) {
-      case "character":
+      case Screen.Character:
         return Images.characterNotFound;
-      case "location":
+      case Screen.Location:
         return Images.locationNotFound;
       default:
         return Images.episodeNotFound;
