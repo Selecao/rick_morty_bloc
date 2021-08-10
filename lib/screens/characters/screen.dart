@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
+
 import 'package:sc_03/global_bloc/global_bloc.dart';
 
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
@@ -11,7 +12,6 @@ import 'package:sc_03/screens/characters/widgets/characters_app_bar.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_grid.dart';
 import 'package:sc_03/screens/characters/widgets/characters_list.dart';
-import 'package:sc_03/theme/main_theme.dart';
 
 class CharactersScreen extends StatelessWidget {
   @override
@@ -20,7 +20,22 @@ class CharactersScreen extends StatelessWidget {
     return BlocConsumer<CharactersBloc, CharactersState>(
       /// Возвращает виджеты поверх основного состояния. Используется для отображения
       /// ошибок, навигации и др.
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.maybeMap(
+          message: (_) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Container(
+                          child: Scaffold(
+                        appBar: AppBar(
+                          title: Text("Noo"),
+                          automaticallyImplyLeading: false,
+                        ),
+                        body: Text("Nooo"),
+                      )))),
+          orElse: () => SizedBox.shrink(),
+        );
+      },
 
       /// Обрабатывает состояния
       builder: (context, state) {
