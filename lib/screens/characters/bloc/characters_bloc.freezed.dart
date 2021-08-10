@@ -443,6 +443,10 @@ class _$CharactersStateTearOff {
   _LoadingCharactersState loading() {
     return const _LoadingCharactersState();
   }
+
+  _MessageState message() {
+    return const _MessageState();
+  }
 }
 
 /// @nodoc
@@ -455,6 +459,7 @@ mixin _$CharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -462,6 +467,7 @@ mixin _$CharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? message,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -470,6 +476,7 @@ mixin _$CharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
+    required TResult Function(_MessageState value) message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -477,6 +484,7 @@ mixin _$CharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
+    TResult Function(_MessageState value)? message,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -583,6 +591,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() message,
   }) {
     return data(charactersList, isGrid);
   }
@@ -593,6 +602,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? message,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -607,6 +617,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
+    required TResult Function(_MessageState value) message,
   }) {
     return data(this);
   }
@@ -617,6 +628,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
+    TResult Function(_MessageState value)? message,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -682,6 +694,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() message,
   }) {
     return initial();
   }
@@ -692,6 +705,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? message,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -706,6 +720,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
+    required TResult Function(_MessageState value) message,
   }) {
     return initial(this);
   }
@@ -716,6 +731,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
+    TResult Function(_MessageState value)? message,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -772,6 +788,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() message,
   }) {
     return loading();
   }
@@ -782,6 +799,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? message,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -796,6 +814,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
+    required TResult Function(_MessageState value) message,
   }) {
     return loading(this);
   }
@@ -806,6 +825,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
+    TResult Function(_MessageState value)? message,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -817,4 +837,98 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
 
 abstract class _LoadingCharactersState implements CharactersState {
   const factory _LoadingCharactersState() = _$_LoadingCharactersState;
+}
+
+/// @nodoc
+abstract class _$MessageStateCopyWith<$Res> {
+  factory _$MessageStateCopyWith(
+          _MessageState value, $Res Function(_MessageState) then) =
+      __$MessageStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$MessageStateCopyWithImpl<$Res>
+    extends _$CharactersStateCopyWithImpl<$Res>
+    implements _$MessageStateCopyWith<$Res> {
+  __$MessageStateCopyWithImpl(
+      _MessageState _value, $Res Function(_MessageState) _then)
+      : super(_value, (v) => _then(v as _MessageState));
+
+  @override
+  _MessageState get _value => super._value as _MessageState;
+}
+
+/// @nodoc
+
+class _$_MessageState implements _MessageState {
+  const _$_MessageState();
+
+  @override
+  String toString() {
+    return 'CharactersState.message()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _MessageState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() message,
+  }) {
+    return message();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? message,
+    required TResult orElse(),
+  }) {
+    if (message != null) {
+      return message();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DataCharactersState value) data,
+    required TResult Function(_InitialCharactersState value) initial,
+    required TResult Function(_LoadingCharactersState value) loading,
+    required TResult Function(_MessageState value) message,
+  }) {
+    return message(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DataCharactersState value)? data,
+    TResult Function(_InitialCharactersState value)? initial,
+    TResult Function(_LoadingCharactersState value)? loading,
+    TResult Function(_MessageState value)? message,
+    required TResult orElse(),
+  }) {
+    if (message != null) {
+      return message(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MessageState implements CharactersState {
+  const factory _MessageState() = _$_MessageState;
 }

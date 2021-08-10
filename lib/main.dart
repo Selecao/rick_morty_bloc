@@ -78,37 +78,34 @@ class RickAndMortyApp extends StatelessWidget {
 
             /// DI from MainTheme
             theme: theme.getTheme(),
-            home: BlocListener<GlobalBloc, GlobalState>(
+            home: BlocConsumer<GlobalBloc, GlobalState>(
               listener: (context, state) {},
-              child: BlocBuilder<GlobalBloc, GlobalState>(
-                builder: (context, state) {
-                  return state.maybeMap(
-                    loading: (_) =>
-                        Center(child: AppCircularProgressIndicator()),
-                    data: (_data) {
-                      if (_data.activeTab == 0) {
-                        return CharactersScreen();
-                        //return CharacterFilterScreen();
-                      }
+              builder: (context, state) {
+                return state.maybeMap(
+                  loading: (_) => Center(child: AppCircularProgressIndicator()),
+                  data: (_data) {
+                    if (_data.activeTab == 0) {
+                      return CharactersScreen();
+                      //return CharacterFilterScreen();
+                    }
 
-                      if (_data.activeTab == 1) {
-                        return LocationsListScreen();
-                      }
+                    if (_data.activeTab == 1) {
+                      return LocationsListScreen();
+                    }
 
-                      if (_data.activeTab == 2) {
-                        return EpisodesListScreen();
-                      }
+                    if (_data.activeTab == 2) {
+                      return EpisodesListScreen();
+                    }
 
-                      if (_data.activeTab == 3) {
-                        return SettingsScreen();
-                      }
+                    if (_data.activeTab == 3) {
+                      return SettingsScreen();
+                    }
 
-                      return SplashScreen();
-                    },
-                    orElse: () => Center(child: CircularProgressIndicator()),
-                  );
-                },
-              ),
+                    return SplashScreen();
+                  },
+                  orElse: () => Center(child: CircularProgressIndicator()),
+                );
+              },
             ),
           ),
         ),

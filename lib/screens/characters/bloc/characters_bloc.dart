@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 
@@ -75,6 +76,9 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       charactersList: finderResultList,
       isGrid: isGrid,
     );
+    if (finderResultList.length == 0) {
+      yield CharactersState.message();
+    }
   }
 
   List<Character> _findCharacters(String chars) {
