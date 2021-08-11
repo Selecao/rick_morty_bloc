@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
-import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/components/location_tile.dart';
 
@@ -48,15 +46,6 @@ class LocationsListScreen extends StatelessWidget {
                 right: 18.0,
                 bottom: 16.0,
               ),
-            ),
-            bottomNavigationBar: AppBottomNavigationBar(
-              currentIndex: 1,
-              onTap: (int index) {
-                context.read<GlobalBloc>()
-                  ..add(
-                    GlobalEvent.selectedTab(index: index),
-                  );
-              },
             ),
           ),
           orElse: () => SizedBox.shrink(),

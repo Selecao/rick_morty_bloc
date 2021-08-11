@@ -16,15 +16,13 @@ import 'package:sc_03/screens/profile/screen.dart';
 class FindScreen extends StatelessWidget {
   final Screen screenName;
   final List<Object>? searchList;
-  FindScreen(
-    this.screenName,
-    this.searchList,
-  );
+  final void Function(String)? onSubmitted;
+  FindScreen(this.screenName, this.searchList, {this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FindScreenAppBar(),
+      appBar: FindScreenAppBar(onSubmitted: onSubmitted),
       body: _isEmpty(searchList)
           ? FindEmpty(screenName)
           : ListView.builder(

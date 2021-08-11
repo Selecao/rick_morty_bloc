@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   static const double _bottomAppBarHeight = 64.0;
-  FindScreenAppBar()
+  final void Function(String)? onSubmitted;
+  FindScreenAppBar({required this.onSubmitted})
       : preferredSize = Size.fromHeight(kToolbarHeight + _bottomAppBarHeight);
 
   final _textController = TextEditingController();
@@ -70,7 +69,7 @@ class FindScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
           ),
         ),
-        onSubmitted: (String value) {},
+        onSubmitted: onSubmitted,
       ),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(_bottomAppBarHeight),

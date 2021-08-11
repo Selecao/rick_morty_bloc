@@ -4,7 +4,6 @@ import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/screens/characters/widgets/characters_count.dart';
-import 'package:sc_03/theme/app_color.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -46,9 +45,7 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         onSubmitted: (String value) {
           context.read<CharactersBloc>()
-            ..add(
-              CharactersEvent.find(chars: value),
-            );
+            ..add(CharactersEvent.find(chars: value));
         },
       ),
       bottom: PreferredSize(

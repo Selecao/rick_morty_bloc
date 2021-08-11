@@ -3,10 +3,9 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 
-import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/data/repository.dart';
-import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 import 'package:sc_03/screens/settings/screen.dart';
@@ -36,7 +35,21 @@ void main() {
   );
 }
 
-class RickAndMortyApp extends StatelessWidget {
+class RickAndMortyApp extends StatefulWidget {
+  @override
+  _RickAndMortyAppState createState() => _RickAndMortyAppState();
+}
+
+class _RickAndMortyAppState extends State<RickAndMortyApp> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _pages = <Widget>[
+    CharactersScreen(),
+    LocationsListScreen(),
+    EpisodesListScreen(),
+    SettingsScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -47,12 +60,6 @@ class RickAndMortyApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<GlobalBloc>(
-            create: (BuildContext context) => GlobalBloc()
-              ..add(
-                GlobalEvent.initial(),
-              ),
-          ),
           BlocProvider<CharactersBloc>(
             create: (BuildContext context) => CharactersBloc()
               ..add(
@@ -78,38 +85,26 @@ class RickAndMortyApp extends StatelessWidget {
 
             /// DI from MainTheme
             theme: theme.getTheme(),
-            home: BlocConsumer<GlobalBloc, GlobalState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return state.maybeMap(
-                  loading: (_) => Center(child: AppCircularProgressIndicator()),
-                  data: (_data) {
-                    if (_data.activeTab == 0) {
-                      return CharactersScreen();
-                      //return CharacterFilterScreen();
-                    }
-
-                    if (_data.activeTab == 1) {
-                      return LocationsListScreen();
-                    }
-
-                    if (_data.activeTab == 2) {
-                      return EpisodesListScreen();
-                    }
-
-                    if (_data.activeTab == 3) {
-                      return SettingsScreen();
-                    }
-
-                    return SplashScreen();
-                  },
-                  orElse: () => Center(child: CircularProgressIndicator()),
-                );
-              },
+            home: Scaffold(
+              /// [IndexedStack] preserve State of the bottomNavBar pages
+              body: IndexedStack(
+                index: _selectedIndex,
+                children: _pages,
+              ),
+              bottomNavigationBar: AppBottomNavigationBar(
+                currentIndex: _selectedIndex,
+                onTap: _onItemTapped,
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }

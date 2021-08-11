@@ -108,12 +108,20 @@ class __$InitialCharactersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitialCharactersEvent implements _InitialCharactersEvent {
+class _$_InitialCharactersEvent
+    with DiagnosticableTreeMixin
+    implements _InitialCharactersEvent {
   const _$_InitialCharactersEvent();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersEvent.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'CharactersEvent.initial'));
   }
 
   @override
@@ -214,15 +222,25 @@ class __$SelectedViewCharactersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelectedViewCharactersEvent implements _SelectedViewCharactersEvent {
+class _$_SelectedViewCharactersEvent
+    with DiagnosticableTreeMixin
+    implements _SelectedViewCharactersEvent {
   const _$_SelectedViewCharactersEvent({required this.isGrid});
 
   @override
   final bool isGrid;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersEvent.selectedView(isGrid: $isGrid)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersEvent.selectedView'))
+      ..add(DiagnosticsProperty('isGrid', isGrid));
   }
 
   @override
@@ -336,15 +354,25 @@ class __$FindingCharactersEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FindingCharactersEvent implements _FindingCharactersEvent {
+class _$_FindingCharactersEvent
+    with DiagnosticableTreeMixin
+    implements _FindingCharactersEvent {
   const _$_FindingCharactersEvent({required this.chars});
 
   @override
   final String chars;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersEvent.find(chars: $chars)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersEvent.find'))
+      ..add(DiagnosticsProperty('chars', chars));
   }
 
   @override
@@ -444,8 +472,10 @@ class _$CharactersStateTearOff {
     return const _LoadingCharactersState();
   }
 
-  _MessageState message() {
-    return const _MessageState();
+  _FindCharactersState finding({required List<Character> charactersList}) {
+    return _FindCharactersState(
+      charactersList: charactersList,
+    );
   }
 }
 
@@ -459,7 +489,7 @@ mixin _$CharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() message,
+    required TResult Function(List<Character> charactersList) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -467,7 +497,7 @@ mixin _$CharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? message,
+    TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -476,7 +506,7 @@ mixin _$CharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
-    required TResult Function(_MessageState value) message,
+    required TResult Function(_FindCharactersState value) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -484,7 +514,7 @@ mixin _$CharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
-    TResult Function(_MessageState value)? message,
+    TResult Function(_FindCharactersState value)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -546,7 +576,9 @@ class __$DataCharactersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DataCharactersState implements _DataCharactersState {
+class _$_DataCharactersState
+    with DiagnosticableTreeMixin
+    implements _DataCharactersState {
   const _$_DataCharactersState(
       {required this.charactersList, required this.isGrid});
 
@@ -558,8 +590,17 @@ class _$_DataCharactersState implements _DataCharactersState {
   final bool isGrid;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersState.data(charactersList: $charactersList, isGrid: $isGrid)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersState.data'))
+      ..add(DiagnosticsProperty('charactersList', charactersList))
+      ..add(DiagnosticsProperty('isGrid', isGrid));
   }
 
   @override
@@ -591,7 +632,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() message,
+    required TResult Function(List<Character> charactersList) finding,
   }) {
     return data(charactersList, isGrid);
   }
@@ -602,7 +643,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? message,
+    TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -617,7 +658,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
-    required TResult Function(_MessageState value) message,
+    required TResult Function(_FindCharactersState value) finding,
   }) {
     return data(this);
   }
@@ -628,7 +669,7 @@ class _$_DataCharactersState implements _DataCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
-    TResult Function(_MessageState value)? message,
+    TResult Function(_FindCharactersState value)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -672,12 +713,20 @@ class __$InitialCharactersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitialCharactersState implements _InitialCharactersState {
+class _$_InitialCharactersState
+    with DiagnosticableTreeMixin
+    implements _InitialCharactersState {
   const _$_InitialCharactersState();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'CharactersState.initial'));
   }
 
   @override
@@ -694,7 +743,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() message,
+    required TResult Function(List<Character> charactersList) finding,
   }) {
     return initial();
   }
@@ -705,7 +754,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? message,
+    TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -720,7 +769,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
-    required TResult Function(_MessageState value) message,
+    required TResult Function(_FindCharactersState value) finding,
   }) {
     return initial(this);
   }
@@ -731,7 +780,7 @@ class _$_InitialCharactersState implements _InitialCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
-    TResult Function(_MessageState value)? message,
+    TResult Function(_FindCharactersState value)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -766,12 +815,20 @@ class __$LoadingCharactersStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingCharactersState implements _LoadingCharactersState {
+class _$_LoadingCharactersState
+    with DiagnosticableTreeMixin
+    implements _LoadingCharactersState {
   const _$_LoadingCharactersState();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'CharactersState.loading'));
   }
 
   @override
@@ -788,7 +845,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() message,
+    required TResult Function(List<Character> charactersList) finding,
   }) {
     return loading();
   }
@@ -799,7 +856,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? message,
+    TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -814,7 +871,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
-    required TResult Function(_MessageState value) message,
+    required TResult Function(_FindCharactersState value) finding,
   }) {
     return loading(this);
   }
@@ -825,7 +882,7 @@ class _$_LoadingCharactersState implements _LoadingCharactersState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
-    TResult Function(_MessageState value)? message,
+    TResult Function(_FindCharactersState value)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -840,41 +897,79 @@ abstract class _LoadingCharactersState implements CharactersState {
 }
 
 /// @nodoc
-abstract class _$MessageStateCopyWith<$Res> {
-  factory _$MessageStateCopyWith(
-          _MessageState value, $Res Function(_MessageState) then) =
-      __$MessageStateCopyWithImpl<$Res>;
+abstract class _$FindCharactersStateCopyWith<$Res> {
+  factory _$FindCharactersStateCopyWith(_FindCharactersState value,
+          $Res Function(_FindCharactersState) then) =
+      __$FindCharactersStateCopyWithImpl<$Res>;
+  $Res call({List<Character> charactersList});
 }
 
 /// @nodoc
-class __$MessageStateCopyWithImpl<$Res>
+class __$FindCharactersStateCopyWithImpl<$Res>
     extends _$CharactersStateCopyWithImpl<$Res>
-    implements _$MessageStateCopyWith<$Res> {
-  __$MessageStateCopyWithImpl(
-      _MessageState _value, $Res Function(_MessageState) _then)
-      : super(_value, (v) => _then(v as _MessageState));
+    implements _$FindCharactersStateCopyWith<$Res> {
+  __$FindCharactersStateCopyWithImpl(
+      _FindCharactersState _value, $Res Function(_FindCharactersState) _then)
+      : super(_value, (v) => _then(v as _FindCharactersState));
 
   @override
-  _MessageState get _value => super._value as _MessageState;
+  _FindCharactersState get _value => super._value as _FindCharactersState;
+
+  @override
+  $Res call({
+    Object? charactersList = freezed,
+  }) {
+    return _then(_FindCharactersState(
+      charactersList: charactersList == freezed
+          ? _value.charactersList
+          : charactersList // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_MessageState implements _MessageState {
-  const _$_MessageState();
+class _$_FindCharactersState
+    with DiagnosticableTreeMixin
+    implements _FindCharactersState {
+  const _$_FindCharactersState({required this.charactersList});
 
   @override
-  String toString() {
-    return 'CharactersState.message()';
+  final List<Character> charactersList;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CharactersState.finding(charactersList: $charactersList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersState.finding'))
+      ..add(DiagnosticsProperty('charactersList', charactersList));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _MessageState);
+    return identical(this, other) ||
+        (other is _FindCharactersState &&
+            (identical(other.charactersList, charactersList) ||
+                const DeepCollectionEquality()
+                    .equals(other.charactersList, charactersList)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(charactersList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindCharactersStateCopyWith<_FindCharactersState> get copyWith =>
+      __$FindCharactersStateCopyWithImpl<_FindCharactersState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -882,9 +977,9 @@ class _$_MessageState implements _MessageState {
     required TResult Function(List<Character> charactersList, bool isGrid) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() message,
+    required TResult Function(List<Character> charactersList) finding,
   }) {
-    return message();
+    return finding(charactersList);
   }
 
   @override
@@ -893,11 +988,11 @@ class _$_MessageState implements _MessageState {
     TResult Function(List<Character> charactersList, bool isGrid)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? message,
+    TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) {
-    if (message != null) {
-      return message();
+    if (finding != null) {
+      return finding(charactersList);
     }
     return orElse();
   }
@@ -908,9 +1003,9 @@ class _$_MessageState implements _MessageState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
-    required TResult Function(_MessageState value) message,
+    required TResult Function(_FindCharactersState value) finding,
   }) {
-    return message(this);
+    return finding(this);
   }
 
   @override
@@ -919,16 +1014,22 @@ class _$_MessageState implements _MessageState {
     TResult Function(_DataCharactersState value)? data,
     TResult Function(_InitialCharactersState value)? initial,
     TResult Function(_LoadingCharactersState value)? loading,
-    TResult Function(_MessageState value)? message,
+    TResult Function(_FindCharactersState value)? finding,
     required TResult orElse(),
   }) {
-    if (message != null) {
-      return message(this);
+    if (finding != null) {
+      return finding(this);
     }
     return orElse();
   }
 }
 
-abstract class _MessageState implements CharactersState {
-  const factory _MessageState() = _$_MessageState;
+abstract class _FindCharactersState implements CharactersState {
+  const factory _FindCharactersState(
+      {required List<Character> charactersList}) = _$_FindCharactersState;
+
+  List<Character> get charactersList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindCharactersStateCopyWith<_FindCharactersState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

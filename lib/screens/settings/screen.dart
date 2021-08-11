@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_divider.dart';
-import 'package:sc_03/global_bloc/global_bloc.dart';
 import 'package:sc_03/screens/settings/widgets/about_app.dart';
 import 'package:sc_03/screens/settings/widgets/theme_alert_dialog.dart';
 import 'package:sc_03/screens/settings/widgets/theme_selector_widget.dart';
 import 'package:sc_03/theme/main_theme.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -57,15 +53,6 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: AppBottomNavigationBar(
-        currentIndex: 3,
-        onTap: (int index) {
-          context.read<GlobalBloc>()
-            ..add(
-              GlobalEvent.selectedTab(index: index),
-            );
-        },
       ),
     );
   }

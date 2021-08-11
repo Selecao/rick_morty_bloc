@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 
-import 'package:sc_03/global_bloc/global_bloc.dart';
+import 'package:sc_03/resources/variables.dart';
 
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/screens/characters/widgets/characters_app_bar.dart';
 
 import 'package:sc_03/screens/characters/widgets/characters_grid.dart';
 import 'package:sc_03/screens/characters/widgets/characters_list.dart';
+import 'package:sc_03/screens/find/screen.dart';
 
 class CharactersScreen extends StatelessWidget {
   @override
@@ -22,17 +21,21 @@ class CharactersScreen extends StatelessWidget {
       /// ошибок, навигации и др.
       listener: (context, state) {
         state.maybeMap(
-          message: (_) => Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Container(
-                          child: Scaffold(
-                        appBar: AppBar(
-                          title: Text("Noo"),
-                          automaticallyImplyLeading: false,
-                        ),
-                        body: Text("Nooo"),
-                      )))),
+          finding: (_data) => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FindScreen(
+                Screen.Character,
+                _data.charactersList,
+                onSubmitted: (value) {
+                  context.read<CharactersBloc>()
+                    ..add(
+                      CharactersEvent.find(chars: value),
+                    );
+                },
+              ),
+            ),
+          ),
           orElse: () => SizedBox.shrink(),
         );
       },
@@ -48,15 +51,6 @@ class CharactersScreen extends StatelessWidget {
             body: _data.isGrid
                 ? CharactersGrid(_data.charactersList)
                 : CharactersList(_data.charactersList),
-            bottomNavigationBar: AppBottomNavigationBar(
-              currentIndex: 0,
-              onTap: (int index) {
-                context.read<GlobalBloc>()
-                  ..add(
-                    GlobalEvent.selectedTab(index: index),
-                  );
-              },
-            ),
           ),
           orElse: () => SizedBox.shrink(),
         );

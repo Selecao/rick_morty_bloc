@@ -15,5 +15,7 @@ class CharactersState with _$CharactersState {
   /// Состояние отображения этапа загрузки
   const factory CharactersState.loading() = _LoadingCharactersState;
 
-  const factory CharactersState.message() = _MessageState;
+  /// Состояние поиска
+  const factory CharactersState.finding(
+      {required final List<Character> charactersList}) = _FindCharactersState;
 }

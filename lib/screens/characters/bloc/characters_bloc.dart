@@ -72,13 +72,17 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     yield CharactersState.loading();
     String charsToFind = event.chars;
     List<Character> finderResultList = _findCharacters(charsToFind);
+
+    yield CharactersState.finding(charactersList: finderResultList);
     yield CharactersState.data(
-      charactersList: finderResultList,
+      charactersList: _charactersList,
       isGrid: isGrid,
     );
+    /*
     if (finderResultList.length == 0) {
       yield CharactersState.message();
     }
+    */
   }
 
   List<Character> _findCharacters(String chars) {
