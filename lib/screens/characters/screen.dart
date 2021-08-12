@@ -29,9 +29,7 @@ class CharactersScreen extends StatelessWidget {
                 _data.charactersList,
                 onSubmitted: (value) {
                   context.read<CharactersBloc>()
-                    ..add(
-                      CharactersEvent.find(chars: value),
-                    );
+                    ..add(CharactersEvent.find(chars: value));
                 },
               ),
             ),

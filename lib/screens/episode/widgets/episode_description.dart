@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sc_03/components/app_divider.dart';
 import 'package:sc_03/data/network/models/episode.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class EpisodeDescription extends StatelessWidget {
   final Episode? episode;

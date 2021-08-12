@@ -299,6 +299,12 @@ class _$EpisodesListStateTearOff {
   _LoadingEpisodesListState loading() {
     return const _LoadingEpisodesListState();
   }
+
+  _FindingEpisodesListState finding({required List<Episode> episodes}) {
+    return _FindingEpisodesListState(
+      episodes: episodes,
+    );
+  }
 }
 
 /// @nodoc
@@ -311,6 +317,7 @@ mixin _$EpisodesListState {
     required TResult Function(List<Season> seasons) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Episode> episodes) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,6 +325,7 @@ mixin _$EpisodesListState {
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -326,6 +334,7 @@ mixin _$EpisodesListState {
     required TResult Function(_DataEpisodesListState value) data,
     required TResult Function(_InitialEpisodesListState value) initial,
     required TResult Function(_LoadingEpisodesListState value) loading,
+    required TResult Function(_FindingEpisodesListState value) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -333,6 +342,7 @@ mixin _$EpisodesListState {
     TResult Function(_DataEpisodesListState value)? data,
     TResult Function(_InitialEpisodesListState value)? initial,
     TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -426,6 +436,7 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
     required TResult Function(List<Season> seasons) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Episode> episodes) finding,
   }) {
     return data(seasons);
   }
@@ -436,6 +447,7 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -450,6 +462,7 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
     required TResult Function(_DataEpisodesListState value) data,
     required TResult Function(_InitialEpisodesListState value) initial,
     required TResult Function(_LoadingEpisodesListState value) loading,
+    required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return data(this);
   }
@@ -460,6 +473,7 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
     TResult Function(_DataEpisodesListState value)? data,
     TResult Function(_InitialEpisodesListState value)? initial,
     TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -524,6 +538,7 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
     required TResult Function(List<Season> seasons) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Episode> episodes) finding,
   }) {
     return initial();
   }
@@ -534,6 +549,7 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -548,6 +564,7 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
     required TResult Function(_DataEpisodesListState value) data,
     required TResult Function(_InitialEpisodesListState value) initial,
     required TResult Function(_LoadingEpisodesListState value) loading,
+    required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return initial(this);
   }
@@ -558,6 +575,7 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
     TResult Function(_DataEpisodesListState value)? data,
     TResult Function(_InitialEpisodesListState value)? initial,
     TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -615,6 +633,7 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
     required TResult Function(List<Season> seasons) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Episode> episodes) finding,
   }) {
     return loading();
   }
@@ -625,6 +644,7 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -639,6 +659,7 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
     required TResult Function(_DataEpisodesListState value) data,
     required TResult Function(_InitialEpisodesListState value) initial,
     required TResult Function(_LoadingEpisodesListState value) loading,
+    required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return loading(this);
   }
@@ -649,6 +670,7 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
     TResult Function(_DataEpisodesListState value)? data,
     TResult Function(_InitialEpisodesListState value)? initial,
     TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -660,4 +682,132 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
 
 abstract class _LoadingEpisodesListState implements EpisodesListState {
   const factory _LoadingEpisodesListState() = _$_LoadingEpisodesListState;
+}
+
+/// @nodoc
+abstract class _$FindingEpisodesListStateCopyWith<$Res> {
+  factory _$FindingEpisodesListStateCopyWith(_FindingEpisodesListState value,
+          $Res Function(_FindingEpisodesListState) then) =
+      __$FindingEpisodesListStateCopyWithImpl<$Res>;
+  $Res call({List<Episode> episodes});
+}
+
+/// @nodoc
+class __$FindingEpisodesListStateCopyWithImpl<$Res>
+    extends _$EpisodesListStateCopyWithImpl<$Res>
+    implements _$FindingEpisodesListStateCopyWith<$Res> {
+  __$FindingEpisodesListStateCopyWithImpl(_FindingEpisodesListState _value,
+      $Res Function(_FindingEpisodesListState) _then)
+      : super(_value, (v) => _then(v as _FindingEpisodesListState));
+
+  @override
+  _FindingEpisodesListState get _value =>
+      super._value as _FindingEpisodesListState;
+
+  @override
+  $Res call({
+    Object? episodes = freezed,
+  }) {
+    return _then(_FindingEpisodesListState(
+      episodes: episodes == freezed
+          ? _value.episodes
+          : episodes // ignore: cast_nullable_to_non_nullable
+              as List<Episode>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FindingEpisodesListState implements _FindingEpisodesListState {
+  const _$_FindingEpisodesListState({required this.episodes});
+
+  @override
+  final List<Episode> episodes;
+
+  @override
+  String toString() {
+    return 'EpisodesListState.finding(episodes: $episodes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FindingEpisodesListState &&
+            (identical(other.episodes, episodes) ||
+                const DeepCollectionEquality()
+                    .equals(other.episodes, episodes)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(episodes);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindingEpisodesListStateCopyWith<_FindingEpisodesListState> get copyWith =>
+      __$FindingEpisodesListStateCopyWithImpl<_FindingEpisodesListState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Season> seasons) data,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Episode> episodes) finding,
+  }) {
+    return finding(episodes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+    required TResult orElse(),
+  }) {
+    if (finding != null) {
+      return finding(episodes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DataEpisodesListState value) data,
+    required TResult Function(_InitialEpisodesListState value) initial,
+    required TResult Function(_LoadingEpisodesListState value) loading,
+    required TResult Function(_FindingEpisodesListState value) finding,
+  }) {
+    return finding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
+    required TResult orElse(),
+  }) {
+    if (finding != null) {
+      return finding(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FindingEpisodesListState implements EpisodesListState {
+  const factory _FindingEpisodesListState({required List<Episode> episodes}) =
+      _$_FindingEpisodesListState;
+
+  List<Episode> get episodes => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindingEpisodesListStateCopyWith<_FindingEpisodesListState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

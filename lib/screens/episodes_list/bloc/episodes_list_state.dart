@@ -11,4 +11,7 @@ class EpisodesListState with _$EpisodesListState {
   const factory EpisodesListState.initial() = _InitialEpisodesListState;
 
   const factory EpisodesListState.loading() = _LoadingEpisodesListState;
+
+  const factory EpisodesListState.finding(
+      {required final List<Episode> episodes}) = _FindingEpisodesListState;
 }

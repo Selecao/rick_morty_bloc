@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sc_03/resources/constants.dart';
-import 'package:sc_03/theme/app_color.dart';
 import 'package:sc_03/theme/main_theme.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:sc_03/theme/theme_type.dart';
 
 class ThemeAlertDialog extends StatelessWidget {

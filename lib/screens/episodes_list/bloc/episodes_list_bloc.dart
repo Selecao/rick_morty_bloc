@@ -58,9 +58,9 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
     yield EpisodesListState.loading();
     String charsToFind = event.chars;
     List<Episode> finderResult = _findEpisodes(charsToFind);
-    yield EpisodesListState.data(
-      seasons: _fillSeasonsListWith(finderResult),
-    );
+
+    yield EpisodesListState.finding(episodes: finderResult);
+    yield EpisodesListState.data(seasons: _fillSeasonsListWith(_episodes));
   }
 
   List<Season> _fillSeasonsListWith(List<Episode> episodes) {

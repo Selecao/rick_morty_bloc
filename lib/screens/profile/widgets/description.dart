@@ -3,7 +3,6 @@ import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/screens/profile/widgets/column_text.dart';
 import 'package:sc_03/screens/profile/widgets/location_tile.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class Description extends StatelessWidget {
   final double avatarSize;

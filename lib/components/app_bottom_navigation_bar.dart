@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final void Function(int index) onTap;

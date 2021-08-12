@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_divider.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class AboutApp extends StatelessWidget {
   const AboutApp();

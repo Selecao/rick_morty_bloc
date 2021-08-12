@@ -3,8 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LocationsListAppBar extends StatelessWidget

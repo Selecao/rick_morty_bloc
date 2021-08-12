@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EpisodesListAppBar extends StatelessWidget
@@ -25,9 +23,7 @@ class EpisodesListAppBar extends StatelessWidget
         title: 'Найти эпизод',
         onSubmitted: (String value) {
           context.read<EpisodesListBloc>()
-            ..add(
-              EpisodesListEvent.find(chars: value),
-            );
+            ..add(EpisodesListEvent.find(chars: value));
         },
       ),
       bottom: TabBar(

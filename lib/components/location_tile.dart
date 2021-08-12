@@ -2,8 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/data/network/models/location.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class LocationTile extends StatelessWidget {
   final Location location;

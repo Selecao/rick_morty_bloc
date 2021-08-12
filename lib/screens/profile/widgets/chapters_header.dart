@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class ChaptersHeader extends StatelessWidget {
   const ChaptersHeader();

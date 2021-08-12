@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/theme/app_color.dart';
 
 class AppDivider extends StatelessWidget {
   final double indent;

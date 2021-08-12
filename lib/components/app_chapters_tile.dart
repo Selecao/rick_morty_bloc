@@ -3,8 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 
 import 'package:sc_03/data/network/models/episode.dart';
-import 'package:sc_03/theme/app_color.dart';
-import 'package:sc_03/theme/app_text_theme.dart';
 
 class AppChaptersTile extends StatelessWidget {
   final double imageSize;

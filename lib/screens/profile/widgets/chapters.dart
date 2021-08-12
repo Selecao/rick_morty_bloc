@@ -4,7 +4,6 @@ import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/screens/episode/screen.dart';
-import 'package:sc_03/theme/app_color.dart';
 
 class Chapters extends StatelessWidget {
   final List<Episode> chaptersList;

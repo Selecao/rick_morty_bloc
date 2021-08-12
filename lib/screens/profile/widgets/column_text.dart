@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:sc_03/theme/app_text_theme.dart';
-
 class ColumnText extends StatelessWidget {
   final String title;
   final String description;
