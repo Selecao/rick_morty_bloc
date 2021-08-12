@@ -299,6 +299,12 @@ class _$LocationsListStateTearOff {
   _LoadingLocationsListState loading() {
     return const _LoadingLocationsListState();
   }
+
+  _FindingLocationsListState finding({required List<Location> locationsList}) {
+    return _FindingLocationsListState(
+      locationsList: locationsList,
+    );
+  }
 }
 
 /// @nodoc
@@ -311,6 +317,7 @@ mixin _$LocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Location> locationsList) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,6 +325,7 @@ mixin _$LocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -326,6 +334,7 @@ mixin _$LocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
+    required TResult Function(_FindingLocationsListState value) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -333,6 +342,7 @@ mixin _$LocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
+    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -427,6 +437,7 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Location> locationsList) finding,
   }) {
     return data(locationsList);
   }
@@ -437,6 +448,7 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -451,6 +463,7 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
+    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return data(this);
   }
@@ -461,6 +474,7 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
+    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -525,6 +539,7 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Location> locationsList) finding,
   }) {
     return initial();
   }
@@ -535,6 +550,7 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -549,6 +565,7 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
+    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return initial(this);
   }
@@ -559,6 +576,7 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
+    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -616,6 +634,7 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(List<Location> locationsList) finding,
   }) {
     return loading();
   }
@@ -626,6 +645,7 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -640,6 +660,7 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
+    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return loading(this);
   }
@@ -650,6 +671,7 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
+    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -661,4 +683,133 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
 
 abstract class _LoadingLocationsListState implements LocationsListState {
   const factory _LoadingLocationsListState() = _$_LoadingLocationsListState;
+}
+
+/// @nodoc
+abstract class _$FindingLocationsListStateCopyWith<$Res> {
+  factory _$FindingLocationsListStateCopyWith(_FindingLocationsListState value,
+          $Res Function(_FindingLocationsListState) then) =
+      __$FindingLocationsListStateCopyWithImpl<$Res>;
+  $Res call({List<Location> locationsList});
+}
+
+/// @nodoc
+class __$FindingLocationsListStateCopyWithImpl<$Res>
+    extends _$LocationsListStateCopyWithImpl<$Res>
+    implements _$FindingLocationsListStateCopyWith<$Res> {
+  __$FindingLocationsListStateCopyWithImpl(_FindingLocationsListState _value,
+      $Res Function(_FindingLocationsListState) _then)
+      : super(_value, (v) => _then(v as _FindingLocationsListState));
+
+  @override
+  _FindingLocationsListState get _value =>
+      super._value as _FindingLocationsListState;
+
+  @override
+  $Res call({
+    Object? locationsList = freezed,
+  }) {
+    return _then(_FindingLocationsListState(
+      locationsList: locationsList == freezed
+          ? _value.locationsList
+          : locationsList // ignore: cast_nullable_to_non_nullable
+              as List<Location>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FindingLocationsListState implements _FindingLocationsListState {
+  const _$_FindingLocationsListState({required this.locationsList});
+
+  @override
+  final List<Location> locationsList;
+
+  @override
+  String toString() {
+    return 'LocationsListState.finding(locationsList: $locationsList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _FindingLocationsListState &&
+            (identical(other.locationsList, locationsList) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationsList, locationsList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locationsList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FindingLocationsListStateCopyWith<_FindingLocationsListState>
+      get copyWith =>
+          __$FindingLocationsListStateCopyWithImpl<_FindingLocationsListState>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Location> locationsList) data,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Location> locationsList) finding,
+  }) {
+    return finding(locationsList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Location> locationsList)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Location> locationsList)? finding,
+    required TResult orElse(),
+  }) {
+    if (finding != null) {
+      return finding(locationsList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DataLocationsListState value) data,
+    required TResult Function(_InitialLocationsListState value) initial,
+    required TResult Function(_LoadingLocationsListState value) loading,
+    required TResult Function(_FindingLocationsListState value) finding,
+  }) {
+    return finding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DataLocationsListState value)? data,
+    TResult Function(_InitialLocationsListState value)? initial,
+    TResult Function(_LoadingLocationsListState value)? loading,
+    TResult Function(_FindingLocationsListState value)? finding,
+    required TResult orElse(),
+  }) {
+    if (finding != null) {
+      return finding(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FindingLocationsListState implements LocationsListState {
+  const factory _FindingLocationsListState(
+      {required List<Location> locationsList}) = _$_FindingLocationsListState;
+
+  List<Location> get locationsList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FindingLocationsListStateCopyWith<_FindingLocationsListState>
+      get copyWith => throw _privateConstructorUsedError;
 }

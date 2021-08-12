@@ -15,6 +15,7 @@ class LocationTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double cornerRadius = 16.0;
+    const double pictureHeight = 150.0;
 
     return GestureDetector(
       child: Padding(
@@ -23,14 +24,12 @@ class LocationTile extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: location.imageName ?? 'no image',
+
               imageBuilder: (context, imageProvider) => Container(
-                height: 150.0,
+                height: pictureHeight,
                 decoration: BoxDecoration(
                   color: Theme.of(context).canvasColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(cornerRadius),
-                    topRight: Radius.circular(cornerRadius),
-                  ),
+                  borderRadius: _getTopBorder(cornerRadius),
                   image: DecorationImage(
                     image: imageProvider,
                     fit: BoxFit.cover,
@@ -40,7 +39,15 @@ class LocationTile extends StatelessWidget {
               progressIndicatorBuilder: (context, url, downloadProgress) =>
                   AppCircularProgressIndicator(
                       value: downloadProgress.progress),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              errorWidget: (context, _, __) => Container(
+                height: pictureHeight,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColorDark,
+                  borderRadius: _getTopBorder(cornerRadius),
+                ),
+              ),
+              //errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Container(
               height: 68.0,
@@ -86,4 +93,9 @@ class LocationTile extends StatelessWidget {
       onTap: onTap,
     );
   }
+
+  BorderRadiusGeometry _getTopBorder(double cornerRadius) => BorderRadius.only(
+        topLeft: Radius.circular(cornerRadius),
+        topRight: Radius.circular(cornerRadius),
+      );
 }

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
+import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/screens/find/screen.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/components/location_tile.dart';
 
@@ -15,7 +17,24 @@ class LocationsListScreen extends StatelessWidget {
     return BlocConsumer<LocationsListBloc, LocationsListState>(
       /// Возвращает виджеты поверх основного состояния. Используется для отображения
       /// ошибок, навигации и пр.
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.maybeMap(
+          finding: (_data) => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FindScreen(
+                Screen.Location,
+                _data.locationsList,
+                onSubmitted: (value) {
+                  context.read<LocationsListBloc>()
+                    ..add(LocationsListEvent.find(chars: value));
+                },
+              ),
+            ),
+          ),
+          orElse: () => SizedBox.shrink(),
+        );
+      },
 
       /// Обрабатываем состояния
       builder: (context, state) {

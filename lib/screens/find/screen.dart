@@ -55,11 +55,14 @@ class FindScreen extends StatelessWidget {
         },
       );
     if (find == Screen.Location)
-      return LocationTile(
-        location: object as Location,
-        onTap: () {
-          _onTapLocation(context, object);
-        },
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: LocationTile(
+          location: object as Location,
+          onTap: () {
+            _onTapLocation(context, object);
+          },
+        ),
       );
     if (find == Screen.Episode)
       return AppChaptersTile(

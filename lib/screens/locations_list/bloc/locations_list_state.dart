@@ -11,4 +11,8 @@ class LocationsListState with _$LocationsListState {
   const factory LocationsListState.initial() = _InitialLocationsListState;
 
   const factory LocationsListState.loading() = _LoadingLocationsListState;
+
+  const factory LocationsListState.finding(
+          {required final List<Location> locationsList}) =
+      _FindingLocationsListState;
 }

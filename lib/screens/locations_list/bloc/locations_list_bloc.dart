@@ -53,8 +53,10 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     yield LocationsListState.loading();
     String charsToFind = event.chars;
     List<Location> finderResultList = _findLocations(charsToFind);
+
+    yield LocationsListState.finding(locationsList: finderResultList);
     yield LocationsListState.data(
-      locationsList: finderResultList,
+      locationsList: _locationsList,
     );
   }
 
