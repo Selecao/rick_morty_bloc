@@ -57,16 +57,23 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
       _FindEpisodesListEvent event) async* {
     yield EpisodesListState.loading();
     String charsToFind = event.chars;
-    List<Episode> finderResult = _findEpisodes(charsToFind);
+    List<Episode> finderResult = [];
+
+    try {
+      print("## Начинаем поиск эпизодов");
+      finderResult = await _repository.getEpisodesByName(charsToFind) ?? [];
+    } catch (ex) {
+      print("## Получи ошибку в блоке Поиска эпизодов $ex");
+    }
 
     yield EpisodesListState.finding(episodes: finderResult);
     yield EpisodesListState.data(seasons: _fillSeasonsListWith(_episodes));
   }
 
   List<Season> _fillSeasonsListWith(List<Episode> episodes) {
-    // to avoid mutation of original [season] field [.episodes]
+    // next line to avoid mutation of original [season] field [.episodes]
     // because List.from it's a one level clone, items referenced by the element
-    // of foo will still be shared to bar.
+    // of foo will still be shared to bar:
     List<Season> result = [
       for (var elm in seasons) Season(elm.name, List.from(elm.episodes))
     ];
@@ -89,6 +96,8 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
     return result;
   }
 
+/*
+  // find episodes via /GetAll response
   List<Episode> _findEpisodes(String chars) {
     if (chars.isEmpty) return _episodes;
     List<Episode> result = [];
@@ -101,4 +110,5 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
     }
     return result;
   }
+  */
 }

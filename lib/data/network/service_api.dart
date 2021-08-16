@@ -65,6 +65,15 @@ class ServiceApi {
     return episodeModelFromJson(response.toString());
   }
 
+  Future<EpisodesListModel> getEpisodesByName(String name) async {
+    print("## Пошел запрос на Поиск эпизодов");
+    Response<String> response = await _dio.get(
+      "/Episodes/GetByName",
+      queryParameters: {"Name": name},
+    );
+    return episodesListModelFromJson(response.toString());
+  }
+
   Future<EpisodesListModel> getEpisodesList(
       int pageNumber, int pageSize) async {
     print("## Пошел запрос на список всех эпизодов");

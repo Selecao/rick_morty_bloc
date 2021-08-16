@@ -47,6 +47,11 @@ class Repository {
     return response.data;
   }
 
+  Future<List<Episode>?> getEpisodesByName(String name) async {
+    final response = await _serviceApi.getEpisodesByName(name);
+    return response.data;
+  }
+
   Future<List<Episode>?> getEpisodesList(
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getEpisodesList(pageNumber, pageSize);
