@@ -33,6 +33,29 @@ class ServiceApi {
     return charactersListModelFromJson(response.toString());
   }
 
+  Future<CharacterModel> getCharacterById(String id) async {
+    print("## Пошел запрос на выбранного персонажа");
+    Response<String> response = await _dio.get(
+      "/Characters/GetById",
+      queryParameters: {'Id': id},
+    );
+    return characterModelFromJson(response.toString());
+  }
+
+  Future<CharactersListModel> getCharacterByName(
+      String name, int status, int gender) async {
+    print("## Пошел поиск выбранного персонажа");
+    Response<String> response = await _dio.get(
+      "/Characters/Filter",
+      queryParameters: {
+        "Name": name,
+        "Status": status,
+        "Gender": gender,
+      },
+    );
+    return charactersListModelFromJson(response.toString());
+  }
+
   Future<EpisodeModel> getEpisodeById(String id) async {
     print("## Пошел запрос на выбранный эпизод");
     Response<String> response = await _dio.get(
@@ -69,14 +92,5 @@ class ServiceApi {
       queryParameters: {"PageNumber": pageNumber, "PageSize": pageSize},
     );
     return locationsListModelFromJson(response.toString());
-  }
-
-  Future<CharacterModel> getCharacterById(String id) async {
-    print("## Пошел запрос на выбранного персонажа");
-    Response<String> response = await _dio.get(
-      "/Characters/GetById",
-      queryParameters: {'Id': id},
-    );
-    return characterModelFromJson(response.toString());
   }
 }

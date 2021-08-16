@@ -36,7 +36,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       /// Получение данных
       print("## Начинаем загрузку профиля персонажа");
       String characterId = event.characterId;
-      _character = await _repository.getCharacter(characterId);
+      _character = await _repository.getCharacterById(characterId);
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
       print("## Получи ошибку в блоке профиля персонажа $ex");

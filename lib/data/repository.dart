@@ -31,6 +31,17 @@ class Repository {
     return response.data;
   }
 
+  Future<Character> getCharacterById(String id) async {
+    final response = await _serviceApi.getCharacterById(id);
+    return response.data;
+  }
+
+  Future<List<Character>?> getCharacterByName(String name,
+      {int status = 0, int gender = 0}) async {
+    final response = await _serviceApi.getCharacterByName(name, status, gender);
+    return response.data;
+  }
+
   Future<Episode> getEpisodeById(String id) async {
     final response = await _serviceApi.getEpisodeById(id);
     return response.data;
@@ -50,11 +61,6 @@ class Repository {
   Future<List<Location>?> getLocationsList(
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getLocationsList(pageNumber, pageSize);
-    return response.data;
-  }
-
-  Future<Character> getCharacter(String id) async {
-    final response = await _serviceApi.getCharacterById(id);
     return response.data;
   }
 }

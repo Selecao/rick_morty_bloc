@@ -71,7 +71,15 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       _FindingCharactersEvent event) async* {
     yield CharactersState.loading();
     String charsToFind = event.chars;
-    List<Character> finderResultList = _findCharacters(charsToFind);
+    List<Character> finderResultList = [];
+
+    try {
+      print("## Начинаем поиск персонажей");
+      finderResultList =
+          await _repository.getCharacterByName(charsToFind) ?? [];
+    } catch (ex) {
+      print("## Получи ошибку в блоке Поиска персонажей $ex");
+    }
 
     yield CharactersState.finding(charactersList: finderResultList);
     yield CharactersState.data(
@@ -85,6 +93,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     */
   }
 
+  /*
   List<Character> _findCharacters(String chars) {
     if (chars.isEmpty) return _charactersList;
     List<Character> result = [];
@@ -96,4 +105,5 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     }
     return result;
   }
+  */
 }
