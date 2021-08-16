@@ -58,6 +58,13 @@ class Repository {
     return response.data;
   }
 
+  Future<List<Location>?> getLocationsByName(String name,
+      {String type = "", String measurements = ""}) async {
+    final response =
+        await _serviceApi.getLocationsByName(name, type, measurements);
+    return response.data;
+  }
+
   Future<List<Location>?> getLocationsList(
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getLocationsList(pageNumber, pageSize);

@@ -52,23 +52,19 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
       _FindLocationsListEvent event) async* {
     yield LocationsListState.loading();
     String charsToFind = event.chars;
-    List<Location> finderResultList = _findLocations(charsToFind);
+    List<Location> finderResultList = [];
+
+    try {
+      print("## Начинаем поиск локаций");
+      finderResultList =
+          await _repository.getLocationsByName(charsToFind) ?? [];
+    } catch (ex) {
+      print("## Получи ошибку в блоке Поиска локаций $ex");
+    }
 
     yield LocationsListState.finding(locationsList: finderResultList);
     yield LocationsListState.data(
       locationsList: _locationsList,
     );
-  }
-
-  List<Location> _findLocations(String chars) {
-    if (chars.isEmpty) return _locationsList;
-    List<Location> result = [];
-    for (Location location in _locationsList) {
-      if (location.name == null) continue;
-      if (location.name!.toLowerCase().contains(chars.toLowerCase())) {
-        result.add(location);
-      }
-    }
-    return result;
   }
 }

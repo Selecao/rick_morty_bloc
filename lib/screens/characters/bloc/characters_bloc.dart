@@ -92,18 +92,4 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     }
     */
   }
-
-  /*
-  List<Character> _findCharacters(String chars) {
-    if (chars.isEmpty) return _charactersList;
-    List<Character> result = [];
-    for (Character character in _charactersList) {
-      if (character.fullName == null) continue;
-      if (character.fullName!.toLowerCase().contains(chars.toLowerCase())) {
-        result.add(character);
-      }
-    }
-    return result;
-  }
-  */
 }

@@ -84,6 +84,20 @@ class ServiceApi {
     return locationModelFromJson(response.toString());
   }
 
+  Future<LocationsListModel> getLocationsByName(
+      String name, String type, String measurements) async {
+    print("## Пошел запрос на поиск локаций");
+    Response<String> response = await _dio.get(
+      "/Locations/Filter",
+      queryParameters: {
+        "Name": name,
+        "Type": type,
+        "Measurements": measurements,
+      },
+    );
+    return locationsListModelFromJson(response.toString());
+  }
+
   Future<LocationsListModel> getLocationsList(
       int pageNumber, int pageSize) async {
     print("## Пошел запрос на список всех локаций");
