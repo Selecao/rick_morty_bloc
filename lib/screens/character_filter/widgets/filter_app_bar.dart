@@ -6,12 +6,19 @@ import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/app_color.dart';
 
-class FilterAppBar extends StatelessWidget implements PreferredSizeWidget {
-  FilterAppBar() : preferredSize = Size.fromHeight(kToolbarHeight);
+class FilterAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final bool isFilterEnable;
+  FilterAppBar(this.isFilterEnable)
+      : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
   final Size preferredSize;
 
+  @override
+  _FilterAppBarState createState() => _FilterAppBarState();
+}
+
+class _FilterAppBarState extends State<FilterAppBar> {
   @override
   Widget build(BuildContext context) {
     const double actionsPadding = 12.0;
@@ -39,10 +46,14 @@ class FilterAppBar extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.all(actionsPadding),
           child: SvgPicture.asset(
-            AppIcons.filterDisable,
+            widget.isFilterEnable
+                ? AppIcons.filterDisable
+                : AppIcons.filterSort,
             width: 36.0,
             height: 36.0,
-            color: AppColor.red_100,
+            color: widget.isFilterEnable
+                ? AppColor.red_100
+                : Theme.of(context).accentColor,
           ),
         ),
       ],

@@ -45,7 +45,10 @@ class CharactersScreen extends StatelessWidget {
             child: AppCircularProgressIndicator(),
           ),
           data: (_data) => Scaffold(
-            appBar: CharactersAppBar(_data.charactersList.length),
+            appBar: CharactersAppBar(
+              _data.charactersList.length,
+              _data.status.length != 3 || _data.gender.length != 3,
+            ),
             body: _data.isGrid
                 ? CharactersGrid(_data.charactersList)
                 : CharactersList(_data.charactersList),

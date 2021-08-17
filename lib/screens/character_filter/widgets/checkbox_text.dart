@@ -6,7 +6,9 @@ import 'package:sc_03/theme/app_color.dart';
 class CheckboxText extends StatelessWidget {
   final bool isEnable;
   final String text;
-  const CheckboxText(this.isEnable, this.text);
+  final VoidCallback onTap;
+
+  const CheckboxText(this.isEnable, this.text, {required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,7 @@ class CheckboxText extends StatelessWidget {
         children: <Widget>[
           SizedBox(width: isEnable ? .0 : 2.0),
           InkResponse(
-            onTap: () {
-              /// TODO: change isEnable
-            },
+            onTap: onTap,
             child: SvgPicture.asset(
               isEnable ? AppIcons.checkboxDone : AppIcons.checkboxEmpty,
               width: isEnable ? 24.0 : 20.0,

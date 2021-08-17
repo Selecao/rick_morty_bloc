@@ -43,7 +43,7 @@ class ServiceApi {
   }
 
   Future<CharactersListModel> getCharacterByName(
-      String name, int status, int gender) async {
+      String name, List<int> status, List<int> gender) async {
     print("## Пошел поиск выбранного персонажа");
     Response<String> response = await _dio.get(
       "/Characters/Filter",

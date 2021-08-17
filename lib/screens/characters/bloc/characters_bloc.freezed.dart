@@ -26,6 +26,17 @@ class _$CharactersEventTearOff {
     );
   }
 
+  _SelectedFiltersCharactersEvent selectedFilters(
+      {required List<int> status,
+      required List<int> gender,
+      required bool isSortAscending}) {
+    return _SelectedFiltersCharactersEvent(
+      status: status,
+      gender: gender,
+      isSortAscending: isSortAscending,
+    );
+  }
+
   _FindingCharactersEvent find({required String chars}) {
     return _FindingCharactersEvent(
       chars: chars,
@@ -42,6 +53,9 @@ mixin _$CharactersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(
+            List<int> status, List<int> gender, bool isSortAscending)
+        selectedFilters,
     required TResult Function(String chars) find,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +63,8 @@ mixin _$CharactersEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(List<int> status, List<int> gender, bool isSortAscending)?
+        selectedFilters,
     TResult Function(String chars)? find,
     required TResult orElse(),
   }) =>
@@ -57,6 +73,8 @@ mixin _$CharactersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_SelectedFiltersCharactersEvent value)
+        selectedFilters,
     required TResult Function(_FindingCharactersEvent value) find,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +82,7 @@ mixin _$CharactersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
     TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) =>
@@ -137,6 +156,9 @@ class _$_InitialCharactersEvent
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(
+            List<int> status, List<int> gender, bool isSortAscending)
+        selectedFilters,
     required TResult Function(String chars) find,
   }) {
     return initial();
@@ -147,6 +169,8 @@ class _$_InitialCharactersEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(List<int> status, List<int> gender, bool isSortAscending)?
+        selectedFilters,
     TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
@@ -161,6 +185,8 @@ class _$_InitialCharactersEvent
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_SelectedFiltersCharactersEvent value)
+        selectedFilters,
     required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return initial(this);
@@ -171,6 +197,7 @@ class _$_InitialCharactersEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
     TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
@@ -266,6 +293,9 @@ class _$_SelectedViewCharactersEvent
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(
+            List<int> status, List<int> gender, bool isSortAscending)
+        selectedFilters,
     required TResult Function(String chars) find,
   }) {
     return selectedView(isGrid);
@@ -276,6 +306,8 @@ class _$_SelectedViewCharactersEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(List<int> status, List<int> gender, bool isSortAscending)?
+        selectedFilters,
     TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
@@ -290,6 +322,8 @@ class _$_SelectedViewCharactersEvent
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_SelectedFiltersCharactersEvent value)
+        selectedFilters,
     required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return selectedView(this);
@@ -300,6 +334,7 @@ class _$_SelectedViewCharactersEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
     TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
@@ -317,6 +352,180 @@ abstract class _SelectedViewCharactersEvent implements CharactersEvent {
   bool get isGrid => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SelectedViewCharactersEventCopyWith<_SelectedViewCharactersEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SelectedFiltersCharactersEventCopyWith<$Res> {
+  factory _$SelectedFiltersCharactersEventCopyWith(
+          _SelectedFiltersCharactersEvent value,
+          $Res Function(_SelectedFiltersCharactersEvent) then) =
+      __$SelectedFiltersCharactersEventCopyWithImpl<$Res>;
+  $Res call({List<int> status, List<int> gender, bool isSortAscending});
+}
+
+/// @nodoc
+class __$SelectedFiltersCharactersEventCopyWithImpl<$Res>
+    extends _$CharactersEventCopyWithImpl<$Res>
+    implements _$SelectedFiltersCharactersEventCopyWith<$Res> {
+  __$SelectedFiltersCharactersEventCopyWithImpl(
+      _SelectedFiltersCharactersEvent _value,
+      $Res Function(_SelectedFiltersCharactersEvent) _then)
+      : super(_value, (v) => _then(v as _SelectedFiltersCharactersEvent));
+
+  @override
+  _SelectedFiltersCharactersEvent get _value =>
+      super._value as _SelectedFiltersCharactersEvent;
+
+  @override
+  $Res call({
+    Object? status = freezed,
+    Object? gender = freezed,
+    Object? isSortAscending = freezed,
+  }) {
+    return _then(_SelectedFiltersCharactersEvent(
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      isSortAscending: isSortAscending == freezed
+          ? _value.isSortAscending
+          : isSortAscending // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedFiltersCharactersEvent
+    with DiagnosticableTreeMixin
+    implements _SelectedFiltersCharactersEvent {
+  const _$_SelectedFiltersCharactersEvent(
+      {required this.status,
+      required this.gender,
+      required this.isSortAscending});
+
+  @override
+  final List<int> status;
+  @override
+  final List<int> gender;
+  @override
+  final bool isSortAscending;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CharactersEvent.selectedFilters(status: $status, gender: $gender, isSortAscending: $isSortAscending)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersEvent.selectedFilters'))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('isSortAscending', isSortAscending));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SelectedFiltersCharactersEvent &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.isSortAscending, isSortAscending) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSortAscending, isSortAscending)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(isSortAscending);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SelectedFiltersCharactersEventCopyWith<_SelectedFiltersCharactersEvent>
+      get copyWith => __$SelectedFiltersCharactersEventCopyWithImpl<
+          _SelectedFiltersCharactersEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool isGrid) selectedView,
+    required TResult Function(
+            List<int> status, List<int> gender, bool isSortAscending)
+        selectedFilters,
+    required TResult Function(String chars) find,
+  }) {
+    return selectedFilters(status, gender, isSortAscending);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool isGrid)? selectedView,
+    TResult Function(List<int> status, List<int> gender, bool isSortAscending)?
+        selectedFilters,
+    TResult Function(String chars)? find,
+    required TResult orElse(),
+  }) {
+    if (selectedFilters != null) {
+      return selectedFilters(status, gender, isSortAscending);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialCharactersEvent value) initial,
+    required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_SelectedFiltersCharactersEvent value)
+        selectedFilters,
+    required TResult Function(_FindingCharactersEvent value) find,
+  }) {
+    return selectedFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_FindingCharactersEvent value)? find,
+    required TResult orElse(),
+  }) {
+    if (selectedFilters != null) {
+      return selectedFilters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedFiltersCharactersEvent implements CharactersEvent {
+  const factory _SelectedFiltersCharactersEvent(
+      {required List<int> status,
+      required List<int> gender,
+      required bool isSortAscending}) = _$_SelectedFiltersCharactersEvent;
+
+  List<int> get status => throw _privateConstructorUsedError;
+  List<int> get gender => throw _privateConstructorUsedError;
+  bool get isSortAscending => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SelectedFiltersCharactersEventCopyWith<_SelectedFiltersCharactersEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -398,6 +607,9 @@ class _$_FindingCharactersEvent
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isGrid) selectedView,
+    required TResult Function(
+            List<int> status, List<int> gender, bool isSortAscending)
+        selectedFilters,
     required TResult Function(String chars) find,
   }) {
     return find(chars);
@@ -408,6 +620,8 @@ class _$_FindingCharactersEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isGrid)? selectedView,
+    TResult Function(List<int> status, List<int> gender, bool isSortAscending)?
+        selectedFilters,
     TResult Function(String chars)? find,
     required TResult orElse(),
   }) {
@@ -422,6 +636,8 @@ class _$_FindingCharactersEvent
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialCharactersEvent value) initial,
     required TResult Function(_SelectedViewCharactersEvent value) selectedView,
+    required TResult Function(_SelectedFiltersCharactersEvent value)
+        selectedFilters,
     required TResult Function(_FindingCharactersEvent value) find,
   }) {
     return find(this);
@@ -432,6 +648,7 @@ class _$_FindingCharactersEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialCharactersEvent value)? initial,
     TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
     TResult Function(_FindingCharactersEvent value)? find,
     required TResult orElse(),
   }) {
@@ -457,10 +674,17 @@ class _$CharactersStateTearOff {
   const _$CharactersStateTearOff();
 
   _DataCharactersState data(
-      {required List<Character> charactersList, required bool isGrid}) {
+      {required List<Character> charactersList,
+      required bool isGrid,
+      required List<int> status,
+      required List<int> gender,
+      required bool isSortAscending}) {
     return _DataCharactersState(
       charactersList: charactersList,
       isGrid: isGrid,
+      status: status,
+      gender: gender,
+      isSortAscending: isSortAscending,
     );
   }
 
@@ -486,7 +710,9 @@ const $CharactersState = _$CharactersStateTearOff();
 mixin _$CharactersState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Character> charactersList) finding,
@@ -494,7 +720,9 @@ mixin _$CharactersState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Character> charactersList)? finding,
@@ -542,7 +770,12 @@ abstract class _$DataCharactersStateCopyWith<$Res> {
   factory _$DataCharactersStateCopyWith(_DataCharactersState value,
           $Res Function(_DataCharactersState) then) =
       __$DataCharactersStateCopyWithImpl<$Res>;
-  $Res call({List<Character> charactersList, bool isGrid});
+  $Res call(
+      {List<Character> charactersList,
+      bool isGrid,
+      List<int> status,
+      List<int> gender,
+      bool isSortAscending});
 }
 
 /// @nodoc
@@ -560,6 +793,9 @@ class __$DataCharactersStateCopyWithImpl<$Res>
   $Res call({
     Object? charactersList = freezed,
     Object? isGrid = freezed,
+    Object? status = freezed,
+    Object? gender = freezed,
+    Object? isSortAscending = freezed,
   }) {
     return _then(_DataCharactersState(
       charactersList: charactersList == freezed
@@ -569,6 +805,18 @@ class __$DataCharactersStateCopyWithImpl<$Res>
       isGrid: isGrid == freezed
           ? _value.isGrid
           : isGrid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      isSortAscending: isSortAscending == freezed
+          ? _value.isSortAscending
+          : isSortAscending // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -580,7 +828,11 @@ class _$_DataCharactersState
     with DiagnosticableTreeMixin
     implements _DataCharactersState {
   const _$_DataCharactersState(
-      {required this.charactersList, required this.isGrid});
+      {required this.charactersList,
+      required this.isGrid,
+      required this.status,
+      required this.gender,
+      required this.isSortAscending});
 
   @override
 
@@ -588,10 +840,16 @@ class _$_DataCharactersState
   final List<Character> charactersList;
   @override
   final bool isGrid;
+  @override
+  final List<int> status;
+  @override
+  final List<int> gender;
+  @override
+  final bool isSortAscending;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CharactersState.data(charactersList: $charactersList, isGrid: $isGrid)';
+    return 'CharactersState.data(charactersList: $charactersList, isGrid: $isGrid, status: $status, gender: $gender, isSortAscending: $isSortAscending)';
   }
 
   @override
@@ -600,7 +858,10 @@ class _$_DataCharactersState
     properties
       ..add(DiagnosticsProperty('type', 'CharactersState.data'))
       ..add(DiagnosticsProperty('charactersList', charactersList))
-      ..add(DiagnosticsProperty('isGrid', isGrid));
+      ..add(DiagnosticsProperty('isGrid', isGrid))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('isSortAscending', isSortAscending));
   }
 
   @override
@@ -611,14 +872,24 @@ class _$_DataCharactersState
                 const DeepCollectionEquality()
                     .equals(other.charactersList, charactersList)) &&
             (identical(other.isGrid, isGrid) ||
-                const DeepCollectionEquality().equals(other.isGrid, isGrid)));
+                const DeepCollectionEquality().equals(other.isGrid, isGrid)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.isSortAscending, isSortAscending) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSortAscending, isSortAscending)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(charactersList) ^
-      const DeepCollectionEquality().hash(isGrid);
+      const DeepCollectionEquality().hash(isGrid) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(isSortAscending);
 
   @JsonKey(ignore: true)
   @override
@@ -629,25 +900,29 @@ class _$_DataCharactersState
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Character> charactersList) finding,
   }) {
-    return data(charactersList, isGrid);
+    return data(charactersList, isGrid, status, gender, isSortAscending);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Character> charactersList)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(charactersList, isGrid);
+      return data(charactersList, isGrid, status, gender, isSortAscending);
     }
     return orElse();
   }
@@ -682,11 +957,17 @@ class _$_DataCharactersState
 abstract class _DataCharactersState implements CharactersState {
   const factory _DataCharactersState(
       {required List<Character> charactersList,
-      required bool isGrid}) = _$_DataCharactersState;
+      required bool isGrid,
+      required List<int> status,
+      required List<int> gender,
+      required bool isSortAscending}) = _$_DataCharactersState;
 
   /// Параметры
   List<Character> get charactersList => throw _privateConstructorUsedError;
   bool get isGrid => throw _privateConstructorUsedError;
+  List<int> get status => throw _privateConstructorUsedError;
+  List<int> get gender => throw _privateConstructorUsedError;
+  bool get isSortAscending => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataCharactersStateCopyWith<_DataCharactersState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -740,7 +1021,9 @@ class _$_InitialCharactersState
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Character> charactersList) finding,
@@ -751,7 +1034,9 @@ class _$_InitialCharactersState
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Character> charactersList)? finding,
@@ -842,7 +1127,9 @@ class _$_LoadingCharactersState
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Character> charactersList) finding,
@@ -853,7 +1140,9 @@ class _$_LoadingCharactersState
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Character> charactersList)? finding,
@@ -974,7 +1263,9 @@ class _$_FindCharactersState
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Character> charactersList, bool isGrid) data,
+    required TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Character> charactersList) finding,
@@ -985,7 +1276,9 @@ class _$_FindCharactersState
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Character> charactersList, bool isGrid)? data,
+    TResult Function(List<Character> charactersList, bool isGrid,
+            List<int> status, List<int> gender, bool isSortAscending)?
+        data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Character> charactersList)? finding,

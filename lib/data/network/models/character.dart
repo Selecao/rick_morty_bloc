@@ -77,3 +77,6 @@ class Character {
         "episodes": List<dynamic>.from(episodes?.map((x) => x.toJson()) ?? []),
       };
 }
+
+Comparator<Character> characterComparator =
+    (a, b) => (a.fullName ?? 'a').compareTo(b.fullName ?? 'a');

@@ -7,6 +7,9 @@ class CharactersState with _$CharactersState {
     /// Параметры
     required final List<Character> charactersList,
     required final bool isGrid,
+    required final List<int> status,
+    required final List<int> gender,
+    required final bool isSortAscending,
   }) = _DataCharactersState;
 
   /// Состояние инициализации

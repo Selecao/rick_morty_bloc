@@ -37,7 +37,8 @@ class Repository {
   }
 
   Future<List<Character>?> getCharacterByName(String name,
-      {int status = 0, int gender = 0}) async {
+      {List<int> status = const [0, 1, 2],
+      List<int> gender = const [0, 1, 2]}) async {
     final response = await _serviceApi.getCharacterByName(name, status, gender);
     return response.data;
   }
