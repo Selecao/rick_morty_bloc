@@ -6,19 +6,20 @@ import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/app_color.dart';
 
-class FilterAppBar extends StatefulWidget implements PreferredSizeWidget {
+class CharactersFilterAppBar extends StatefulWidget
+    implements PreferredSizeWidget {
   final bool isFilterEnable;
-  FilterAppBar(this.isFilterEnable)
+  CharactersFilterAppBar(this.isFilterEnable)
       : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
   final Size preferredSize;
 
   @override
-  _FilterAppBarState createState() => _FilterAppBarState();
+  _CharactersFilterAppBarState createState() => _CharactersFilterAppBarState();
 }
 
-class _FilterAppBarState extends State<FilterAppBar> {
+class _CharactersFilterAppBarState extends State<CharactersFilterAppBar> {
   @override
   Widget build(BuildContext context) {
     const double actionsPadding = 12.0;
