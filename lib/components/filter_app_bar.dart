@@ -6,20 +6,17 @@ import 'package:sc_03/components/app_circle_button.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/theme/app_color.dart';
 
-class CharactersFilterAppBar extends StatefulWidget
-    implements PreferredSizeWidget {
+class FilterAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isFilterEnable;
-  CharactersFilterAppBar(this.isFilterEnable)
-      : preferredSize = Size.fromHeight(kToolbarHeight);
+  final String title;
+  FilterAppBar(
+    this.title,
+    this.isFilterEnable,
+  ) : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
   final Size preferredSize;
 
-  @override
-  _CharactersFilterAppBarState createState() => _CharactersFilterAppBarState();
-}
-
-class _CharactersFilterAppBarState extends State<CharactersFilterAppBar> {
   @override
   Widget build(BuildContext context) {
     const double actionsPadding = 12.0;
@@ -37,7 +34,7 @@ class _CharactersFilterAppBarState extends State<CharactersFilterAppBar> {
         },
       ),
       title: Text(
-        'Фильтры',
+        title,
         style: Theme.of(context).textTheme.headline6?.copyWith(
               letterSpacing: 0.15,
               height: 1.4,
@@ -50,8 +47,7 @@ class _CharactersFilterAppBarState extends State<CharactersFilterAppBar> {
             AppIcons.filterDisable,
             width: 36.0,
             height: 36.0,
-            color:
-                widget.isFilterEnable ? AppColor.red_100 : AppColor.transparent,
+            color: isFilterEnable ? AppColor.red_100 : AppColor.transparent,
           ),
         ),
       ],

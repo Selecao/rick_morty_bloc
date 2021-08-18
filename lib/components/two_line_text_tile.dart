@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/screens/location/screen.dart';
 
-class LocationTile extends StatelessWidget {
+class TwoLineTextTile extends StatelessWidget {
   final String title;
-  final String location;
-  final String? locationId;
+  final String subtitle;
+  final VoidCallback? onTap;
 
-  const LocationTile(
+  const TwoLineTextTile(
     this.title,
-    this.location, {
-    this.locationId,
+    this.subtitle, {
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        if (locationId != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return LocationScreen(locationId!);
-            }),
-          );
-        }
-      },
+    return InkWell(
+      onTap: onTap,
       child: Container(
         color: Colors.transparent,
         child: Row(
@@ -42,7 +32,7 @@ class LocationTile extends StatelessWidget {
                       ),
                 ),
                 Text(
-                  location,
+                  subtitle,
                   style: Theme.of(context).textTheme.bodyText1?.copyWith(
                         letterSpacing: 0.25,
                         height: 1.42,
@@ -51,7 +41,6 @@ class LocationTile extends StatelessWidget {
               ],
             ),
             Spacer(),
-            //ArrowButton(onPressed: () {}),
             SvgPicture.asset(
               AppIcons.arrowForwardIos,
               height: 8.0,

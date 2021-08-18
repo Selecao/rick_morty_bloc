@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:sc_03/components/app_radio.dart';
 import 'package:sc_03/resources/icons.dart';
-import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 
 class CustomRadioButton extends StatelessWidget {
-  final List<int> status;
-  final List<int> gender;
   final bool isSortAscending;
-  CustomRadioButton(this.status, this.gender, this.isSortAscending);
+  final VoidCallback onFirstRadioTap;
+  final VoidCallback onSecondRadioTap;
+  CustomRadioButton({
+    required this.isSortAscending,
+    required this.onFirstRadioTap,
+    required this.onSecondRadioTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,32 +23,14 @@ class CustomRadioButton extends StatelessWidget {
           0,
           AppIcons.filterSortUp,
           selected: selected,
-          onTap: () {
-            context.read<CharactersBloc>()
-              ..add(
-                CharactersEvent.selectedFilters(
-                  status: status,
-                  gender: gender,
-                  isSortAscending: true,
-                ),
-              );
-          },
+          onTap: onFirstRadioTap,
         ),
         const SizedBox(width: 24.0),
         AppRadio(
           1,
           AppIcons.filterSortDown,
           selected: selected,
-          onTap: () {
-            context.read<CharactersBloc>()
-              ..add(
-                CharactersEvent.selectedFilters(
-                  status: status,
-                  gender: gender,
-                  isSortAscending: false,
-                ),
-              );
-          },
+          onTap: onSecondRadioTap,
         ),
       ],
     );

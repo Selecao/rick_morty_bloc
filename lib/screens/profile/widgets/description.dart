@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/status_text.dart';
 import 'package:sc_03/data/network/models/character.dart';
+import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/profile/widgets/column_text.dart';
-import 'package:sc_03/screens/profile/widgets/location_tile.dart';
+import 'package:sc_03/components/two_line_text_tile.dart';
 
 class Description extends StatelessWidget {
   final double avatarSize;
@@ -50,16 +51,32 @@ class Description extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20.0),
-            LocationTile(
-              'Место рождения',
-              character.placeOfBirth?.name ?? "Неизвестно",
-              locationId: character.placeOfBirthId,
-            ),
+            TwoLineTextTile(
+                'Место рождения', character.placeOfBirth?.name ?? "Неизвестно",
+                onTap: () {
+              if (character.placeOfBirthId != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return LocationScreen(character.placeOfBirthId!);
+                  }),
+                );
+              }
+            }),
             const SizedBox(height: 24.0),
-            LocationTile(
+            TwoLineTextTile(
               'Местоположение',
               character.location?.name ?? 'Неизвестно',
-              locationId: character.locationId,
+              onTap: () {
+                if (character.locationId != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return LocationScreen(character.locationId!);
+                    }),
+                  );
+                }
+              },
             ),
           ],
         ),

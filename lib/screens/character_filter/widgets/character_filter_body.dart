@@ -47,9 +47,27 @@ class CharacterFilterBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomRadioButton(
-                  status,
-                  gender,
-                  isSortAscending,
+                  isSortAscending: isSortAscending,
+                  onFirstRadioTap: () {
+                    context.read<CharactersBloc>()
+                      ..add(
+                        CharactersEvent.selectedFilters(
+                          status: status,
+                          gender: gender,
+                          isSortAscending: true,
+                        ),
+                      );
+                  },
+                  onSecondRadioTap: () {
+                    context.read<CharactersBloc>()
+                      ..add(
+                        CharactersEvent.selectedFilters(
+                          status: status,
+                          gender: gender,
+                          isSortAscending: false,
+                        ),
+                      );
+                  },
                 ),
               ],
             ),

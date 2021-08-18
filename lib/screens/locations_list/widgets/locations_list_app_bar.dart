@@ -41,6 +41,19 @@ class LocationsListAppBar extends StatelessWidget
               ),
               onPressed: () {
                 /// TODO: make filter
+                /*Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FindScreen(
+                      Screen.Character,
+                      _data.charactersList,
+                      onSubmitted: (value) {
+                        context.read<CharactersBloc>()
+                          ..add(CharactersEvent.find(chars: value));
+                      },
+                    ),
+                  ),
+                );*/
               },
             ),
           ],
