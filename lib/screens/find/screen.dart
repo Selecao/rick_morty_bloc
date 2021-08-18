@@ -8,7 +8,7 @@ import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/screens/episode/screen.dart';
-import 'package:sc_03/screens/find/widgets/find_empty.dart';
+import 'package:sc_03/components/find_empty.dart';
 import 'package:sc_03/screens/find/widgets/find_screen_app_bar.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/profile/screen.dart';

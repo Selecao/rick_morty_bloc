@@ -46,8 +46,10 @@ class FindEmpty extends StatelessWidget {
         return "Персонаж с таким именем не найден";
       case Screen.Location:
         return "Локации с таким названием не найдено";
-      default:
+      case Screen.Episode:
         return "Эпизода с таким названием нет";
+      default:
+        return "По данным фильтра ничего не найдено";
     }
   }
 
@@ -57,8 +59,10 @@ class FindEmpty extends StatelessWidget {
         return Images.characterNotFound;
       case Screen.Location:
         return Images.locationNotFound;
-      default:
+      case Screen.Episode:
         return Images.episodeNotFound;
+      default:
+        return Images.filterNotFound;
     }
   }
 }

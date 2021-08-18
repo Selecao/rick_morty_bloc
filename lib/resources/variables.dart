@@ -3,7 +3,7 @@ import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/data/network/models/season.dart';
 import 'package:sc_03/resources/images.dart';
 
-enum Screen { Character, Location, Episode }
+enum Screen { Character, Location, Episode, CharacterFilter, LocationFilter }
 
 final List<Season> seasons = [
   Season('Сезон 1', []),

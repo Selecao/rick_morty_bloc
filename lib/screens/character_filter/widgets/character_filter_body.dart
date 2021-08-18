@@ -168,7 +168,7 @@ class CharacterFilterBody extends StatelessWidget {
 
   List<int> changeValues(int itemValue, List<int> previousValues) {
     List<int> bufferList = previousValues.toList();
-    if (isEnable(itemValue, previousValues)) {
+    if (isEnable(itemValue, previousValues) && (bufferList.length > 1)) {
       bufferList.remove(itemValue);
     } else {
       bufferList.add(itemValue);
