@@ -79,6 +79,8 @@ class _RickAndMortyAppState extends State<RickAndMortyApp> {
               ),
           ),
         ],
+
+        /// Provider make MainTheme data available in the tree, to Notify Listeners
         child: Consumer<MainTheme>(
           builder: (context, theme, _) => MaterialApp(
             debugShowCheckedModeBanner: false,

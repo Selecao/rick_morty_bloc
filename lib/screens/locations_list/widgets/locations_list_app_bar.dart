@@ -39,7 +39,9 @@ class LocationsListAppBar extends StatelessWidget
                 AppIcons.filterSort,
                 color: Theme.of(context).primaryColorDark,
               ),
-              onPressed: () {},
+              onPressed: () {
+                /// TODO: make filter
+              },
             ),
           ],
         ),

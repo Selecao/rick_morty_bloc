@@ -15,11 +15,9 @@ class CharacterFilterScreen extends StatelessWidget {
     return BlocBuilder<CharactersBloc, CharactersState>(
       builder: (context, state) {
         return state.maybeMap(
-          /*
           loading: (_) => Center(
             child: AppCircularProgressIndicator(),
           ),
-          */
           data: (_data) => Scaffold(
             appBar: FilterAppBar(
                 _data.status.length != 3 || _data.gender.length != 3),
