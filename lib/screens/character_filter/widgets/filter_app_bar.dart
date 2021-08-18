@@ -46,14 +46,11 @@ class _FilterAppBarState extends State<FilterAppBar> {
         Padding(
           padding: const EdgeInsets.all(actionsPadding),
           child: SvgPicture.asset(
-            widget.isFilterEnable
-                ? AppIcons.filterDisable
-                : AppIcons.filterSort,
+            AppIcons.filterDisable,
             width: 36.0,
             height: 36.0,
-            color: widget.isFilterEnable
-                ? AppColor.red_100
-                : Theme.of(context).accentColor,
+            color:
+                widget.isFilterEnable ? AppColor.red_100 : AppColor.transparent,
           ),
         ),
       ],
