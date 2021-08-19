@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sc_03/components/find_empty.dart';
+import 'package:sc_03/components/empty_finder_widget.dart';
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/screens/characters/widgets/character_grid_item.dart';
@@ -15,7 +15,7 @@ class CharactersGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 14.0),
       child: charactersList.isEmpty
-          ? FindEmpty(Screen.CharacterFilter)
+          ? EmptyFinderWidget(Screen.CharacterFilter)
           : GridView.builder(
               itemCount: charactersList.length,
               shrinkWrap: true,

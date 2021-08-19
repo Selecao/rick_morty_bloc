@@ -9,21 +9,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/theme/app_color.dart';
 
 class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final int? charactersListLength;
-  final bool isFilterEnable;
+  final int? charactersCount;
 
   static const _appBarHeight = 112.0;
 
-  CharactersAppBar(
-    this.charactersListLength,
-    this.isFilterEnable,
-  ) : preferredSize = Size.fromHeight(_appBarHeight);
+  CharactersAppBar({
+    required this.charactersCount,
+  }) : preferredSize = Size.fromHeight(_appBarHeight);
 
   @override
   final Size preferredSize;
 
   @override
   Widget build(BuildContext context) {
+    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
+
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -42,8 +42,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
-                isFilterEnable ? AppIcons.filterDisable : AppIcons.filterSort,
-                color: isFilterEnable
+                _vm.isFilterEnable
+                    ? AppIcons.filterDisable
+                    : AppIcons.filterSort,
+                color: _vm.isFilterEnable
                     ? AppColor.red_100
                     : Theme.of(context).primaryColorDark,
               ),
@@ -60,13 +62,18 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         onSubmitted: (String value) {
           context.read<CharactersBloc>()
-            ..add(CharactersEvent.find(chars: value));
+            ..add(CharactersEvent.selectedFilters(
+              name: value,
+              status: _vm.status,
+              gender: _vm.gender,
+              isSortAscending: _vm.isSortAscending,
+            ));
         },
       ),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: CharactersCount(
-          charactersCount: charactersListLength ?? 0,
+          charactersCount: charactersCount ?? 0,
           onSelected: (value) {
             /// Для создания события используется контекст с обращением к блоку в контексте
             context.read<CharactersBloc>()

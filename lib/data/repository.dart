@@ -39,7 +39,11 @@ class Repository {
   Future<List<Character>?> getCharacterByName(String name,
       {List<int> status = const [0, 1, 2],
       List<int> gender = const [0, 1, 2]}) async {
-    final response = await _serviceApi.getCharacterByName(name, status, gender);
+    List<int> _status = _setDefaultIfEmpty(status);
+    List<int> _gender = _setDefaultIfEmpty(gender);
+
+    final response =
+        await _serviceApi.getCharacterByName(name, _status, _gender);
     return response.data;
   }
 
@@ -75,5 +79,13 @@ class Repository {
       {required int pageNumber, required int pageSize}) async {
     final response = await _serviceApi.getLocationsList(pageNumber, pageSize);
     return response.data;
+  }
+
+  List<int> _setDefaultIfEmpty(List<int> list) {
+    if (list.isEmpty) {
+      return const [0, 1, 2];
+    } else {
+      return list;
+    }
   }
 }

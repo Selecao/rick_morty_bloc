@@ -14,11 +14,12 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
 
   final _repository = Repository();
 
+  String nameToFind = "";
   bool isGrid = false;
   bool isSortAscending = true;
-  List<int> status = [0, 1, 2];
-  List<int> gender = [0, 1, 2];
-  bool get isFilterEnable => status.length != 3 || gender.length != 3;
+  List<int> status = [];
+  List<int> gender = [];
+  bool get isFilterEnable => status.length != 0 || gender.length != 0;
   late List<Character> _charactersList;
 
   /// Отслеживает события. Метод map позволяет нам сократить код и не дает потерять состояние.
@@ -34,7 +35,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       selectedView: _mapSelectedViewCharactersEvent,
 
       /// Стрим для поиска персонажей
-      find: _mapFindCharactersEvent,
+      //find: _mapFindCharactersEvent,
 
       /// Стрим для выбора фильтров
       selectedFilters: _mapSelectedFiltersCharactersEvent,
@@ -85,46 +86,34 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     yield CharactersState.loading();
     status = event.status;
     gender = event.gender;
+    nameToFind = event.name;
     isSortAscending = event.isSortAscending;
 
-    /// если фильтр активен используем запрос /GetByName с пустой строкой
+    /// если фильтр активен используем запрос /GetByName
     /// иначе возвращаем то что получали по запросу /GetAll
-    if (isFilterEnable) {
-      List<Character> finderResultList = [];
-      String emptyString = '';
+    List<Character> finderResultList = [];
 
-      try {
-        print("## Начинаем поиск персонажей по фильтру");
-        finderResultList = await _repository.getCharacterByName(
-              emptyString,
-              status: status,
-              gender: gender,
-            ) ??
-            [];
-      } catch (ex) {
-        print("## Получи ошибку в блоке Поиска персонажей по фильтру $ex");
-      }
-
-      yield CharactersState.data(
-        charactersList: sortCharacters(isSortAscending, finderResultList),
-        isGrid: isGrid,
-        status: status,
-        gender: gender,
-        isSortAscending: isSortAscending,
-      );
-    } else {
-      yield CharactersState.data(
-        charactersList: sortCharacters(isSortAscending, _charactersList),
-        isGrid: isGrid,
-        status: status,
-        gender: gender,
-        isSortAscending: isSortAscending,
-      );
+    try {
+      print("## Начинаем поиск персонажей по фильтру");
+      finderResultList = await _repository.getCharacterByName(
+            nameToFind,
+            status: status,
+            gender: gender,
+          ) ??
+          [];
+    } catch (ex) {
+      print("## Получи ошибку в блоке Поиска персонажей по фильтру $ex");
     }
 
-    print("sort isAscending: $isSortAscending");
+    yield CharactersState.data(
+      charactersList: sortCharacters(isSortAscending, finderResultList),
+      isGrid: isGrid,
+      status: status,
+      gender: gender,
+      isSortAscending: isSortAscending,
+    );
   }
-
+/*
   Stream<CharactersState> _mapFindCharactersEvent(
       _FindingCharactersEvent event) async* {
     yield CharactersState.loading();
@@ -149,12 +138,13 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       isSortAscending: isSortAscending,
     );
 
-    /*
+    */ /*
     if (finderResultList.length == 0) {
       yield CharactersState.message();
     }
-    */
+    */ /*
   }
+  */
 }
 
 List<Character> sortCharacters(bool isSortAscending, List<Character> baseList) {

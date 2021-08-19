@@ -11,7 +11,9 @@ class _TypeSelectionScreenState extends State<TypeSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FilterAppBar(false),
+      appBar: FilterAppBar(
+        "Тип",
+      ),
     );
   }
 }

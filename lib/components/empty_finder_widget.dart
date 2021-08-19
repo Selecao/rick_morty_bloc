@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sc_03/resources/images.dart';
 import 'package:sc_03/resources/variables.dart';
 
-class FindEmpty extends StatelessWidget {
+class EmptyFinderWidget extends StatelessWidget {
   final Screen screenName;
-  FindEmpty(this.screenName);
+  EmptyFinderWidget(this.screenName);
 
   @override
   Widget build(BuildContext context) {

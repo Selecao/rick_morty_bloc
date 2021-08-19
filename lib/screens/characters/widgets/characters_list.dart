@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/character_list_tile.dart';
-import 'package:sc_03/components/find_empty.dart';
+import 'package:sc_03/components/empty_finder_widget.dart';
 
 import 'package:sc_03/data/network/models/character.dart';
 import 'package:sc_03/resources/variables.dart';
@@ -14,7 +14,7 @@ class CharactersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return charactersList.isEmpty
-        ? FindEmpty(Screen.CharacterFilter)
+        ? EmptyFinderWidget(Screen.CharacterFilter)
         : ListView.builder(
             itemBuilder: (context, index) => CharacterListTile(
               character: charactersList[index],
