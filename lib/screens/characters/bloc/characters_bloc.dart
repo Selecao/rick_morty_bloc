@@ -34,9 +34,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       /// Стрим для выбора вида отображения
       selectedView: _mapSelectedViewCharactersEvent,
 
-      /// Стрим для поиска персонажей
-      //find: _mapFindCharactersEvent,
-
       /// Стрим для выбора фильтров
       selectedFilters: _mapSelectedFiltersCharactersEvent,
     );
@@ -89,8 +86,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     nameToFind = event.name;
     isSortAscending = event.isSortAscending;
 
-    /// если фильтр активен используем запрос /GetByName
-    /// иначе возвращаем то что получали по запросу /GetAll
     List<Character> finderResultList = [];
 
     try {
@@ -113,38 +108,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       isSortAscending: isSortAscending,
     );
   }
-/*
-  Stream<CharactersState> _mapFindCharactersEvent(
-      _FindingCharactersEvent event) async* {
-    yield CharactersState.loading();
-    String charsToFind = event.chars;
-    List<Character> finderResultList = [];
-
-    try {
-      print("## Начинаем поиск персонажей");
-      finderResultList =
-          await _repository.getCharacterByName(charsToFind) ?? [];
-    } catch (ex) {
-      print("## Получи ошибку в блоке Поиска персонажей $ex");
-    }
-
-    yield CharactersState.finding(
-        charactersList: sortCharacters(isSortAscending, finderResultList));
-    yield CharactersState.data(
-      charactersList: sortCharacters(isSortAscending, _charactersList),
-      isGrid: isGrid,
-      status: status,
-      gender: gender,
-      isSortAscending: isSortAscending,
-    );
-
-    */ /*
-    if (finderResultList.length == 0) {
-      yield CharactersState.message();
-    }
-    */ /*
-  }
-  */
 }
 
 List<Character> sortCharacters(bool isSortAscending, List<Character> baseList) {

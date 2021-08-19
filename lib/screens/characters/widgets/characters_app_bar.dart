@@ -29,6 +29,7 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти персонажа',
+        text: _vm.nameToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

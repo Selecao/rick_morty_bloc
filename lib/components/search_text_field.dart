@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/resources/icons.dart';
 
 class SearchTextField extends StatelessWidget {
+  final String text;
   final String title;
   final Widget? suffixIcon;
   final void Function(String value)? onSubmitted;
 
   SearchTextField({
+    this.text = '',
     required this.title,
     this.suffixIcon,
     required this.onSubmitted,
@@ -18,10 +18,8 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
-
     return TextField(
-      controller: TextEditingController()..text = _vm.nameToFind,
+      controller: TextEditingController()..text = this.text,
       focusNode: FocusNode(),
       style:
           Theme.of(context).textTheme.subtitle1?.copyWith(letterSpacing: 0.5),

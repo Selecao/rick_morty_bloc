@@ -16,11 +16,14 @@ class EpisodesListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final _vm = BlocProvider.of<EpisodesListBloc>(context, listen: false);
+
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти эпизод',
+        text: _vm.episodeToFind,
         onSubmitted: (String value) {
           context.read<EpisodesListBloc>()
             ..add(EpisodesListEvent.find(chars: value));

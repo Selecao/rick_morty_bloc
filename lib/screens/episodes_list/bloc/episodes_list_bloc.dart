@@ -18,6 +18,7 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
 
   final _repository = Repository();
 
+  String episodeToFind = "";
   late List<Episode> _episodes;
 
   @override
@@ -56,18 +57,18 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
   Stream<EpisodesListState> _mapFindEpisodesListEvent(
       _FindEpisodesListEvent event) async* {
     yield EpisodesListState.loading();
-    String charsToFind = event.chars;
+    episodeToFind = event.chars;
     List<Episode> finderResult = [];
 
     try {
       print("## Начинаем поиск эпизодов");
-      finderResult = await _repository.getEpisodesByName(charsToFind) ?? [];
+      finderResult = await _repository.getEpisodesByName(episodeToFind) ?? [];
     } catch (ex) {
       print("## Получи ошибку в блоке Поиска эпизодов $ex");
     }
 
-    yield EpisodesListState.finding(episodes: finderResult);
-    yield EpisodesListState.data(seasons: _fillSeasonsListWith(_episodes));
+    //yield EpisodesListState.finding(episodes: finderResult);
+    yield EpisodesListState.data(seasons: _fillSeasonsListWith(finderResult));
   }
 
   List<Season> _fillSeasonsListWith(List<Episode> episodes) {
