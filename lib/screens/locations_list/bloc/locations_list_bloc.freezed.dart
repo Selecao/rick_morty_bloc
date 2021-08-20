@@ -20,9 +20,16 @@ class _$LocationsListEventTearOff {
     return const _InitialLocationsListEvent();
   }
 
-  _FindLocationsListEvent find({required String chars}) {
-    return _FindLocationsListEvent(
-      chars: chars,
+  _SelectedFiltersEvent selectedFilters(
+      {required String locationToFind,
+      required bool isSortAscending,
+      required String locationType,
+      required String locationMeasure}) {
+    return _SelectedFiltersEvent(
+      locationToFind: locationToFind,
+      isSortAscending: isSortAscending,
+      locationType: locationType,
+      locationMeasure: locationMeasure,
     );
   }
 }
@@ -35,26 +42,30 @@ mixin _$LocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String chars) find,
+    required TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)
+        selectedFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String chars)? find,
+    TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)?
+        selectedFilters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
-    required TResult Function(_FindLocationsListEvent value) find,
+    required TResult Function(_SelectedFiltersEvent value) selectedFilters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
-    TResult Function(_FindLocationsListEvent value)? find,
+    TResult Function(_SelectedFiltersEvent value)? selectedFilters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +130,9 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String chars) find,
+    required TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)
+        selectedFilters,
   }) {
     return initial();
   }
@@ -128,7 +141,9 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String chars)? find,
+    TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)?
+        selectedFilters,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -141,7 +156,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
-    required TResult Function(_FindLocationsListEvent value) find,
+    required TResult Function(_SelectedFiltersEvent value) selectedFilters,
   }) {
     return initial(this);
   }
@@ -150,7 +165,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
-    TResult Function(_FindLocationsListEvent value)? find,
+    TResult Function(_SelectedFiltersEvent value)? selectedFilters,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,32 +180,51 @@ abstract class _InitialLocationsListEvent implements LocationsListEvent {
 }
 
 /// @nodoc
-abstract class _$FindLocationsListEventCopyWith<$Res> {
-  factory _$FindLocationsListEventCopyWith(_FindLocationsListEvent value,
-          $Res Function(_FindLocationsListEvent) then) =
-      __$FindLocationsListEventCopyWithImpl<$Res>;
-  $Res call({String chars});
+abstract class _$SelectedFiltersEventCopyWith<$Res> {
+  factory _$SelectedFiltersEventCopyWith(_SelectedFiltersEvent value,
+          $Res Function(_SelectedFiltersEvent) then) =
+      __$SelectedFiltersEventCopyWithImpl<$Res>;
+  $Res call(
+      {String locationToFind,
+      bool isSortAscending,
+      String locationType,
+      String locationMeasure});
 }
 
 /// @nodoc
-class __$FindLocationsListEventCopyWithImpl<$Res>
+class __$SelectedFiltersEventCopyWithImpl<$Res>
     extends _$LocationsListEventCopyWithImpl<$Res>
-    implements _$FindLocationsListEventCopyWith<$Res> {
-  __$FindLocationsListEventCopyWithImpl(_FindLocationsListEvent _value,
-      $Res Function(_FindLocationsListEvent) _then)
-      : super(_value, (v) => _then(v as _FindLocationsListEvent));
+    implements _$SelectedFiltersEventCopyWith<$Res> {
+  __$SelectedFiltersEventCopyWithImpl(
+      _SelectedFiltersEvent _value, $Res Function(_SelectedFiltersEvent) _then)
+      : super(_value, (v) => _then(v as _SelectedFiltersEvent));
 
   @override
-  _FindLocationsListEvent get _value => super._value as _FindLocationsListEvent;
+  _SelectedFiltersEvent get _value => super._value as _SelectedFiltersEvent;
 
   @override
   $Res call({
-    Object? chars = freezed,
+    Object? locationToFind = freezed,
+    Object? isSortAscending = freezed,
+    Object? locationType = freezed,
+    Object? locationMeasure = freezed,
   }) {
-    return _then(_FindLocationsListEvent(
-      chars: chars == freezed
-          ? _value.chars
-          : chars // ignore: cast_nullable_to_non_nullable
+    return _then(_SelectedFiltersEvent(
+      locationToFind: locationToFind == freezed
+          ? _value.locationToFind
+          : locationToFind // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSortAscending: isSortAscending == freezed
+          ? _value.isSortAscending
+          : isSortAscending // ignore: cast_nullable_to_non_nullable
+              as bool,
+      locationType: locationType == freezed
+          ? _value.locationType
+          : locationType // ignore: cast_nullable_to_non_nullable
+              as String,
+      locationMeasure: locationMeasure == freezed
+          ? _value.locationMeasure
+          : locationMeasure // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -198,53 +232,83 @@ class __$FindLocationsListEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FindLocationsListEvent implements _FindLocationsListEvent {
-  const _$_FindLocationsListEvent({required this.chars});
+class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
+  const _$_SelectedFiltersEvent(
+      {required this.locationToFind,
+      required this.isSortAscending,
+      required this.locationType,
+      required this.locationMeasure});
 
   @override
-  final String chars;
+  final String locationToFind;
+  @override
+  final bool isSortAscending;
+  @override
+  final String locationType;
+  @override
+  final String locationMeasure;
 
   @override
   String toString() {
-    return 'LocationsListEvent.find(chars: $chars)';
+    return 'LocationsListEvent.selectedFilters(locationToFind: $locationToFind, isSortAscending: $isSortAscending, locationType: $locationType, locationMeasure: $locationMeasure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FindLocationsListEvent &&
-            (identical(other.chars, chars) ||
-                const DeepCollectionEquality().equals(other.chars, chars)));
+        (other is _SelectedFiltersEvent &&
+            (identical(other.locationToFind, locationToFind) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationToFind, locationToFind)) &&
+            (identical(other.isSortAscending, isSortAscending) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSortAscending, isSortAscending)) &&
+            (identical(other.locationType, locationType) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationType, locationType)) &&
+            (identical(other.locationMeasure, locationMeasure) ||
+                const DeepCollectionEquality()
+                    .equals(other.locationMeasure, locationMeasure)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chars);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(locationToFind) ^
+      const DeepCollectionEquality().hash(isSortAscending) ^
+      const DeepCollectionEquality().hash(locationType) ^
+      const DeepCollectionEquality().hash(locationMeasure);
 
   @JsonKey(ignore: true)
   @override
-  _$FindLocationsListEventCopyWith<_FindLocationsListEvent> get copyWith =>
-      __$FindLocationsListEventCopyWithImpl<_FindLocationsListEvent>(
+  _$SelectedFiltersEventCopyWith<_SelectedFiltersEvent> get copyWith =>
+      __$SelectedFiltersEventCopyWithImpl<_SelectedFiltersEvent>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String chars) find,
+    required TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)
+        selectedFilters,
   }) {
-    return find(chars);
+    return selectedFilters(
+        locationToFind, isSortAscending, locationType, locationMeasure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String chars)? find,
+    TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)?
+        selectedFilters,
     required TResult orElse(),
   }) {
-    if (find != null) {
-      return find(chars);
+    if (selectedFilters != null) {
+      return selectedFilters(
+          locationToFind, isSortAscending, locationType, locationMeasure);
     }
     return orElse();
   }
@@ -253,32 +317,38 @@ class _$_FindLocationsListEvent implements _FindLocationsListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
-    required TResult Function(_FindLocationsListEvent value) find,
+    required TResult Function(_SelectedFiltersEvent value) selectedFilters,
   }) {
-    return find(this);
+    return selectedFilters(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
-    TResult Function(_FindLocationsListEvent value)? find,
+    TResult Function(_SelectedFiltersEvent value)? selectedFilters,
     required TResult orElse(),
   }) {
-    if (find != null) {
-      return find(this);
+    if (selectedFilters != null) {
+      return selectedFilters(this);
     }
     return orElse();
   }
 }
 
-abstract class _FindLocationsListEvent implements LocationsListEvent {
-  const factory _FindLocationsListEvent({required String chars}) =
-      _$_FindLocationsListEvent;
+abstract class _SelectedFiltersEvent implements LocationsListEvent {
+  const factory _SelectedFiltersEvent(
+      {required String locationToFind,
+      required bool isSortAscending,
+      required String locationType,
+      required String locationMeasure}) = _$_SelectedFiltersEvent;
 
-  String get chars => throw _privateConstructorUsedError;
+  String get locationToFind => throw _privateConstructorUsedError;
+  bool get isSortAscending => throw _privateConstructorUsedError;
+  String get locationType => throw _privateConstructorUsedError;
+  String get locationMeasure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$FindLocationsListEventCopyWith<_FindLocationsListEvent> get copyWith =>
+  _$SelectedFiltersEventCopyWith<_SelectedFiltersEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -299,12 +369,6 @@ class _$LocationsListStateTearOff {
   _LoadingLocationsListState loading() {
     return const _LoadingLocationsListState();
   }
-
-  _FindingLocationsListState finding({required List<Location> locationsList}) {
-    return _FindingLocationsListState(
-      locationsList: locationsList,
-    );
-  }
 }
 
 /// @nodoc
@@ -317,7 +381,6 @@ mixin _$LocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Location> locationsList) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -325,7 +388,6 @@ mixin _$LocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -334,7 +396,6 @@ mixin _$LocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
-    required TResult Function(_FindingLocationsListState value) finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -342,7 +403,6 @@ mixin _$LocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
-    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -437,7 +497,6 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Location> locationsList) finding,
   }) {
     return data(locationsList);
   }
@@ -448,7 +507,6 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -463,7 +521,6 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
-    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return data(this);
   }
@@ -474,7 +531,6 @@ class _$_DataLocationsListState implements _DataLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
-    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -539,7 +595,6 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Location> locationsList) finding,
   }) {
     return initial();
   }
@@ -550,7 +605,6 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -565,7 +619,6 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
-    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return initial(this);
   }
@@ -576,7 +629,6 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
-    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -634,7 +686,6 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     required TResult Function(List<Location> locationsList) data,
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Location> locationsList) finding,
   }) {
     return loading();
   }
@@ -645,7 +696,6 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     TResult Function(List<Location> locationsList)? data,
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Location> locationsList)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -660,7 +710,6 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     required TResult Function(_DataLocationsListState value) data,
     required TResult Function(_InitialLocationsListState value) initial,
     required TResult Function(_LoadingLocationsListState value) loading,
-    required TResult Function(_FindingLocationsListState value) finding,
   }) {
     return loading(this);
   }
@@ -671,7 +720,6 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
     TResult Function(_DataLocationsListState value)? data,
     TResult Function(_InitialLocationsListState value)? initial,
     TResult Function(_LoadingLocationsListState value)? loading,
-    TResult Function(_FindingLocationsListState value)? finding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -683,133 +731,4 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
 
 abstract class _LoadingLocationsListState implements LocationsListState {
   const factory _LoadingLocationsListState() = _$_LoadingLocationsListState;
-}
-
-/// @nodoc
-abstract class _$FindingLocationsListStateCopyWith<$Res> {
-  factory _$FindingLocationsListStateCopyWith(_FindingLocationsListState value,
-          $Res Function(_FindingLocationsListState) then) =
-      __$FindingLocationsListStateCopyWithImpl<$Res>;
-  $Res call({List<Location> locationsList});
-}
-
-/// @nodoc
-class __$FindingLocationsListStateCopyWithImpl<$Res>
-    extends _$LocationsListStateCopyWithImpl<$Res>
-    implements _$FindingLocationsListStateCopyWith<$Res> {
-  __$FindingLocationsListStateCopyWithImpl(_FindingLocationsListState _value,
-      $Res Function(_FindingLocationsListState) _then)
-      : super(_value, (v) => _then(v as _FindingLocationsListState));
-
-  @override
-  _FindingLocationsListState get _value =>
-      super._value as _FindingLocationsListState;
-
-  @override
-  $Res call({
-    Object? locationsList = freezed,
-  }) {
-    return _then(_FindingLocationsListState(
-      locationsList: locationsList == freezed
-          ? _value.locationsList
-          : locationsList // ignore: cast_nullable_to_non_nullable
-              as List<Location>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_FindingLocationsListState implements _FindingLocationsListState {
-  const _$_FindingLocationsListState({required this.locationsList});
-
-  @override
-  final List<Location> locationsList;
-
-  @override
-  String toString() {
-    return 'LocationsListState.finding(locationsList: $locationsList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _FindingLocationsListState &&
-            (identical(other.locationsList, locationsList) ||
-                const DeepCollectionEquality()
-                    .equals(other.locationsList, locationsList)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locationsList);
-
-  @JsonKey(ignore: true)
-  @override
-  _$FindingLocationsListStateCopyWith<_FindingLocationsListState>
-      get copyWith =>
-          __$FindingLocationsListStateCopyWithImpl<_FindingLocationsListState>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Location> locationsList) data,
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<Location> locationsList) finding,
-  }) {
-    return finding(locationsList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Location> locationsList)? data,
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Location> locationsList)? finding,
-    required TResult orElse(),
-  }) {
-    if (finding != null) {
-      return finding(locationsList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_DataLocationsListState value) data,
-    required TResult Function(_InitialLocationsListState value) initial,
-    required TResult Function(_LoadingLocationsListState value) loading,
-    required TResult Function(_FindingLocationsListState value) finding,
-  }) {
-    return finding(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DataLocationsListState value)? data,
-    TResult Function(_InitialLocationsListState value)? initial,
-    TResult Function(_LoadingLocationsListState value)? loading,
-    TResult Function(_FindingLocationsListState value)? finding,
-    required TResult orElse(),
-  }) {
-    if (finding != null) {
-      return finding(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FindingLocationsListState implements LocationsListState {
-  const factory _FindingLocationsListState(
-      {required List<Location> locationsList}) = _$_FindingLocationsListState;
-
-  List<Location> get locationsList => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$FindingLocationsListStateCopyWith<_FindingLocationsListState>
-      get copyWith => throw _privateConstructorUsedError;
 }

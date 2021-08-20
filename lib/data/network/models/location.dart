@@ -48,3 +48,6 @@ class Location {
             placeOfBirthCharacters?.map((x) => x.toJson()) ?? []),
       };
 }
+
+Comparator<Location> locationComparator =
+    (a, b) => (a.name ?? 'a').compareTo(b.name ?? 'a');

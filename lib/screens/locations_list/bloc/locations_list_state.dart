@@ -12,7 +12,7 @@ class LocationsListState with _$LocationsListState {
 
   const factory LocationsListState.loading() = _LoadingLocationsListState;
 
-  const factory LocationsListState.finding(
+  /*const factory LocationsListState.finding(
           {required final List<Location> locationsList}) =
-      _FindingLocationsListState;
+      _FindingLocationsListState;*/
 }

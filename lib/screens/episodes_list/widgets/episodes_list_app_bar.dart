@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/components/search_text_field.dart';
-import 'package:sc_03/resources/variables.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +15,7 @@ class EpisodesListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<EpisodesListBloc>(context, listen: false);
+    final _vm = context.read<EpisodesListBloc>();
 
     return AppBar(
       elevation: 0,
@@ -39,7 +38,8 @@ class EpisodesListAppBar extends StatelessWidget
               height: 1.71,
             ),
         tabs: [
-          for (final season in seasons) Tab(text: season.name.toUpperCase()),
+          for (final season in _vm.resultSeasons)
+            Tab(text: season.name.toUpperCase()),
         ],
       ),
     );

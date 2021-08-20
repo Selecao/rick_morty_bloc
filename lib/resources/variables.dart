@@ -12,6 +12,25 @@ final List<Season> seasons = [
   Season('Сезон 4', []),
 ];
 
+final List<String> locationsType = [
+  "Мир",
+  "Планета",
+  "Микровселенная",
+  "Цитадель",
+  "Созданная реальность",
+  "Здание",
+  "Неопределенно",
+];
+
+final List<String> locationsMeasure = [
+  "Измерение 35-C",
+  "Измерение C-137",
+  "Измерение C-500A",
+  "Измерение J19ζ7",
+  "Измерение Дупиду",
+  "Измерение подмены",
+];
+
 final Character character1 = Character(
   fullName: 'Рик Санчез',
   status: 0,

@@ -11,16 +11,25 @@ class CharacterFilterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CharactersBloc, CharactersState>(
-      builder: (context, state) {
-        return state.maybeMap(
-          data: (_data) => Scaffold(
-            appBar: FilterAppBar("Фильтры"),
-            body: CharacterFilterBody(),
-          ),
-          orElse: () => SizedBox.shrink(),
-        );
-      },
+    final _vm = context.watch<CharactersBloc>();
+
+    return Scaffold(
+      appBar: FilterAppBar(
+        title: "Фильтры",
+        isFilterEnable: _vm.isFilterEnable,
+        onTap: () {
+          context.read<CharactersBloc>()
+            ..add(
+              CharactersEvent.selectedFilters(
+                name: _vm.nameToFind,
+                status: [],
+                gender: [],
+                isSortAscending: true,
+              ),
+            );
+        },
+      ),
+      body: CharacterFilterBody(),
     );
   }
 }

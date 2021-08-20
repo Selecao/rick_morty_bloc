@@ -14,11 +14,16 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
 
   final _repository = Repository();
 
-  String nameToFind = "";
-  bool isGrid = false;
-  bool isSortAscending = true;
-  List<int> status = [];
-  List<int> gender = [];
+  String _nameToFind = "";
+  String get nameToFind => _nameToFind;
+  bool _isGrid = false;
+  bool get isGrid => _isGrid;
+  bool _isSortAscending = true;
+  bool get isSortAscending => _isSortAscending;
+  List<int> _status = [];
+  List<int> get status => _status;
+  List<int> _gender = [];
+  List<int> get gender => _gender;
   bool get isFilterEnable => status.length != 0 || gender.length != 0;
   late List<Character> _charactersList;
 
@@ -68,7 +73,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   Stream<CharactersState> _mapSelectedViewCharactersEvent(
       _SelectedViewCharactersEvent event) async* {
     yield CharactersState.loading();
-    isGrid = event.isGrid;
+    _isGrid = event.isGrid;
     yield CharactersState.data(
       charactersList: _charactersList,
       isGrid: isGrid,
@@ -81,10 +86,10 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   Stream<CharactersState> _mapSelectedFiltersCharactersEvent(
       _SelectedFiltersCharactersEvent event) async* {
     yield CharactersState.loading();
-    status = event.status;
-    gender = event.gender;
-    nameToFind = event.name;
-    isSortAscending = event.isSortAscending;
+    _status = event.status;
+    _gender = event.gender;
+    _nameToFind = event.name;
+    _isSortAscending = event.isSortAscending;
 
     List<Character> finderResultList = [];
 

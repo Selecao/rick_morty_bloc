@@ -15,7 +15,18 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
   LocationsListBloc() : super(LocationsListState.initial());
 
   final _repository = Repository();
+
   late List<Location> _locationsList;
+  List<Location> get locationsList => _locationsList;
+  String _locationToFind = "";
+  String get locationToFind => _locationToFind;
+  bool get isFilterEnable => locationType != "" || locationMeasure != "";
+  bool _isSortAscending = true;
+  bool get isSortAscending => _isSortAscending;
+  String _locationType = "";
+  String get locationType => _locationType;
+  String _locationMeasure = "";
+  String get locationMeasure => _locationMeasure;
 
   @override
   Stream<LocationsListState> mapEventToState(
@@ -26,7 +37,7 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
       initial: _mapInitialLocationsListEvent,
 
       /// Стрим для поиска локаций
-      find: _mapFindLocationsListEvent,
+      selectedFilters: _mapSelectedFiltersEvent,
     );
   }
 
@@ -45,26 +56,63 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     }
 
     /// Возвращаем состояние с данными
-    yield LocationsListState.data(locationsList: _locationsList);
+    yield LocationsListState.data(locationsList: locationsList);
   }
+/*
 
   Stream<LocationsListState> _mapFindLocationsListEvent(
       _FindLocationsListEvent event) async* {
     yield LocationsListState.loading();
-    String charsToFind = event.chars;
-    List<Location> finderResultList = [];
+    _locationToFind = event.chars;
 
     try {
       print("## Начинаем поиск локаций");
-      finderResultList =
-          await _repository.getLocationsByName(charsToFind) ?? [];
+      _locationsList =
+          await _repository.getLocationsByName(locationToFind) ?? [];
     } catch (ex) {
       print("## Получи ошибку в блоке Поиска локаций $ex");
     }
 
-    yield LocationsListState.finding(locationsList: finderResultList);
     yield LocationsListState.data(
-      locationsList: _locationsList,
+      locationsList: locationsList,
     );
+  }
+*/
+
+  Stream<LocationsListState> _mapSelectedFiltersEvent(
+      _SelectedFiltersEvent event) async* {
+    yield LocationsListState.loading();
+    _locationToFind = event.locationToFind;
+    _isSortAscending = event.isSortAscending;
+    _locationType = event.locationType;
+    _locationMeasure = event.locationMeasure;
+
+    List<Location> finderResult = [];
+
+    try {
+      print("## Начинаем поиск локаций по фильтру");
+
+      finderResult = await _repository.getLocationsByName(
+            _locationToFind,
+            type: _locationType,
+            measurements: _locationMeasure,
+          ) ??
+          [];
+    } catch (ex) {
+      print("## Получи ошибку в блоке Поиска Локаций по фильтру $ex");
+    }
+
+    yield LocationsListState.data(
+      locationsList: sortLocations(isSortAscending, finderResult),
+    );
+  }
+}
+
+List<Location> sortLocations(bool isSortAscending, List<Location> baseList) {
+  List<Location> sortedList = baseList..sort(locationComparator);
+  if (isSortAscending) {
+    return sortedList;
+  } else {
+    return (sortedList.reversed).toList();
   }
 }

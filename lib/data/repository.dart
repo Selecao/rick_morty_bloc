@@ -71,7 +71,7 @@ class Repository {
   Future<List<Location>?> getLocationsByName(String name,
       {String type = "", String measurements = ""}) async {
     final response =
-        await _serviceApi.getLocationsByName(name, type, measurements);
+        await _serviceApi.getLocationsByFilter(name, type, measurements);
     return response.data;
   }
 

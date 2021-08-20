@@ -12,16 +12,16 @@ class CheckboxText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          SizedBox(width: isEnable ? .0 : 2.0),
-          InkResponse(
-            onTap: onTap,
-            child: SvgPicture.asset(
+    return InkResponse(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SizedBox(width: isEnable ? .0 : 2.0),
+            SvgPicture.asset(
               isEnable ? AppIcons.checkboxDone : AppIcons.checkboxEmpty,
               width: isEnable ? 24.0 : 20.0,
               height: isEnable ? 24.0 : 20.0,
@@ -29,17 +29,17 @@ class CheckboxText extends StatelessWidget {
                   ? Theme.of(context).highlightColor
                   : AppColor.blueGrey_600,
             ),
-          ),
-          SizedBox(width: isEnable ? 20.0 : 22.0),
-          Text(
-            text,
-            style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.15,
-                  height: 1.5,
-                ),
-          ),
-        ],
+            SizedBox(width: isEnable ? 20.0 : 22.0),
+            Text(
+              text,
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.15,
+                    height: 1.5,
+                  ),
+            ),
+          ],
+        ),
       ),
     );
   }

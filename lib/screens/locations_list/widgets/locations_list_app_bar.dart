@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
+import 'package:sc_03/screens/locations_filter/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,11 +19,14 @@ class LocationsListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final _vm = BlocProvider.of<LocationsListBloc>(context, listen: false);
+
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти локацию',
+        text: _vm.locationToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,20 +44,19 @@ class LocationsListAppBar extends StatelessWidget
                 color: Theme.of(context).primaryColorDark,
               ),
               onPressed: () {
-                /// TODO: make filter
-                /*Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FindScreen(
-                      Screen.Character,
+                    builder: (context) => LocationsFilterScreen(
+                        /*Screen.Character,
                       _data.charactersList,
                       onSubmitted: (value) {
                         context.read<CharactersBloc>()
                           ..add(CharactersEvent.find(chars: value));
-                      },
-                    ),
+                      },*/
+                        ),
                   ),
-                );*/
+                );
               },
             ),
           ],
@@ -61,7 +64,12 @@ class LocationsListAppBar extends StatelessWidget
         onSubmitted: (String value) {
           context.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.find(chars: value),
+              LocationsListEvent.selectedFilters(
+                locationToFind: value,
+                isSortAscending: _vm.isSortAscending,
+                locationType: _vm.locationType,
+                locationMeasure: _vm.locationMeasure,
+              ),
             );
         },
       ),

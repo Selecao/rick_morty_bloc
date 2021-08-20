@@ -11,7 +11,7 @@ class CharacterFilterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
+    final _vm = context.read<CharactersBloc>();
 
     return SingleChildScrollView(
       child: Padding(
