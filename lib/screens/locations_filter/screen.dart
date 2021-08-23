@@ -9,17 +9,17 @@ class LocationsFilterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = context.watch<LocationsListBloc>();
+    final _locationsProvider = context.watch<LocationsListBloc>();
 
     return Scaffold(
       appBar: FilterAppBar(
         title: "Фильтры",
-        isFilterEnable: _vm.isFilterEnable,
+        isFilterEnable: _locationsProvider.isFilterEnable,
         onTap: () {
           context.read<LocationsListBloc>()
             ..add(
               LocationsListEvent.selectedFilters(
-                  locationToFind: _vm.locationToFind,
+                  locationToFind: _locationsProvider.locationToFind,
                   isSortAscending: true,
                   locationType: "",
                   locationMeasure: ""),

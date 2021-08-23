@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/empty_finder_widget.dart';
 import 'package:sc_03/data/network/models/character.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/resources/constants.dart';
 
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/screens/characters/widgets/characters_app_bar.dart';
@@ -15,7 +15,7 @@ import 'package:sc_03/screens/characters/widgets/characters_list.dart';
 class CharactersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
+    final _charactersProvider = context.read<CharactersBloc>();
 
     /// Делаем доступным блок в дереве виджетов
     return BlocConsumer<CharactersBloc, CharactersState>(
@@ -33,8 +33,8 @@ class CharactersScreen extends StatelessWidget {
             appBar: CharactersAppBar(
               charactersCount: _data.charactersList.length,
             ),
-            body: _getBody(
-                _data.charactersList, _data.isGrid, _vm.isFilterEnable),
+            body: _getBody(_data.charactersList, _data.isGrid,
+                _charactersProvider.isFilterEnable),
           ),
           orElse: () => SizedBox.shrink(),
         );

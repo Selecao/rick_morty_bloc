@@ -15,7 +15,7 @@ class EpisodesListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final _vm = context.read<EpisodesListBloc>();
+    final _vm = BlocProvider.of<EpisodesListBloc>(context, listen: false);
 
     return AppBar(
       elevation: 0,

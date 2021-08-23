@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sc_03/resources/images.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/resources/constants.dart';
 
 class EmptyFinderWidget extends StatelessWidget {
   final Screen screenName;

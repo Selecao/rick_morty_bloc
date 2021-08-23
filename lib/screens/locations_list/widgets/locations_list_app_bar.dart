@@ -19,14 +19,15 @@ class LocationsListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<LocationsListBloc>(context, listen: false);
+    final _locationsProvider =
+        BlocProvider.of<LocationsListBloc>(context, listen: false);
 
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти локацию',
-        text: _vm.locationToFind,
+        text: _locationsProvider.locationToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,14 +48,7 @@ class LocationsListAppBar extends StatelessWidget
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LocationsFilterScreen(
-                        /*Screen.Character,
-                      _data.charactersList,
-                      onSubmitted: (value) {
-                        context.read<CharactersBloc>()
-                          ..add(CharactersEvent.find(chars: value));
-                      },*/
-                        ),
+                    builder: (context) => LocationsFilterScreen(),
                   ),
                 );
               },
@@ -66,9 +60,9 @@ class LocationsListAppBar extends StatelessWidget
             ..add(
               LocationsListEvent.selectedFilters(
                 locationToFind: value,
-                isSortAscending: _vm.isSortAscending,
-                locationType: _vm.locationType,
-                locationMeasure: _vm.locationMeasure,
+                isSortAscending: _locationsProvider.isSortAscending,
+                locationType: _locationsProvider.locationType,
+                locationMeasure: _locationsProvider.locationMeasure,
               ),
             );
         },

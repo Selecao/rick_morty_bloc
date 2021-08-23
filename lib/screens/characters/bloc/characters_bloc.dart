@@ -75,7 +75,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     yield CharactersState.loading();
     _isGrid = event.isGrid;
     yield CharactersState.data(
-      charactersList: _charactersList,
+      charactersList: sortCharacters(isSortAscending, _charactersList),
       isGrid: isGrid,
       status: status,
       gender: gender,

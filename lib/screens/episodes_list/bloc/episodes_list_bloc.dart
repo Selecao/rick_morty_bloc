@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 import 'package:sc_03/data/network/models/episode.dart';
 import 'package:sc_03/data/network/models/season.dart';
 import 'package:sc_03/data/repository.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/resources/constants.dart';
 
 part 'episodes_list_event.dart';
 part 'episodes_list_state.dart';
@@ -80,7 +80,8 @@ class EpisodesListBloc extends Bloc<EpisodesListEvent, EpisodesListState> {
     // because List.from it's a one level clone, items referenced by the element
     // of foo will still be shared to bar:
     List<Season> result = [
-      for (var elm in seasons) Season(elm.name, List.from(elm.episodes))
+      for (var elm in Constants.seasons)
+        Season(elm.name, List.from(elm.episodes))
     ];
 
     if (episodes.isNotEmpty) {

@@ -11,17 +11,17 @@ class CharacterFilterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = context.watch<CharactersBloc>();
+    final _charactersProvider = context.watch<CharactersBloc>();
 
     return Scaffold(
       appBar: FilterAppBar(
         title: "Фильтры",
-        isFilterEnable: _vm.isFilterEnable,
+        isFilterEnable: _charactersProvider.isFilterEnable,
         onTap: () {
           context.read<CharactersBloc>()
             ..add(
               CharactersEvent.selectedFilters(
-                name: _vm.nameToFind,
+                name: _charactersProvider.nameToFind,
                 status: [],
                 gender: [],
                 isSortAscending: true,

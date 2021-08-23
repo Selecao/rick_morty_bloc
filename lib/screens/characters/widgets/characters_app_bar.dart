@@ -22,14 +22,16 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
+    /// don't use [context.read<CharactersBloc>()] in Build methode it has restriction but safer
+    final _charactersProvider =
+        BlocProvider.of<CharactersBloc>(context, listen: false);
 
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти персонажа',
-        text: _vm.nameToFind,
+        text: _charactersProvider.nameToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,10 +45,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
-                _vm.isFilterEnable
+                _charactersProvider.isFilterEnable
                     ? AppIcons.filterDisable
                     : AppIcons.filterSort,
-                color: _vm.isFilterEnable
+                color: _charactersProvider.isFilterEnable
                     ? AppColor.red_100
                     : Theme.of(context).primaryColorDark,
               ),
@@ -65,9 +67,9 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
           context.read<CharactersBloc>()
             ..add(CharactersEvent.selectedFilters(
               name: value,
-              status: _vm.status,
-              gender: _vm.gender,
-              isSortAscending: _vm.isSortAscending,
+              status: _charactersProvider.status,
+              gender: _charactersProvider.gender,
+              isSortAscending: _charactersProvider.isSortAscending,
             ));
         },
       ),

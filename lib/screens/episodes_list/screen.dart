@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_chapters_tile.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/empty_finder_widget.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/resources/constants.dart';
 import 'package:sc_03/screens/episode/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
 import 'package:sc_03/screens/episodes_list/widgets/episodes_list_app_bar.dart';
