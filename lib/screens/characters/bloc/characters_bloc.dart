@@ -91,11 +91,9 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     _nameToFind = event.name;
     _isSortAscending = event.isSortAscending;
 
-    List<Character> finderResultList = [];
-
     try {
       print("## Начинаем поиск персонажей по фильтру");
-      finderResultList = await _repository.getCharacterByName(
+      _charactersList = await _repository.getCharacterByName(
             nameToFind,
             status: status,
             gender: gender,
@@ -106,7 +104,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
     }
 
     yield CharactersState.data(
-      charactersList: sortCharacters(isSortAscending, finderResultList),
+      charactersList: sortCharacters(isSortAscending, _charactersList),
       isGrid: isGrid,
       status: status,
       gender: gender,
