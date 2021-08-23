@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/empty_finder_widget.dart';
-import 'package:sc_03/resources/variables.dart';
+import 'package:sc_03/resources/constants.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/components/location_tile.dart';
 
@@ -13,24 +13,19 @@ import 'package:sc_03/screens/locations_list/widgets/locations_list_app_bar.dart
 class LocationsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _vm = context.read<LocationsListBloc>();
-
-    /// Обрабатываем состояние
     return BlocConsumer<LocationsListBloc, LocationsListState>(
-      /// Возвращает виджеты поверх основного состояния. Используется для отображения
-      /// ошибок, навигации и пр.
       listener: (context, state) {},
-
-      /// Обрабатываем состояния
       builder: (context, state) {
         return state.maybeMap(
           loading: (_) => Center(child: AppCircularProgressIndicator()),
           data: (_data) => Scaffold(
             appBar: LocationsListAppBar(_data.locationsList.length),
             body: _data.locationsList.isEmpty
-                ? EmptyFinderWidget(_vm.isFilterEnable
-                    ? Screen.LocationFilter
-                    : Screen.Location)
+                ? EmptyFinderWidget(
+                    context.read<LocationsListBloc>().isFilterEnable
+                        ? Screen.LocationFilter
+                        : Screen.Location,
+                  )
                 : ListView.builder(
                     itemBuilder: (context, index) => LocationTile(
                       location: _data.locationsList[index],

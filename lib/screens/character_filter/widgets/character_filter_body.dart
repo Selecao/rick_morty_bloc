@@ -11,8 +11,6 @@ class CharacterFilterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = context.read<CharactersBloc>();
-
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -42,14 +40,15 @@ class CharacterFilterBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomRadioButton(
-                  isSortAscending: _vm.isSortAscending,
+                  isSortAscending:
+                      context.read<CharactersBloc>().isSortAscending,
                   onFirstRadioTap: () {
                     context.read<CharactersBloc>()
                       ..add(
                         CharactersEvent.selectedFilters(
-                          name: _vm.nameToFind,
-                          status: _vm.status,
-                          gender: _vm.gender,
+                          name: context.read<CharactersBloc>().nameToFind,
+                          status: context.read<CharactersBloc>().status,
+                          gender: context.read<CharactersBloc>().gender,
                           isSortAscending: true,
                         ),
                       );
@@ -58,9 +57,9 @@ class CharacterFilterBody extends StatelessWidget {
                     context.read<CharactersBloc>()
                       ..add(
                         CharactersEvent.selectedFilters(
-                          name: _vm.nameToFind,
-                          status: _vm.status,
-                          gender: _vm.gender,
+                          name: context.read<CharactersBloc>().nameToFind,
+                          status: context.read<CharactersBloc>().status,
+                          gender: context.read<CharactersBloc>().gender,
                           isSortAscending: false,
                         ),
                       );
@@ -81,46 +80,52 @@ class CharacterFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 12.0),
             CheckboxText(
-              isEnable(0, _vm.status),
+              isEnable(0, context.read<CharactersBloc>().status),
               "Живой",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: changeValues(0, _vm.status),
-                      gender: _vm.gender,
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: changeValues(
+                          0, context.read<CharactersBloc>().status),
+                      gender: context.read<CharactersBloc>().gender,
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
             ),
             CheckboxText(
-              isEnable(1, _vm.status),
+              isEnable(1, context.read<CharactersBloc>().status),
               "Мёртвый",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: changeValues(1, _vm.status),
-                      gender: _vm.gender,
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: changeValues(
+                          1, context.read<CharactersBloc>().status),
+                      gender: context.read<CharactersBloc>().gender,
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
             ),
             CheckboxText(
-              isEnable(2, _vm.status),
+              isEnable(2, context.read<CharactersBloc>().status),
               "Неизвестно",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: changeValues(2, _vm.status),
-                      gender: _vm.gender,
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: changeValues(
+                          2, context.read<CharactersBloc>().status),
+                      gender: context.read<CharactersBloc>().gender,
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
@@ -137,46 +142,52 @@ class CharacterFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 12.0),
             CheckboxText(
-              isEnable(0, _vm.gender),
+              isEnable(0, context.read<CharactersBloc>().gender),
               "Мужской",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: _vm.status,
-                      gender: changeValues(0, _vm.gender),
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: context.read<CharactersBloc>().status,
+                      gender: changeValues(
+                          0, context.read<CharactersBloc>().gender),
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
             ),
             CheckboxText(
-              isEnable(1, _vm.gender),
+              isEnable(1, context.read<CharactersBloc>().gender),
               "Женский",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: _vm.status,
-                      gender: changeValues(1, _vm.gender),
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: context.read<CharactersBloc>().status,
+                      gender: changeValues(
+                          1, context.read<CharactersBloc>().gender),
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
             ),
             CheckboxText(
-              isEnable(2, _vm.gender),
+              isEnable(2, context.read<CharactersBloc>().gender),
               "Бесполый",
               onTap: () {
                 context.read<CharactersBloc>()
                   ..add(
                     CharactersEvent.selectedFilters(
-                      name: _vm.nameToFind,
-                      status: _vm.status,
-                      gender: changeValues(2, _vm.gender),
-                      isSortAscending: _vm.isSortAscending,
+                      name: context.read<CharactersBloc>().nameToFind,
+                      status: context.read<CharactersBloc>().status,
+                      gender: changeValues(
+                          2, context.read<CharactersBloc>().gender),
+                      isSortAscending:
+                          context.read<CharactersBloc>().isSortAscending,
                     ),
                   );
               },
@@ -187,9 +198,9 @@ class CharacterFilterBody extends StatelessWidget {
     );
   }
 
-  List<int> changeValues(int itemValue, List<int> previousValues) {
-    List<int> bufferList = previousValues.toList();
-    if (isEnable(itemValue, previousValues)) {
+  List<int> changeValues(int itemValue, List<int> currentValues) {
+    List<int> bufferList = currentValues.toList();
+    if (isEnable(itemValue, currentValues)) {
       bufferList.remove(itemValue);
     } else {
       bufferList.add(itemValue);

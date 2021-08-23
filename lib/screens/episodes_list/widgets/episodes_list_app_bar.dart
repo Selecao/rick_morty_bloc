@@ -15,14 +15,12 @@ class EpisodesListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final _vm = context.read<EpisodesListBloc>();
-
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти эпизод',
-        text: _vm.episodeToFind,
+        text: context.read<EpisodesListBloc>().episodeToFind,
         onSubmitted: (String value) {
           context.read<EpisodesListBloc>()
             ..add(EpisodesListEvent.find(chars: value));
@@ -38,7 +36,7 @@ class EpisodesListAppBar extends StatelessWidget
               height: 1.71,
             ),
         tabs: [
-          for (final season in _vm.resultSeasons)
+          for (final season in context.read<EpisodesListBloc>().resultSeasons)
             Tab(text: season.name.toUpperCase()),
         ],
       ),

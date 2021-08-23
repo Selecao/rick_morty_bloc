@@ -22,14 +22,12 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _vm = BlocProvider.of<CharactersBloc>(context, listen: false);
-
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти персонажа',
-        text: _vm.nameToFind,
+        text: context.read<CharactersBloc>().nameToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,10 +41,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
-                _vm.isFilterEnable
+                context.read<CharactersBloc>().isFilterEnable
                     ? AppIcons.filterDisable
                     : AppIcons.filterSort,
-                color: _vm.isFilterEnable
+                color: context.read<CharactersBloc>().isFilterEnable
                     ? AppColor.red_100
                     : Theme.of(context).primaryColorDark,
               ),
@@ -65,9 +63,9 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
           context.read<CharactersBloc>()
             ..add(CharactersEvent.selectedFilters(
               name: value,
-              status: _vm.status,
-              gender: _vm.gender,
-              isSortAscending: _vm.isSortAscending,
+              status: context.read<CharactersBloc>().status,
+              gender: context.read<CharactersBloc>().gender,
+              isSortAscending: context.read<CharactersBloc>().isSortAscending,
             ));
         },
       ),
@@ -76,7 +74,6 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: CharactersCount(
           charactersCount: charactersCount ?? 0,
           onSelected: (value) {
-            /// Для создания события используется контекст с обращением к блоку в контексте
             context.read<CharactersBloc>()
               ..add(
                 CharactersEvent.selectedView(isGrid: value),

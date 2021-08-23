@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_divider.dart';
 import 'package:sc_03/components/custom_radio_button.dart';
 import 'package:sc_03/components/two_line_text_tile.dart';
-import 'package:sc_03/resources/variables.dart' as constant;
+import 'package:sc_03/resources/constants.dart';
 import 'package:sc_03/screens/locations_filter/widgets/selection_screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 
 class LocationsFilterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _vm = context.read<LocationsListBloc>();
+    final _locationsProvider =
+        BlocProvider.of<LocationsListBloc>(context, listen: false);
 
     return SingleChildScrollView(
       child: Padding(
@@ -41,15 +42,15 @@ class LocationsFilterBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomRadioButton(
-                  isSortAscending: _vm.isSortAscending,
+                  isSortAscending: _locationsProvider.isSortAscending,
                   onFirstRadioTap: () {
                     context.read<LocationsListBloc>()
                       ..add(
                         LocationsListEvent.selectedFilters(
-                          locationToFind: _vm.locationToFind,
+                          locationToFind: _locationsProvider.locationToFind,
                           isSortAscending: true,
-                          locationType: _vm.locationType,
-                          locationMeasure: _vm.locationMeasure,
+                          locationType: _locationsProvider.locationType,
+                          locationMeasure: _locationsProvider.locationMeasure,
                         ),
                       );
                   },
@@ -57,10 +58,10 @@ class LocationsFilterBody extends StatelessWidget {
                     context.read<LocationsListBloc>()
                       ..add(
                         LocationsListEvent.selectedFilters(
-                          locationToFind: _vm.locationToFind,
+                          locationToFind: _locationsProvider.locationToFind,
                           isSortAscending: false,
-                          locationType: _vm.locationType,
-                          locationMeasure: _vm.locationMeasure,
+                          locationType: _locationsProvider.locationType,
+                          locationMeasure: _locationsProvider.locationMeasure,
                         ),
                       );
                   },
@@ -80,7 +81,9 @@ class LocationsFilterBody extends StatelessWidget {
               ),
             ),
             TwoLineTextTile(
-              _vm.locationType == "" ? "Тип" : _vm.locationType,
+              _locationsProvider.locationType == ""
+                  ? "Тип"
+                  : _locationsProvider.locationType,
               "Выберите тип локации",
               onTap: () {
                 Navigator.push(
@@ -91,7 +94,9 @@ class LocationsFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 36.0),
             TwoLineTextTile(
-              _vm.locationMeasure == "" ? "Измерение" : _vm.locationMeasure,
+              _locationsProvider.locationMeasure == ""
+                  ? "Измерение"
+                  : _locationsProvider.locationMeasure,
               "Выберите измерение локации",
               onTap: () {
                 Navigator.push(
@@ -108,30 +113,30 @@ class LocationsFilterBody extends StatelessWidget {
 
   MaterialPageRoute typeSelectionRoute() {
     return MaterialPageRoute(builder: (contextRoute) {
-      final _vm = contextRoute.watch<LocationsListBloc>();
+      final _locationsProvider = contextRoute.watch<LocationsListBloc>();
 
       return SelectionScreen(
         title: "Выберите тип",
-        activeSelection: _vm.locationType,
-        selectionList: constant.locationsType,
+        activeSelection: _locationsProvider.locationType,
+        selectionList: Constants.locationsType,
         onTapToDefault: () {
           contextRoute.read<LocationsListBloc>()
             ..add(
               LocationsListEvent.selectedFilters(
-                  locationToFind: _vm.locationToFind,
-                  isSortAscending: _vm.isSortAscending,
+                  locationToFind: _locationsProvider.locationToFind,
+                  isSortAscending: _locationsProvider.isSortAscending,
                   locationType: "",
-                  locationMeasure: _vm.locationMeasure),
+                  locationMeasure: _locationsProvider.locationMeasure),
             );
         },
         onTapToNew: (String value) {
           contextRoute.read<LocationsListBloc>()
             ..add(
               LocationsListEvent.selectedFilters(
-                  locationToFind: _vm.locationToFind,
-                  isSortAscending: _vm.isSortAscending,
+                  locationToFind: _locationsProvider.locationToFind,
+                  isSortAscending: _locationsProvider.isSortAscending,
                   locationType: value,
-                  locationMeasure: _vm.locationMeasure),
+                  locationMeasure: _locationsProvider.locationMeasure),
             );
         },
       );
@@ -140,19 +145,19 @@ class LocationsFilterBody extends StatelessWidget {
 
   MaterialPageRoute measureSelectionRoute() {
     return MaterialPageRoute(builder: (contextRoute) {
-      final _vm = contextRoute.watch<LocationsListBloc>();
+      final _locationsProvider = contextRoute.watch<LocationsListBloc>();
 
       return SelectionScreen(
         title: "Выберите измерение",
-        activeSelection: _vm.locationMeasure,
-        selectionList: constant.locationsMeasure,
+        activeSelection: _locationsProvider.locationMeasure,
+        selectionList: Constants.locationsMeasure,
         onTapToDefault: () {
           contextRoute.read<LocationsListBloc>()
             ..add(
               LocationsListEvent.selectedFilters(
-                  locationToFind: _vm.locationToFind,
-                  isSortAscending: _vm.isSortAscending,
-                  locationType: _vm.locationType,
+                  locationToFind: _locationsProvider.locationToFind,
+                  isSortAscending: _locationsProvider.isSortAscending,
+                  locationType: _locationsProvider.locationType,
                   locationMeasure: ""),
             );
         },
@@ -160,9 +165,9 @@ class LocationsFilterBody extends StatelessWidget {
           contextRoute.read<LocationsListBloc>()
             ..add(
               LocationsListEvent.selectedFilters(
-                  locationToFind: _vm.locationToFind,
-                  isSortAscending: _vm.isSortAscending,
-                  locationType: _vm.locationType,
+                  locationToFind: _locationsProvider.locationToFind,
+                  isSortAscending: _locationsProvider.isSortAscending,
+                  locationType: _locationsProvider.locationType,
                   locationMeasure: value),
             );
         },
