@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:sc_03/resources/icons.dart';
 
-class SearchTextField extends StatelessWidget {
+/// Use hook widget instead of stateless with memory leak on controllers
+class SearchTextField extends HookWidget {
   final String text;
   final String title;
   final Widget? suffixIcon;
@@ -18,9 +20,12 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final focusNode = useFocusNode();
+    final controller = useTextEditingController(text: this.text);
+
     return TextField(
-      controller: TextEditingController()..text = this.text,
-      focusNode: FocusNode(),
+      controller: controller,
+      focusNode: focusNode,
       style:
           Theme.of(context).textTheme.subtitle1?.copyWith(letterSpacing: 0.5),
       decoration: InputDecoration(
