@@ -15,8 +15,11 @@ class CharactersEvent with _$CharactersEvent {
     required String name,
     required List<int> status,
     required List<int> gender,
-    required bool isSortAscending,
+    required bool? isSortAscending,
   }) = _SelectedFiltersCharactersEvent;
+
+  const factory CharactersEvent.nextPage() = _NextPageEvent;
+
 /*
   ///Событие поиска персонажа
   const factory CharactersEvent.find({

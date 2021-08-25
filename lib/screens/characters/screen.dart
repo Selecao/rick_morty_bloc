@@ -40,9 +40,9 @@ class CharactersScreen extends StatelessWidget {
       return EmptyFinderWidget(
           isFilterEnable ? Screen.CharacterFilter : Screen.Character);
     } else if (isGrid) {
-      return CharactersGrid(list);
+      return CharactersGrid();
     } else {
-      return CharactersList(list);
+      return CharactersList();
     }
   }
 }
