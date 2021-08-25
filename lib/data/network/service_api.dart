@@ -23,7 +23,7 @@ class ServiceApi {
     _dio = _dioSettings.dio;
   }
 
-  Future<CharactersListModel> getCharacters(
+  Future<CharactersListModel> getAllCharacters(
       int pageNumber, int pageSize) async {
     print("## Пошел запрос на персонажей");
     Response<String> response = await _dio.get(

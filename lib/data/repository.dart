@@ -25,9 +25,9 @@ class Repository {
 
   final _serviceApi = ServiceApi();
 
-  Future<List<Character>?> getCharactersList(
+  Future<List<Character>?> getAllCharacters(
       {required int pageNumber, required int pageSize}) async {
-    final response = await _serviceApi.getCharacters(pageNumber, pageSize);
+    final response = await _serviceApi.getAllCharacters(pageNumber, pageSize);
     return response.data;
   }
 
