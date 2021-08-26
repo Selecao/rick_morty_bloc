@@ -27,6 +27,12 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
   String get locationType => _locationType;
   String _locationMeasure = "";
   String get locationMeasure => _locationMeasure;
+  int _currentPage = 1;
+  bool _isPaginationEnable = true;
+  bool get isPaginationEnable => _isPaginationEnable;
+  bool _hasReachedLastPage = false;
+  bool get hasReachedLastPage => _hasReachedLastPage;
+  static const int _pageSize = 4;
 
   @override
   Stream<LocationsListState> mapEventToState(
@@ -35,6 +41,8 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     yield* event.map(
       /// Стрим для инициализации
       initial: _mapInitialLocationsListEvent,
+
+      nextPage: _mapNextPageEvent,
 
       /// Стрим для поиска локаций
       selectedFilters: _mapSelectedFiltersEvent,
@@ -48,8 +56,9 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     try {
       /// Получение данных
       print("## Начинаем загрузку всех локаций");
-      _locationsList =
-          await _repository.getLocationsList(pageNumber: 1, pageSize: 14) ?? [];
+      _locationsList = await _repository.getLocationsList(
+              pageNumber: _currentPage, pageSize: _pageSize) ??
+          [];
     } catch (ex) {
       /// Вовращаем состояние с ошибкой
       print("## Получи ошибку в блоке всех локаций $ex");
@@ -58,6 +67,7 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     /// Возвращаем состояние с данными
     yield LocationsListState.data(locationsList: locationsList);
   }
+
 /*
 
   Stream<LocationsListState> _mapFindLocationsListEvent(
@@ -78,10 +88,35 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     );
   }
 */
+  Stream<LocationsListState> _mapNextPageEvent(_NextPageEvent event) async* {
+    _currentPage += 1;
+
+    List<Location> resultList = [];
+    try {
+      print("## Начинаем загрузку следующей страницы локаций");
+      resultList = await _repository.getLocationsList(
+              pageNumber: _currentPage, pageSize: _pageSize) ??
+          [];
+
+      _hasReachedLastPage = resultList.isEmpty ? true : false;
+      if (_hasReachedLastPage) {
+        print(" ### LAST PAGE REACHED ###");
+      }
+      _locationsList = [..._locationsList, ...resultList];
+    } catch (ex) {
+      print("## Получи ошибку в блоке всех локаций $ex");
+    }
+
+    yield LocationsListState.data(
+      locationsList: _locationsList,
+      isLastPage: _hasReachedLastPage,
+    );
+  }
 
   Stream<LocationsListState> _mapSelectedFiltersEvent(
       _SelectedFiltersEvent event) async* {
     yield LocationsListState.loading();
+    _isPaginationEnable = false;
     _locationToFind = event.locationToFind;
     _isSortAscending = event.isSortAscending;
     _locationType = event.locationType;

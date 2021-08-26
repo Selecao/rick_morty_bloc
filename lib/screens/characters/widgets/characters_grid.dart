@@ -31,23 +31,7 @@ class _CharactersGridState extends State<CharactersGrid> {
       padding: const EdgeInsets.only(top: 14.0),
       child: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification scrollInfo) {
-          bool _isScrolledToEnd() {
-            return scrollInfo.metrics.pixels ==
-                scrollInfo.metrics.maxScrollExtent;
-          }
-
-          bool _isPaginated() {
-            return _charactersProvider.isPaginationEnable && !isLoading;
-          }
-
-          if (_isPaginated() && _isScrolledToEnd()) {
-            setState(() {
-              isLoading = true;
-            });
-            Future.delayed(new Duration(seconds: 1)).then((value) =>
-                context.read<CharactersBloc>()
-                  ..add(CharactersEvent.nextPage()));
-          }
+          _checkAndLoadData(context, scrollInfo);
 
           return false;
         },
@@ -82,5 +66,24 @@ class _CharactersGridState extends State<CharactersGrid> {
         ),
       ),
     );
+  }
+
+  void _checkAndLoadData(BuildContext context, ScrollNotification scrollInfo) {
+    bool _isScrolledToEnd() {
+      return scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent;
+    }
+
+    bool _isPaginated() {
+      return BlocProvider.of<CharactersBloc>(context).isPaginationEnable &&
+          !isLoading;
+    }
+
+    if (_isPaginated() && _isScrolledToEnd()) {
+      setState(() {
+        isLoading = true;
+      });
+      Future.delayed(new Duration(seconds: 1)).then((value) =>
+          context.read<CharactersBloc>()..add(CharactersEvent.nextPage()));
+    }
   }
 }

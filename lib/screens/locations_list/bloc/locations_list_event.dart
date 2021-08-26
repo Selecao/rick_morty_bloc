@@ -16,4 +16,6 @@ class LocationsListEvent with _$LocationsListEvent {
     required String locationType,
     required String locationMeasure,
   }) = _SelectedFiltersEvent;
+
+  const factory LocationsListEvent.nextPage() = _NextPageEvent;
 }

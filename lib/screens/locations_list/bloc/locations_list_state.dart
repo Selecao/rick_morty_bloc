@@ -6,6 +6,7 @@ class LocationsListState with _$LocationsListState {
   const factory LocationsListState.data({
     /// Параметры
     required final List<Location> locationsList,
+    final bool? isLastPage,
   }) = _DataLocationsListState;
 
   const factory LocationsListState.initial() = _InitialLocationsListState;

@@ -4,10 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/empty_finder_widget.dart';
 import 'package:sc_03/resources/constants.dart';
-import 'package:sc_03/screens/location/screen.dart';
-import 'package:sc_03/components/location_tile.dart';
 
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
+import 'package:sc_03/screens/locations_list/widgets/locations_list.dart';
 import 'package:sc_03/screens/locations_list/widgets/locations_list_app_bar.dart';
 
 class LocationsListScreen extends StatelessWidget {
@@ -26,30 +25,7 @@ class LocationsListScreen extends StatelessWidget {
                         ? Screen.LocationFilter
                         : Screen.Location,
                   )
-                : ListView.builder(
-                    itemBuilder: (context, index) => LocationTile(
-                      location: _data.locationsList[index],
-                      onTap: () {
-                        if (_data.locationsList[index].id != null) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LocationScreen(
-                                  _data.locationsList[index].id!),
-                            ),
-                          );
-                        }
-                      },
-                    ),
-                    itemCount: _data.locationsList.length,
-                    itemExtent: 242.0,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.only(
-                      left: 16.0,
-                      right: 18.0,
-                      bottom: 16.0,
-                    ),
-                  ),
+                : LocationsList(),
           ),
           orElse: () => SizedBox.shrink(),
         );

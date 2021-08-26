@@ -32,6 +32,10 @@ class _$LocationsListEventTearOff {
       locationMeasure: locationMeasure,
     );
   }
+
+  _NextPageEvent nextPage() {
+    return const _NextPageEvent();
+  }
 }
 
 /// @nodoc
@@ -45,6 +49,7 @@ mixin _$LocationsListEvent {
     required TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
+    required TResult Function() nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +58,7 @@ mixin _$LocationsListEvent {
     TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,12 +66,14 @@ mixin _$LocationsListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
     required TResult Function(_SelectedFiltersEvent value) selectedFilters,
+    required TResult Function(_NextPageEvent value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
     TResult Function(_SelectedFiltersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,6 +141,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
     required TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
+    required TResult Function() nextPage,
   }) {
     return initial();
   }
@@ -144,6 +153,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
     TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -157,6 +167,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
     required TResult Function(_SelectedFiltersEvent value) selectedFilters,
+    required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return initial(this);
   }
@@ -166,6 +177,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
     TResult Function(_SelectedFiltersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -292,6 +304,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
     required TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
+    required TResult Function() nextPage,
   }) {
     return selectedFilters(
         locationToFind, isSortAscending, locationType, locationMeasure);
@@ -304,6 +317,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
     TResult Function(String locationToFind, bool isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (selectedFilters != null) {
@@ -318,6 +332,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationsListEvent value) initial,
     required TResult Function(_SelectedFiltersEvent value) selectedFilters,
+    required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return selectedFilters(this);
   }
@@ -327,6 +342,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialLocationsListEvent value)? initial,
     TResult Function(_SelectedFiltersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
     required TResult orElse(),
   }) {
     if (selectedFilters != null) {
@@ -353,12 +369,108 @@ abstract class _SelectedFiltersEvent implements LocationsListEvent {
 }
 
 /// @nodoc
+abstract class _$NextPageEventCopyWith<$Res> {
+  factory _$NextPageEventCopyWith(
+          _NextPageEvent value, $Res Function(_NextPageEvent) then) =
+      __$NextPageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NextPageEventCopyWithImpl<$Res>
+    extends _$LocationsListEventCopyWithImpl<$Res>
+    implements _$NextPageEventCopyWith<$Res> {
+  __$NextPageEventCopyWithImpl(
+      _NextPageEvent _value, $Res Function(_NextPageEvent) _then)
+      : super(_value, (v) => _then(v as _NextPageEvent));
+
+  @override
+  _NextPageEvent get _value => super._value as _NextPageEvent;
+}
+
+/// @nodoc
+
+class _$_NextPageEvent implements _NextPageEvent {
+  const _$_NextPageEvent();
+
+  @override
+  String toString() {
+    return 'LocationsListEvent.nextPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NextPageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)
+        selectedFilters,
+    required TResult Function() nextPage,
+  }) {
+    return nextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String locationToFind, bool isSortAscending,
+            String locationType, String locationMeasure)?
+        selectedFilters,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialLocationsListEvent value) initial,
+    required TResult Function(_SelectedFiltersEvent value) selectedFilters,
+    required TResult Function(_NextPageEvent value) nextPage,
+  }) {
+    return nextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialLocationsListEvent value)? initial,
+    TResult Function(_SelectedFiltersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextPageEvent implements LocationsListEvent {
+  const factory _NextPageEvent() = _$_NextPageEvent;
+}
+
+/// @nodoc
 class _$LocationsListStateTearOff {
   const _$LocationsListStateTearOff();
 
-  _DataLocationsListState data({required List<Location> locationsList}) {
+  _DataLocationsListState data(
+      {required List<Location> locationsList, bool? isLastPage}) {
     return _DataLocationsListState(
       locationsList: locationsList,
+      isLastPage: isLastPage,
     );
   }
 
@@ -378,14 +490,15 @@ const $LocationsListState = _$LocationsListStateTearOff();
 mixin _$LocationsListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Location> locationsList) data,
+    required TResult Function(List<Location> locationsList, bool? isLastPage)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Location> locationsList)? data,
+    TResult Function(List<Location> locationsList, bool? isLastPage)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -430,7 +543,7 @@ abstract class _$DataLocationsListStateCopyWith<$Res> {
   factory _$DataLocationsListStateCopyWith(_DataLocationsListState value,
           $Res Function(_DataLocationsListState) then) =
       __$DataLocationsListStateCopyWithImpl<$Res>;
-  $Res call({List<Location> locationsList});
+  $Res call({List<Location> locationsList, bool? isLastPage});
 }
 
 /// @nodoc
@@ -447,12 +560,17 @@ class __$DataLocationsListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? locationsList = freezed,
+    Object? isLastPage = freezed,
   }) {
     return _then(_DataLocationsListState(
       locationsList: locationsList == freezed
           ? _value.locationsList
           : locationsList // ignore: cast_nullable_to_non_nullable
               as List<Location>,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -460,16 +578,19 @@ class __$DataLocationsListStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DataLocationsListState implements _DataLocationsListState {
-  const _$_DataLocationsListState({required this.locationsList});
+  const _$_DataLocationsListState(
+      {required this.locationsList, this.isLastPage});
 
   @override
 
   /// Параметры
   final List<Location> locationsList;
+  @override
+  final bool? isLastPage;
 
   @override
   String toString() {
-    return 'LocationsListState.data(locationsList: $locationsList)';
+    return 'LocationsListState.data(locationsList: $locationsList, isLastPage: $isLastPage)';
   }
 
   @override
@@ -478,12 +599,17 @@ class _$_DataLocationsListState implements _DataLocationsListState {
         (other is _DataLocationsListState &&
             (identical(other.locationsList, locationsList) ||
                 const DeepCollectionEquality()
-                    .equals(other.locationsList, locationsList)));
+                    .equals(other.locationsList, locationsList)) &&
+            (identical(other.isLastPage, isLastPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLastPage, isLastPage)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locationsList);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(locationsList) ^
+      const DeepCollectionEquality().hash(isLastPage);
 
   @JsonKey(ignore: true)
   @override
@@ -494,23 +620,24 @@ class _$_DataLocationsListState implements _DataLocationsListState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Location> locationsList) data,
+    required TResult Function(List<Location> locationsList, bool? isLastPage)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
-    return data(locationsList);
+    return data(locationsList, isLastPage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Location> locationsList)? data,
+    TResult Function(List<Location> locationsList, bool? isLastPage)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(locationsList);
+      return data(locationsList, isLastPage);
     }
     return orElse();
   }
@@ -542,10 +669,12 @@ class _$_DataLocationsListState implements _DataLocationsListState {
 
 abstract class _DataLocationsListState implements LocationsListState {
   const factory _DataLocationsListState(
-      {required List<Location> locationsList}) = _$_DataLocationsListState;
+      {required List<Location> locationsList,
+      bool? isLastPage}) = _$_DataLocationsListState;
 
   /// Параметры
   List<Location> get locationsList => throw _privateConstructorUsedError;
+  bool? get isLastPage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$DataLocationsListStateCopyWith<_DataLocationsListState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -592,7 +721,8 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Location> locationsList) data,
+    required TResult Function(List<Location> locationsList, bool? isLastPage)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -602,7 +732,7 @@ class _$_InitialLocationsListState implements _InitialLocationsListState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Location> locationsList)? data,
+    TResult Function(List<Location> locationsList, bool? isLastPage)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),
@@ -683,7 +813,8 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Location> locationsList) data,
+    required TResult Function(List<Location> locationsList, bool? isLastPage)
+        data,
     required TResult Function() initial,
     required TResult Function() loading,
   }) {
@@ -693,7 +824,7 @@ class _$_LoadingLocationsListState implements _LoadingLocationsListState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Location> locationsList)? data,
+    TResult Function(List<Location> locationsList, bool? isLastPage)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     required TResult orElse(),

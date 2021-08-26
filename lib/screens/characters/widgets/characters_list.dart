@@ -30,23 +30,7 @@ class _CharactersListState extends State<CharactersList> {
     // making pagination here:
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification scrollInfo) {
-        bool _isScrolledToEnd() {
-          return scrollInfo.metrics.pixels ==
-              scrollInfo.metrics.maxScrollExtent;
-        }
-
-        bool _isPaginated() {
-          return _charactersProvider.isPaginationEnable && !isLoading;
-        }
-
-        if (_isPaginated() && _isScrolledToEnd()) {
-          setState(() {
-            isLoading = true;
-          });
-          Future.delayed(new Duration(seconds: 1)).then((value) =>
-              context.read<CharactersBloc>()..add(CharactersEvent.nextPage()));
-        }
-
+        _checkAndLoadData(context, scrollInfo);
         return false;
       },
       child: ListView.builder(
@@ -68,7 +52,7 @@ class _CharactersListState extends State<CharactersList> {
                 },
               ),
         itemCount: isShowLoading()
-            ? (_charactersProvider.charactersList.length + 1)
+            ? _charactersProvider.charactersList.length + 1
             : _charactersProvider.charactersList.length,
         itemExtent: 98.0,
         shrinkWrap: true,
@@ -76,5 +60,24 @@ class _CharactersListState extends State<CharactersList> {
         padding: const EdgeInsets.only(bottom: 24),
       ),
     );
+  }
+
+  void _checkAndLoadData(BuildContext context, ScrollNotification scrollInfo) {
+    bool _isScrolledToEnd() {
+      return scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent;
+    }
+
+    bool _isPaginated() {
+      return BlocProvider.of<CharactersBloc>(context).isPaginationEnable &&
+          !isLoading;
+    }
+
+    if (_isPaginated() && _isScrolledToEnd()) {
+      setState(() {
+        isLoading = true;
+      });
+      Future.delayed(new Duration(seconds: 1)).then((value) =>
+          context.read<CharactersBloc>()..add(CharactersEvent.nextPage()));
+    }
   }
 }
