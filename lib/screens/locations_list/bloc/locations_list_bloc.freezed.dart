@@ -22,7 +22,7 @@ class _$LocationsListEventTearOff {
 
   _SelectedFiltersEvent selectedFilters(
       {required String locationToFind,
-      required bool isSortAscending,
+      required bool? isSortAscending,
       required String locationType,
       required String locationMeasure}) {
     return _SelectedFiltersEvent(
@@ -46,7 +46,7 @@ mixin _$LocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String locationToFind, bool isSortAscending,
+    required TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
     required TResult Function() nextPage,
@@ -55,7 +55,7 @@ mixin _$LocationsListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String locationToFind, bool isSortAscending,
+    TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
     TResult Function()? nextPage,
@@ -138,7 +138,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String locationToFind, bool isSortAscending,
+    required TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
     required TResult Function() nextPage,
@@ -150,7 +150,7 @@ class _$_InitialLocationsListEvent implements _InitialLocationsListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String locationToFind, bool isSortAscending,
+    TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
     TResult Function()? nextPage,
@@ -198,7 +198,7 @@ abstract class _$SelectedFiltersEventCopyWith<$Res> {
       __$SelectedFiltersEventCopyWithImpl<$Res>;
   $Res call(
       {String locationToFind,
-      bool isSortAscending,
+      bool? isSortAscending,
       String locationType,
       String locationMeasure});
 }
@@ -229,7 +229,7 @@ class __$SelectedFiltersEventCopyWithImpl<$Res>
       isSortAscending: isSortAscending == freezed
           ? _value.isSortAscending
           : isSortAscending // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       locationType: locationType == freezed
           ? _value.locationType
           : locationType // ignore: cast_nullable_to_non_nullable
@@ -254,7 +254,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
   @override
   final String locationToFind;
   @override
-  final bool isSortAscending;
+  final bool? isSortAscending;
   @override
   final String locationType;
   @override
@@ -301,7 +301,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String locationToFind, bool isSortAscending,
+    required TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
     required TResult Function() nextPage,
@@ -314,7 +314,7 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String locationToFind, bool isSortAscending,
+    TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
     TResult Function()? nextPage,
@@ -355,12 +355,12 @@ class _$_SelectedFiltersEvent implements _SelectedFiltersEvent {
 abstract class _SelectedFiltersEvent implements LocationsListEvent {
   const factory _SelectedFiltersEvent(
       {required String locationToFind,
-      required bool isSortAscending,
+      required bool? isSortAscending,
       required String locationType,
       required String locationMeasure}) = _$_SelectedFiltersEvent;
 
   String get locationToFind => throw _privateConstructorUsedError;
-  bool get isSortAscending => throw _privateConstructorUsedError;
+  bool? get isSortAscending => throw _privateConstructorUsedError;
   String get locationType => throw _privateConstructorUsedError;
   String get locationMeasure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -409,7 +409,7 @@ class _$_NextPageEvent implements _NextPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String locationToFind, bool isSortAscending,
+    required TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)
         selectedFilters,
     required TResult Function() nextPage,
@@ -421,7 +421,7 @@ class _$_NextPageEvent implements _NextPageEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String locationToFind, bool isSortAscending,
+    TResult Function(String locationToFind, bool? isSortAscending,
             String locationType, String locationMeasure)?
         selectedFilters,
     TResult Function()? nextPage,

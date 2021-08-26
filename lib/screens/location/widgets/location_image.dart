@@ -15,36 +15,33 @@ class LocationImage extends StatelessWidget {
 
     return Stack(
       children: [
-        (image == null) || (image == '')
-            ? Container(
-                height: imageHeight,
+        ShaderMask(
+          shaderCallback: (rect) {
+            return AppColor.shadeGradient.createShader(
+              Rect.fromLTRB(0, 0, rect.width, rect.height),
+            );
+          },
+          blendMode: BlendMode.srcATop,
+          child: CachedNetworkImage(
+            imageUrl: image ?? 'no image',
+            imageBuilder: (context, imageProvider) => Container(
+              height: imageHeight,
+              decoration: BoxDecoration(
                 color: Theme.of(context).canvasColor,
-              )
-            : ShaderMask(
-                shaderCallback: (rect) {
-                  return AppColor.shadeGradient.createShader(
-                    Rect.fromLTRB(0, 0, rect.width, rect.height),
-                  );
-                },
-                blendMode: BlendMode.srcATop,
-                child: CachedNetworkImage(
-                  imageUrl: image ?? 'no image',
-                  imageBuilder: (context, imageProvider) => Container(
-                    height: imageHeight,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).canvasColor,
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      AppCircularProgressIndicator(
-                          value: downloadProgress.progress),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
                 ),
               ),
+            ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                AppCircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Container(
+              height: imageHeight,
+              color: Theme.of(context).canvasColor,
+            ),
+          ),
+        ),
         Positioned(
           bottom: .0,
           child: Container(

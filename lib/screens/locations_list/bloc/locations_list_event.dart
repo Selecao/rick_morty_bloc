@@ -12,7 +12,7 @@ class LocationsListEvent with _$LocationsListEvent {
   /// Событие выбора фильтров и поиска локации
   const factory LocationsListEvent.selectedFilters({
     required String locationToFind,
-    required bool isSortAscending,
+    required bool? isSortAscending,
     required String locationType,
     required String locationMeasure,
   }) = _SelectedFiltersEvent;

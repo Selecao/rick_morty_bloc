@@ -24,7 +24,7 @@ class CharacterFilterScreen extends StatelessWidget {
                 name: context.read<CharactersBloc>().nameToFind,
                 status: [],
                 gender: [],
-                isSortAscending: true,
+                isSortAscending: null,
               ),
             );
         },

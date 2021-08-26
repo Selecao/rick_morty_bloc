@@ -10,8 +10,7 @@ import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 class LocationsFilterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _locationsProvider =
-        BlocProvider.of<LocationsListBloc>(context, listen: false);
+    final _locationsProvider = context.watch<LocationsListBloc>();
 
     return SingleChildScrollView(
       child: Padding(

@@ -19,9 +19,6 @@ class LocationsListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    //use this because of safer [context.read<LocationsListBloc>()] but not in build method, instead of
-    //final _locationsProvider = BlocProvider.of<LocationsListBloc>(context, listen: false);
-
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,

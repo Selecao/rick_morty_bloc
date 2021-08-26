@@ -20,9 +20,10 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
   List<Location> get locationsList => _locationsList;
   String _locationToFind = "";
   String get locationToFind => _locationToFind;
-  bool get isFilterEnable => locationType != "" || locationMeasure != "";
-  bool _isSortAscending = true;
-  bool get isSortAscending => _isSortAscending;
+  bool get isFilterEnable =>
+      locationType != "" || locationMeasure != "" || _isSortAscending != null;
+  bool? _isSortAscending;
+  bool? get isSortAscending => _isSortAscending;
   String _locationType = "";
   String get locationType => _locationType;
   String _locationMeasure = "";
@@ -122,12 +123,10 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     _locationType = event.locationType;
     _locationMeasure = event.locationMeasure;
 
-    List<Location> finderResult = [];
-
     try {
       print("## Начинаем поиск локаций по фильтру");
 
-      finderResult = await _repository.getLocationsByName(
+      _locationsList = await _repository.getLocationsByName(
             _locationToFind,
             type: _locationType,
             measurements: _locationMeasure,
@@ -138,13 +137,16 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
     }
 
     yield LocationsListState.data(
-      locationsList: sortLocations(isSortAscending, finderResult),
+      locationsList: sortLocations(isSortAscending, _locationsList),
     );
   }
 }
 
-List<Location> sortLocations(bool isSortAscending, List<Location> baseList) {
+List<Location> sortLocations(bool? isSortAscending, List<Location> baseList) {
+  if (isSortAscending == null) return baseList;
+
   List<Location> sortedList = baseList..sort(locationComparator);
+
   if (isSortAscending) {
     return sortedList;
   } else {

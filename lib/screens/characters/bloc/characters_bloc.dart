@@ -24,7 +24,8 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   List<int> get status => _status;
   List<int> _gender = [];
   List<int> get gender => _gender;
-  bool get isFilterEnable => status.length != 0 || gender.length != 0;
+  bool get isFilterEnable =>
+      status.length != 0 || gender.length != 0 || _isSortAscending != null;
   int _currentPage = 1;
   bool _isPaginationEnable = true;
   bool get isPaginationEnable => _isPaginationEnable;
