@@ -145,11 +145,9 @@ class LocationsListBloc extends Bloc<LocationsListEvent, LocationsListState> {
 List<Location> sortLocations(bool? isSortAscending, List<Location> baseList) {
   if (isSortAscending == null) return baseList;
 
-  List<Location> sortedList = baseList..sort(locationComparator);
-
   if (isSortAscending) {
-    return sortedList;
+    return baseList..sort(locationComparator);
   } else {
-    return (sortedList.reversed).toList();
+    return baseList..sort(locationComparator.inverse);
   }
 }
