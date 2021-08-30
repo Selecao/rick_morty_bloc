@@ -165,10 +165,9 @@ List<Character> sortCharacters(
     bool? isSortAscending, List<Character> baseList) {
   if (isSortAscending == null) return baseList;
 
-  List<Character> sortedList = baseList..sort(characterComparator);
   if (isSortAscending) {
-    return sortedList;
+    return baseList..sort(characterComparator);
   } else {
-    return (sortedList.reversed).toList();
+    return baseList..sort(characterComparator.inverse);
   }
 }
