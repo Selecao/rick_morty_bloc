@@ -104,7 +104,7 @@ class MainTheme with ChangeNotifier {
       bodyText1: AppTextTheme.bodyText1.copyWith(color: AppColor.blue_800),
       bodyText2: AppTextTheme.bodyText2.copyWith(color: AppColor.blue_800),
       caption: AppTextTheme.caption.copyWith(color: AppColor.grey_500),
-      button: AppTextTheme.button,
+      button: AppTextTheme.button.copyWith(color: AppColor.black),
       overline: AppTextTheme.overline.copyWith(color: AppColor.grey_300),
     ),
     textButtonTheme: TextButtonThemeData(
