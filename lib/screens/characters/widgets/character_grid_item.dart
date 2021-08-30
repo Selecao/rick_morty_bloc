@@ -19,6 +19,7 @@ class CharacterGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           CachedNetworkImage(
             imageUrl: character.imageName ?? 'no image',
@@ -40,18 +41,29 @@ class CharacterGridItem extends StatelessWidget {
           ),
           const SizedBox(height: 18.0),
           StatusText(statusIndex: character.status ?? 2),
-          Text(
-            character.fullName ?? "None",
-            style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.1,
-                  height: 1.42,
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                flex: 4,
+                child: Text(
+                  character.fullName ?? "None",
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.1,
+                        height: 1.42,
+                      ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
                 ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
+              ),
+            ],
           ),
-          RaceGenderText(character: character),
+          Expanded(
+            flex: 2,
+            child: RaceGenderText(character: character),
+          ),
         ],
       ),
       onTap: onTap,

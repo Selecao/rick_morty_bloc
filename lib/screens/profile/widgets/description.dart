@@ -20,6 +20,8 @@ class Description extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: avatarSize + 24.0),
             Text(
@@ -43,10 +45,19 @@ class Description extends StatelessWidget {
             ),
             const SizedBox(height: 24.0),
             Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ColumnText('Пол', getGenderText(character.gender ?? 2)),
+                Expanded(
+                  flex: 10,
+                  child:
+                      ColumnText('Пол', getGenderText(character.gender ?? 2)),
+                ),
                 Spacer(),
-                ColumnText('Раса', character.race ?? "Неизвестно"),
+                Expanded(
+                  flex: 10,
+                  child: ColumnText('Раса', character.race ?? "Неизвестно"),
+                ),
                 Spacer(),
               ],
             ),
