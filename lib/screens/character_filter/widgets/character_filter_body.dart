@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sc_03/components/app_divider.dart';
 import 'package:sc_03/components/custom_radio_button.dart';
 import 'package:sc_03/screens/character_filter/widgets/checkbox_text.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
+import 'package:sc_03/screens/characters/characters_filter.dart';
 
 class CharacterFilterBody extends StatelessWidget {
   const CharacterFilterBody();
 
   @override
   Widget build(BuildContext context) {
+    final _filterData = context.watch<CharactersFilter>();
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -40,28 +44,21 @@ class CharacterFilterBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomRadioButton(
-                  isSortAscending:
-                      context.read<CharactersBloc>().isSortAscending,
+                  isSortAscending: _filterData.isSortAscending,
                   onFirstRadioTap: () {
+                    _filterData.setIsSortAscending(true);
+
                     context.read<CharactersBloc>()
                       ..add(
-                        CharactersEvent.selectedFilters(
-                          name: context.read<CharactersBloc>().nameToFind,
-                          status: context.read<CharactersBloc>().status,
-                          gender: context.read<CharactersBloc>().gender,
-                          isSortAscending: true,
-                        ),
+                        CharactersEvent.selectedFilters(filter: _filterData),
                       );
                   },
                   onSecondRadioTap: () {
+                    _filterData.setIsSortAscending(false);
+
                     context.read<CharactersBloc>()
                       ..add(
-                        CharactersEvent.selectedFilters(
-                          name: context.read<CharactersBloc>().nameToFind,
-                          status: context.read<CharactersBloc>().status,
-                          gender: context.read<CharactersBloc>().gender,
-                          isSortAscending: false,
-                        ),
+                        CharactersEvent.selectedFilters(filter: _filterData),
                       );
                   },
                 ),
@@ -80,53 +77,38 @@ class CharacterFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 12.0),
             CheckboxText(
-              isEnable(0, context.read<CharactersBloc>().status),
+              isEnable(0, _filterData.status),
               "Живой",
               onTap: () {
+                _filterData.setStatus(changeValues(0, _filterData.status));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: changeValues(
-                          0, context.read<CharactersBloc>().status),
-                      gender: context.read<CharactersBloc>().gender,
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),
             CheckboxText(
-              isEnable(1, context.read<CharactersBloc>().status),
+              isEnable(1, _filterData.status),
               "Мёртвый",
               onTap: () {
+                _filterData.setStatus(changeValues(1, _filterData.status));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: changeValues(
-                          1, context.read<CharactersBloc>().status),
-                      gender: context.read<CharactersBloc>().gender,
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),
             CheckboxText(
-              isEnable(2, context.read<CharactersBloc>().status),
+              isEnable(2, _filterData.status),
               "Неизвестно",
               onTap: () {
+                _filterData.setStatus(changeValues(2, _filterData.status));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: changeValues(
-                          2, context.read<CharactersBloc>().status),
-                      gender: context.read<CharactersBloc>().gender,
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),
@@ -142,53 +124,38 @@ class CharacterFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 12.0),
             CheckboxText(
-              isEnable(0, context.read<CharactersBloc>().gender),
+              isEnable(0, _filterData.gender),
               "Мужской",
               onTap: () {
+                _filterData.setGender(changeValues(0, _filterData.gender));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: context.read<CharactersBloc>().status,
-                      gender: changeValues(
-                          0, context.read<CharactersBloc>().gender),
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),
             CheckboxText(
-              isEnable(1, context.read<CharactersBloc>().gender),
+              isEnable(1, _filterData.gender),
               "Женский",
               onTap: () {
+                _filterData.setGender(changeValues(1, _filterData.gender));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: context.read<CharactersBloc>().status,
-                      gender: changeValues(
-                          1, context.read<CharactersBloc>().gender),
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),
             CheckboxText(
-              isEnable(2, context.read<CharactersBloc>().gender),
+              isEnable(2, _filterData.gender),
               "Бесполый",
               onTap: () {
+                _filterData.setGender(changeValues(2, _filterData.gender));
+
                 context.read<CharactersBloc>()
                   ..add(
-                    CharactersEvent.selectedFilters(
-                      name: context.read<CharactersBloc>().nameToFind,
-                      status: context.read<CharactersBloc>().status,
-                      gender: changeValues(
-                          2, context.read<CharactersBloc>().gender),
-                      isSortAscending:
-                          context.read<CharactersBloc>().isSortAscending,
-                    ),
+                    CharactersEvent.selectedFilters(filter: _filterData),
                   );
               },
             ),

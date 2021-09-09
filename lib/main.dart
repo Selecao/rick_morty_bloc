@@ -7,6 +7,7 @@ import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 
 import 'package:sc_03/data/repository.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
+import 'package:sc_03/screens/characters/characters_filter.dart';
 
 import 'package:sc_03/screens/settings/screen.dart';
 import 'package:sc_03/screens/characters/screen.dart';
@@ -26,8 +27,15 @@ void main() {
     ),
   );
   runApp(
-    ChangeNotifierProvider<MainTheme>(
-      create: (_) => MainTheme(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MainTheme>(
+          create: (_) => MainTheme(),
+        ),
+        ChangeNotifierProvider<CharactersFilter>(
+          create: (_) => CharactersFilter(),
+        ),
+      ],
       child: RickAndMortyApp(),
     ),
   );
@@ -61,7 +69,7 @@ class _RickAndMortyAppState extends State<RickAndMortyApp> {
           BlocProvider<CharactersBloc>(
             create: (BuildContext context) => CharactersBloc()
               ..add(
-                CharactersEvent.initial(),
+                CharactersEvent.initial(filter: CharactersFilter()),
               ),
           ),
           BlocProvider<LocationsListBloc>(

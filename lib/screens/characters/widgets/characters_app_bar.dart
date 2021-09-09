@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+
 import 'package:sc_03/components/search_text_field.dart';
 import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/character_filter/screen.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
+import 'package:sc_03/screens/characters/characters_filter.dart';
 import 'package:sc_03/screens/characters/widgets/characters_count.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/theme/app_color.dart';
@@ -22,12 +25,14 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _filterData = context.watch<CharactersFilter>();
+
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       title: SearchTextField(
         title: 'Найти персонажа',
-        text: context.read<CharactersBloc>().nameToFind,
+        text: _filterData.nameToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,10 +46,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               padding: EdgeInsets.fromLTRB(10.0, 12.0, 12.0, 12.0),
               icon: SvgPicture.asset(
-                context.read<CharactersBloc>().isFilterEnable
+                _filterData.isFilterEnable
                     ? AppIcons.filterDisable
                     : AppIcons.filterSort,
-                color: context.read<CharactersBloc>().isFilterEnable
+                color: _filterData.isFilterEnable
                     ? AppColor.red_100
                     : Theme.of(context).primaryColorDark,
               ),
@@ -60,13 +65,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         onSubmitted: (String value) {
+          _filterData.setNameToFind(value);
+
           context.read<CharactersBloc>()
-            ..add(CharactersEvent.selectedFilters(
-              name: value,
-              status: context.read<CharactersBloc>().status,
-              gender: context.read<CharactersBloc>().gender,
-              isSortAscending: context.read<CharactersBloc>().isSortAscending,
-            ));
+            ..add(CharactersEvent.selectedFilters(filter: _filterData));
         },
       ),
       bottom: PreferredSize(
@@ -76,7 +78,10 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
           onSelected: (value) {
             context.read<CharactersBloc>()
               ..add(
-                CharactersEvent.selectedView(isGrid: value),
+                CharactersEvent.selectedView(
+                  isGrid: value,
+                  filter: context.read<CharactersFilter>(),
+                ),
               );
           },
         ),

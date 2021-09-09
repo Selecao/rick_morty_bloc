@@ -7,10 +7,7 @@ class CharactersState with _$CharactersState {
     /// Параметры
     required final List<Character> charactersList,
     required final bool isGrid,
-    required final List<int> status,
-    required final List<int> gender,
-    required final bool? isSortAscending,
-    final bool? isLastPage,
+    required final CharactersFilter charactersFilter,
   }) = _DataCharactersState;
 
   /// Состояние инициализации
@@ -18,9 +15,4 @@ class CharactersState with _$CharactersState {
 
   /// Состояние отображения этапа загрузки
   const factory CharactersState.loading() = _LoadingCharactersState;
-/*
-  /// Состояние поиска
-  const factory CharactersState.finding(
-      {required final List<Character> charactersList}) = _FindCharactersState;
- */
 }
