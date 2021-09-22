@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'episode_bloc.dart';
 
@@ -36,6 +37,11 @@ mixin _$EpisodeEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String episodeId)? initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String episodeId)? initial,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$EpisodeEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEpisodeEvent value) initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialEpisodeEvent value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -163,6 +174,14 @@ class _$_InitialEpisodeEvent implements _InitialEpisodeEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String episodeId)? initial,
+  }) {
+    return initial?.call(episodeId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String episodeId)? initial,
     required TResult orElse(),
@@ -179,6 +198,14 @@ class _$_InitialEpisodeEvent implements _InitialEpisodeEvent {
     required TResult Function(_InitialEpisodeEvent value) initial,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialEpisodeEvent value)? initial,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -238,6 +265,13 @@ mixin _$EpisodeState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Episode selectedEpisode)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Episode selectedEpisode)? data,
     TResult Function()? initial,
@@ -250,6 +284,13 @@ mixin _$EpisodeState {
     required TResult Function(_DataEpisodeState value) data,
     required TResult Function(_InitialEpisodeState value) initial,
     required TResult Function(_LoadingEpisodeState value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodeState value)? data,
+    TResult Function(_InitialEpisodeState value)? initial,
+    TResult Function(_LoadingEpisodeState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -354,6 +395,16 @@ class _$_DataEpisodeState implements _DataEpisodeState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Episode selectedEpisode)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return data?.call(selectedEpisode);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Episode selectedEpisode)? data,
     TResult Function()? initial,
@@ -374,6 +425,16 @@ class _$_DataEpisodeState implements _DataEpisodeState {
     required TResult Function(_LoadingEpisodeState value) loading,
   }) {
     return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodeState value)? data,
+    TResult Function(_InitialEpisodeState value)? initial,
+    TResult Function(_LoadingEpisodeState value)? loading,
+  }) {
+    return data?.call(this);
   }
 
   @override
@@ -450,6 +511,16 @@ class _$_InitialEpisodeState implements _InitialEpisodeState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Episode selectedEpisode)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Episode selectedEpisode)? data,
     TResult Function()? initial,
@@ -470,6 +541,16 @@ class _$_InitialEpisodeState implements _InitialEpisodeState {
     required TResult Function(_LoadingEpisodeState value) loading,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodeState value)? data,
+    TResult Function(_InitialEpisodeState value)? initial,
+    TResult Function(_LoadingEpisodeState value)? loading,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -540,6 +621,16 @@ class _$_LoadingEpisodeState implements _LoadingEpisodeState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Episode selectedEpisode)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Episode selectedEpisode)? data,
     TResult Function()? initial,
@@ -560,6 +651,16 @@ class _$_LoadingEpisodeState implements _LoadingEpisodeState {
     required TResult Function(_LoadingEpisodeState value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodeState value)? data,
+    TResult Function(_InitialEpisodeState value)? initial,
+    TResult Function(_LoadingEpisodeState value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override

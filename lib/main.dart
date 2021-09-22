@@ -8,6 +8,7 @@ import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 import 'package:sc_03/data/repository.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/screens/characters/characters_filter.dart';
+import 'package:sc_03/screens/locations_list/locations_filter.dart';
 
 import 'package:sc_03/screens/settings/screen.dart';
 import 'package:sc_03/screens/characters/screen.dart';
@@ -34,6 +35,9 @@ void main() {
         ),
         ChangeNotifierProvider<CharactersFilter>(
           create: (_) => CharactersFilter(),
+        ),
+        ChangeNotifierProvider<LocationsFilter>(
+          create: (_) => LocationsFilter(),
         ),
       ],
       child: RickAndMortyApp(),
@@ -75,7 +79,7 @@ class _RickAndMortyAppState extends State<RickAndMortyApp> {
           BlocProvider<LocationsListBloc>(
             create: (BuildContext context) => LocationsListBloc()
               ..add(
-                LocationsListEvent.initial(),
+                LocationsListEvent.initial(filter: LocationsFilter()),
               ),
           ),
           BlocProvider<EpisodesListBloc>(

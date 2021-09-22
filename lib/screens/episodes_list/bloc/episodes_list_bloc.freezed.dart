@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'episodes_list_bloc.dart';
 
@@ -39,6 +40,12 @@ mixin _$EpisodesListEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String chars)? find,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String chars)? find,
@@ -49,6 +56,12 @@ mixin _$EpisodesListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEpisodesListEvent value) initial,
     required TResult Function(_FindEpisodesListEvent value) find,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,6 +139,15 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String chars)? find,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String chars)? find,
@@ -144,6 +166,15 @@ class _$_InitialEpisodesListEvent implements _InitialEpisodesListEvent {
     required TResult Function(_FindEpisodesListEvent value) find,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -238,6 +269,15 @@ class _$_FindEpisodesListEvent implements _FindEpisodesListEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String chars)? find,
+  }) {
+    return find?.call(chars);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String chars)? find,
@@ -256,6 +296,15 @@ class _$_FindEpisodesListEvent implements _FindEpisodesListEvent {
     required TResult Function(_FindEpisodesListEvent value) find,
   }) {
     return find(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialEpisodesListEvent value)? initial,
+    TResult Function(_FindEpisodesListEvent value)? find,
+  }) {
+    return find?.call(this);
   }
 
   @override
@@ -321,6 +370,14 @@ mixin _$EpisodesListState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
@@ -335,6 +392,14 @@ mixin _$EpisodesListState {
     required TResult Function(_InitialEpisodesListState value) initial,
     required TResult Function(_LoadingEpisodesListState value) loading,
     required TResult Function(_FindingEpisodesListState value) finding,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -443,6 +508,17 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+  }) {
+    return data?.call(seasons);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
@@ -465,6 +541,17 @@ class _$_DataEpisodesListState implements _DataEpisodesListState {
     required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
+  }) {
+    return data?.call(this);
   }
 
   @override
@@ -545,6 +632,17 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
@@ -567,6 +665,17 @@ class _$_InitialEpisodesListState implements _InitialEpisodesListState {
     required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -640,6 +749,17 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
@@ -662,6 +782,17 @@ class _$_LoadingEpisodesListState implements _LoadingEpisodesListState {
     required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -762,6 +893,17 @@ class _$_FindingEpisodesListState implements _FindingEpisodesListState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Season> seasons)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Episode> episodes)? finding,
+  }) {
+    return finding?.call(episodes);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Season> seasons)? data,
     TResult Function()? initial,
@@ -784,6 +926,17 @@ class _$_FindingEpisodesListState implements _FindingEpisodesListState {
     required TResult Function(_FindingEpisodesListState value) finding,
   }) {
     return finding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataEpisodesListState value)? data,
+    TResult Function(_InitialEpisodesListState value)? initial,
+    TResult Function(_LoadingEpisodesListState value)? loading,
+    TResult Function(_FindingEpisodesListState value)? finding,
+  }) {
+    return finding?.call(this);
   }
 
   @override

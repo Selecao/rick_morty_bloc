@@ -22,44 +22,44 @@ class CharactersFilter with ChangeNotifier {
     _isSortAscending = null;
     _status = [];
     _gender = [];
-    print(" *~* Reset Characters Filter");
+    print(" # Reset Characters Filter");
     notifyListeners();
   }
 
-  void setHasReachedLastPage(bool newValue) {
-    _hasReachedLastPage = newValue;
+  void setHasReachedLastPage(bool value) {
+    _hasReachedLastPage = value;
     if (_hasReachedLastPage) print(" ### LAST PAGE REACHED ###");
-    print(" *~* [Setting]: hasReachedLastPage : $_hasReachedLastPage");
+    print(" ### [Setter]: hasReachedLastPage : $_hasReachedLastPage");
     notifyListeners();
   }
 
-  void setIsPaginationEnable(bool isPaginationEnable) {
-    _isPaginationEnable = isPaginationEnable;
-    print(" *~* [Setting]: isPaginationEnable : $_isPaginationEnable");
+  void setIsPaginationEnable(bool value) {
+    _isPaginationEnable = value;
+    print(" ### [Setter]: isPaginationEnable : $_isPaginationEnable");
     notifyListeners();
   }
 
   void setStatus(List<int> statuses) {
     _status = statuses;
-    print(" *~* [Setting]: status : $_status");
+    print(" ### [Setter]: status : $_status");
     notifyListeners();
   }
 
   void setGender(List<int> genders) {
     _gender = genders;
-    print(" *~* [Setting]: gender : $_gender");
+    print(" ### [Setter]: gender : $_gender");
     notifyListeners();
   }
 
-  void setNameToFind(String name) {
-    _nameToFind = name;
-    print(" *~* [Setting]: nameToFind : $_nameToFind");
+  void setNameToFind(String value) {
+    _nameToFind = value;
+    print(" ### [Setter]: nameToFind : $_nameToFind");
     notifyListeners();
   }
 
-  void setIsSortAscending(bool? isAscending) {
-    _isSortAscending = isAscending;
-    print(" *~* [Setting]: isSortAscendingToFind : $_isSortAscending");
+  void setIsSortAscending(bool? value) {
+    _isSortAscending = value;
+    print(" ### [Setter]: isSortAscendingToFind : $_isSortAscending");
     notifyListeners();
   }
 }

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'location_bloc.dart';
 
@@ -36,6 +37,11 @@ mixin _$LocationEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String locationId)? initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String locationId)? initial,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$LocationEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialLocationEvent value) initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialLocationEvent value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -164,6 +175,14 @@ class _$_InitialLocationEvent implements _InitialLocationEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String locationId)? initial,
+  }) {
+    return initial?.call(locationId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String locationId)? initial,
     required TResult orElse(),
@@ -180,6 +199,14 @@ class _$_InitialLocationEvent implements _InitialLocationEvent {
     required TResult Function(_InitialLocationEvent value) initial,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialLocationEvent value)? initial,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -239,6 +266,13 @@ mixin _$LocationState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Location location)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Location location)? data,
     TResult Function()? initial,
@@ -251,6 +285,13 @@ mixin _$LocationState {
     required TResult Function(_DataLocationState value) data,
     required TResult Function(_InitialLocationState value) initial,
     required TResult Function(_LoadingLocationState value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataLocationState value)? data,
+    TResult Function(_InitialLocationState value)? initial,
+    TResult Function(_LoadingLocationState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -357,6 +398,16 @@ class _$_DataLocationState implements _DataLocationState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Location location)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return data?.call(location);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Location location)? data,
     TResult Function()? initial,
@@ -377,6 +428,16 @@ class _$_DataLocationState implements _DataLocationState {
     required TResult Function(_LoadingLocationState value) loading,
   }) {
     return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataLocationState value)? data,
+    TResult Function(_InitialLocationState value)? initial,
+    TResult Function(_LoadingLocationState value)? loading,
+  }) {
+    return data?.call(this);
   }
 
   @override
@@ -454,6 +515,16 @@ class _$_InitialLocationState implements _InitialLocationState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Location location)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Location location)? data,
     TResult Function()? initial,
@@ -474,6 +545,16 @@ class _$_InitialLocationState implements _InitialLocationState {
     required TResult Function(_LoadingLocationState value) loading,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataLocationState value)? data,
+    TResult Function(_InitialLocationState value)? initial,
+    TResult Function(_LoadingLocationState value)? loading,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -544,6 +625,16 @@ class _$_LoadingLocationState implements _LoadingLocationState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Location location)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Location location)? data,
     TResult Function()? initial,
@@ -564,6 +655,16 @@ class _$_LoadingLocationState implements _LoadingLocationState {
     required TResult Function(_LoadingLocationState value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataLocationState value)? data,
+    TResult Function(_InitialLocationState value)? initial,
+    TResult Function(_LoadingLocationState value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override

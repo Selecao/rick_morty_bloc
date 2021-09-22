@@ -6,6 +6,7 @@ import 'package:sc_03/components/empty_finder_widget.dart';
 import 'package:sc_03/resources/constants.dart';
 
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
+import 'package:sc_03/screens/locations_list/locations_filter.dart';
 import 'package:sc_03/screens/locations_list/widgets/locations_list.dart';
 import 'package:sc_03/screens/locations_list/widgets/locations_list_app_bar.dart';
 
@@ -21,11 +22,11 @@ class LocationsListScreen extends StatelessWidget {
             appBar: LocationsListAppBar(_data.locationsList.length),
             body: _data.locationsList.isEmpty
                 ? EmptyFinderWidget(
-                    context.read<LocationsListBloc>().isFilterEnable
+                    context.read<LocationsFilter>().isFilterEnable
                         ? Screen.LocationFilter
                         : Screen.Location,
                   )
-                : LocationsList(),
+                : LocationsList(_data.locationsList),
           ),
           orElse: () => SizedBox.shrink(),
         );

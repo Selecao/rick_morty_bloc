@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'characters_bloc.dart';
 
@@ -61,6 +62,14 @@ mixin _$CharactersEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CharactersFilter filter)? initial,
+    TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
+    TResult Function(CharactersFilter filter)? selectedFilters,
+    TResult Function(CharactersFilter filter)? nextPage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CharactersFilter filter)? initial,
     TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
@@ -76,6 +85,14 @@ mixin _$CharactersEvent {
     required TResult Function(_SelectedFiltersCharactersEvent value)
         selectedFilters,
     required TResult Function(_NextPageEvent value) nextPage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -212,6 +229,17 @@ class _$_InitialCharactersEvent
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CharactersFilter filter)? initial,
+    TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
+    TResult Function(CharactersFilter filter)? selectedFilters,
+    TResult Function(CharactersFilter filter)? nextPage,
+  }) {
+    return initial?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CharactersFilter filter)? initial,
     TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
@@ -235,6 +263,17 @@ class _$_InitialCharactersEvent
     required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -370,6 +409,17 @@ class _$_SelectedViewCharactersEvent
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CharactersFilter filter)? initial,
+    TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
+    TResult Function(CharactersFilter filter)? selectedFilters,
+    TResult Function(CharactersFilter filter)? nextPage,
+  }) {
+    return selectedView?.call(filter, isGrid);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CharactersFilter filter)? initial,
     TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
@@ -393,6 +443,17 @@ class _$_SelectedViewCharactersEvent
     required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return selectedView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
+  }) {
+    return selectedView?.call(this);
   }
 
   @override
@@ -517,6 +578,17 @@ class _$_SelectedFiltersCharactersEvent
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CharactersFilter filter)? initial,
+    TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
+    TResult Function(CharactersFilter filter)? selectedFilters,
+    TResult Function(CharactersFilter filter)? nextPage,
+  }) {
+    return selectedFilters?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CharactersFilter filter)? initial,
     TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
@@ -540,6 +612,17 @@ class _$_SelectedFiltersCharactersEvent
     required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return selectedFilters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
+  }) {
+    return selectedFilters?.call(this);
   }
 
   @override
@@ -656,6 +739,17 @@ class _$_NextPageEvent with DiagnosticableTreeMixin implements _NextPageEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CharactersFilter filter)? initial,
+    TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
+    TResult Function(CharactersFilter filter)? selectedFilters,
+    TResult Function(CharactersFilter filter)? nextPage,
+  }) {
+    return nextPage?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(CharactersFilter filter)? initial,
     TResult Function(CharactersFilter filter, bool isGrid)? selectedView,
@@ -679,6 +773,17 @@ class _$_NextPageEvent with DiagnosticableTreeMixin implements _NextPageEvent {
     required TResult Function(_NextPageEvent value) nextPage,
   }) {
     return nextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialCharactersEvent value)? initial,
+    TResult Function(_SelectedViewCharactersEvent value)? selectedView,
+    TResult Function(_SelectedFiltersCharactersEvent value)? selectedFilters,
+    TResult Function(_NextPageEvent value)? nextPage,
+  }) {
+    return nextPage?.call(this);
   }
 
   @override
@@ -748,6 +853,15 @@ mixin _$CharactersState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Character> charactersList, bool isGrid,
+            CharactersFilter charactersFilter)?
+        data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Character> charactersList, bool isGrid,
             CharactersFilter charactersFilter)?
@@ -762,6 +876,13 @@ mixin _$CharactersState {
     required TResult Function(_DataCharactersState value) data,
     required TResult Function(_InitialCharactersState value) initial,
     required TResult Function(_LoadingCharactersState value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataCharactersState value)? data,
+    TResult Function(_InitialCharactersState value)? initial,
+    TResult Function(_LoadingCharactersState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -911,6 +1032,18 @@ class _$_DataCharactersState
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Character> charactersList, bool isGrid,
+            CharactersFilter charactersFilter)?
+        data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return data?.call(charactersList, isGrid, charactersFilter);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Character> charactersList, bool isGrid,
             CharactersFilter charactersFilter)?
@@ -933,6 +1066,16 @@ class _$_DataCharactersState
     required TResult Function(_LoadingCharactersState value) loading,
   }) {
     return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataCharactersState value)? data,
+    TResult Function(_InitialCharactersState value)? initial,
+    TResult Function(_LoadingCharactersState value)? loading,
+  }) {
+    return data?.call(this);
   }
 
   @override
@@ -1024,6 +1167,18 @@ class _$_InitialCharactersState
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Character> charactersList, bool isGrid,
+            CharactersFilter charactersFilter)?
+        data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Character> charactersList, bool isGrid,
             CharactersFilter charactersFilter)?
@@ -1046,6 +1201,16 @@ class _$_InitialCharactersState
     required TResult Function(_LoadingCharactersState value) loading,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataCharactersState value)? data,
+    TResult Function(_InitialCharactersState value)? initial,
+    TResult Function(_LoadingCharactersState value)? loading,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -1126,6 +1291,18 @@ class _$_LoadingCharactersState
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Character> charactersList, bool isGrid,
+            CharactersFilter charactersFilter)?
+        data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Character> charactersList, bool isGrid,
             CharactersFilter charactersFilter)?
@@ -1148,6 +1325,16 @@ class _$_LoadingCharactersState
     required TResult Function(_LoadingCharactersState value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataCharactersState value)? data,
+    TResult Function(_InitialCharactersState value)? initial,
+    TResult Function(_LoadingCharactersState value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override

@@ -12,6 +12,7 @@ import 'package:sc_03/screens/profile/screen.dart';
 class CharactersList extends StatefulWidget {
   final List<Character> characters;
   CharactersList(this.characters);
+
   @override
   _CharactersListState createState() => _CharactersListState();
 }
@@ -27,9 +28,9 @@ class _CharactersListState extends State<CharactersList> {
 
   @override
   Widget build(BuildContext context) {
-    final _filterProvider = context.watch<CharactersFilter>();
+    final _filterData = context.watch<CharactersFilter>();
 
-    bool isShowLoading() => !_filterProvider.hasReachedLastPage && isLoading;
+    bool isShowLoading() => !_filterData.hasReachedLastPage && isLoading;
 
     // making pagination here:
     return NotificationListener<ScrollNotification>(

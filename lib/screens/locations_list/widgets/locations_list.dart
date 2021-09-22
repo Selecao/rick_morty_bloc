@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sc_03/components/app_circular_progress_indicator.dart';
 import 'package:sc_03/components/location_tile.dart';
+import 'package:sc_03/data/network/models/location.dart';
 import 'package:sc_03/screens/location/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
+import 'package:sc_03/screens/locations_list/locations_filter.dart';
 
 class LocationsList extends StatefulWidget {
-  const LocationsList({Key? key}) : super(key: key);
+  final List<Location> locations;
+  LocationsList(this.locations);
 
   @override
   _LocationsListState createState() => _LocationsListState();
@@ -23,9 +26,9 @@ class _LocationsListState extends State<LocationsList> {
 
   @override
   Widget build(BuildContext context) {
-    final _locationsProvider = context.watch<LocationsListBloc>();
+    final _filterData = context.watch<LocationsFilter>();
 
-    bool isShowLoading() => !_locationsProvider.hasReachedLastPage && isLoading;
+    bool isShowLoading() => !_filterData.hasReachedLastPage && isLoading;
 
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification scrollInfo) {
@@ -33,26 +36,26 @@ class _LocationsListState extends State<LocationsList> {
         return false;
       },
       child: ListView.builder(
-        itemBuilder: (context, index) => isShowLoading() &&
-                index == (_locationsProvider.locationsList.length)
-            ? Center(child: AppCircularProgressIndicator())
-            : LocationTile(
-                location: _locationsProvider.locationsList[index],
-                onTap: () {
-                  if (_locationsProvider.locationsList[index].id != null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LocationScreen(
-                            _locationsProvider.locationsList[index].id!),
-                      ),
-                    );
-                  }
-                },
-              ),
+        itemBuilder: (context, index) =>
+            isShowLoading() && index == (widget.locations.length)
+                ? Center(child: AppCircularProgressIndicator())
+                : LocationTile(
+                    location: widget.locations[index],
+                    onTap: () {
+                      if (widget.locations[index].id != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                LocationScreen(widget.locations[index].id!),
+                          ),
+                        );
+                      }
+                    },
+                  ),
         itemCount: isShowLoading()
-            ? _locationsProvider.locationsList.length + 1
-            : _locationsProvider.locationsList.length,
+            ? widget.locations.length + 1
+            : widget.locations.length,
         itemExtent: 242.0,
         shrinkWrap: true,
         padding: EdgeInsets.only(
@@ -69,18 +72,21 @@ class _LocationsListState extends State<LocationsList> {
       return scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent;
     }
 
-    bool _isPaginated() {
-      return BlocProvider.of<LocationsListBloc>(context).isPaginationEnable &&
-          !isLoading;
+    bool _isPaginated(BuildContext context) {
+      return context.read<LocationsFilter>().isPaginationEnable && !isLoading;
     }
 
-    if (_isPaginated() && _isScrolledToEnd()) {
+    if (_isPaginated(context) && _isScrolledToEnd()) {
       setState(() {
         isLoading = true;
       });
-      Future.delayed(new Duration(seconds: 1)).then((value) =>
-          context.read<LocationsListBloc>()
-            ..add(LocationsListEvent.nextPage()));
+      Future.delayed(new Duration(seconds: 1)).then(
+        (value) => context.read<LocationsListBloc>()
+          ..add(
+            LocationsListEvent.nextPage(
+                filter: context.read<LocationsFilter>()),
+          ),
+      );
     }
   }
 }

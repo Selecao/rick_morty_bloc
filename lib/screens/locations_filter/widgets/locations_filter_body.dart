@@ -6,11 +6,12 @@ import 'package:sc_03/components/two_line_text_tile.dart';
 import 'package:sc_03/resources/constants.dart';
 import 'package:sc_03/screens/locations_filter/widgets/selection_screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
+import 'package:sc_03/screens/locations_list/locations_filter.dart';
 
 class LocationsFilterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _locationsProvider = context.watch<LocationsListBloc>();
+    final _filterData = context.watch<LocationsFilter>();
 
     return SingleChildScrollView(
       child: Padding(
@@ -41,27 +42,21 @@ class LocationsFilterBody extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomRadioButton(
-                  isSortAscending: _locationsProvider.isSortAscending,
+                  isSortAscending: _filterData.isSortAscending,
                   onFirstRadioTap: () {
+                    _filterData.setIsSortAscending(true);
+
                     context.read<LocationsListBloc>()
                       ..add(
-                        LocationsListEvent.selectedFilters(
-                          locationToFind: _locationsProvider.locationToFind,
-                          isSortAscending: true,
-                          locationType: _locationsProvider.locationType,
-                          locationMeasure: _locationsProvider.locationMeasure,
-                        ),
+                        LocationsListEvent.selectedFilters(filter: _filterData),
                       );
                   },
                   onSecondRadioTap: () {
+                    _filterData.setIsSortAscending(false);
+
                     context.read<LocationsListBloc>()
                       ..add(
-                        LocationsListEvent.selectedFilters(
-                          locationToFind: _locationsProvider.locationToFind,
-                          isSortAscending: false,
-                          locationType: _locationsProvider.locationType,
-                          locationMeasure: _locationsProvider.locationMeasure,
-                        ),
+                        LocationsListEvent.selectedFilters(filter: _filterData),
                       );
                   },
                 ),
@@ -80,9 +75,7 @@ class LocationsFilterBody extends StatelessWidget {
               ),
             ),
             TwoLineTextTile(
-              _locationsProvider.locationType == ""
-                  ? "Тип"
-                  : _locationsProvider.locationType,
+              _filterData.locationType == "" ? "Тип" : _filterData.locationType,
               "Выберите тип локации",
               onTap: () {
                 Navigator.push(
@@ -93,9 +86,9 @@ class LocationsFilterBody extends StatelessWidget {
             ),
             const SizedBox(height: 36.0),
             TwoLineTextTile(
-              _locationsProvider.locationMeasure == ""
+              _filterData.locationMeasure == ""
                   ? "Измерение"
-                  : _locationsProvider.locationMeasure,
+                  : _filterData.locationMeasure,
               "Выберите измерение локации",
               onTap: () {
                 Navigator.push(
@@ -112,30 +105,26 @@ class LocationsFilterBody extends StatelessWidget {
 
   MaterialPageRoute typeSelectionRoute() {
     return MaterialPageRoute(builder: (contextRoute) {
-      final _locationsProvider = contextRoute.watch<LocationsListBloc>();
+      final _filterData = contextRoute.watch<LocationsFilter>();
 
       return SelectionScreen(
         title: "Выберите тип",
-        activeSelection: _locationsProvider.locationType,
+        activeSelection: _filterData.locationType,
         selectionList: Constants.locationsType,
         onTapToDefault: () {
+          _filterData.setLocationType("");
+
           contextRoute.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.selectedFilters(
-                  locationToFind: _locationsProvider.locationToFind,
-                  isSortAscending: _locationsProvider.isSortAscending,
-                  locationType: "",
-                  locationMeasure: _locationsProvider.locationMeasure),
+              LocationsListEvent.selectedFilters(filter: _filterData),
             );
         },
         onTapToNew: (String value) {
+          _filterData.setLocationType(value);
+
           contextRoute.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.selectedFilters(
-                  locationToFind: _locationsProvider.locationToFind,
-                  isSortAscending: _locationsProvider.isSortAscending,
-                  locationType: value,
-                  locationMeasure: _locationsProvider.locationMeasure),
+              LocationsListEvent.selectedFilters(filter: _filterData),
             );
         },
       );
@@ -144,30 +133,26 @@ class LocationsFilterBody extends StatelessWidget {
 
   MaterialPageRoute measureSelectionRoute() {
     return MaterialPageRoute(builder: (contextRoute) {
-      final _locationsProvider = contextRoute.watch<LocationsListBloc>();
+      final _filterData = contextRoute.watch<LocationsFilter>();
 
       return SelectionScreen(
         title: "Выберите измерение",
-        activeSelection: _locationsProvider.locationMeasure,
+        activeSelection: _filterData.locationMeasure,
         selectionList: Constants.locationsMeasure,
         onTapToDefault: () {
+          _filterData.setLocationMeasure("");
+
           contextRoute.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.selectedFilters(
-                  locationToFind: _locationsProvider.locationToFind,
-                  isSortAscending: _locationsProvider.isSortAscending,
-                  locationType: _locationsProvider.locationType,
-                  locationMeasure: ""),
+              LocationsListEvent.selectedFilters(filter: _filterData),
             );
         },
         onTapToNew: (String value) {
+          _filterData.setLocationMeasure(value);
+
           contextRoute.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.selectedFilters(
-                  locationToFind: _locationsProvider.locationToFind,
-                  isSortAscending: _locationsProvider.isSortAscending,
-                  locationType: _locationsProvider.locationType,
-                  locationMeasure: value),
+              LocationsListEvent.selectedFilters(filter: _filterData),
             );
         },
       );

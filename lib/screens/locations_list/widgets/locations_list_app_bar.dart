@@ -5,6 +5,7 @@ import 'package:sc_03/resources/icons.dart';
 import 'package:sc_03/screens/locations_filter/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sc_03/screens/locations_list/locations_filter.dart';
 
 class LocationsListAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -19,13 +20,15 @@ class LocationsListAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final _filterData = context.watch<LocationsFilter>();
+
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).primaryColor,
       title: SearchTextField(
         title: 'Найти локацию',
-        text: context.read<LocationsListBloc>().locationToFind,
+        text: _filterData.locationToFind,
         suffixIcon: Row(
           //this two lines makes icons and text stay at proper position
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,16 +57,11 @@ class LocationsListAppBar extends StatelessWidget
           ],
         ),
         onSubmitted: (String value) {
+          _filterData.setLocationToFind(value);
+
           context.read<LocationsListBloc>()
             ..add(
-              LocationsListEvent.selectedFilters(
-                locationToFind: value,
-                isSortAscending:
-                    context.read<LocationsListBloc>().isSortAscending,
-                locationType: context.read<LocationsListBloc>().locationType,
-                locationMeasure:
-                    context.read<LocationsListBloc>().locationMeasure,
-              ),
+              LocationsListEvent.selectedFilters(filter: _filterData),
             );
         },
       ),

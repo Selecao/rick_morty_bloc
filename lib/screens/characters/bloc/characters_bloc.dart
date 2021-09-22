@@ -107,8 +107,8 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       _SelectedFiltersCharactersEvent event) async* {
     yield CharactersState.loading();
     event.filter.setIsPaginationEnable(false);
-    print("~~~ Status is ${event.filter.status}");
-    print("~~~ Pagination is ${event.filter.isPaginationEnable}");
+    print("# Status is ${event.filter.status}");
+    print("# Pagination is ${event.filter.isPaginationEnable}");
     try {
       print("## Начинаем поиск персонажей по фильтру");
       _charactersList = await _repository.getCharacterByName(

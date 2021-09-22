@@ -6,14 +6,10 @@ class LocationsListState with _$LocationsListState {
   const factory LocationsListState.data({
     /// Параметры
     required final List<Location> locationsList,
-    final bool? isLastPage,
+    required final LocationsFilter locationsFilter,
   }) = _DataLocationsListState;
 
   const factory LocationsListState.initial() = _InitialLocationsListState;
 
   const factory LocationsListState.loading() = _LoadingLocationsListState;
-
-  /*const factory LocationsListState.finding(
-          {required final List<Location> locationsList}) =
-      _FindingLocationsListState;*/
 }

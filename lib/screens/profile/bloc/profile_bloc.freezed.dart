@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'profile_bloc.dart';
 
@@ -36,6 +37,11 @@ mixin _$ProfileEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String characterId)? initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String characterId)? initial,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialProfileEvent value) initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialProfileEvent value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -163,6 +174,14 @@ class _$_InitialProfileEvent implements _InitialProfileEvent {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String characterId)? initial,
+  }) {
+    return initial?.call(characterId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String characterId)? initial,
     required TResult orElse(),
@@ -179,6 +198,14 @@ class _$_InitialProfileEvent implements _InitialProfileEvent {
     required TResult Function(_InitialProfileEvent value) initial,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialProfileEvent value)? initial,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -238,6 +265,13 @@ mixin _$ProfileState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Character character)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Character character)? data,
     TResult Function()? initial,
@@ -250,6 +284,13 @@ mixin _$ProfileState {
     required TResult Function(_DataProfileState value) data,
     required TResult Function(_InitialProfileState value) initial,
     required TResult Function(_LoadingProfileState value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataProfileState value)? data,
+    TResult Function(_InitialProfileState value)? initial,
+    TResult Function(_LoadingProfileState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -355,6 +396,16 @@ class _$_DataProfileState implements _DataProfileState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Character character)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return data?.call(character);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Character character)? data,
     TResult Function()? initial,
@@ -375,6 +426,16 @@ class _$_DataProfileState implements _DataProfileState {
     required TResult Function(_LoadingProfileState value) loading,
   }) {
     return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataProfileState value)? data,
+    TResult Function(_InitialProfileState value)? initial,
+    TResult Function(_LoadingProfileState value)? loading,
+  }) {
+    return data?.call(this);
   }
 
   @override
@@ -452,6 +513,16 @@ class _$_InitialProfileState implements _InitialProfileState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Character character)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Character character)? data,
     TResult Function()? initial,
@@ -472,6 +543,16 @@ class _$_InitialProfileState implements _InitialProfileState {
     required TResult Function(_LoadingProfileState value) loading,
   }) {
     return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataProfileState value)? data,
+    TResult Function(_InitialProfileState value)? initial,
+    TResult Function(_LoadingProfileState value)? loading,
+  }) {
+    return initial?.call(this);
   }
 
   @override
@@ -542,6 +623,16 @@ class _$_LoadingProfileState implements _LoadingProfileState {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Character character)? data,
+    TResult Function()? initial,
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Character character)? data,
     TResult Function()? initial,
@@ -562,6 +653,16 @@ class _$_LoadingProfileState implements _LoadingProfileState {
     required TResult Function(_LoadingProfileState value) loading,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_DataProfileState value)? data,
+    TResult Function(_InitialProfileState value)? initial,
+    TResult Function(_LoadingProfileState value)? loading,
+  }) {
+    return loading?.call(this);
   }
 
   @override
