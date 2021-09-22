@@ -18,6 +18,7 @@ class EpisodesListAppBar extends StatelessWidget
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
+      backgroundColor: Theme.of(context).primaryColor,
       title: SearchTextField(
         title: 'Найти эпизод',
         text: context.read<EpisodesListBloc>().episodeToFind,

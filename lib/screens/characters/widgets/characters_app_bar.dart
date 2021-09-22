@@ -30,6 +30,7 @@ class CharactersAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
+      backgroundColor: Theme.of(context).primaryColor,
       title: SearchTextField(
         title: 'Найти персонажа',
         text: _filterData.nameToFind,

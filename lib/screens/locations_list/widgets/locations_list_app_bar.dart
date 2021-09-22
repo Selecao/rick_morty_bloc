@@ -22,6 +22,7 @@ class LocationsListAppBar extends StatelessWidget
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
+      backgroundColor: Theme.of(context).primaryColor,
       title: SearchTextField(
         title: 'Найти локацию',
         text: context.read<LocationsListBloc>().locationToFind,

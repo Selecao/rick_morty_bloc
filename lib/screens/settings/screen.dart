@@ -15,6 +15,7 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: .0,
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           'Настройки',
           style: Theme.of(context).textTheme.headline6?.copyWith(
