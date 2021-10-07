@@ -1,16 +1,11 @@
-# sc_03
+# Rick and Morty Flutter Project
 
-A new Flutter application.
+simplecode.kz final accelerator Flutter project
 
-## Getting Started
+[UI design](https://www.figma.com/file/oD1PX2y5tukbJEBPHf4Psx/Rick-%26-Morty)
 
-This project is a starting point for a Flutter application.
+![demo video](demo.gif)
 
-A few resources to get you started if this is your first Flutter project:
+## Setup
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+run ```flutter pub run build_runner build --delete-conflicting-outputs```

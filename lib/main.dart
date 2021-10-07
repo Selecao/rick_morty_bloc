@@ -3,19 +3,15 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:sc_03/components/app_bottom_navigation_bar.dart';
 
 import 'package:sc_03/data/repository.dart';
+import 'package:sc_03/root/root_screen.dart';
 import 'package:sc_03/screens/characters/bloc/characters_bloc.dart';
 import 'package:sc_03/screens/characters/characters_filter.dart';
 import 'package:sc_03/screens/locations_list/locations_filter.dart';
 
-import 'package:sc_03/screens/settings/screen.dart';
-import 'package:sc_03/screens/characters/screen.dart';
 import 'package:sc_03/screens/episodes_list/bloc/episodes_list_bloc.dart';
-import 'package:sc_03/screens/episodes_list/screen.dart';
 import 'package:sc_03/screens/locations_list/bloc/locations_list_bloc.dart';
-import 'package:sc_03/screens/locations_list/screen.dart';
 import 'package:sc_03/screens/splash/screen.dart';
 import 'package:sc_03/theme/app_color.dart';
 import 'package:sc_03/theme/main_theme.dart';
@@ -45,21 +41,7 @@ void main() {
   );
 }
 
-class RickAndMortyApp extends StatefulWidget {
-  @override
-  _RickAndMortyAppState createState() => _RickAndMortyAppState();
-}
-
-class _RickAndMortyAppState extends State<RickAndMortyApp> {
-  int _selectedIndex = 0;
-
-  static List<Widget> _pages = <Widget>[
-    CharactersScreen(),
-    LocationsListScreen(),
-    EpisodesListScreen(),
-    SettingsScreen(),
-  ];
-
+class RickAndMortyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -97,26 +79,10 @@ class _RickAndMortyAppState extends State<RickAndMortyApp> {
 
             /// DI from MainTheme
             theme: theme.getTheme(),
-            home: Scaffold(
-              /// [IndexedStack] preserve State of the bottomNavBar pages
-              body: IndexedStack(
-                index: _selectedIndex,
-                children: _pages,
-              ),
-              bottomNavigationBar: AppBottomNavigationBar(
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
-              ),
-            ),
+            home: RootScreen(),
           ),
         ),
       ),
     );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
