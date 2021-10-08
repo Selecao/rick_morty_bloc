@@ -32,22 +32,30 @@ class PageSliverHeader extends SliverPersistentHeaderDelegate {
       fit: StackFit.expand,
       clipBehavior: Clip.none,
       children: [
-        ImageFiltered(
-          imageFilter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-          child: Stack(
-            fit: StackFit.passthrough,
-            children: [
-              Image.network(
-                image,
-                fit: BoxFit.cover,
+        Container(
+          height: expandedHeight,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              alignment: Alignment.center,
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.5),
+                BlendMode.multiply,
               ),
-              Container(
+              image: NetworkImage(image),
+            ),
+          ),
+          child: ClipRRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
                 decoration: BoxDecoration(
-                    color: Theme.of(context).accentColor,
-                    gradient: AppColor.appBarGradientDark,
-                    backgroundBlendMode: BlendMode.multiply),
+                  color: Theme.of(context).accentColor,
+                  gradient: AppColor.shadeGradient,
+                  backgroundBlendMode: BlendMode.multiply,
+                ),
               ),
-            ],
+            ),
           ),
         ),
         Positioned(
