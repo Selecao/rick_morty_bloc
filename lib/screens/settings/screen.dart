@@ -24,36 +24,31 @@ class SettingsScreen extends StatelessWidget {
               ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 36.0),
-              Text(
-                'ВНЕШНИЙ ВИД',
-                style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                      height: 1.6,
-                      letterSpacing: 1.5,
-                    ),
-              ),
-              ThemeSelectorWidget(
-                darkModeOptionTitle: themeName(
-                  Provider.of<MainTheme>(context).getThemeType(),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        children: <Widget>[
+          const SizedBox(height: 36.0),
+          Text(
+            'ВНЕШНИЙ ВИД',
+            style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                  height: 1.6,
+                  letterSpacing: 1.5,
                 ),
-                onTap: () {
-                  showDialog<void>(
-                    context: context,
-                    builder: (context) => ThemeAlertDialog(),
-                  );
-                },
-              ),
-              const AppDivider(),
-              const AboutApp(),
-            ],
           ),
-        ),
+          ThemeSelectorWidget(
+            darkModeOptionTitle: themeName(
+              Provider.of<MainTheme>(context).getThemeType(),
+            ),
+            onTap: () {
+              showDialog<void>(
+                context: context,
+                builder: (context) => ThemeAlertDialog(),
+              );
+            },
+          ),
+          const AppDivider(),
+          const AboutApp(),
+        ],
       ),
     );
   }

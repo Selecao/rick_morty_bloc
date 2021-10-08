@@ -44,7 +44,9 @@ class EpisodeImage extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 0.0,
+          bottom: -.2,
+          left: .0,
+          right: .0,
           child: Container(
             height: 82.0,
             width: MediaQuery.of(context).size.width,

@@ -26,9 +26,10 @@ class EpisodeScreen extends StatelessWidget {
             data: (_data) => Scaffold(
               extendBodyBehindAppBar: true,
               appBar: TransparentAppBar(),
-              body: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
+              body: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView(
                   children: <Widget>[
                     EpisodeImage(
                       image: _data.selectedEpisode.imageName,

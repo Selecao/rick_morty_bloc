@@ -20,8 +20,8 @@ class AboutApp extends StatelessWidget {
           ),
         ),
         Text(
-          'Зигерионцы помещают Джерри и Рика в симуляцию, чтобы узнать '
-          'секрет изготовления концентрированной темной материи.',
+          'Посвящается сериалу Rick and Morty. Здесь собраны персонажи, серии и '
+          'локации а также интересные факты из данного сериала.',
           style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 height: 1.5,
                 letterSpacing: 0.25,
